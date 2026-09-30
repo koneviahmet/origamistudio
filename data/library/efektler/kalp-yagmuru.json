@@ -1,0 +1,19 @@
+{
+  "id": "kalp-yagmuru",
+  "name": "Kalp yağmuru",
+  "tags": [
+    "efekt",
+    "sevgi",
+    "kutlama"
+  ],
+  "type": "particles",
+  "motion": "dus",
+  "shape": "varlik",
+  "asset": "kalp",
+  "count": 30,
+  "size": 70,
+  "speed": 200,
+  "sway": 60,
+  "spin": 1.5,
+  "colors": []
+}

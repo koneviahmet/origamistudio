@@ -1,0 +1,372 @@
+{
+  "ts": 1790778818704,
+  "source": "baseline",
+  "summary": {
+    "added": [],
+    "removed": [],
+    "changed": [],
+    "scene": []
+  },
+  "scene": {
+    "name": "Tasarım Vitrini — Sonbahar",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration": 10,
+    "theme": "sonbahar",
+    "style": "kagit-kesme",
+    "camera": {
+      "zoom": [
+        {
+          "t": 0,
+          "v": 1.08
+        },
+        {
+          "t": 10,
+          "v": 1,
+          "ease": "inOutSine"
+        }
+      ]
+    },
+    "layers": [
+      {
+        "id": "gunes",
+        "asset": "gunes",
+        "variant": "gunbatimi",
+        "x": 780,
+        "y": 700,
+        "scale": 2.1,
+        "anims": [
+          {
+            "preset": "katlanarak-gir",
+            "t": 0.2,
+            "dur": 1.2
+          },
+          {
+            "preset": "sallan",
+            "t": 1.4,
+            "aci": 5,
+            "periyot": 6
+          }
+        ]
+      },
+      {
+        "id": "bulut-1",
+        "asset": "bulut",
+        "x": 260,
+        "y": 560,
+        "scale": 1.5,
+        "anims": [
+          {
+            "preset": "kayarak-gir",
+            "t": 0.5,
+            "dur": 1.2,
+            "yon": "sol",
+            "mesafe": 400,
+            "ease": "outCubic"
+          },
+          {
+            "preset": "suzul",
+            "t": 1.7,
+            "genlik": 14,
+            "periyot": 5
+          }
+        ]
+      },
+      {
+        "id": "bulut-2",
+        "asset": "bulut",
+        "variant": "pembe",
+        "x": 900,
+        "y": 900,
+        "scale": 1,
+        "anims": [
+          {
+            "preset": "kayarak-gir",
+            "t": 0.8,
+            "dur": 1.2,
+            "yon": "sag",
+            "mesafe": 400,
+            "ease": "outCubic"
+          },
+          {
+            "preset": "suzul",
+            "t": 2,
+            "genlik": 10,
+            "periyot": 4
+          }
+        ]
+      },
+      {
+        "id": "dag-1",
+        "asset": "dag",
+        "x": 330,
+        "y": 1690,
+        "anchor": [
+          0.5,
+          1
+        ],
+        "scale": 2.7,
+        "anims": [
+          {
+            "preset": "katlanarak-gir",
+            "t": 0.3,
+            "dur": 1.2
+          }
+        ]
+      },
+      {
+        "id": "dag-2",
+        "asset": "dag",
+        "variant": "kum",
+        "x": 850,
+        "y": 1710,
+        "anchor": [
+          0.5,
+          1
+        ],
+        "scale": 2.1,
+        "anims": [
+          {
+            "preset": "katlanarak-gir",
+            "t": 0.6,
+            "dur": 1.2
+          }
+        ]
+      },
+      {
+        "id": "tepeler",
+        "asset": "tepeler",
+        "variant": "sonbahar",
+        "x": 540,
+        "y": 1930,
+        "anchor": [
+          0.5,
+          1
+        ],
+        "scale": 2.9,
+        "anims": [
+          {
+            "preset": "kayarak-gir",
+            "t": 0,
+            "dur": 1,
+            "yon": "alt",
+            "mesafe": 380,
+            "ease": "outCubic"
+          }
+        ]
+      },
+      {
+        "id": "agac-1",
+        "asset": "cam-agaci",
+        "variant": "sonbahar",
+        "x": 150,
+        "y": 1700,
+        "anchor": [
+          0.5,
+          1
+        ],
+        "scale": 1.5,
+        "anims": [
+          {
+            "preset": "dusup-gir",
+            "t": 1.2,
+            "mesafe": 500
+          },
+          {
+            "preset": "sallan",
+            "t": 2.4,
+            "aci": 2,
+            "periyot": 3.5
+          }
+        ]
+      },
+      {
+        "id": "agac-2",
+        "asset": "cam-agaci",
+        "variant": "sonbahar",
+        "x": 950,
+        "y": 1720,
+        "anchor": [
+          0.5,
+          1
+        ],
+        "scale": 1.8,
+        "anims": [
+          {
+            "preset": "dusup-gir",
+            "t": 1.4,
+            "mesafe": 500
+          },
+          {
+            "preset": "sallan",
+            "t": 2.6,
+            "aci": 2,
+            "periyot": 4
+          }
+        ]
+      },
+      {
+        "id": "agac-3",
+        "asset": "cam-agaci",
+        "variant": "koyu",
+        "x": 810,
+        "y": 1670,
+        "anchor": [
+          0.5,
+          1
+        ],
+        "scale": 1.15,
+        "anims": [
+          {
+            "preset": "dusup-gir",
+            "t": 1.6,
+            "mesafe": 500
+          }
+        ]
+      },
+      {
+        "id": "tilki",
+        "asset": "tilki",
+        "x": 530,
+        "y": 1690,
+        "anchor": [
+          0.5,
+          1
+        ],
+        "scale": 2.3,
+        "shadow": {
+          "opacity": 0.3
+        },
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 2.2,
+            "dur": 0.9,
+            "yay": "outBack"
+          },
+          {
+            "preset": "nefes",
+            "t": 3.1,
+            "genlik": 0.015,
+            "periyot": 3
+          },
+          {
+            "preset": "kuyruk-salla",
+            "t": 3.1,
+            "aci": 9,
+            "periyot": 1.8
+          }
+        ]
+      },
+      {
+        "id": "kelebek",
+        "asset": "kelebek",
+        "variant": "turuncu",
+        "y": 1150,
+        "scale": 0.5,
+        "rotation": 8,
+        "anims": [
+          {
+            "preset": "gec",
+            "t": 3.2,
+            "dur": 6.5,
+            "yon": "sag",
+            "yay": 160,
+            "ease": "inOutSine"
+          },
+          {
+            "preset": "kanat-cirp",
+            "t": 3.2,
+            "eksen": "X",
+            "periyot": 0.35,
+            "alt": 0.1
+          },
+          {
+            "preset": "suzul",
+            "t": 3.2,
+            "genlik": 30,
+            "periyot": 2
+          }
+        ]
+      },
+      {
+        "id": "turna",
+        "asset": "turna",
+        "variant": "altin",
+        "x": 560,
+        "y": 1000,
+        "scale": 1.2,
+        "scaleX": -1,
+        "anims": [
+          {
+            "preset": "ekrana-gir",
+            "t": 4,
+            "dur": 1.8,
+            "yon": "sol",
+            "yay": 140,
+            "ease": "outCubic"
+          },
+          {
+            "preset": "kanat-cirp",
+            "t": 4,
+            "periyot": 0.7
+          },
+          {
+            "preset": "suzul",
+            "t": 5.8,
+            "genlik": 25,
+            "periyot": 2.2
+          },
+          {
+            "preset": "ekrandan-cik",
+            "t": 8.2,
+            "dur": 1.6,
+            "yon": "sag",
+            "ease": "inCubic"
+          }
+        ]
+      },
+      {
+        "id": "baslik",
+        "type": "text",
+        "textStyle": "baslik-kalin",
+        "text": "Sonbahar",
+        "x": 540,
+        "y": 300,
+        "anims": [
+          {
+            "preset": "kayarak-gir",
+            "t": 2.6,
+            "dur": 0.9,
+            "yon": "ust",
+            "mesafe": 200,
+            "ease": "outBack"
+          }
+        ]
+      },
+      {
+        "id": "etiket",
+        "type": "text",
+        "textStyle": "etiket-kutu",
+        "text": "kağıt kesme stili",
+        "x": 540,
+        "y": 440,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 3.3,
+            "dur": 0.7,
+            "yay": "outBack"
+          },
+          {
+            "preset": "nabiz",
+            "t": 4.5,
+            "genlik": 0.05,
+            "periyot": 1.6
+          }
+        ]
+      }
+    ]
+  }
+}

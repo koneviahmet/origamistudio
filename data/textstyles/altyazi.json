@@ -1,0 +1,12 @@
+{
+  "name": "Altyazı (Reels)",
+  "font": "Poppins",
+  "weight": 700,
+  "size": 58,
+  "color": "#ffffff",
+  "stroke": {
+    "color": "#111111",
+    "width": 10
+  },
+  "lineHeight": 1.2
+}

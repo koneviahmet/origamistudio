@@ -1,0 +1,913 @@
+{
+  "name": "Okyanus",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "duration": 12,
+  "background": {
+    "type": "linear",
+    "colors": [
+      "#8fd3ec",
+      "#d4eef3",
+      "#8ccbe0",
+      "#1f4f6b"
+    ],
+    "angle": 180,
+    "paper": 0.5,
+    "vignette": 0.18
+  },
+  "camera": {
+    "zoom": [
+      {
+        "t": 0,
+        "v": 1.15
+      },
+      {
+        "t": 3.5,
+        "v": 1,
+        "ease": "inOutCubic"
+      }
+    ],
+    "y": [
+      {
+        "t": 0,
+        "v": 1080
+      },
+      {
+        "t": 3.5,
+        "v": 960,
+        "ease": "inOutCubic"
+      }
+    ]
+  },
+  "layers": [
+    {
+      "id": "gunes",
+      "asset": "gunes",
+      "x": 810,
+      "y": 560,
+      "scale": 1.6,
+      "fold": [
+        {
+          "t": 0.3,
+          "v": 0
+        },
+        {
+          "t": 1.6,
+          "v": 1,
+          "ease": "linear"
+        }
+      ],
+      "loops": [
+        {
+          "prop": "rotation",
+          "type": "sine",
+          "amp": 5,
+          "period": 8
+        }
+      ]
+    },
+    {
+      "id": "bulut-1",
+      "asset": "bulut",
+      "x": [
+        {
+          "t": 0,
+          "v": 230
+        },
+        {
+          "t": 12,
+          "v": 330,
+          "ease": "linear"
+        }
+      ],
+      "y": 470,
+      "scale": 1.3,
+      "fold": [
+        {
+          "t": 0.6,
+          "v": 0
+        },
+        {
+          "t": 1.8,
+          "v": 1,
+          "ease": "linear"
+        }
+      ],
+      "foldStyle": {
+        "order": "left"
+      }
+    },
+    {
+      "id": "bulut-2",
+      "asset": "bulut",
+      "x": [
+        {
+          "t": 0,
+          "v": 900
+        },
+        {
+          "t": 12,
+          "v": 810,
+          "ease": "linear"
+        }
+      ],
+      "y": 720,
+      "scale": 0.9,
+      "fold": [
+        {
+          "t": 0.9,
+          "v": 0
+        },
+        {
+          "t": 2.1,
+          "v": 1,
+          "ease": "linear"
+        }
+      ],
+      "foldStyle": {
+        "order": "right"
+      }
+    },
+    {
+      "id": "marti-1",
+      "asset": "marti",
+      "start": 1.5,
+      "x": [
+        {
+          "t": 1.5,
+          "v": -150
+        },
+        {
+          "t": 10.5,
+          "v": 1250,
+          "ease": "linear"
+        }
+      ],
+      "y": [
+        {
+          "t": 1.5,
+          "v": 700
+        },
+        {
+          "t": 10.5,
+          "v": 560,
+          "ease": "inOutSine"
+        }
+      ],
+      "scale": 1.3,
+      "fold": [
+        {
+          "t": 1.5,
+          "v": 0
+        },
+        {
+          "t": 2.2,
+          "v": 1,
+          "ease": "outCubic"
+        }
+      ],
+      "loops": [
+        {
+          "prop": "y",
+          "type": "sine",
+          "amp": 18,
+          "period": 1.8
+        },
+        {
+          "prop": "rotation",
+          "type": "sine",
+          "amp": 4,
+          "period": 1.8,
+          "phase": 0.25
+        }
+      ],
+      "parts": {
+        "wingL": {
+          "scaleY": 0.2,
+          "loops": [
+            {
+              "prop": "scaleY",
+              "type": "sine",
+              "amp": 0.8,
+              "period": 0.6
+            }
+          ]
+        },
+        "wingR": {
+          "scaleY": 0.2,
+          "loops": [
+            {
+              "prop": "scaleY",
+              "type": "sine",
+              "amp": 0.8,
+              "period": 0.6
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "marti-2",
+      "asset": "marti",
+      "start": 3,
+      "x": [
+        {
+          "t": 3,
+          "v": -120
+        },
+        {
+          "t": 12,
+          "v": 1200,
+          "ease": "linear"
+        }
+      ],
+      "y": [
+        {
+          "t": 3,
+          "v": 800
+        },
+        {
+          "t": 12,
+          "v": 740
+        }
+      ],
+      "scale": 0.85,
+      "fold": [
+        {
+          "t": 3,
+          "v": 0
+        },
+        {
+          "t": 3.6,
+          "v": 1,
+          "ease": "outCubic"
+        }
+      ],
+      "loops": [
+        {
+          "prop": "y",
+          "type": "sine",
+          "amp": 12,
+          "period": 1.5,
+          "phase": 0.4
+        }
+      ],
+      "parts": {
+        "wingL": {
+          "scaleY": 0.2,
+          "loops": [
+            {
+              "prop": "scaleY",
+              "type": "sine",
+              "amp": 0.8,
+              "period": 0.5,
+              "phase": 0.3
+            }
+          ]
+        },
+        "wingR": {
+          "scaleY": 0.2,
+          "loops": [
+            {
+              "prop": "scaleY",
+              "type": "sine",
+              "amp": 0.8,
+              "period": 0.5,
+              "phase": 0.3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dalga-1",
+      "asset": "dalga",
+      "x": 540,
+      "anchor": [
+        0.5,
+        0
+      ],
+      "scale": 2.9,
+      "y": [
+        {
+          "t": 0.1,
+          "v": 1580
+        },
+        {
+          "t": 1.3,
+          "v": 880,
+          "ease": "outCubic"
+        }
+      ],
+      "palette": {
+        "a": "#a6dcea",
+        "b": "#86c9de"
+      },
+      "loops": [
+        {
+          "prop": "x",
+          "type": "sine",
+          "amp": 30,
+          "period": 6,
+          "phase": 0
+        },
+        {
+          "prop": "y",
+          "type": "sine",
+          "amp": 6,
+          "period": 2.6,
+          "phase": 0
+        }
+      ]
+    },
+    {
+      "id": "gemi-uzak",
+      "asset": "kagit-gemi",
+      "x": [
+        {
+          "t": 0,
+          "v": 250
+        },
+        {
+          "t": 12,
+          "v": 390,
+          "ease": "linear"
+        }
+      ],
+      "y": 1075,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "scale": 0.7,
+      "palette": {
+        "a": "#2a9d8f"
+      },
+      "fold": [
+        {
+          "t": 1.6,
+          "v": 0
+        },
+        {
+          "t": 2.8,
+          "v": 1,
+          "ease": "linear"
+        }
+      ],
+      "foldStyle": {
+        "order": "bottom",
+        "spread": 0.6
+      },
+      "loops": [
+        {
+          "prop": "rotation",
+          "type": "sine",
+          "amp": 6,
+          "period": 2.8,
+          "phase": 0
+        },
+        {
+          "prop": "y",
+          "type": "sine",
+          "amp": 7,
+          "period": 2.8,
+          "phase": 0.25
+        }
+      ]
+    },
+    {
+      "id": "dalga-2",
+      "asset": "dalga",
+      "x": 610,
+      "anchor": [
+        0.5,
+        0
+      ],
+      "scale": 3.2,
+      "y": [
+        {
+          "t": 0.28,
+          "v": 1730
+        },
+        {
+          "t": 1.48,
+          "v": 1030,
+          "ease": "outCubic"
+        }
+      ],
+      "palette": {
+        "a": "#86c9de",
+        "b": "#63b2cf"
+      },
+      "loops": [
+        {
+          "prop": "x",
+          "type": "sine",
+          "amp": 38,
+          "period": 5.5,
+          "phase": 0.37
+        },
+        {
+          "prop": "y",
+          "type": "sine",
+          "amp": 8,
+          "period": 2.8000000000000003,
+          "phase": 0.21
+        }
+      ]
+    },
+    {
+      "id": "gemi-orta",
+      "asset": "kagit-gemi",
+      "x": [
+        {
+          "t": 0,
+          "v": 820
+        },
+        {
+          "t": 12,
+          "v": 660,
+          "ease": "linear"
+        }
+      ],
+      "y": 1245,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "scale": 1.05,
+      "palette": {
+        "a": "#f4a261"
+      },
+      "fold": [
+        {
+          "t": 2,
+          "v": 0
+        },
+        {
+          "t": 3.2,
+          "v": 1,
+          "ease": "linear"
+        }
+      ],
+      "foldStyle": {
+        "order": "bottom",
+        "spread": 0.6
+      },
+      "loops": [
+        {
+          "prop": "rotation",
+          "type": "sine",
+          "amp": 6,
+          "period": 2.8,
+          "phase": 0.35
+        },
+        {
+          "prop": "y",
+          "type": "sine",
+          "amp": 10.5,
+          "period": 2.8,
+          "phase": 0.6
+        }
+      ]
+    },
+    {
+      "id": "dalga-3",
+      "asset": "dalga",
+      "x": 490,
+      "anchor": [
+        0.5,
+        0
+      ],
+      "scale": 3.5,
+      "y": [
+        {
+          "t": 0.45999999999999996,
+          "v": 1900
+        },
+        {
+          "t": 1.6600000000000001,
+          "v": 1200,
+          "ease": "outCubic"
+        }
+      ],
+      "palette": {
+        "a": "#63b2cf",
+        "b": "#4798bd"
+      },
+      "loops": [
+        {
+          "prop": "x",
+          "type": "sine",
+          "amp": 46,
+          "period": 5,
+          "phase": 0.74
+        },
+        {
+          "prop": "y",
+          "type": "sine",
+          "amp": 10,
+          "period": 3,
+          "phase": 0.42
+        }
+      ]
+    },
+    {
+      "id": "balik-ziplama",
+      "asset": "balik",
+      "start": 9.4,
+      "end": 10.7,
+      "x": [
+        {
+          "t": 9.4,
+          "v": 930
+        },
+        {
+          "t": 10.7,
+          "v": 650,
+          "ease": "linear"
+        }
+      ],
+      "y": [
+        {
+          "t": 9.4,
+          "v": 1470
+        },
+        {
+          "t": 10.05,
+          "v": 1170,
+          "ease": "outQuad"
+        },
+        {
+          "t": 10.7,
+          "v": 1470,
+          "ease": "inQuad"
+        }
+      ],
+      "rotation": [
+        {
+          "t": 9.4,
+          "v": 35
+        },
+        {
+          "t": 10.05,
+          "v": 0,
+          "ease": "linear"
+        },
+        {
+          "t": 10.7,
+          "v": -35,
+          "ease": "linear"
+        }
+      ],
+      "scale": 0.9,
+      "parts": {
+        "tail": {
+          "loops": [
+            {
+              "prop": "rotation",
+              "type": "sine",
+              "amp": 14,
+              "period": 0.3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "su-fiskirmasi",
+      "asset": "su-fiskirmasi",
+      "start": 6.3,
+      "end": 9.3,
+      "x": 469,
+      "y": 1344.4,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "scale": 1.9,
+      "scaleY": [
+        {
+          "t": 6.3,
+          "v": 0.1
+        },
+        {
+          "t": 6.9,
+          "v": 1,
+          "ease": "outBack"
+        },
+        {
+          "t": 8.3,
+          "v": 1
+        },
+        {
+          "t": 9.1,
+          "v": 0.2,
+          "ease": "inQuad"
+        }
+      ],
+      "opacity": [
+        {
+          "t": 8.5,
+          "v": 1
+        },
+        {
+          "t": 9.2,
+          "v": 0
+        }
+      ],
+      "fold": [
+        {
+          "t": 6.3,
+          "v": 0
+        },
+        {
+          "t": 6.9,
+          "v": 1,
+          "ease": "outCubic"
+        }
+      ],
+      "foldStyle": {
+        "order": "bottom",
+        "spread": 0.4
+      },
+      "loops": [
+        {
+          "prop": "y",
+          "type": "sine",
+          "amp": 10,
+          "period": 3.2
+        },
+        {
+          "prop": "scaleX",
+          "type": "sine",
+          "amp": 0.06,
+          "period": 0.4
+        }
+      ]
+    },
+    {
+      "id": "balina",
+      "asset": "balina",
+      "x": [
+        {
+          "t": 1.5,
+          "v": 1500
+        },
+        {
+          "t": 6,
+          "v": 560,
+          "ease": "outCubic"
+        },
+        {
+          "t": 8.6,
+          "v": 560
+        },
+        {
+          "t": 12,
+          "v": -420,
+          "ease": "inCubic"
+        }
+      ],
+      "y": [
+        {
+          "t": 8.6,
+          "v": 1430
+        },
+        {
+          "t": 12,
+          "v": 1560,
+          "ease": "inQuad"
+        }
+      ],
+      "rotation": [
+        {
+          "t": 8.6,
+          "v": 0
+        },
+        {
+          "t": 12,
+          "v": -14,
+          "ease": "inQuad"
+        }
+      ],
+      "scale": 2.6,
+      "loops": [
+        {
+          "prop": "y",
+          "type": "sine",
+          "amp": 10,
+          "period": 3.2
+        }
+      ],
+      "parts": {
+        "tail": {
+          "loops": [
+            {
+              "prop": "rotation",
+              "type": "sine",
+              "amp": 9,
+              "period": 1.6
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dalga-4",
+      "asset": "dalga",
+      "x": 630,
+      "anchor": [
+        0.5,
+        0
+      ],
+      "scale": 3.8,
+      "y": [
+        {
+          "t": 0.64,
+          "v": 2100
+        },
+        {
+          "t": 1.84,
+          "v": 1400,
+          "ease": "outCubic"
+        }
+      ],
+      "palette": {
+        "a": "#4a9cc0",
+        "b": "#357fa6"
+      },
+      "loops": [
+        {
+          "prop": "x",
+          "type": "sine",
+          "amp": 54,
+          "period": 4.5,
+          "phase": 1.1099999999999999
+        },
+        {
+          "prop": "y",
+          "type": "sine",
+          "amp": 12,
+          "period": 3.2,
+          "phase": 0.63
+        }
+      ]
+    },
+    {
+      "id": "gemi-yakin",
+      "asset": "kagit-gemi",
+      "x": [
+        {
+          "t": 0,
+          "v": 250
+        },
+        {
+          "t": 12,
+          "v": 370,
+          "ease": "linear"
+        }
+      ],
+      "y": 1670,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "scale": 1.5,
+      "palette": {
+        "a": "#e76f51",
+        "c": "#fffaf0"
+      },
+      "fold": [
+        {
+          "t": 2.6,
+          "v": 0
+        },
+        {
+          "t": 3.8,
+          "v": 1,
+          "ease": "linear"
+        }
+      ],
+      "foldStyle": {
+        "order": "bottom",
+        "spread": 0.6
+      },
+      "loops": [
+        {
+          "prop": "rotation",
+          "type": "sine",
+          "amp": 6,
+          "period": 2.8,
+          "phase": 0.6
+        },
+        {
+          "prop": "y",
+          "type": "sine",
+          "amp": 15,
+          "period": 2.8,
+          "phase": 0.85
+        }
+      ]
+    },
+    {
+      "id": "dalga-5",
+      "asset": "dalga",
+      "x": 510,
+      "anchor": [
+        0.5,
+        0
+      ],
+      "scale": 4.1,
+      "y": [
+        {
+          "t": 0.82,
+          "v": 2320
+        },
+        {
+          "t": 2.02,
+          "v": 1620,
+          "ease": "outCubic"
+        }
+      ],
+      "palette": {
+        "a": "#3a86a8",
+        "b": "#276688"
+      },
+      "loops": [
+        {
+          "prop": "x",
+          "type": "sine",
+          "amp": 62,
+          "period": 4,
+          "phase": 1.48
+        },
+        {
+          "prop": "y",
+          "type": "sine",
+          "amp": 14,
+          "period": 3.4000000000000004,
+          "phase": 0.84
+        }
+      ]
+    },
+    {
+      "id": "baslik",
+      "type": "text",
+      "text": "Okyanus",
+      "x": 540,
+      "y": 290,
+      "size": 136,
+      "weight": 700,
+      "color": "#1f5673",
+      "shadow": {
+        "color": "rgba(20,70,100,0.25)",
+        "blur": 0,
+        "y": 6
+      },
+      "opacity": [
+        {
+          "t": 3.4,
+          "v": 0
+        },
+        {
+          "t": 4,
+          "v": 1
+        }
+      ],
+      "scale": [
+        {
+          "t": 3.4,
+          "v": 0.6
+        },
+        {
+          "t": 4.3,
+          "v": 1,
+          "ease": "outBack"
+        }
+      ]
+    },
+    {
+      "id": "alt-baslik",
+      "type": "text",
+      "text": "kağıttan dalgalar",
+      "x": 540,
+      "y": 410,
+      "size": 56,
+      "weight": 500,
+      "color": "#2f7596",
+      "reveal": [
+        {
+          "t": 4.3,
+          "v": 0
+        },
+        {
+          "t": 5.8,
+          "v": 1,
+          "ease": "linear"
+        }
+      ]
+    }
+  ]
+}

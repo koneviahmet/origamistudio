@@ -1,0 +1,19 @@
+{
+  "id": "yildiz-yagmuru",
+  "name": "Yıldız yağmuru",
+  "tags": [
+    "efekt",
+    "parıltı",
+    "kutlama"
+  ],
+  "type": "particles",
+  "motion": "dus",
+  "shape": "varlik",
+  "asset": "yildiz",
+  "count": 40,
+  "size": 44,
+  "speed": 170,
+  "sway": 50,
+  "spin": 1.2,
+  "colors": []
+}

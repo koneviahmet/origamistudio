@@ -1,0 +1,24 @@
+{
+  "name": "Pastel Rüya",
+  "paper": "pastel",
+  "adjust": {
+    "saturation": 0.85,
+    "brightness": 0.04
+  },
+  "colors": {
+    "arka1": "#fde2e4",
+    "arka2": "#cddafd",
+    "baslik": "#6d597a",
+    "metin": "#8e7dbe",
+    "vurgu": "#f28482"
+  },
+  "background": {
+    "type": "linear",
+    "colors": [
+      "$arka1",
+      "$arka2"
+    ],
+    "angle": 180
+  },
+  "vignette": 0.1
+}

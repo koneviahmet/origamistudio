@@ -1,0 +1,34 @@
+{
+  "name": "Sonbahar",
+  "paper": "kraft",
+  "adjust": {
+    "warmth": 0.35,
+    "saturation": 0.9
+  },
+  "palette": [
+    "#264653",
+    "#2a9d8f",
+    "#e9c46a",
+    "#f4a261",
+    "#e76f51",
+    "#8c4a2f",
+    "#f7ede2"
+  ],
+  "paletteStrength": 0.45,
+  "colors": {
+    "arka1": "#f6e3c5",
+    "arka2": "#e2a36f",
+    "baslik": "#6b2d0f",
+    "metin": "#8c4a2f",
+    "vurgu": "#c8553d"
+  },
+  "background": {
+    "type": "linear",
+    "colors": [
+      "$arka1",
+      "$arka2"
+    ],
+    "angle": 180
+  },
+  "vignette": 0.28
+}

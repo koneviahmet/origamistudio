@@ -1,0 +1,24 @@
+{
+  "name": "Neon Parlak",
+  "paper": "parlak",
+  "adjust": {
+    "saturation": 1.4,
+    "contrast": 1.12
+  },
+  "colors": {
+    "arka1": "#1a1033",
+    "arka2": "#4a1a7a",
+    "baslik": "#ffd23f",
+    "metin": "#f7aef8",
+    "vurgu": "#3bf4fb"
+  },
+  "background": {
+    "type": "radial",
+    "colors": [
+      "$arka2",
+      "$arka1"
+    ],
+    "cy": 0.35
+  },
+  "vignette": 0.3
+}

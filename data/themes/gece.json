@@ -1,0 +1,25 @@
+{
+  "name": "Gece",
+  "paper": "mat",
+  "adjust": {
+    "brightness": -0.22,
+    "warmth": -0.4,
+    "saturation": 0.8
+  },
+  "colors": {
+    "arka1": "#0b132b",
+    "arka2": "#3a506b",
+    "baslik": "#f5e6a8",
+    "metin": "#c9d6ea",
+    "vurgu": "#ffd166"
+  },
+  "background": {
+    "type": "linear",
+    "colors": [
+      "$arka1",
+      "$arka2"
+    ],
+    "angle": 180
+  },
+  "vignette": 0.35
+}

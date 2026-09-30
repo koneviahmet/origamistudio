@@ -1,0 +1,12 @@
+{
+  "name": "Başlık · Yuvarlak",
+  "font": "Baloo 2",
+  "weight": 800,
+  "size": 120,
+  "color": "$baslik",
+  "shadow": {
+    "color": "rgba(60,30,15,0.22)",
+    "blur": 0,
+    "y": 6
+  }
+}

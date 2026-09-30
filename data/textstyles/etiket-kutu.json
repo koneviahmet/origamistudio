@@ -1,0 +1,13 @@
+{
+  "name": "Etiket · Kutu",
+  "font": "Outfit",
+  "weight": 700,
+  "size": 46,
+  "color": "#ffffff",
+  "uppercase": true,
+  "letterSpacing": 3,
+  "box": {
+    "color": "$vurgu",
+    "radius": 999
+  }
+}

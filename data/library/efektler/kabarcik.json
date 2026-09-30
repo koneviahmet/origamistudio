@@ -1,0 +1,21 @@
+{
+  "id": "kabarcik",
+  "name": "Kabarcıklar",
+  "tags": [
+    "efekt",
+    "deniz",
+    "su"
+  ],
+  "type": "particles",
+  "motion": "yuksel",
+  "shape": "kabarcik",
+  "count": 50,
+  "size": 22,
+  "speed": 120,
+  "sway": 25,
+  "spin": 0,
+  "colors": [
+    "rgba(220,245,255,0.85)"
+  ],
+  "prewarm": true
+}

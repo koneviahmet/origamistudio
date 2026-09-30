@@ -1,0 +1,21 @@
+{
+  "id": "kagit-ucaklar",
+  "name": "Uçuşan kağıt uçaklar",
+  "tags": [
+    "efekt",
+    "uçan",
+    "gökyüzü"
+  ],
+  "type": "particles",
+  "motion": "dus",
+  "shape": "varlik",
+  "asset": "kagit-ucak",
+  "count": 12,
+  "size": 90,
+  "speed": 45,
+  "wind": 240,
+  "sway": 70,
+  "spin": 0,
+  "colors": [],
+  "prewarm": true
+}

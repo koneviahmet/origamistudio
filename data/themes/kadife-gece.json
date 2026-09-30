@@ -1,0 +1,20 @@
+{
+  "name": "Kadife Gece",
+  "paper": "kadife",
+  "colors": {
+    "arka1": "#231942",
+    "arka2": "#5e548e",
+    "baslik": "#e0b1cb",
+    "metin": "#be95c4",
+    "vurgu": "#f7b267"
+  },
+  "background": {
+    "type": "linear",
+    "colors": [
+      "$arka1",
+      "$arka2"
+    ],
+    "angle": 180
+  },
+  "vignette": 0.3
+}

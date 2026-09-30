@@ -1,0 +1,24 @@
+{
+  "id": "konfeti",
+  "name": "Kağıt konfeti",
+  "tags": [
+    "efekt",
+    "kutlama"
+  ],
+  "type": "particles",
+  "motion": "dus",
+  "shape": "kagit",
+  "count": 120,
+  "size": 20,
+  "speed": 260,
+  "sway": 40,
+  "spin": 7,
+  "colors": [
+    "$vurgu",
+    "#ffd166",
+    "#06d6a0",
+    "#118ab2",
+    "#ef476f",
+    "#ffffff"
+  ]
+}

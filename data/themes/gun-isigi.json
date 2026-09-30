@@ -1,0 +1,20 @@
+{
+  "name": "Gün Işığı",
+  "paper": "mat",
+  "colors": {
+    "arka1": "#ffe9cf",
+    "arka2": "#f4ad86",
+    "baslik": "#5b3a29",
+    "metin": "#8a5a3b",
+    "vurgu": "#e76f51"
+  },
+  "background": {
+    "type": "linear",
+    "colors": [
+      "$arka1",
+      "$arka2"
+    ],
+    "angle": 180
+  },
+  "vignette": 0.2
+}

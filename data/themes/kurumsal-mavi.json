@@ -1,0 +1,32 @@
+{
+  "name": "Kurumsal Mavi",
+  "paper": "mat",
+  "palette": [
+    "#0d1b2a",
+    "#1b263b",
+    "#415a77",
+    "#778da9",
+    "#e0e1dd",
+    "#ffffff"
+  ],
+  "paletteStrength": 1,
+  "roles": {
+    "vurgu": "#ffb703"
+  },
+  "colors": {
+    "arka1": "#f1f4f8",
+    "arka2": "#dbe4ee",
+    "baslik": "#0d1b2a",
+    "metin": "#415a77",
+    "vurgu": "#ffb703"
+  },
+  "background": {
+    "type": "linear",
+    "colors": [
+      "$arka1",
+      "$arka2"
+    ],
+    "angle": 180
+  },
+  "vignette": 0.08
+}

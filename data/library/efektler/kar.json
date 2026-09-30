@@ -1,0 +1,22 @@
+{
+  "id": "kar",
+  "name": "Kar",
+  "tags": [
+    "efekt",
+    "kış",
+    "hava"
+  ],
+  "type": "particles",
+  "motion": "dus",
+  "shape": "kar",
+  "count": 140,
+  "size": 9,
+  "speed": 90,
+  "sway": 30,
+  "spin": 1,
+  "colors": [
+    "#ffffff",
+    "#eaf4ff"
+  ],
+  "prewarm": true
+}

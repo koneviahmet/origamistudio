@@ -1,0 +1,22 @@
+{
+  "name": "Uzay",
+  "paper": "parlak",
+  "colors": {
+    "arka1": "#1c2257",
+    "arka2": "#070a1f",
+    "baslik": "#ffd166",
+    "metin": "#dfe6ff",
+    "vurgu": "#6c63ff"
+  },
+  "background": {
+    "type": "radial",
+    "colors": [
+      "$arka1",
+      "$arka2"
+    ],
+    "cx": 0.5,
+    "cy": 0.45,
+    "radius": 0.75
+  },
+  "vignette": 0.35
+}

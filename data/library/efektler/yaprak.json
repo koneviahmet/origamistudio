@@ -1,0 +1,24 @@
+{
+  "id": "yaprak",
+  "name": "Sonbahar yaprakları",
+  "tags": [
+    "efekt",
+    "sonbahar",
+    "doğa"
+  ],
+  "type": "particles",
+  "motion": "dus",
+  "shape": "yaprak",
+  "count": 45,
+  "size": 34,
+  "speed": 140,
+  "sway": 90,
+  "spin": 2.5,
+  "colors": [
+    "#e76f51",
+    "#f4a261",
+    "#e9c46a",
+    "#c8553d",
+    "#8c4a2f"
+  ]
+}

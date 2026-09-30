@@ -1,0 +1,9 @@
+{
+  "name": "Başlık · Kalın Poster",
+  "font": "Bebas Neue",
+  "weight": 400,
+  "size": 160,
+  "letterSpacing": 4,
+  "uppercase": true,
+  "color": "$baslik"
+}

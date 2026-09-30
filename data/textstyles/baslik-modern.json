@@ -1,0 +1,8 @@
+{
+  "name": "Başlık · Modern",
+  "font": "Outfit",
+  "weight": 800,
+  "size": 110,
+  "letterSpacing": -2,
+  "color": "$baslik"
+}
