@@ -11,6 +11,8 @@ async function req(method, url, body) {
 }
 
 export const api = {
+  ollaya: () => req('GET', '/ollaya'),
+  setOllaya: (aktif) => req('PUT', '/ollaya', { aktif }),
   library: () => req('GET', '/library'),
   createAsset: (a) => req('POST', '/library', a),
   updateAsset: (id, a) => req('PUT', `/library/${id}`, a),

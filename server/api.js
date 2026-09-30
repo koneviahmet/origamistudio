@@ -2,6 +2,7 @@ import express from 'express';
 import { HttpError } from './store.js';
 import { sablonListesi, uret } from '../scripts/sablonlar/index.mjs';
 import { notlariUygula } from '../scripts/ai-notlar.mjs';
+import { ayarOku, ayarYaz, ollayaDurum } from '../scripts/kutuphane-ara.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -18,6 +19,15 @@ export function createApi(store, events, fonts, tts, muzik) {
   r.delete('/col/:col/:id', async (req, res) => {
     await store.colDelete(req.params.col, req.params.id);
     res.status(204).end();
+  });
+
+  // ------------------------------------------------------------ ayarlar / Ollaya
+  // data/ayarlar.json — ollaya.aktif kapalıysa ya da port yoksa kütüphane araması yalnızca anahtar kelimeyle çalışır.
+  const ollayaBilgi = async () => ({ ...ayarOku().ollaya, ...(await ollayaDurum()) });
+  r.get('/ollaya', async (_req, res) => res.json(await ollayaBilgi()));
+  r.put('/ollaya', async (req, res) => {
+    ayarYaz({ ollaya: { aktif: !!req.body?.aktif } });
+    res.json(await ollayaBilgi());
   });
 
   // -------------------------------------------------------------- şablonlar

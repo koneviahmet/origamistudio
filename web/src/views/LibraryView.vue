@@ -25,6 +25,16 @@ const activeCat = ref('');
 const search = ref('');
 const hover = ref('');
 const loading = ref(true);
+const ollaya = ref({ aktif: false, calisiyor: false });
+async function loadOllaya() {
+  try { ollaya.value = await api.ollaya(); } catch { /* sunucu yoksa pasif say */ }
+}
+async function toggleOllaya() {
+  try {
+    ollaya.value = await api.setOllaya(!ollaya.value.aktif);
+    toast(ollaya.value.aktif ? (ollaya.value.calisiyor ? 'Ollaya aktif' : 'Ollaya aktif ama port yanıt vermiyor — yedek arama kullanılır') : 'Ollaya kapalı');
+  } catch (e) { toastError(e); }
+}
 
 // Düzenleyici durumu
 const draft = ref(null);
@@ -78,7 +88,7 @@ async function load() {
     loading.value = false;
   }
 }
-onMounted(load);
+onMounted(() => { load(); loadOllaya(); });
 useLive((e) => e.kind === 'library' && load());
 
 const counts = computed(() => {
@@ -434,6 +444,14 @@ const facetPointsText = computed({
         <input v-model="search" class="input search" placeholder="Ara: isim, id, etiket…" />
         <div class="grow" />
         <span class="dim small">{{ filtered.length }} varlık</span>
+        <button
+          class="btn"
+          :class="{ primary: ollaya.aktif && ollaya.calisiyor }"
+          :title="'Yapay zekâ kütüphane aramasında yerel Ollaya (laya) yardımcı olsun. Kapalıysa ya da port yoksa anahtar kelime araması kullanılır.'"
+          @click="toggleOllaya"
+        >
+          Ollaya: {{ ollaya.aktif ? 'açık' : 'kapalı' }}<span v-if="ollaya.aktif && !ollaya.calisiyor"> ⚠ port yok</span>
+        </button>
         <button class="btn" title="PNG / JPG / SVG'den otomatik low-poly origami" @click="showImport = true">⬆ Görselden origami</button>
         <button class="btn" title="Kar, konfeti, yağmur gibi parçacık efekti" @click="newEffect">＋ Yeni efekt</button>
         <button class="btn" title="Nesneden nesneye geçiş oku stili" @click="newArrow">＋ Yeni ok</button>

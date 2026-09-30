@@ -1,0 +1,20 @@
+{
+  "id": "kivilcim",
+  "name": "Kıvılcım (kor)",
+  "type": "particles",
+  "motion": "yuksel",
+  "shape": "pirilti",
+  "count": 46,
+  "size": 20,
+  "speed": 140,
+  "wind": 20,
+  "sway": 40,
+  "spin": 0.5,
+  "colors": [
+    "#ffb347",
+    "#ff6b2c",
+    "#ffd257",
+    "#ff8a2a"
+  ],
+  "prewarm": true
+}

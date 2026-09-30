@@ -8,7 +8,8 @@
 - **Yeni video üretimi — varsayılan mod "serbest" (yaratıcılık önce):**
   1. Kullanıcı bir proje adı vermedikçe `data/projects/*`, `scripts/scenes-*.mjs`, `scripts/briefs/` ve geçmiş sürümleri **okuma / örnek alma**.
      Yalnızca "X gibi yap / X'i düzelt" denirse o projeye bak. Şablon (`scripts/sablonlar/`) yalnızca kullanıcı "şablonla" derse kullanılır.
-  2. Önce **docs/uretim-ozet.md** (teknik sözlük, tek sayfa) oku. Ayrıntı gerekirse docs/schema.md, docs/katalog.md; docs/prompt-rehberi.md'yi baştan sona okuma.
+  2. Kütüphaneden model/efekt/ok seçerken katalog.md'yi baştan okuma; önce `npm run ara -- "<sorgu>"` çalıştır (anahtar kelime + eş anlamlı + duygu sözlüğü; kısa aday listesi). Sonuç yoksa ya da alakasızsa katalog.md'ye bak ya da yeni model üret. Yeni varlık eklenince `data/esanlamlilar.json`'a TR+EN arama sözcükleri, uygunsa `data/duygular.json`'daki duygu listelerine id ekle.
+     Önce **docs/uretim-ozet.md** (teknik sözlük, tek sayfa) oku. Ayrıntı gerekirse docs/schema.md, docs/katalog.md; docs/prompt-rehberi.md'yi baştan sona okuma.
   3. Kodlamadan önce kısa **yaratıcı brief** yaz: konuya özgü 3 farklı konsept (biri cesur / beklenmedik), seçilen konseptin görsel metaforu,
      stil + tema + tipografi + kamera + geçiş dili, ritim. Kullanıcıya sor-onay gerekmez; rapora yaz.
   4. **Çeşitlilik:** docs/kullanilan-kombinasyonlar.md'yi oku; son videolardaki stil/tema/font/geçiş kombinasyonunu tekrarlama. Video bitince oraya tek satır ekle.

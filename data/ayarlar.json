@@ -1,0 +1,7 @@
+{
+  "ollaya": {
+    "aktif": false,
+    "url": "http://localhost:11435",
+    "model": "laya:multilingual"
+  }
+}

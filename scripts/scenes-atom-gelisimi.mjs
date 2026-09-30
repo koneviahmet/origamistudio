@@ -3,6 +3,7 @@
 //    node scripts/seed-atom.mjs                       (varlıklar)
 //    node scripts/scenes-atom-gelisimi.mjs --ses      (anlatımı yerel TTS ile üretir, sonra sahneyi yazar)
 //    node scripts/scenes-atom-gelisimi.mjs            (sesler hazırsa yalnızca sahneyi yazar)
+//  --dikey            → 9:16 (1080×1920) sürüm: proje 'atom-gelisimi-dikey' (üstte model, altta yıl ve maddeler)
 //  Seçenekler: --ses-id <id|ad> (ses), --etiket "Anlatıcı,Sakin,Genç" (ses seçimi, varsayılan), --cinsiyet erkek|kadin
 //  Süreler anlatım dosyalarının gerçek uzunluğundan hesaplanır (data/audio/atom-anlatim-N.wav).
 // ═══════════════════════════════════════════════════════════════════════════
@@ -11,17 +12,23 @@ import path from 'node:path';
 import { createTts } from '../server/tts.js';
 import { wavOku, zarfCikar, ROOT } from './sablonlar/lib.mjs';
 
-const PROJE_ID = 'atom-gelisimi';
-const PROJE_ADI = 'Atomun Hikâyesi';
-const W = 1920;
-const H = 1080;
+const DIKEY = process.argv.includes('--dikey');
+const PROJE_ID = DIKEY ? 'atom-gelisimi-dikey' : 'atom-gelisimi';
+const PROJE_ADI = DIKEY ? 'Atomun Hikâyesi (dikey)' : 'Atomun Hikâyesi';
+const W = DIKEY ? 1080 : 1920;
+const H = DIKEY ? 1920 : 1080;
 const FPS = 30;
 const INK = '#4b3f72'; // kontur ve ana yazı
 const METIN = '#6b5f8f';
 const VURGU = '#f28482';
-const S = { x: 600, y: 520 }; // sahne (model) merkezi; sağda yazı paneli
-const PX = 1440; // panel merkezi
-const Z = 1.2; // sahne (model) büyütme oranı, S merkezli
+// Yatay: solda model, sağda yazı paneli. Dikey (9:16): üstte model, altta panel; güvenli alan y 250–1450, sağ kenar (y>860) boş
+const S = DIKEY ? { x: 540, y: 790 } : { x: 600, y: 520 }; // sahne (model) merkezi
+const PX = DIKEY ? 540 : 1440; // panel merkezi
+const Z = DIKEY ? 1.05 : 1.2; // sahne (model) büyütme oranı, S merkezli
+// Panel yerleşimi (yıl, ad, maddeler, açılış/kapanış başlığı)
+const LY = DIKEY
+  ? { yilY: 300, yilS: 120, adY: 412, adS: 58, m0: 1325, mAdim: 105, mS: 42, t1Y: 380, t1S: 124, t2Y: 1150, t2S: 46, kpY: 380, kpS: 120, kp2Y: 1330, kp2S: 46 }
+  : { yilY: 290, yilS: 158, adY: 430, adS: 66, m0: 575, mAdim: 135, mS: 46, t1Y: 340, t1S: 136, t2Y: 640, t2S: 50, kpY: 350, kpS: 130, kp2Y: 640, kp2S: 46 };
 const zx = (x) => S.x + (x - S.x) * Z;
 const zy = (y) => S.y + (y - S.y) * Z;
 const zp = (p) => [zx(p[0]), zy(p[1])];
@@ -129,11 +136,11 @@ const panelText = (id, g, text, y, t0, t1, o = {}) =>
   });
 
 /** Sağ panel: yıl (büyük) + ad + maddeler (daktilo) */
-const panel = (g, i, { year, name, bullets }) => {
+const panel = (g, i, { year, name, bullets, bulletsV }) => {
   const { t0, t1, narr } = T[i];
-  panelText(`${g}-yil`, g, year, 290, t0 + 0.6, t1, { font: 'Mali', size: 158, color: INK, textAnims: [{ preset: 'harf-zipla', t: t0 + 0.7, dur: 0.45, aralik: 0.06 }] });
-  panelText(`${g}-ad`, g, name, 430, t0 + 0.9, t1, { font: 'Mali', weight: 600, size: 66, color: VURGU, textAnims: [{ preset: 'harf-belir', t: t0 + 1.0, dur: 0.4, aralik: 0.04 }] });
-  bullets.forEach((b, j) => panelText(`${g}-m${j + 1}`, g, b, 575 + j * 135, t0 + 1.3, t1, { reveal: narr + 0.6 + j * 2.4, revDur: 1.3 }));
+  panelText(`${g}-yil`, g, year, LY.yilY, t0 + 0.6, t1, { font: 'Mali', size: LY.yilS, color: INK, textAnims: [{ preset: 'harf-zipla', t: t0 + 0.7, dur: 0.45, aralik: 0.06 }] });
+  panelText(`${g}-ad`, g, name, LY.adY, t0 + 0.9, t1, { font: 'Mali', weight: 600, size: LY.adS, color: VURGU, textAnims: [{ preset: 'harf-belir', t: t0 + 1.0, dur: 0.4, aralik: 0.04 }] });
+  (DIKEY && bulletsV ? bulletsV : bullets).forEach((b, j) => panelText(`${g}-m${j + 1}`, g, b, LY.m0 + j * LY.mAdim, t0 + 1.3, t1, { size: LY.mS, reveal: narr + 0.6 + j * 2.4, revDur: 1.3 }));
 };
 
 const etiket = (id, g, text, x, y, t0, t1, size = 40) =>
@@ -168,8 +175,8 @@ BOLUMLER.forEach((b) => (G[b.id] = `g-${b.id}`));
   const { t0, t1 } = T[0];
   const ls = logo('ac', G.acilis, t0, t1);
   ls.forEach((l) => dalis(l, t1));
-  panelText('ac-baslik', G.acilis, 'Atomun\nHikâyesi', 340, t0 + 0.5, t1, { font: 'Mali', size: 136, color: INK, textAnims: [{ preset: 'harf-zipla', t: t0 + 0.6, dur: 0.45, aralik: 0.05 }] });
-  panelText('ac-alt', G.acilis, 'en küçük parçanın\nbüyük yolculuğu', 640, t0 + 0.9, t1, { size: 50, reveal: t0 + 1.4, revDur: 1.4 });
+  panelText('ac-baslik', G.acilis, 'Atomun\nHikâyesi', LY.t1Y, t0 + 0.5, t1, { font: 'Mali', size: LY.t1S, color: INK, textAnims: [{ preset: 'harf-zipla', t: t0 + 0.6, dur: 0.45, aralik: 0.05 }] });
+  panelText('ac-alt', G.acilis, 'en küçük parçanın\nbüyük yolculuğu', LY.t2Y, t0 + 0.9, t1, { size: LY.t2S, reveal: t0 + 1.4, revDur: 1.4 });
 }
 
 // 1 · Demokritos: blok bölünür, bölünür… sonunda "atomos"
@@ -263,7 +270,7 @@ BOLUMLER.forEach((b) => (G[b.id] = `g-${b.id}`));
 {
   const { t0, t1, narr, dur } = T[4];
   const g = G.rutherford;
-  panel(g, 4, { year: '1911', name: 'Rutherford', bullets: ['Altın levha deneyi', 'Ortada küçük, yoğun\nbir çekirdek', 'Atomun çoğu boşluk'] });
+  panel(g, 4, { year: '1911', name: 'Rutherford', bullets: ['Altın levha deneyi', 'Ortada küçük, yoğun\nbir çekirdek', 'Atomun çoğu boşluk'], bulletsV: ['Ortada küçük, yoğun\nbir çekirdek', 'Atomun çoğu boşluk'] });
   const tB = narr + dur * 0.56; // "Demek ki …" cümlesi
   const fx = S.x + 90;
   dalis(model('ru-levha', g, 'atom-levha', fx, S.y, 1, t0, { draw: t0 + 0.9, dur: 1.3 }), tB, 3);
@@ -288,9 +295,9 @@ BOLUMLER.forEach((b) => (G[b.id] = `g-${b.id}`));
   const hr = model('ru-atom', g, 'atom-halka', S.x, S.y, 3.3, tB - 0.2, { palette: { a: '#cdb4f6' }, draw: tB - 0.4, dur: 1.6 });
   dalis(hr, t1, 3);
   dalis(model('ru-cek', g, 'atom-cekirdek', S.x, S.y, 0.72, tB - 0.2, { draw: tB + 0.1, dur: 1.0 }), t1, 3);
-  etiket('ru-lbl-cek', g, 'çekirdek', S.x + 170, S.y - 125, tB + 1.9, t1, 46);
+  etiket('ru-lbl-cek', g, 'çekirdek', S.x + (DIKEY ? 130 : 170), S.y - (DIKEY ? 115 : 125), tB + 1.9, t1, 46);
   ok('ru-ok-cek', g, 'ru-lbl-cek', 'ru-cek', tB + 2.2, t1, { bend: -0.3 });
-  etiket('ru-lbl-bos', g, 'boşluk', S.x - 150, S.y + 135, tB + 3.0, t1, 46);
+  etiket('ru-lbl-bos', g, 'boşluk', S.x - (DIKEY ? 115 : 150), S.y + (DIKEY ? 120 : 135), tB + 3.0, t1, 46);
   const pA = [[S.x - 380, S.y - 150], [S.x + 380, S.y - 150]].map(zp);
   const pB = [[S.x - 380, S.y - 6], [S.x - 34, S.y - 6], [S.x - 250, S.y - 240]].map(zp);
   [[pA, 'ru-g1', tB + 1.6], [pB, 'ru-g2', tB + 2.8]].forEach(([pts, id, ts]) =>
@@ -328,7 +335,7 @@ BOLUMLER.forEach((b) => (G[b.id] = `g-${b.id}`));
     id: 'bl-toz', group: g, type: 'particles', preset: 'yildiz-tozu', mode: 'surekli', count: 70, size: 38, speed: 0.5, seed: 7, prewarm: true,
     colors: ['#6fb3e8', '#f2829a', '#f5c84c', '#8fd6b4'], area: [zx(S.x - 250), zy(S.y - 250), 500 * Z, 500 * Z], start: narr + 0.8, end: t1 + 0.2,
   });
-  etiket('bl-lbl', g, 'elektronun olası yeri', S.x - 10, S.y + 300, narr + 4.5, t1, 44);
+  etiket('bl-lbl', g, 'elektronun olası yeri', S.x - 10, S.y + (DIKEY ? 315 : 300), narr + 4.5, t1, 44);
 }
 
 // 7 · Kapanış: başa dönüş (logo)
@@ -336,8 +343,8 @@ BOLUMLER.forEach((b) => (G[b.id] = `g-${b.id}`));
   const { t0, t1 } = T[7];
   const g = G.kapanis;
   logo('kp', g, t0, t1 + 0.4, 0.6).forEach((l) => (l.end = SURE));
-  panelText('kp-baslik', g, 'Hikâye\nsürüyor…', 350, t0 + 0.8, SURE, { font: 'Mali', size: 130, color: INK, textAnims: [{ preset: 'harf-zipla', t: t0 + 0.9, dur: 0.45, aralik: 0.06 }] });
-  panelText('kp-alt', g, 'merak ettikçe\nderine iniyoruz', 640, t0 + 1.3, SURE, { size: 46, reveal: t0 + 1.8, revDur: 1.4 });
+  panelText('kp-baslik', g, 'Hikâye\nsürüyor…', LY.kpY, t0 + 0.8, SURE, { font: 'Mali', size: LY.kpS, color: INK, textAnims: [{ preset: 'harf-zipla', t: t0 + 0.9, dur: 0.45, aralik: 0.06 }] });
+  panelText('kp-alt', g, 'merak ettikçe\nderine iniyoruz', LY.kp2Y, t0 + 1.3, SURE, { size: LY.kp2S, reveal: t0 + 1.8, revDur: 1.4 });
 }
 
 // ─── 5. Zaman şeridi (altta): yıllar + el çizimi oklar ─────────────────────
@@ -349,16 +356,16 @@ const ZAMAN = [
   ['1913', 5, PAL.nane],
   ['1926', 6, PAL.lavanta],
 ];
-const ZX = (i) => 250 + i * 292;
-const ZY = 975;
+const ZX = (i) => (DIKEY ? 150 + i * 156 : 250 + i * 292);
+const ZY = DIKEY ? 1185 : 975;
 ZAMAN.forEach(([yil, b, pal], i) => {
   const t = T[b].t0 + 1.5;
   const son = T[BOLUMLER.length - 1].t1;
   L({
-    id: `zm-n${i + 1}`, group: 'g-zaman', asset: 'atom-kure', x: ZX(i), y: ZY, scale: 0.2, anchor: [0.5, 0.5], palette: pal, start: t, end: SURE,
+    id: `zm-n${i + 1}`, group: 'g-zaman', asset: 'atom-kure', x: ZX(i), y: ZY, scale: DIKEY ? 0.22 : 0.2, anchor: [0.5, 0.5], palette: pal, start: t, end: SURE,
     anims: [{ preset: 'cizerek-gir', t, dur: 0.9 }, ...(b < 6 ? [{ preset: 'nabiz', t: t + 1, dur: T[b].t1 - t - 1, genlik: 0.12, periyot: 1.4 }] : [])],
   });
-  L({ id: `zm-y${i + 1}`, group: 'g-zaman', type: 'text', text: yil, x: ZX(i), y: ZY + 56, start: t + 0.4, end: SURE, font: 'Quicksand', weight: 700, size: 32, color: METIN, align: 'center', anims: [{ preset: 'belir', t: t + 0.4, dur: 0.5 }] });
+  L({ id: `zm-y${i + 1}`, group: 'g-zaman', type: 'text', text: yil, x: ZX(i), y: ZY + (DIKEY ? 50 : 56), start: t + 0.4, end: SURE, font: 'Quicksand', weight: 700, size: DIKEY ? 31 : 32, color: METIN, align: 'center', anims: [{ preset: 'belir', t: t + 0.4, dur: 0.5 }] });
   if (i > 0)
     L({ id: `zm-ok${i}`, group: 'g-zaman', type: 'arrow', arrow: 'ok-el-cizimi', from: `zm-n${i}`, to: `zm-n${i + 1}`, color: '#b7a9d9', width: 3.8, head: 'yok', bend: 0.18, start: t, end: SURE, anims: [{ preset: 'cizerek-gir', t, dur: 1.0 }] });
 });
@@ -403,6 +410,12 @@ if (fs.existsSync(sf)) {
     const m = (eski.audio || []).filter((t) => !/^atom-anlatim-/.test(t.file));
     scene.audio.push(...m);
   } catch { /* yok say */ }
+} else if (DIKEY) {
+  // dikey proje ilk kez yazılıyor: yatay sürümdeki müzik iz(ler)ini devral
+  try {
+    const yatay = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'projects', 'atom-gelisimi', 'scene.json'), 'utf8'));
+    scene.audio.push(...(yatay.audio || []).filter((t) => !/^atom-anlatim-/.test(t.file)));
+  } catch { /* yatay yok */ }
 }
 fs.writeFileSync(sf, JSON.stringify(scene, null, 2) + '\n');
 if (!fs.existsSync(path.join(dir, 'notes.json'))) fs.writeFileSync(path.join(dir, 'notes.json'), '[]\n');

@@ -22,7 +22,8 @@
     "seslendir": "node scripts/seslendir.mjs",
     "sesler": "node scripts/sesler.mjs",
     "muzik": "node scripts/muzik.mjs",
-    "ai-notlar": "node scripts/ai-notlar.mjs"
+    "ai-notlar": "node scripts/ai-notlar.mjs",
+    "ara": "node scripts/kutuphane-ara.mjs"
   },
   "dependencies": {
     "express": "^5.2.1",

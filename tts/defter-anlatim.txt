@@ -1,0 +1,10 @@
+# Bilgisayarın Çizim Defteri — anlatım (başlangıç_sn | metin). Her satır bir bölüme sığar (~7 sn). Rakamlar yazıyla.
+0.5 | Bir kâğıt uçağa binip bilgisayarın yüz doksan yıllık yolculuğuna çıkıyoruz.
+6.8 | Babbage Analitik Makine'yi tasarladı, Ada Lovelace de ona ilk programı yazdı.
+14.0 | Bin dokuz yüz kırk beşte ENIAC, on yedi binden fazla tüple bir salonu doldurdu.
+21.2 | Bin dokuz yüz kırk yedide transistör geldi: küçük, serin, dayanıklı; tüpün yerini aldı.
+28.4 | Bin dokuz yüz yetmiş birde Intel dört bin dört, iki bin üç yüz transistörü bir çipe sığdırdı.
+35.6 | Bilgisayar masaya geldi: önce Apple iki, sonra bin dokuz yüz seksen birde IBM PC.
+42.8 | Bin dokuz yüz doksan birde World Wide Web ile bilgisayarlar birbirine bağlandı.
+50.0 | İki bin yedide iPhone ile hepsi cebimize girdi: milyonlarca kat daha güçlü.
+57.2 | Bugün on milyarlarca transistör çalışıyor. Sırada ne var? Sıradaki sayfayı sen çiz.

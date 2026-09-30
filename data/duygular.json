@@ -1,0 +1,71 @@
+{
+  "_not": "Duygu / atmosfer katmanı: her duygu için arama sözcükleri (TR+EN) ve o duyguyu taşıyan varlık id'leri. scripts/kutuphane-ara.mjs bunları varlığın arama sözcüklerine ekler. 'sad rain', 'huzurlu sahne' gibi sorgular için.",
+  "huzun": {
+    "kelimeler": "sad sadness melancholy gloomy lonely sorrow grief blue moody nostalgic lonesome tearful somber hüzün hüzünlü üzgün melankoli kederli yalnız matem mahzun buruk",
+    "varliklar": ["yagmur", "bulut", "yaprak", "hilal", "ay", "kar", "kagit-gemi", "tilki", "duvar-telefonu", "cevirmeli-telefon", "vakum-tupu", "turna", "raf"]
+  },
+  "mutluluk": {
+    "kelimeler": "happy joy joyful cheerful fun playful bright sunny smile delight mutlu neşe neşeli sevinç eğlence eğlenceli keyif güler yüz",
+    "varliklar": ["gunes", "konfeti", "kelebek", "lale", "balik", "yildiz-yagmuru", "kalp", "pirilti", "ok-dalga", "ok-halka", "kabarcik", "yildiz", "kagit-ucaklar"]
+  },
+  "huzur": {
+    "kelimeler": "calm peaceful serene relaxing quiet tranquil gentle soft soothing peace zen huzur huzurlu sakin dingin sükunet rahatlatıcı yumuşak",
+    "varliklar": ["dalga", "bulut", "hilal", "ay", "tepeler", "lale", "balina", "marti", "kagit-gemi", "kabarcik", "yaprak", "cam-agaci", "turna", "ev", "kar"]
+  },
+  "yalnizlik": {
+    "kelimeler": "alone lonely solitude isolated empty vast distant solitary yalnızlık tek başına ıssız boş uzak",
+    "varliklar": ["hilal", "ay", "tilki", "kagit-gemi", "dag", "yagmur", "kar", "neptun", "uranus", "ev", "yaprak"]
+  },
+  "nostalji": {
+    "kelimeler": "nostalgia nostalgic retro vintage old memory past history classic antique childhood nostalji eski anı geçmiş hatıra klasik antika çocukluk",
+    "varliklar": ["duvar-telefonu", "cevirmeli-telefon", "tugla-telefon", "vakum-tupu", "delikli-kart", "eniac", "kisisel-bilgisayar", "disli", "yaprak", "kagit-gemi", "kagit-ucak", "turna", "ev"]
+  },
+  "heyecan": {
+    "kelimeler": "excited excitement energy energetic fast speed action dynamic thrilling intense power burst heyecan heyecanlı enerji hız hareket dinamik coşku güç",
+    "varliklar": ["yildiz-yagmuru", "konfeti", "kagit-ucaklar", "ok-serit", "ok-neon", "pirilti", "yildiz-tozu", "jupiter", "gunes", "kagit-ucak", "ok-kalin-golge", "su-fiskirmasi"]
+  },
+  "ask": {
+    "kelimeler": "love romantic romance tender affection sweet valentine passion adore aşk romantik sevgi sevgili tatlı tutku şefkat",
+    "varliklar": ["kalp", "kalp-yagmuru", "lale", "kelebek", "yildiz", "hilal", "pirilti", "yildiz-tozu"]
+  },
+  "gizem": {
+    "kelimeler": "mystery mysterious dark night eerie fear scary suspense secret unknown enigma spooky gizem gizemli karanlık gece korku gerilim sır bilinmeyen",
+    "varliklar": ["hilal", "ay", "tilki", "yildiz-tozu", "neptun", "uranus", "venus", "atom-bulut", "yagmur", "bulut", "kar"]
+  },
+  "umut": {
+    "kelimeler": "hope hopeful new beginning start dawn bloom growth fresh optimism future spring rebirth umut başlangıç doğuş büyüme taze iyimser gelecek bahar yeniden",
+    "varliklar": ["gunes", "lale", "kelebek", "turna", "cam-agaci", "yildiz", "tepeler", "kagit-ucak", "kagit-gemi", "kagit-ucaklar", "yildiz-tozu"]
+  },
+  "guc": {
+    "kelimeler": "strong strength power mighty bold brave heavy solid huge massive courage güçlü güç kuvvet cesur dev sağlam kalın büyük",
+    "varliklar": ["dag", "balina", "jupiter", "saturn", "eniac", "disli", "sunucu", "gunes", "ok-kalin-golge", "atom-cekirdek"]
+  },
+  "merak": {
+    "kelimeler": "curiosity curious discovery explore exploration wonder science learn research adventure journey merak keşif bilim öğrenme araştırma macera yolculuk",
+    "varliklar": ["tilki", "kagit-gemi", "kagit-ucak", "ok-kesikli-rota", "atom-yorunge", "atom-kaynak", "dunya", "mars", "saturn", "yildiz-tozu", "turna", "kelebek"]
+  },
+  "soguk": {
+    "kelimeler": "cold freezing icy chilly frozen winter frost snow cool soğuk dondurucu buzlu kış kar ayaz serin",
+    "varliklar": ["kar", "dag", "neptun", "uranus", "bulut", "cam-agaci", "hilal", "ay"]
+  },
+  "sicak": {
+    "kelimeler": "hot warm heat summer sunny burning cozy sunshine tropical sıcak yaz sıcaklık yakıcı güneşli samimi tropikal",
+    "varliklar": ["gunes", "venus", "mars", "cezve", "fincan", "lale", "ev", "kelebek"]
+  },
+  "hiz": {
+    "kelimeler": "fast speed quick rapid swift rush motion moving flow velocity hız hızlı çabuk süratli hareket akış seri",
+    "varliklar": ["kagit-ucak", "kagit-ucaklar", "ucak", "ok-serit", "ok-neon", "ok-noktali-akis", "marti", "balik", "su-fiskirmasi"]
+  },
+  "teknoloji": {
+    "kelimeler": "technology tech digital futuristic modern cyber innovation electronic artificial intelligence data future teknoloji dijital fütüristik modern yenilik elektronik yapay zeka veri gelecek",
+    "varliklar": ["cip", "sunucu", "modern-telefon", "akilli-telefon", "transistor", "dizustu", "ok-neon", "ok-noktali-akis", "ikili-bir", "ikili-sifir", "bit-0", "bit-1"]
+  },
+  "kutlama": {
+    "kelimeler": "celebration party festive congratulations birthday cheer applause success victory win triumph kutlama parti tebrik doğum günü başarı zafer alkış şenlik",
+    "varliklar": ["konfeti", "yildiz-yagmuru", "kalp-yagmuru", "pirilti", "yildiz", "yildiz-tozu", "kagit-ucaklar", "gunes"]
+  },
+  "doga": {
+    "kelimeler": "nature natural green outdoors wild organic earth environment eco landscape doğa doğal yeşil açık hava vahşi çevre ekoloji manzara",
+    "varliklar": ["cam-agaci", "dag", "lale", "tepeler", "yaprak", "kelebek", "tilki", "dalga", "gunes", "bulut", "yagmur", "kar", "marti", "balik", "balina"]
+  }
+}

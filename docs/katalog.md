@@ -1,9 +1,9 @@
 # Origami Studio — Katalog
 
 > Bu dosya `npm run katalog` ile **otomatik üretilir** — elle düzenleme. Kütüphane / tasarım değişince yeniden üret.
-> Üretim: 2026-09-30 21:37
+> Üretim: 2026-09-30 22:19
 
-## 1. Origami modelleri (64)
+## 1. Origami modelleri (87)
 
 Sahnede: `{ "asset": "<id>", "variant": "<varyant>" }`. Boyut = varlık koordinat kutusu; `scale` = istenen px / en uzun kenar.
 Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canlanır.
@@ -59,6 +59,20 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `raf` | Ahşap Raf | iletisim | 400×40 | — | a:ana b:ikincil | — | raf, mobilya, zemin |
 | `tugla-telefon` | Tuğla Cep Telefonu | iletisim | 120×320 | — | a:ana b:ikincil c:koyu d:detay e:vurgu | — | telefon, iletişim, teknoloji, cep, anten |
 | `tuslu-telefon` | Tuşlu Cep Telefonu | iletisim | 120×260 | — | a:ana b:acik c:koyu d:vurgu | sari (Sarı) | telefon, iletişim, teknoloji, cep, sms |
+| `acik-ates` | Açık ateş (kütükler + taşlar) | mutfak | 200×200 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | ateş, odun, ilk, fırın, tarih öncesi, mutfak |
+| `akilli-buzdolabi` | Akıllı buzdolabı (çift kapı + ekran) | mutfak | 200×320 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | buzdolabı, akıllı, modern, mutfak, ekran |
+| `akilli-firin` | Akıllı fırın (ekran + kamera) | mutfak | 200×200 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | akıllı fırın, wifi, kamera, ekran, fırın, modern, mutfak |
+| `buz-blogu` | Buz blok | mutfak | 200×170 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | buz, soğuk, blok, mutfak |
+| `buz-sandigi` | Buz sandığı (ahşap) | mutfak | 220×260 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | buz, sandık, ahşap, eski, soğutma |
+| `buzdolabi-ilk-elektrikli` | İlk ev tipi elektrikli buzdolabı | mutfak | 180×300 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | buzdolabı, eski, elektrikli, mutfak, 1913 |
+| `buzdolabi-monitor` | Silindir üstlü buzdolabı (Monitor Top tarzı) | mutfak | 190×310 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | buzdolabı, retro, 1927, mutfak |
+| `ekmek-somun` | Ekmek somunu | mutfak | 200×200 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | ekmek, somun, mutfak, fırın, hamur |
+| `elektrikli-firin` | Elektrikli fırın (rezistans) | mutfak | 200×200 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | elektrik, elektrikli fırın, fırın, rezistans, mutfak, ısı |
+| `gazli-firin` | Gazlı ocaklı fırın | mutfak | 200×200 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | gaz, ocak, fırın, ocaklı fırın, mutfak, mavi alev |
+| `kil-kubbe-firin` | Kil kubbe fırın | mutfak | 200×200 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | kil, kubbe, taş fırın, ekmek, odun, fırın, eski, mutfak |
+| `kompresor-devresi` | Buhar sıkıştırmalı soğutma devresi | mutfak | 260×260 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | kompresör, boru, soğutma, mekanik |
+| `mikrodalga` | Mikrodalga fırın | mutfak | 200×200 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | mikrodalga, fırın, radar, mutfak, 1945, ısıtma |
+| `vakum-kap` | Vakum kapağı + pompa (Cullen deneyi) | mutfak | 240×260 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | deney, pompa, cam, soğutma, 1755 |
 | `cezve` | Cezve | nesneler | 200×200 | — | a:ana b:ikincil c:koyu | — | kahve, mutfak, bakır |
 | `ev` | Ev | nesneler | 180×180 | — | a:vurgu b:ikincil c:acik d:detay | mavi (Mavi çatı) | bina, köy |
 | `fincan` | Kahve Fincanı | nesneler | 200×160 | — | a:acik b:vurgu c:koyu d:ikincil | — | kahve, fincan, tabak |
@@ -66,16 +80,25 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `kalp` | Kalp | sekiller | 160×150 | — | a:ana | pembe (Pembe) | şekil, sevgi |
 | `yildiz` | Yıldız | sekiller | 160×160 | — | a:ana | gumus (Gümüş) | şekil, parıltı |
 | `ay` | Ay | uzay | 200×200 | — | a:ana b:ikincil d:koyu | kanli (Kanlı ay) | uydu, uzay, gece |
+| `ay-3d` | Ay 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu e:detay | kanli (Kanlı Ay) | uydu, gece, kraterli, gezegen, uzay, 3d, 3 boyutlu, hacimli |
 | `dunya` | Dünya | uzay | 200×200 | — | a:ana b:ikincil c:acik | buzul (Buzul çağı), col (Çöl gezegeni) | gezegen, uzay, yaşam |
+| `dunya-3d` | Dünya 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik g:kara h:koyu y:col k:bulut l:atmosfer | gece (Gece) | yaşam, mavi, kıtalar, ev, gezegen, uzay, 3d, 3 boyutlu, hacimli |
 | `jupiter` | Jüpiter | uzay | 200×200 | — | a:ana b:ikincil c:acik d:vurgu | — | gezegen, uzay, gaz devi |
+| `jupiter-3d` | Jüpiter 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:vurgu e:detay f:koyu g:detay | — | gaz devi, şeritli, fırtına, dev, gezegen, uzay, 3d, 3 boyutlu, hacimli |
 | `mars` | Mars | uzay | 200×200 | — | a:ana b:ikincil c:acik | — | gezegen, uzay, kızıl |
+| `mars-3d` | Mars 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu e:detay h:atmosfer | — | kızıl, kayalık, çöl, gezegen, uzay, 3d, 3 boyutlu, hacimli |
 | `merkur` | Merkür | uzay | 200×200 | — | a:ana b:ikincil d:koyu | — | gezegen, uzay, kayalık |
+| `merkur-3d` | Merkür 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu e:detay | — | kayalık, kraterli, gezegen, uzay, 3d, 3 boyutlu, hacimli |
 | `neptun` | Neptün | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu | — | gezegen, uzay, buz devi |
+| `neptun-3d` | Neptün 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu e:detay h:atmosfer | — | buz devi, mavi, fırtınalı, rüzgar, gezegen, uzay, 3d, 3 boyutlu, hacimli |
 | `saturn` | Satürn | uzay | 400×220 | — | a:ana b:ikincil c:acik r:detay q:detay | — | gezegen, uzay, halka |
+| `saturn-3d` | Satürn 3B | uzay | 400×260 | — | a:ana b:ikincil c:acik g:detay r:halka q:halka-koyu | — | halka, halkalı, gezegen, uzay, 3d, 3 boyutlu, hacimli, gaz devi |
 | `uranus` | Uranüs | uzay | 200×200 | — | a:ana b:ikincil c:acik | — | gezegen, uzay, buz devi |
+| `uranus-3d` | Uranüs 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:detay r:halka h:atmosfer | — | buz devi, yan yatmış, halka, gezegen, uzay, 3d, 3 boyutlu, hacimli |
 | `venus` | Venüs | uzay | 200×200 | — | a:ana b:ikincil c:acik | — | gezegen, uzay, sıcak |
+| `venus-3d` | Venüs 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu e:detay h:vurgu | — | sıcak, bulutlu, girdap, gezegen, uzay, 3d, 3 boyutlu, hacimli |
 
-## 2. Parçacık efektleri (11)
+## 2. Parçacık efektleri (12)
 
 Sahnede: `{ "type": "particles", "particle": "<id>", "mode": "surekli" | "patlama", "start", "end" }`
 
@@ -87,6 +110,7 @@ Sahnede: `{ "type": "particles", "particle": "<id>", "mode": "surekli" | "patlam
 | `kagit-ucaklar` | Uçuşan kağıt uçaklar | dus | varlik (kagit-ucak) | 12 | 90 | 45 | 240 | evet |
 | `kalp-yagmuru` | Kalp yağmuru | dus | varlik (kalp) | 30 | 70 | 200 | 0 | — |
 | `kar` | Kar | dus | kar | 140 | 9 | 90 | 0 | evet |
+| `kivilcim` | Kıvılcım (kor) | yuksel | pirilti | 46 | 20 | 140 | 20 | evet |
 | `konfeti` | Kağıt konfeti | dus | kagit | 120 | 20 | 260 | 0 | — |
 | `yagmur` | Yağmur | dus | damla | 160 | 30 | 1300 | 0 | evet |
 | `yaprak` | Sonbahar yaprakları | dus | yaprak | 45 | 34 | 140 | 0 | — |
@@ -249,18 +273,21 @@ Hazır Bézier eğrileri (`"ease": [x1, y1, x2, y2]`): CSS ease `[0.25, 0.1, 0.2
 
 Çizim stilleri (`"style"`): `origami` Origami — Katlanmış kağıt yüzeyleri, menteşe etrafında açılır · `kagit-kesme` Kağıt kesme — Renk tabakaları üst üste, derin gölge, tabaka tabaka belirir · `duz` Düz vektör — Gölgesiz, temiz renkler (minimal / infografik) · `cizim` Çizim / boya — El çizimi mürekkep kontur, pastel boya taraması; önce çizilir sonra boyanır · `neon` Neon — Koyu zemin üstünde parlayan çizgi iskeleti (gece / teknoloji) · `cam` Cam — Yarı saydam buzlu cam, parlak kenar ve yansıma · `mozaik` Mozaik (low-poly) — Her yüzey hafif farklı tonda, kristal / low-poly görünüm · `teknik` Teknik çizim — Mavi pafta, beyaz ince çizgi (mühendislik / şema) · `vitray` Vitray — Işıklı renkli cam, kalın koyu kurşun çerçeve · `kil` Kil — Yumuşak, şişkin hacimli kil / plastilin, yumuşak gölge · `siluet` Gölge oyunu — Tek renk siluet, yüzeyin renginde hale (sinematik / gizem) · `gazete` Gazete baskısı — Tek renk mürekkep tonları ve baskı kayması (retro haber) · `halftone` Halftone / pop-art — Nokta rasterli çizgi roman baskısı · `suluboya` Suluboya — Üst üste yarı saydam, kenarı oynak boya lekeleri · `nakis` Nakış — Kumaş yüzey, dikiş çizgili kenar · `piksel` Piksel (8-bit) — Düşük çözünürlüklü, keskin piksel oyun görünümü
 
-## 10. Ses dosyaları (22)
+## 10. Ses dosyaları (33)
 
-Müzik: `atom-anlatim-1.wav`, `atom-anlatim-2.wav`, `atom-anlatim-3.wav`, `atom-anlatim-4.wav`, `atom-anlatim-5.wav`, `atom-anlatim-6.wav`, `atom-anlatim-7.wav`, `atom-anlatim-8.wav`, `defter-neseli.wav`, `kahve-anlatim-1.wav`, `kahve-anlatim-2.wav`, `kahve-anlatim-3.wav`, `kahve-anlatim-4.wav`, `uzay-ambiyans.wav`  
+Müzik: `atom-anlatim-1.wav`, `atom-anlatim-2.wav`, `atom-anlatim-3.wav`, `atom-anlatim-4.wav`, `atom-anlatim-5.wav`, `atom-anlatim-6.wav`, `atom-anlatim-7.wav`, `atom-anlatim-8.wav`, `atom-muzik.wav`, `defter-anlatim-1.wav`, `defter-anlatim-2.wav`, `defter-anlatim-3.wav`, `defter-anlatim-4.wav`, `defter-anlatim-5.wav`, `defter-anlatim-6.wav`, `defter-anlatim-7.wav`, `defter-anlatim-8.wav`, `defter-anlatim-9.wav`, `defter-muzik.wav`, `defter-neseli.wav`, `kahve-anlatim-1.wav`, `kahve-anlatim-2.wav`, `kahve-anlatim-3.wav`, `kahve-anlatim-4.wav`, `uzay-ambiyans.wav`  
 Efektler (`sfx.auto` kullanır): `sfx-cin.wav`, `sfx-damla.wav`, `sfx-hisirti.wav`, `sfx-kagit-katla.wav`, `sfx-parilti.wav`, `sfx-pop.wav`, `sfx-tik.wav`, `sfx-whoosh.wav`
 
 `uzay-ambiyans.wav`: 120 BPM, ilk vuruş 0.25 sn, 64 sn (sentez, telifsiz).
 
-## 11. Örnek projeler (17)
+## 11. Örnek projeler (20)
 
 - `atom-gelisimi` **Atomun Hikâyesi** — 1920×1080, 86.5 sn, 121 katman, tema [object Object], stil cizim — üreteç: `scripts/scenes-atom-gelisimi.mjs`
+- `atom-gelisimi-dikey` **Atomun Hikâyesi (dikey)** — 1080×1920, 86.5 sn, 120 katman, tema [object Object], stil cizim
 - `bilgisayar-defteri` **Bilgisayarın Çizim Defteri** — 1080×1920, 63.4 sn, 604 katman, tema [object Object], stil cizim — üreteç: `scripts/scenes-bilgisayar-defteri.mjs`
 - `bilgisayarin-yolculugu` **Odadan Cebe — Bilgisayarın Yolculuğu** — 1080×1920, 61.5 sn, 122 katman, tema [object Object], stil kagit-kesme — üreteç: `scripts/scenes-bilgisayarin-yolculugu.mjs`
+- `buzdolabi-gelisimi` **Buzdolabının Gelişimi** — 1080×1920, 49 sn, 46 katman, tema [object Object], stil duz — üreteç: `scripts/scenes-buzdolabi-gelisimi.mjs`
+- `firin-gelisimi` **Fırının Gelişimi** — 1080×1920, 50.2 sn, 62 katman, tema [object Object], stil kil — üreteç: `scripts/scenes-firin-gelisimi.mjs`
 - `kahve-cizim` **Türk Kahvesi (çizim)** — 1080×1080, 16 sn, 12 katman, stil cizim — üreteç: `scripts/scenes-kahve-cizim.mjs`
 - `ok-vitrini` **Ok Vitrini** — 1080×1080, 17 sn, 19 katman — üreteç: `scripts/scenes-ok-vitrini.mjs`
 - `okyanus` **Okyanus** — 1080×1920, 12 sn, 18 katman
