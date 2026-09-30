@@ -4,6 +4,7 @@
 import { Muxer, ArrayBufferTarget } from 'mp4-muxer';
 import { renderFrame } from '../engine/renderer.js';
 import { makeCanvas } from '../engine/texture.js';
+import { prepareMedia } from '../media.js';
 
 const even = (n) => Math.max(2, Math.round(n / 2) * 2);
 
@@ -132,6 +133,7 @@ export async function exportMp4(scene, lib, opts = {}) {
       if (opts.signal?.aborted) throw new DOMException('İptal edildi', 'AbortError');
       if (encError) throw encError;
       ctx.setTransform(sx, 0, 0, sy, 0, 0);
+      await prepareMedia(scene, from + i / fps, lib, { wait: true });
       renderFrame(ctx, scene, from + i / fps, lib, { format: opts.format });
       const frame = new VideoFrame(canvas, { timestamp: Math.round(i * frameDur), duration: Math.round(frameDur) });
       encoder.encode(frame, { keyFrame: i % (fps * 2) === 0 });
@@ -170,6 +172,7 @@ export async function exportPng(scene, lib, t, scale = 1, format = null) {
   const ctx = canvas.getContext('2d');
   if (document.fonts?.ready) await document.fonts.ready;
   ctx.setTransform(canvas.width / OW, 0, 0, canvas.height / OH, 0, 0);
+  await prepareMedia(scene, t, lib, { wait: true });
   renderFrame(ctx, scene, t, lib, { format });
   if (canvas.convertToBlob) return canvas.convertToBlob({ type: 'image/png' });
   return new Promise((r) => canvas.toBlob(r, 'image/png'));

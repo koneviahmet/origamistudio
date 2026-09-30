@@ -141,6 +141,29 @@ export function newArrowLayer(scene, t, arrow = 'ok-kavis', selectedId = null, a
   };
 }
 
+const r1 = (n) => Math.round(n * 10) / 10;
+const foldIn = (t0, dur = 1.2, ease = 'outCubic') => [{ t: r1(t0), v: 0 }, { t: r1(t0 + dur), v: 1, ease }];
+
+/** Bileşen katmanı: 'chart' | 'device' | 'media' | 'waveform' */
+export function newWidgetLayer(scene, type, t, extra = {}) {
+  const t0 = r1(t);
+  const W = scene.width;
+  const H = scene.height;
+  const portrait = H > W;
+  const base = { id: uid({ chart: 'grafik', device: 'cihaz', media: 'medya', waveform: 'dalga' }[type], scene), type, x: Math.round(W / 2), y: Math.round(H / 2), fold: foldIn(t0) };
+  if (type === 'chart') {
+    const w = Math.round(Math.min(W * 0.86, 900));
+    return {
+      ...base, kind: 'bar', title: 'Başlık', width: w, height: Math.round(w * (portrait ? 0.85 : 0.6)), unit: '',
+      data: [{ label: 'Ocak', value: 30 }, { label: 'Şubat', value: 55 }, { label: 'Mart', value: 42 }, { label: 'Nisan', value: 78 }],
+      ...extra,
+    };
+  }
+  if (type === 'device') return { ...base, frame: 'telefon', width: Math.round(Math.min(W, H) * 0.42), title: 'Uygulama', ...extra };
+  if (type === 'waveform') return { ...base, style: 'cubuk', bars: 32, width: Math.round(W * 0.7), height: Math.round(Math.min(W, H) * 0.22), y: Math.round(H * 0.75), ...extra };
+  return { ...base, width: Math.round(W * 0.7), ...extra };
+}
+
 export function valueAt(obj, name, t) {
   return sample(obj[name], t, PROP_DEFAULTS[name] ?? 0);
 }

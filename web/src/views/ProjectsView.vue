@@ -46,6 +46,51 @@ async function create() {
   }
 }
 
+// ---------------------------------------------------------------- şablondan oluştur
+const showTpl = ref(false);
+const templates = ref([]);
+const tplId = ref('');
+const briefText = ref('');
+const briefErr = ref('');
+const busy = ref(false);
+async function openTpl() {
+  showTpl.value = true;
+  if (!templates.value.length) {
+    try {
+      templates.value = await api.templates();
+    } catch (e) {
+      toastError(e);
+    }
+  }
+  if (!tplId.value && templates.value.length) pickTpl(templates.value[0].id);
+}
+function pickTpl(id) {
+  tplId.value = id;
+  const t = templates.value.find((x) => x.id === id);
+  const { id: _omit, ...ornek } = t.ornek;
+  briefText.value = JSON.stringify(ornek, null, 2);
+  briefErr.value = '';
+}
+async function createFromTpl() {
+  let brief;
+  try {
+    brief = JSON.parse(briefText.value);
+  } catch (e) {
+    briefErr.value = `JSON hatası: ${e.message}`;
+    return;
+  }
+  busy.value = true;
+  try {
+    const p = await api.generateFromTemplate(brief);
+    showTpl.value = false;
+    router.push(`/studio/${p.id}`);
+  } catch (e) {
+    briefErr.value = e.message;
+  } finally {
+    busy.value = false;
+  }
+}
+
 async function duplicate(p) {
   try {
     await api.duplicateProject(p.id);
@@ -82,6 +127,7 @@ const fmtDate = (s) => new Date(s).toLocaleString('tr-TR', { dateStyle: 'medium'
         <h1>Projeler</h1>
         <p class="muted">Her proje bir video sahnesidir. Stüdyoda açıp oynatın, not bırakın, MP4 alın.</p>
       </div>
+      <button class="btn" title="Hazır video iskeletleri: açıklayıcı, veri hikâyesi, kinetik yazı, ürün tanıtımı, showreel, liste" @click="openTpl">✦ Şablondan</button>
       <button class="btn primary" @click="showNew = true">＋ Yeni proje</button>
     </div>
 
@@ -113,6 +159,30 @@ const fmtDate = (s) => new Date(s).toLocaleString('tr-TR', { dateStyle: 'medium'
           </div>
         </div>
       </div>
+    </div>
+
+    <div v-if="showTpl" class="modal-backdrop" @click.self="showTpl = false">
+      <form class="modal wide" @submit.prevent="createFromTpl">
+        <header>Şablondan video oluştur</header>
+        <div class="body">
+          <div class="tpls">
+            <button v-for="t in templates" :key="t.id" type="button" class="tpl" :class="{ on: tplId === t.id }" @click="pickTpl(t.id)">
+              <strong>{{ t.ad }}</strong>
+              <span class="dim small">{{ t.aciklama }}</span>
+            </button>
+          </div>
+          <div class="field">
+            <label>Brief (JSON) — metinleri, nesneleri, formatı, temayı düzenle</label>
+            <textarea v-model="briefText" class="input mono" rows="16" spellcheck="false" />
+            <span v-if="briefErr" class="err">{{ briefErr }}</span>
+            <span class="dim small">format: reels · youtube · kare · dikey45 · tema / stil / vurgu / muzik isteğe bağlı. Alanlar: docs/prompt-rehberi.md §9</span>
+          </div>
+        </div>
+        <footer>
+          <button type="button" class="btn" @click="showTpl = false">Vazgeç</button>
+          <button type="submit" class="btn primary" :disabled="busy">{{ busy ? 'Üretiliyor…' : 'Oluştur ve aç' }}</button>
+        </footer>
+      </form>
     </div>
 
     <div v-if="showNew" class="modal-backdrop" @click.self="showNew = false">
@@ -161,6 +231,11 @@ h1 { margin: 0 0 4px; font-family: Fredoka, sans-serif; font-weight: 600; }
 .info .row { flex-wrap: wrap; gap: 4px 6px; }
 .name { font-size: 15px; }
 .actions { margin-top: 8px; }
+.modal.wide { width: min(820px, 94vw); }
+.tpls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+.tpl { display: grid; gap: 4px; text-align: left; padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-2); color: inherit; cursor: pointer; }
+.tpl.on { border-color: var(--accent); background: #2d2118; }
+.err { color: #ff8a8a; font-size: 12px; }
 .presets { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .preset {
   display: grid; justify-items: center; gap: 6px; padding: 12px 8px; text-align: center;

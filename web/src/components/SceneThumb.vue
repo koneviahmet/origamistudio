@@ -2,6 +2,7 @@
 import { onMounted, ref, watch } from 'vue';
 import { renderFrame } from '../engine/renderer.js';
 import { ensureSceneFonts } from '../fonts.js';
+import { prepareMedia } from '../media.js';
 
 const props = defineProps({
   scene: { type: Object, default: null },
@@ -24,7 +25,10 @@ function draw() {
 }
 function drawWithFonts() {
   draw();
-  if (props.scene && props.res) ensureSceneFonts(props.scene, props.res).then(draw);
+  if (props.scene && props.res) {
+    ensureSceneFonts(props.scene, props.res).then(draw);
+    prepareMedia(props.scene, props.t, props.res, { onUpdate: draw });
+  }
 }
 onMounted(drawWithFonts);
 watch(() => [props.scene, props.res, props.t], drawWithFonts);

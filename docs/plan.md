@@ -175,11 +175,24 @@ TikTok gibi platformlar için MP4 video çıktısı alan bir masaüstü-web uygu
 - [x] Ses / müzik katmanı (WebCodecs AudioEncoder ile MP4'e mux) → Faz 10
 - [x] Görsel facet (poligon) çizim editörü → Faz 11 (K6)
 - [x] Hazır animasyon ön ayarları → Faz 9 (Ö3)
-- [ ] Sahne şablonları (hazır proje iskeletleri: tanıtım, liste, hikâye)
+- [x] Sahne şablonları → Faz 16
 - [x] Parçacık sistemi → Faz 10 (A1)
 - [x] Geçişler → Faz 11 (A2)
-- [ ] Sunucu tarafı render (Puppeteer + ffmpeg) — toplu / arka plan dışa aktarım (D3)
+- [x] Sunucu tarafı render (başsız tarayıcı) → Faz 16
 - [ ] Gerçek 3B facet derinliği ve dinamik ışık yönü
 - [x] Hareket yolu (Ö4), easing eğri editörü (U3), katman klasörleri / kilit (U4) → Faz 13
 - [ ] Telefon önizleme modu (U5)
-- [ ] Uygulama içinden Claude API ile "notları uygula" (AI4)
+- [x] Uygulama içinden Claude API ile "notları uygula" (AI4) → Faz 16
+
+### Faz 16 — Bileşenler, derinlik, ses-reaktif animasyon, şablonlar, sunucu render ✅
+- [x] **Bileşen katmanları**: `chart` (sütun / yatay / çizgi / pasta / halka / sayaç), `device` (telefon / tablet / dizüstü / tarayıcı + sahte arayüz),
+      `media` (resim / video; `data/media`, yükleme), `waveform` (çubuk / çizgi / daire / nokta) — şema §12
+- [x] **Video karesi hattı**: `prepareMedia` (deterministik seek) — `renderFrame` saf kalır; önizleme ve dışa aktarım aynı kareyi alır
+- [x] **Ses zarfı** (`env`, 8 bant, FFT) + `audiodrive.js`; ön ayarlar: `ritimle-*`, `sesle-*`; stüdyoda "Zarf çıkar", `scripts/analyze-audio.mjs`
+- [x] **Sahte 3B**: `layer.depth` paralaks (kamera pan/zoom), `layer.blur`, `camera.focus` / `camera.dof` alan derinliği
+- [x] **Şablonlar** (Faz 8 maddesi): `explainer`, `veri`, `kinetik`, `urun`, `showreel`, `liste` — `scripts/sablonlar/`, `node scripts/uret.mjs`,
+      Projeler → ✦ Şablondan, `brief.json`; yatay / dikey otomatik düzen
+- [x] **Sunucu tarafı render** (D3): `scripts/render.mjs` — başsız Edge/Chrome, toplu format (`--hepsi`), `/render/:id` sayfası
+- [x] **AI4**: Notlar → "Claude ile uygula" (`POST /api/projects/:id/notes-apply`, `scripts/ai-notlar.mjs`; `ANTHROPIC_API_KEY` gerekir)
+- [ ] Sınır: video sesi karışıma girmez; bileşenler için stüdyoda sürükle-boyutlandır tutamağı yok (denetçiden ayarlanır)
+- [ ] Kapsam dışı bırakıldı (istek üzerine): podcast / seslendirme + otomatik altyazı hattı

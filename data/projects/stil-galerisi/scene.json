@@ -1,0 +1,4579 @@
+{
+  "name": "Stil Galerisi",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "duration": 47.3,
+  "theme": {
+    "paper": "mat",
+    "colors": {
+      "arka1": "#15131a",
+      "arka2": "#241f2e",
+      "baslik": "#f4efe6",
+      "metin": "#c9c2b4",
+      "vurgu": "#ff5d73"
+    },
+    "background": {
+      "type": "linear",
+      "colors": [
+        "$arka1",
+        "$arka2"
+      ],
+      "angle": 180
+    }
+  },
+  "sfx": {
+    "auto": true,
+    "volume": 0.45
+  },
+  "sections": [
+    {
+      "t": 0,
+      "name": "Açılış"
+    },
+    {
+      "t": 5,
+      "name": "01 ORİGAMİ"
+    },
+    {
+      "t": 7.3,
+      "name": "02 KAĞIT KESME"
+    },
+    {
+      "t": 9.6,
+      "name": "03 DÜZ VEKTÖR"
+    },
+    {
+      "t": 11.9,
+      "name": "04 ÇİZİM / BOYA"
+    },
+    {
+      "t": 14.2,
+      "name": "05 NEON"
+    },
+    {
+      "t": 16.5,
+      "name": "06 CAM"
+    },
+    {
+      "t": 18.8,
+      "name": "07 MOZAİK"
+    },
+    {
+      "t": 21.1,
+      "name": "08 TEKNİK ÇİZİM"
+    },
+    {
+      "t": 23.4,
+      "name": "09 VİTRAY"
+    },
+    {
+      "t": 25.7,
+      "name": "10 KİL"
+    },
+    {
+      "t": 28,
+      "name": "11 GÖLGE OYUNU"
+    },
+    {
+      "t": 30.3,
+      "name": "12 GAZETE BASKISI"
+    },
+    {
+      "t": 32.6,
+      "name": "13 HALFTONE"
+    },
+    {
+      "t": 34.9,
+      "name": "14 SULUBOYA"
+    },
+    {
+      "t": 37.2,
+      "name": "15 NAKIŞ"
+    },
+    {
+      "t": 39.5,
+      "name": "16 PİKSEL"
+    },
+    {
+      "t": 41.8,
+      "name": "Kapanış"
+    }
+  ],
+  "transitions": [
+    {
+      "type": "iris",
+      "t": 5,
+      "dur": 0.8,
+      "color": "#f1e3cc"
+    },
+    {
+      "type": "katlama",
+      "t": 7.3,
+      "dur": 0.75,
+      "color": "#f4a261"
+    },
+    {
+      "type": "perde",
+      "t": 9.6,
+      "dur": 0.75,
+      "color": "#ffd166"
+    },
+    {
+      "type": "iris",
+      "t": 11.9,
+      "dur": 0.75,
+      "color": "#fbf6e9"
+    },
+    {
+      "type": "yirtik",
+      "t": 14.2,
+      "dur": 0.75,
+      "color": "#070812"
+    },
+    {
+      "type": "sayfa-cevir",
+      "t": 16.5,
+      "dur": 0.75,
+      "color": "#4f7fd6"
+    },
+    {
+      "type": "kaydir",
+      "t": 18.8,
+      "dur": 0.75,
+      "color": "#1f3a4d",
+      "yon": "sag"
+    },
+    {
+      "type": "yakinlas",
+      "t": 21.1,
+      "dur": 0.75,
+      "color": "#0d2a55"
+    },
+    {
+      "type": "katlama",
+      "t": 23.4,
+      "dur": 0.75,
+      "color": "#1a1423"
+    },
+    {
+      "type": "perde",
+      "t": 25.7,
+      "dur": 0.75,
+      "color": "#ffb4a2"
+    },
+    {
+      "type": "iris",
+      "t": 28,
+      "dur": 0.75,
+      "color": "#ff9f43"
+    },
+    {
+      "type": "yirtik",
+      "t": 30.3,
+      "dur": 0.75,
+      "color": "#d8d0bb"
+    },
+    {
+      "type": "sayfa-cevir",
+      "t": 32.6,
+      "dur": 0.75,
+      "color": "#ff8fab"
+    },
+    {
+      "type": "kaydir",
+      "t": 34.9,
+      "dur": 0.75,
+      "color": "#fdf3e7",
+      "yon": "sol"
+    },
+    {
+      "type": "yakinlas",
+      "t": 37.2,
+      "dur": 0.75,
+      "color": "#3c5a6a"
+    },
+    {
+      "type": "katlama",
+      "t": 39.5,
+      "dur": 0.75,
+      "color": "#14213d"
+    },
+    {
+      "type": "perde",
+      "t": 41.8,
+      "dur": 0.9,
+      "color": "#15131a"
+    }
+  ],
+  "groups": [
+    {
+      "id": "g-acilis",
+      "name": "Açılış",
+      "collapsed": true
+    },
+    {
+      "id": "g-origami",
+      "name": "ORİGAMİ",
+      "collapsed": true
+    },
+    {
+      "id": "g-kagit-kesme",
+      "name": "KAĞIT KESME",
+      "collapsed": true
+    },
+    {
+      "id": "g-duz",
+      "name": "DÜZ VEKTÖR",
+      "collapsed": true
+    },
+    {
+      "id": "g-cizim",
+      "name": "ÇİZİM / BOYA",
+      "collapsed": true
+    },
+    {
+      "id": "g-neon",
+      "name": "NEON",
+      "collapsed": true
+    },
+    {
+      "id": "g-cam",
+      "name": "CAM",
+      "collapsed": true
+    },
+    {
+      "id": "g-mozaik",
+      "name": "MOZAİK",
+      "collapsed": true
+    },
+    {
+      "id": "g-teknik",
+      "name": "TEKNİK ÇİZİM",
+      "collapsed": true
+    },
+    {
+      "id": "g-vitray",
+      "name": "VİTRAY",
+      "collapsed": true
+    },
+    {
+      "id": "g-kil",
+      "name": "KİL",
+      "collapsed": true
+    },
+    {
+      "id": "g-siluet",
+      "name": "GÖLGE OYUNU",
+      "collapsed": true
+    },
+    {
+      "id": "g-gazete",
+      "name": "GAZETE BASKISI",
+      "collapsed": true
+    },
+    {
+      "id": "g-halftone",
+      "name": "HALFTONE",
+      "collapsed": true
+    },
+    {
+      "id": "g-suluboya",
+      "name": "SULUBOYA",
+      "collapsed": true
+    },
+    {
+      "id": "g-nakis",
+      "name": "NAKIŞ",
+      "collapsed": true
+    },
+    {
+      "id": "g-piksel",
+      "name": "PİKSEL",
+      "collapsed": true
+    },
+    {
+      "id": "g-kapanis",
+      "name": "Kapanış",
+      "collapsed": true
+    }
+  ],
+  "formats": [
+    {
+      "id": "kare",
+      "name": "Kare 1:1",
+      "width": 1080,
+      "height": 1080,
+      "mode": "sigdir",
+      "focusX": 0.5,
+      "focusY": 0.5,
+      "zoom": 1
+    }
+  ],
+  "layers": [
+    {
+      "id": "ac-baslik",
+      "group": "g-acilis",
+      "type": "text",
+      "text": "ON ALTI STİL",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 170,
+      "color": "#f4efe6",
+      "x": 960,
+      "y": 790,
+      "start": 0,
+      "end": 5,
+      "letterSpacing": 3,
+      "textAnims": [
+        {
+          "preset": "harf-zipla",
+          "t": 0.3,
+          "dur": 0.5,
+          "aralik": 0.06
+        }
+      ]
+    },
+    {
+      "id": "ac-alt",
+      "group": "g-acilis",
+      "type": "text",
+      "text": "Tek geometri, on altı farklı yüz",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 52,
+      "color": "#c9c2b4",
+      "x": 960,
+      "y": 935,
+      "start": 1.2,
+      "end": 5,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 1.2,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-origami",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "origami",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 0.6,
+      "end": 0.8,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 0.6,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-kagit-kesme",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "kagit-kesme",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 0.8,
+      "end": 1,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 0.8,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-duz",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "duz",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 1,
+      "end": 1.2,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 1,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-cizim",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "cizim",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 1.2,
+      "end": 1.4,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 1.2,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-neon",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "neon",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 1.4,
+      "end": 1.6,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 1.4,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-cam",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "cam",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 1.6,
+      "end": 1.8,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 1.6,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-mozaik",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "mozaik",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 1.8,
+      "end": 2,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 1.8,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-teknik",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "teknik",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 2,
+      "end": 2.2,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 2,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-vitray",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "vitray",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 2.2,
+      "end": 2.4,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 2.2,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-kil",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "kil",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 2.4,
+      "end": 2.6,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 2.4,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-siluet",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "siluet",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 2.6,
+      "end": 2.8,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 2.6,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-gazete",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "gazete",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 2.8,
+      "end": 3,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 2.8,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-halftone",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "halftone",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 3,
+      "end": 3.2,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 3,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-suluboya",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "suluboya",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 3.2,
+      "end": 3.4,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 3.2,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-nakis",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "nakis",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 3.4,
+      "end": 3.6,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 3.4,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "ac-kelebek-piksel",
+      "group": "g-acilis",
+      "asset": "kelebek",
+      "style": "piksel",
+      "x": 960,
+      "y": 410,
+      "scale": 2.6,
+      "start": 3.6,
+      "end": 5,
+      "anims": [
+        {
+          "preset": "kanat-cirp",
+          "t": 3.6,
+          "periyot": 1,
+          "alt": 0.3
+        }
+      ]
+    },
+    {
+      "id": "origami-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#f1e3cc"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 5,
+      "end": 7.3,
+      "group": "g-origami"
+    },
+    {
+      "id": "origami-no",
+      "group": "g-origami",
+      "type": "text",
+      "text": "01 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#c8553d",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 5,
+      "end": 7.3,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 5.2,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "origami-ad",
+      "group": "g-origami",
+      "type": "text",
+      "text": "ORİGAMİ",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 140,
+      "color": "#3b2a1e",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 5,
+      "end": 7.3,
+      "textAnims": [
+        {
+          "preset": "harf-zipla",
+          "t": 5.25,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "origami-cizgi",
+      "group": "g-origami",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#c8553d"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 5,
+      "end": 7.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 5.5,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "origami-ip1",
+      "group": "g-origami",
+      "type": "text",
+      "text": "Katlanan kâğıt yüzeyler,",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#3b2a1e",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 5,
+      "end": 7.3,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 5.75,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "origami-ip2",
+      "group": "g-origami",
+      "type": "text",
+      "text": "menteşe etrafında açılır",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#3b2a1e",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 5,
+      "end": 7.3,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 6,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "origami-h1",
+      "group": "g-origami",
+      "asset": "turna",
+      "style": "origami",
+      "x": 1390,
+      "y": 560,
+      "scale": 2.58,
+      "start": 5,
+      "end": 7.3,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 5.25,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 6.2,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "kagit-kesme-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#f4a261"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 7.3,
+      "end": 9.6,
+      "group": "g-kagit-kesme"
+    },
+    {
+      "id": "kagit-kesme-no",
+      "group": "g-kagit-kesme",
+      "type": "text",
+      "text": "02 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#264653",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 7.3,
+      "end": 9.6,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 7.5,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "kagit-kesme-ad",
+      "group": "g-kagit-kesme",
+      "type": "text",
+      "text": "KAĞIT KESME",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 119,
+      "color": "#3a1f12",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 7.3,
+      "end": 9.6,
+      "textAnims": [
+        {
+          "preset": "harf-katla",
+          "t": 7.55,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "kagit-kesme-cizgi",
+      "group": "g-kagit-kesme",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#264653"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 7.3,
+      "end": 9.6,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 7.8,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "kagit-kesme-ip1",
+      "group": "g-kagit-kesme",
+      "type": "text",
+      "text": "Renk tabakaları üst üste,",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#3a1f12",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 7.3,
+      "end": 9.6,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 8.05,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "kagit-kesme-ip2",
+      "group": "g-kagit-kesme",
+      "type": "text",
+      "text": "derin gölgeyle belirir",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#3a1f12",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 7.3,
+      "end": 9.6,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 8.3,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "kagit-kesme-h1",
+      "group": "g-kagit-kesme",
+      "asset": "gunes",
+      "style": "kagit-kesme",
+      "x": 1530,
+      "y": 350,
+      "scale": 1.5,
+      "start": 7.3,
+      "end": 9.6,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 7.55,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 8.5,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "kagit-kesme-h2",
+      "group": "g-kagit-kesme",
+      "asset": "dag",
+      "style": "kagit-kesme",
+      "x": 1390,
+      "y": 600,
+      "scale": 2.2,
+      "start": 7.3,
+      "end": 9.6,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 7.73,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 8.5,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "kagit-kesme-h3",
+      "group": "g-kagit-kesme",
+      "asset": "cam-agaci",
+      "style": "kagit-kesme",
+      "x": 1160,
+      "y": 700,
+      "scale": 1.5,
+      "start": 7.3,
+      "end": 9.6,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 7.91,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 8.5,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "kagit-kesme-h4",
+      "group": "g-kagit-kesme",
+      "asset": "cam-agaci",
+      "style": "kagit-kesme",
+      "x": 1640,
+      "y": 730,
+      "scale": 1.86,
+      "start": 7.3,
+      "end": 9.6,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 8.09,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 8.5,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "duz-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#ffd166"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 9.6,
+      "end": 11.9,
+      "group": "g-duz"
+    },
+    {
+      "id": "duz-no",
+      "group": "g-duz",
+      "type": "text",
+      "text": "03 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#ef476f",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 9.6,
+      "end": 11.9,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 9.8,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "duz-ad",
+      "group": "g-duz",
+      "type": "text",
+      "text": "DÜZ VEKTÖR",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 131,
+      "color": "#14213d",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 9.6,
+      "end": 11.9,
+      "textAnims": [
+        {
+          "preset": "harf-dus",
+          "t": 9.85,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "duz-cizgi",
+      "group": "g-duz",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#ef476f"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 9.6,
+      "end": 11.9,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 10.1,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "duz-ip1",
+      "group": "g-duz",
+      "type": "text",
+      "text": "Gölgesiz, temiz renkler:",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#14213d",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 9.6,
+      "end": 11.9,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 10.35,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "duz-ip2",
+      "group": "g-duz",
+      "type": "text",
+      "text": "minimal ve infografik",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#14213d",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 9.6,
+      "end": 11.9,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 10.6,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "duz-h1",
+      "group": "g-duz",
+      "asset": "modern-telefon",
+      "style": "duz",
+      "x": 1390,
+      "y": 560,
+      "scale": 2.13,
+      "start": 9.6,
+      "end": 11.9,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 9.85,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 10.8,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "cizim-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#fbf6e9"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 11.9,
+      "end": 14.2,
+      "group": "g-cizim"
+    },
+    {
+      "id": "cizim-no",
+      "group": "g-cizim",
+      "type": "text",
+      "text": "04 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#e63946",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 11.9,
+      "end": 14.2,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 12.1,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "cizim-ad",
+      "group": "g-cizim",
+      "type": "text",
+      "text": "ÇİZİM / BOYA",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 109,
+      "color": "#2d3561",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 11.9,
+      "end": 14.2,
+      "textAnims": [
+        {
+          "preset": "harf-don",
+          "t": 12.15,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "cizim-cizgi",
+      "group": "g-cizim",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#e63946"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 11.9,
+      "end": 14.2,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 12.4,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "cizim-ip1",
+      "group": "g-cizim",
+      "type": "text",
+      "text": "El çizimi mürekkep kontur,",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#2d3561",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 11.9,
+      "end": 14.2,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 12.65,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "cizim-ip2",
+      "group": "g-cizim",
+      "type": "text",
+      "text": "üstüne pastel boya",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#2d3561",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 11.9,
+      "end": 14.2,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 12.9,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "cizim-h1",
+      "group": "g-cizim",
+      "asset": "cezve",
+      "style": "cizim",
+      "x": 1260,
+      "y": 580,
+      "scale": 2,
+      "start": 11.9,
+      "end": 14.2,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 12.15,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 13.1,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "cizim-h2",
+      "group": "g-cizim",
+      "asset": "fincan",
+      "style": "cizim",
+      "x": 1600,
+      "y": 680,
+      "scale": 1.8,
+      "start": 11.9,
+      "end": 14.2,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 12.33,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 13.1,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "neon-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#070812"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 14.2,
+      "end": 16.5,
+      "group": "g-neon"
+    },
+    {
+      "id": "neon-no",
+      "group": "g-neon",
+      "type": "text",
+      "text": "05 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#22d3ee",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 14.2,
+      "end": 16.5,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 14.4,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "neon-ad",
+      "group": "g-neon",
+      "type": "text",
+      "text": "NEON",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 140,
+      "color": "#e8faff",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 14.2,
+      "end": 16.5,
+      "textAnims": [
+        {
+          "preset": "harf-belir",
+          "t": 14.45,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "neon-cizgi",
+      "group": "g-neon",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#22d3ee"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 14.2,
+      "end": 16.5,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 14.7,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "neon-ip1",
+      "group": "g-neon",
+      "type": "text",
+      "text": "Koyu zeminde parlayan",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#e8faff",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 14.2,
+      "end": 16.5,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 14.95,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "neon-ip2",
+      "group": "g-neon",
+      "type": "text",
+      "text": "çizgi iskeleti",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#e8faff",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 14.2,
+      "end": 16.5,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 15.2,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "neon-h1",
+      "group": "g-neon",
+      "asset": "cip",
+      "style": "neon",
+      "x": 1390,
+      "y": 560,
+      "scale": 3,
+      "start": 14.2,
+      "end": 16.5,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 14.45,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 15.4,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "neon-fx",
+      "group": "g-neon",
+      "type": "particles",
+      "particle": "yildiz-tozu",
+      "mode": "surekli",
+      "x": 1390,
+      "y": 560,
+      "start": 14.2,
+      "end": 16.5
+    },
+    {
+      "id": "cam-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#4f7fd6"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 16.5,
+      "end": 18.8,
+      "group": "g-cam"
+    },
+    {
+      "id": "cam-no",
+      "group": "g-cam",
+      "type": "text",
+      "text": "06 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#ffe066",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 16.5,
+      "end": 18.8,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 16.7,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "cam-ad",
+      "group": "g-cam",
+      "type": "text",
+      "text": "CAM",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 140,
+      "color": "#ffffff",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 16.5,
+      "end": 18.8,
+      "textAnims": [
+        {
+          "preset": "harf-zipla",
+          "t": 16.75,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "cam-cizgi",
+      "group": "g-cam",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#ffe066"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 16.5,
+      "end": 18.8,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 17,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "cam-ip1",
+      "group": "g-cam",
+      "type": "text",
+      "text": "Yarı saydam buzlu cam,",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#ffffff",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 16.5,
+      "end": 18.8,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 17.25,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "cam-ip2",
+      "group": "g-cam",
+      "type": "text",
+      "text": "parlak kenar ve yansıma",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#ffffff",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 16.5,
+      "end": 18.8,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 17.5,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "cam-h1",
+      "group": "g-cam",
+      "asset": "dunya",
+      "style": "cam",
+      "x": 1390,
+      "y": 570,
+      "scale": 2.8,
+      "start": 16.5,
+      "end": 18.8,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 16.75,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 17.7,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "cam-fx",
+      "group": "g-cam",
+      "type": "particles",
+      "particle": "kabarcik",
+      "mode": "surekli",
+      "x": 1390,
+      "y": 560,
+      "start": 16.5,
+      "end": 18.8
+    },
+    {
+      "id": "mozaik-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#1f3a4d"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 18.8,
+      "end": 21.1,
+      "group": "g-mozaik"
+    },
+    {
+      "id": "mozaik-no",
+      "group": "g-mozaik",
+      "type": "text",
+      "text": "07 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#ff9f68",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 18.8,
+      "end": 21.1,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 19,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "mozaik-ad",
+      "group": "g-mozaik",
+      "type": "text",
+      "text": "MOZAİK",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 140,
+      "color": "#f4efe6",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 18.8,
+      "end": 21.1,
+      "textAnims": [
+        {
+          "preset": "harf-katla",
+          "t": 19.05,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "mozaik-cizgi",
+      "group": "g-mozaik",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#ff9f68"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 18.8,
+      "end": 21.1,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 19.3,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "mozaik-ip1",
+      "group": "g-mozaik",
+      "type": "text",
+      "text": "Her yüzey biraz farklı ton:",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#f4efe6",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 18.8,
+      "end": 21.1,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 19.55,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "mozaik-ip2",
+      "group": "g-mozaik",
+      "type": "text",
+      "text": "kristal, low-poly",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#f4efe6",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 18.8,
+      "end": 21.1,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 19.8,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "mozaik-h1",
+      "group": "g-mozaik",
+      "asset": "tilki",
+      "style": "mozaik",
+      "x": 1390,
+      "y": 560,
+      "scale": 3.1,
+      "start": 18.8,
+      "end": 21.1,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 19.05,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 20,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "teknik-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#0d2a55"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 21.1,
+      "end": 23.4,
+      "group": "g-teknik"
+    },
+    {
+      "id": "teknik-no",
+      "group": "g-teknik",
+      "type": "text",
+      "text": "08 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#7ec8ff",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 21.1,
+      "end": 23.4,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 21.3,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "teknik-ad",
+      "group": "g-teknik",
+      "type": "text",
+      "text": "TEKNİK ÇİZİM",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 109,
+      "color": "#eaf3ff",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 21.1,
+      "end": 23.4,
+      "textAnims": [
+        {
+          "preset": "harf-dus",
+          "t": 21.35,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "teknik-cizgi",
+      "group": "g-teknik",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#7ec8ff"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 21.1,
+      "end": 23.4,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 21.6,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "teknik-ip1",
+      "group": "g-teknik",
+      "type": "text",
+      "text": "Mavi pafta, beyaz ince çizgi:",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#eaf3ff",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 21.1,
+      "end": 23.4,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 21.85,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "teknik-ip2",
+      "group": "g-teknik",
+      "type": "text",
+      "text": "şema ve mühendislik",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#eaf3ff",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 21.1,
+      "end": 23.4,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 22.1,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "teknik-h1",
+      "group": "g-teknik",
+      "asset": "disli",
+      "style": "teknik",
+      "x": 1390,
+      "y": 560,
+      "scale": 3,
+      "start": 21.1,
+      "end": 23.4,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 21.35,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "don",
+          "t": 22.3,
+          "periyot": 14
+        }
+      ]
+    },
+    {
+      "id": "vitray-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#1a1423"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 23.4,
+      "end": 25.7,
+      "group": "g-vitray"
+    },
+    {
+      "id": "vitray-no",
+      "group": "g-vitray",
+      "type": "text",
+      "text": "09 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#ffb703",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 23.4,
+      "end": 25.7,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 23.6,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "vitray-ad",
+      "group": "g-vitray",
+      "type": "text",
+      "text": "VİTRAY",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 140,
+      "color": "#fbeedd",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 23.4,
+      "end": 25.7,
+      "textAnims": [
+        {
+          "preset": "harf-don",
+          "t": 23.65,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "vitray-cizgi",
+      "group": "g-vitray",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#ffb703"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 23.4,
+      "end": 25.7,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 23.9,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "vitray-ip1",
+      "group": "g-vitray",
+      "type": "text",
+      "text": "Işıklı renkli cam,",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#fbeedd",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 23.4,
+      "end": 25.7,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 24.15,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "vitray-ip2",
+      "group": "g-vitray",
+      "type": "text",
+      "text": "kalın kurşun çerçeve",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#fbeedd",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 23.4,
+      "end": 25.7,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 24.4,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "vitray-h1",
+      "group": "g-vitray",
+      "asset": "kelebek",
+      "style": "vitray",
+      "x": 1390,
+      "y": 560,
+      "scale": 3.2,
+      "start": 23.4,
+      "end": 25.7,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 23.65,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 24.6,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "kil-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#ffb4a2"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 25.7,
+      "end": 28,
+      "group": "g-kil"
+    },
+    {
+      "id": "kil-no",
+      "group": "g-kil",
+      "type": "text",
+      "text": "10 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#6d597a",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 25.7,
+      "end": 28,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 25.9,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "kil-ad",
+      "group": "g-kil",
+      "type": "text",
+      "text": "KİL",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 140,
+      "color": "#4a2c2a",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 25.7,
+      "end": 28,
+      "textAnims": [
+        {
+          "preset": "harf-belir",
+          "t": 25.95,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "kil-cizgi",
+      "group": "g-kil",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#6d597a"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 25.7,
+      "end": 28,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 26.2,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "kil-ip1",
+      "group": "g-kil",
+      "type": "text",
+      "text": "Yumuşak, şişkin hacim,",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#4a2c2a",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 25.7,
+      "end": 28,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 26.45,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "kil-ip2",
+      "group": "g-kil",
+      "type": "text",
+      "text": "plastilin hissi",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#4a2c2a",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 25.7,
+      "end": 28,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 26.7,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "kil-h1",
+      "group": "g-kil",
+      "asset": "balina",
+      "style": "kil",
+      "x": 1390,
+      "y": 560,
+      "scale": 2.54,
+      "start": 25.7,
+      "end": 28,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 25.95,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 26.9,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "siluet-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#ff9f43"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 28,
+      "end": 30.3,
+      "group": "g-siluet"
+    },
+    {
+      "id": "siluet-no",
+      "group": "g-siluet",
+      "type": "text",
+      "text": "11 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#fff3c4",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 28,
+      "end": 30.3,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 28.2,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "siluet-ad",
+      "group": "g-siluet",
+      "type": "text",
+      "text": "GÖLGE OYUNU",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 119,
+      "color": "#2a1206",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 28,
+      "end": 30.3,
+      "textAnims": [
+        {
+          "preset": "harf-zipla",
+          "t": 28.25,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "siluet-cizgi",
+      "group": "g-siluet",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#fff3c4"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 28,
+      "end": 30.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 28.5,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "siluet-ip1",
+      "group": "g-siluet",
+      "type": "text",
+      "text": "Tek renk siluet,",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#2a1206",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 28,
+      "end": 30.3,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 28.75,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "siluet-ip2",
+      "group": "g-siluet",
+      "type": "text",
+      "text": "ışığın önünde hale",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#2a1206",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 28,
+      "end": 30.3,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 29,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "siluet-h1",
+      "group": "g-siluet",
+      "asset": "gunes",
+      "style": "duz",
+      "palette": {
+        "a": "#fff3c4",
+        "b": "#ffe08a"
+      },
+      "x": 1510,
+      "y": 390,
+      "scale": 1.88,
+      "start": 28,
+      "end": 30.3,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 28.25,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 29.2,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "siluet-h2",
+      "group": "g-siluet",
+      "asset": "dag",
+      "style": "siluet",
+      "x": 1390,
+      "y": 670,
+      "scale": 2.4,
+      "start": 28,
+      "end": 30.3,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 28.43,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 29.2,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "siluet-h3",
+      "group": "g-siluet",
+      "asset": "marti",
+      "style": "siluet",
+      "x": 1220,
+      "y": 390,
+      "scale": 0.85,
+      "start": 28,
+      "end": 30.3,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 28.61,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 29.2,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "gazete-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#d8d0bb"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 30.3,
+      "end": 32.6,
+      "group": "g-gazete"
+    },
+    {
+      "id": "gazete-no",
+      "group": "g-gazete",
+      "type": "text",
+      "text": "12 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#9b2226",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 30.3,
+      "end": 32.6,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 30.5,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "gazete-ad",
+      "group": "g-gazete",
+      "type": "text",
+      "text": "GAZETE BASKISI",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 93,
+      "color": "#1c1a17",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 30.3,
+      "end": 32.6,
+      "textAnims": [
+        {
+          "preset": "harf-katla",
+          "t": 30.55,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "gazete-cizgi",
+      "group": "g-gazete",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#9b2226"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 30.3,
+      "end": 32.6,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 30.8,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "gazete-ip1",
+      "group": "g-gazete",
+      "type": "text",
+      "text": "Tek renk mürekkep tonları,",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#1c1a17",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 30.3,
+      "end": 32.6,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 31.05,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "gazete-ip2",
+      "group": "g-gazete",
+      "type": "text",
+      "text": "eski baskı kayması",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#1c1a17",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 30.3,
+      "end": 32.6,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 31.3,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "gazete-h1",
+      "group": "g-gazete",
+      "asset": "eniac",
+      "style": "gazete",
+      "x": 1540,
+      "y": 580,
+      "scale": 1.3,
+      "start": 30.3,
+      "end": 32.6,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 30.55,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 31.5,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "halftone-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#ff8fab"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 32.6,
+      "end": 34.9,
+      "group": "g-halftone"
+    },
+    {
+      "id": "halftone-no",
+      "group": "g-halftone",
+      "type": "text",
+      "text": "13 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#3a0ca3",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 32.6,
+      "end": 34.9,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 32.8,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "halftone-ad",
+      "group": "g-halftone",
+      "type": "text",
+      "text": "HALFTONE",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 140,
+      "color": "#111111",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 32.6,
+      "end": 34.9,
+      "textAnims": [
+        {
+          "preset": "harf-dus",
+          "t": 32.85,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "halftone-cizgi",
+      "group": "g-halftone",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#3a0ca3"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 32.6,
+      "end": 34.9,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 33.1,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "halftone-ip1",
+      "group": "g-halftone",
+      "type": "text",
+      "text": "Nokta rasterli",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#111111",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 32.6,
+      "end": 34.9,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 33.35,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "halftone-ip2",
+      "group": "g-halftone",
+      "type": "text",
+      "text": "pop-art baskı",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#111111",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 32.6,
+      "end": 34.9,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 33.6,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "halftone-h1",
+      "group": "g-halftone",
+      "asset": "yildiz",
+      "style": "halftone",
+      "x": 1390,
+      "y": 550,
+      "scale": 3.5,
+      "start": 32.6,
+      "end": 34.9,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 32.85,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 33.8,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "halftone-h2",
+      "group": "g-halftone",
+      "asset": "kalp",
+      "style": "halftone",
+      "x": 1620,
+      "y": 750,
+      "scale": 1.44,
+      "start": 32.6,
+      "end": 34.9,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 33.03,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 33.8,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "suluboya-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#fdf3e7"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 34.9,
+      "end": 37.2,
+      "group": "g-suluboya"
+    },
+    {
+      "id": "suluboya-no",
+      "group": "g-suluboya",
+      "type": "text",
+      "text": "14 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#f28482",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 34.9,
+      "end": 37.2,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 35.1,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "suluboya-ad",
+      "group": "g-suluboya",
+      "type": "text",
+      "text": "SULUBOYA",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 140,
+      "color": "#6d597a",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 34.9,
+      "end": 37.2,
+      "textAnims": [
+        {
+          "preset": "harf-don",
+          "t": 35.15,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "suluboya-cizgi",
+      "group": "g-suluboya",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#f28482"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 34.9,
+      "end": 37.2,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 35.4,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "suluboya-ip1",
+      "group": "g-suluboya",
+      "type": "text",
+      "text": "Üst üste şeffaf boya,",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#6d597a",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 34.9,
+      "end": 37.2,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 35.65,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "suluboya-ip2",
+      "group": "g-suluboya",
+      "type": "text",
+      "text": "oynak, yumuşak kenarlar",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#6d597a",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 34.9,
+      "end": 37.2,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 35.9,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "suluboya-h1",
+      "group": "g-suluboya",
+      "asset": "lale",
+      "style": "suluboya",
+      "x": 1180,
+      "y": 580,
+      "scale": 1.91,
+      "start": 34.9,
+      "end": 37.2,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 35.15,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 36.1,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "suluboya-h2",
+      "group": "g-suluboya",
+      "asset": "lale",
+      "style": "suluboya",
+      "variant": "mor",
+      "x": 1390,
+      "y": 550,
+      "scale": 2.27,
+      "start": 34.9,
+      "end": 37.2,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 35.33,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 36.1,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "suluboya-h3",
+      "group": "g-suluboya",
+      "asset": "lale",
+      "style": "suluboya",
+      "variant": "sari",
+      "x": 1610,
+      "y": 590,
+      "scale": 1.82,
+      "start": 34.9,
+      "end": 37.2,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 35.51,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 36.1,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "nakis-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#3c5a6a"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 37.2,
+      "end": 39.5,
+      "group": "g-nakis"
+    },
+    {
+      "id": "nakis-no",
+      "group": "g-nakis",
+      "type": "text",
+      "text": "15 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#f4a261",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 37.2,
+      "end": 39.5,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 37.4,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "nakis-ad",
+      "group": "g-nakis",
+      "type": "text",
+      "text": "NAKIŞ",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 140,
+      "color": "#f5ebdc",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 37.2,
+      "end": 39.5,
+      "textAnims": [
+        {
+          "preset": "harf-belir",
+          "t": 37.45,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "nakis-cizgi",
+      "group": "g-nakis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#f4a261"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 37.2,
+      "end": 39.5,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 37.7,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "nakis-ip1",
+      "group": "g-nakis",
+      "type": "text",
+      "text": "Kumaş yüzey,",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#f5ebdc",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 37.2,
+      "end": 39.5,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 37.95,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "nakis-ip2",
+      "group": "g-nakis",
+      "type": "text",
+      "text": "dikiş çizgili kenar",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#f5ebdc",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 37.2,
+      "end": 39.5,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 38.2,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "nakis-h1",
+      "group": "g-nakis",
+      "asset": "ev",
+      "style": "nakis",
+      "x": 1330,
+      "y": 630,
+      "scale": 2.61,
+      "start": 37.2,
+      "end": 39.5,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 37.45,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 38.4,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "nakis-h2",
+      "group": "g-nakis",
+      "asset": "cam-agaci",
+      "style": "nakis",
+      "x": 1640,
+      "y": 680,
+      "scale": 2.36,
+      "start": 37.2,
+      "end": 39.5,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 37.63,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 38.4,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "piksel-bg",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#14213d"
+      },
+      "x": 960,
+      "y": 540,
+      "scaleX": 19.4,
+      "scaleY": 10.9,
+      "start": 39.5,
+      "end": 41.8,
+      "group": "g-piksel"
+    },
+    {
+      "id": "piksel-no",
+      "group": "g-piksel",
+      "type": "text",
+      "text": "16 / 16",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 44,
+      "color": "#fca311",
+      "align": "left",
+      "x": 120,
+      "y": 330,
+      "start": 39.5,
+      "end": 41.8,
+      "letterSpacing": 4,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 39.7,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "piksel-ad",
+      "group": "g-piksel",
+      "type": "text",
+      "text": "PİKSEL",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 140,
+      "color": "#f1f1f1",
+      "align": "left",
+      "x": 120,
+      "y": 450,
+      "start": 39.5,
+      "end": 41.8,
+      "textAnims": [
+        {
+          "preset": "harf-zipla",
+          "t": 39.75,
+          "dur": 0.5,
+          "aralik": 0.045
+        }
+      ]
+    },
+    {
+      "id": "piksel-cizgi",
+      "group": "g-piksel",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#fca311"
+      },
+      "x": 120,
+      "y": 550,
+      "anchor": [
+        0,
+        0.5
+      ],
+      "scaleX": 2.4,
+      "scaleY": 0.07,
+      "start": 39.5,
+      "end": 41.8,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 40,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "piksel-ip1",
+      "group": "g-piksel",
+      "type": "text",
+      "text": "Düşük çözünürlük,",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#f1f1f1",
+      "align": "left",
+      "x": 120,
+      "y": 640,
+      "start": 39.5,
+      "end": 41.8,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 40.25,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "piksel-ip2",
+      "group": "g-piksel",
+      "type": "text",
+      "text": "keskin 8-bit görünüm",
+      "font": "Figtree",
+      "weight": 600,
+      "size": 50,
+      "color": "#f1f1f1",
+      "align": "left",
+      "x": 120,
+      "y": 710,
+      "start": 39.5,
+      "end": 41.8,
+      "opacity": 0.88,
+      "textAnims": [
+        {
+          "preset": "satir-kay",
+          "t": 40.5,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "piksel-h1",
+      "group": "g-piksel",
+      "asset": "kisisel-bilgisayar",
+      "style": "piksel",
+      "variant": "kehribar",
+      "x": 1390,
+      "y": 560,
+      "scale": 2.38,
+      "start": 39.5,
+      "end": 41.8,
+      "anims": [
+        {
+          "preset": "katlanarak-gir",
+          "t": 39.75,
+          "dur": 1,
+          "sira": "radial"
+        },
+        {
+          "preset": "suzul",
+          "t": 40.7,
+          "genlik": 8,
+          "periyot": 3
+        }
+      ]
+    },
+    {
+      "id": "kap-baslik",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "Hangisini seçersin?",
+      "font": "Archivo Black",
+      "weight": 400,
+      "size": 84,
+      "color": "#f4efe6",
+      "x": 960,
+      "y": 110,
+      "start": 41.8,
+      "end": 47.3,
+      "textAnims": [
+        {
+          "preset": "harf-zipla",
+          "t": 42.099999999999994,
+          "dur": 0.45,
+          "aralik": 0.035
+        }
+      ]
+    },
+    {
+      "id": "kap-origami-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#f1e3cc"
+      },
+      "x": 420,
+      "y": 300,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.5,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-origami-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "origami",
+      "x": 420,
+      "y": 286,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.5,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 43.1,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-origami-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "ORİGAMİ",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#3b2a1e",
+      "x": 420,
+      "y": 370,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.5,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-kagit-kesme-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#f4a261"
+      },
+      "x": 780,
+      "y": 300,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.62,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-kagit-kesme-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "kagit-kesme",
+      "x": 780,
+      "y": 286,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.62,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 43.22,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-kagit-kesme-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "KAĞIT KESME",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#3a1f12",
+      "x": 780,
+      "y": 370,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.62,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-duz-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#ffd166"
+      },
+      "x": 1140,
+      "y": 300,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.74,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-duz-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "duz",
+      "x": 1140,
+      "y": 286,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.74,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 43.34,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-duz-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "DÜZ VEKTÖR",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#14213d",
+      "x": 1140,
+      "y": 370,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.74,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-cizim-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#fbf6e9"
+      },
+      "x": 1500,
+      "y": 300,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.86,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-cizim-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "cizim",
+      "x": 1500,
+      "y": 286,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.86,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 43.46,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-cizim-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "ÇİZİM / BOYA",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#2d3561",
+      "x": 1500,
+      "y": 370,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.86,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-neon-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#070812"
+      },
+      "x": 420,
+      "y": 500,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.98,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-neon-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "neon",
+      "x": 420,
+      "y": 486,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.98,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 43.58,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-neon-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "NEON",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#e8faff",
+      "x": 420,
+      "y": 570,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 42.98,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-cam-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#4f7fd6"
+      },
+      "x": 780,
+      "y": 500,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.1,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-cam-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "cam",
+      "x": 780,
+      "y": 486,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.1,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 43.7,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-cam-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "CAM",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#ffffff",
+      "x": 780,
+      "y": 570,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.1,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-mozaik-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#1f3a4d"
+      },
+      "x": 1140,
+      "y": 500,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.22,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-mozaik-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "mozaik",
+      "x": 1140,
+      "y": 486,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.22,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 43.82,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-mozaik-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "MOZAİK",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#f4efe6",
+      "x": 1140,
+      "y": 570,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.22,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-teknik-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#0d2a55"
+      },
+      "x": 1500,
+      "y": 500,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.34,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-teknik-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "teknik",
+      "x": 1500,
+      "y": 486,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.34,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 43.94,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-teknik-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "TEKNİK ÇİZİM",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#eaf3ff",
+      "x": 1500,
+      "y": 570,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.34,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-vitray-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#1a1423"
+      },
+      "x": 420,
+      "y": 700,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.46,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-vitray-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "vitray",
+      "x": 420,
+      "y": 686,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.46,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 44.06,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-vitray-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "VİTRAY",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#fbeedd",
+      "x": 420,
+      "y": 770,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.46,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-kil-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#ffb4a2"
+      },
+      "x": 780,
+      "y": 700,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.58,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-kil-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "kil",
+      "x": 780,
+      "y": 686,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.58,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 44.18,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-kil-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "KİL",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#4a2c2a",
+      "x": 780,
+      "y": 770,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.58,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-siluet-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#ff9f43"
+      },
+      "x": 1140,
+      "y": 700,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.7,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-siluet-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "siluet",
+      "x": 1140,
+      "y": 686,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.7,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 44.3,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-siluet-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "GÖLGE OYUNU",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#2a1206",
+      "x": 1140,
+      "y": 770,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.7,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-gazete-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#d8d0bb"
+      },
+      "x": 1500,
+      "y": 700,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.82,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-gazete-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "gazete",
+      "x": 1500,
+      "y": 686,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.82,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 44.42,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-gazete-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "GAZETE BASKISI",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#1c1a17",
+      "x": 1500,
+      "y": 770,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.82,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-halftone-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#ff8fab"
+      },
+      "x": 420,
+      "y": 900,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.94,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-halftone-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "halftone",
+      "x": 420,
+      "y": 886,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.94,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 44.54,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-halftone-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "HALFTONE",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#111111",
+      "x": 420,
+      "y": 970,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 43.94,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-suluboya-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#fdf3e7"
+      },
+      "x": 780,
+      "y": 900,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 44.06,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-suluboya-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "suluboya",
+      "x": 780,
+      "y": 886,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 44.06,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 44.66,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-suluboya-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "SULUBOYA",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#6d597a",
+      "x": 780,
+      "y": 970,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 44.06,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-nakis-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#3c5a6a"
+      },
+      "x": 1140,
+      "y": 900,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 44.18,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-nakis-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "nakis",
+      "x": 1140,
+      "y": 886,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 44.18,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 44.78,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-nakis-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "NAKIŞ",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#f5ebdc",
+      "x": 1140,
+      "y": 970,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 44.18,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    },
+    {
+      "id": "kap-piksel-kart",
+      "group": "g-kapanis",
+      "asset": "tabaka",
+      "style": "duz",
+      "palette": {
+        "a": "#14213d"
+      },
+      "x": 1500,
+      "y": 900,
+      "scaleX": 3.3,
+      "scaleY": 1.8,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 44.3,
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kap-piksel-kelebek",
+      "group": "g-kapanis",
+      "asset": "kelebek",
+      "style": "piksel",
+      "x": 1500,
+      "y": 886,
+      "scale": 0.75,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 44.3,
+          "dur": 0.6
+        },
+        {
+          "preset": "suzul",
+          "t": 44.9,
+          "genlik": 5,
+          "periyot": 2.4
+        }
+      ]
+    },
+    {
+      "id": "kap-piksel-ad",
+      "group": "g-kapanis",
+      "type": "text",
+      "text": "PİKSEL",
+      "font": "Figtree",
+      "weight": 800,
+      "size": 28,
+      "color": "#f1f1f1",
+      "x": 1500,
+      "y": 970,
+      "start": 41.8,
+      "end": 47.3,
+      "anims": [
+        {
+          "preset": "zipla-gir",
+          "t": 44.3,
+          "dur": 0.6
+        }
+      ],
+      "letterSpacing": 2
+    }
+  ]
+}

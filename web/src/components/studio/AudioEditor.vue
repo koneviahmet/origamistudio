@@ -4,6 +4,7 @@ import { ref } from 'vue';
 import { api } from '../../api.js';
 import { forgetAudio, loadAudio } from '../../audio.js';
 import { detectBeats } from '../../beats.js';
+import { analyzeEnvelope, monoOf } from '../../engine/envelope.js';
 import { sfxEvents } from '../../sfx.js';
 import { computed } from 'vue';
 import { toast, toastError } from '../../toast.js';
@@ -32,6 +33,22 @@ async function detect(tr, i) {
     toastError(e);
   } finally {
     detecting.value = -1;
+  }
+}
+const analyzing = ref(-1);
+/** Ses zarfı: 8 frekans bandı, 30 kare/sn — ritme/sese bağlı animasyonlar ve dalga formu için */
+async function makeEnvelope(tr, i) {
+  analyzing.value = i;
+  try {
+    const b = await loadAudio(tr.file);
+    await new Promise((r) => setTimeout(r, 20)); // arayüz güncellensin
+    const env = analyzeEnvelope(monoOf(b), b.sampleRate, { fps: 30 });
+    props.edit(() => (tr.env = env));
+    toast(`Ses zarfı çıkarıldı (${env.data.length / env.bands} kare)`, 'ok');
+  } catch (e) {
+    toastError(e);
+  } finally {
+    analyzing.value = -1;
   }
 }
 function scaleBpm(tr, k) {
@@ -119,6 +136,12 @@ const mb = (n) => (n / 1048576).toFixed(1);
         <button class="btn sm" :disabled="!tr.bpm" title="Tempoyu yarıya indir" @click="scaleBpm(tr, 0.5)">÷2</button>
         <button class="btn sm" :disabled="!tr.bpm" title="Tempoyu ikiye katla" @click="scaleBpm(tr, 2)">×2</button>
         <button class="btn sm" :disabled="detecting === i" @click="detect(tr, i)">{{ detecting === i ? '…' : 'Algıla' }}</button>
+      </div>
+      <div class="row beat">
+        <span class="dim small">〰 Zarf</span>
+        <button class="btn sm" :disabled="analyzing === i" title="Frekans seviyelerini çıkar (sesle büyü, dalga formu)" @click="makeEnvelope(tr, i)">{{ analyzing === i ? '…' : tr.env ? 'Yeniden çıkar' : 'Zarf çıkar' }}</button>
+        <span class="dim small">{{ tr.env ? 'hazır ✓' : 'yok' }}</span>
+        <button v-if="tr.env" class="btn icon sm ghost" title="Zarfı sil" @click="set(tr, 'env', null)">✕</button>
       </div>
     </div>
 

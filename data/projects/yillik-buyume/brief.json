@@ -1,0 +1,74 @@
+{
+  "sablon": "veri",
+  "ad": "Yıllık Büyüme",
+  "format": "reels",
+  "tema": "kurumsal-mavi",
+  "vurgu": "#ff7b00",
+  "altBaslik": "2021 – 2024",
+  "bolumler": [
+    {
+      "baslik": "Kullanıcı sayısı",
+      "grafik": {
+        "kind": "bar",
+        "unit": "B",
+        "title": "Bin kullanıcı",
+        "data": [
+          {
+            "label": "2021",
+            "value": 12
+          },
+          {
+            "label": "2022",
+            "value": 31
+          },
+          {
+            "label": "2023",
+            "value": 58
+          },
+          {
+            "label": "2024",
+            "value": 96
+          }
+        ]
+      },
+      "not": "Dört yılda sekiz kat büyüdük."
+    },
+    {
+      "baslik": "Gelir dağılımı",
+      "grafik": {
+        "kind": "donut",
+        "data": [
+          {
+            "label": "Abonelik",
+            "value": 55
+          },
+          {
+            "label": "Reklam",
+            "value": 30
+          },
+          {
+            "label": "Diğer",
+            "value": 15
+          }
+        ]
+      },
+      "not": "Gelirin yarısından fazlası abonelikten."
+    },
+    {
+      "baslik": "Memnuniyet",
+      "grafik": {
+        "kind": "sayac",
+        "unit": "%",
+        "data": [
+          {
+            "label": "Memnun kullanıcı",
+            "value": 94
+          }
+        ],
+        "max": 100
+      },
+      "not": "Her 100 kullanıcıdan 94 tanesi tavsiye ediyor."
+    }
+  ],
+  "sonuc": "Büyümeye devam!"
+}

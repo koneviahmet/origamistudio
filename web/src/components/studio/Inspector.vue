@@ -4,6 +4,7 @@ import PropRow from './PropRow.vue';
 import AnimsEditor from './AnimsEditor.vue';
 import ParticlesEditor from './ParticlesEditor.vue';
 import ArrowEditor from './ArrowEditor.vue';
+import WidgetEditor from './WidgetEditor.vue';
 import AudioEditor from './AudioEditor.vue';
 import TransitionsEditor from './TransitionsEditor.vue';
 import FormatsEditor from './FormatsEditor.vue';
@@ -183,6 +184,8 @@ watch(isCamera, (on) => {
         <PropRow v-if="scene.camera" :obj="scene.camera" name="x" label="merkez x" :t="t" :eps="eps" :edit="edit" />
         <PropRow v-if="scene.camera" :obj="scene.camera" name="y" label="merkez y" :t="t" :eps="eps" :edit="edit" />
         <PropRow v-if="scene.camera" :obj="scene.camera" name="rotation" label="açı" :t="t" :eps="eps" :edit="edit" />
+        <PropRow v-if="scene.camera" :obj="scene.camera" name="focus" label="odak derinliği" :t="t" :eps="eps" :step="0.1" :edit="edit" />
+        <PropRow v-if="scene.camera" :obj="scene.camera" name="dof" label="alan derinliği (bulanık px)" :t="t" :eps="eps" :step="1" :min="0" :edit="edit" />
         <button v-if="!scene.camera" class="btn sm" @click="ensureCamera">Kamerayı etkinleştir</button>
       </div>
       <div class="dim small">İpucu: ◇ ile keyframe ekleyip değer değiştirerek yakınlaşma/kaydırma yapın.</div>
@@ -202,7 +205,7 @@ watch(isCamera, (on) => {
     <template v-else-if="layer">
       <div class="row">
         <input class="input mono grow" :value="layer.id" title="Katman id" @change="rename" />
-        <span class="chip">{{ layer.type === 'text' ? 'metin' : layer.type === 'particles' ? 'parçacık' : layer.type === 'arrow' ? 'ok' : 'origami' }}</span>
+        <span class="chip">{{ layer.type === 'text' ? 'metin' : layer.type === 'particles' ? 'parçacık' : layer.type === 'arrow' ? 'ok' : ({ chart: 'grafik', device: 'cihaz', media: 'medya', waveform: 'dalga' })[layer.type] || 'origami' }}</span>
       </div>
       <div class="row actions">
         <button class="btn sm" title="Bir üst katmana (öne)" @click="move(1)">↑</button>
@@ -234,6 +237,11 @@ watch(isCamera, (on) => {
       <div v-if="layer.type === 'particles'" class="sec">
         <div class="sec-title">Parçacıklar</div>
         <ParticlesEditor :layer="layer" :scene="scene" :res="res" :edit="edit" />
+      </div>
+
+      <div v-if="['chart', 'device', 'media', 'waveform'].includes(layer.type)" class="sec">
+        <div class="sec-title">{{ { chart: 'Grafik', device: 'Cihaz çerçevesi', media: 'Resim / video', waveform: 'Ses dalgası' }[layer.type] }}</div>
+        <WidgetEditor :layer="layer" :scene="scene" :res="res" :edit="edit" />
       </div>
 
       <div v-if="layer.type === 'arrow'" class="sec">
@@ -317,6 +325,8 @@ watch(isCamera, (on) => {
             <PropRow :obj="layer" name="rotation" label="açı°" :t="t" :eps="eps" :edit="edit" />
           </template>
           <PropRow :obj="layer" name="opacity" label="opaklık" :t="t" :eps="eps" :step="0.05" :min="0" :max="1" :edit="edit" />
+          <PropRow :obj="layer" name="depth" label="derinlik" :t="t" :eps="eps" :step="0.1" :edit="edit" />
+          <PropRow :obj="layer" name="blur" label="bulanık px" :t="t" :eps="eps" :step="1" :min="0" :edit="edit" />
           <PropRow v-if="!layer.type" :obj="layer" name="fold" label="katlanma" :t="t" :eps="eps" :step="0.05" :min="0" :max="1" :edit="edit" />
         </div>
       </div>

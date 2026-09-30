@@ -10,8 +10,9 @@ import { toast, toastError } from '../toast.js';
 import { renderFrame, formatMapping } from '../engine/renderer.js';
 import { samplePath, pathAt, nearestOnPath } from '../engine/path.js';
 import { prop as sampleProp } from '../engine/anim.js';
-import { newAssetLayer, newTextLayer, newParticleLayer, newArrowLayer, setPropAt, valueAt, clone } from '../sceneOps.js';
+import { newAssetLayer, newTextLayer, newParticleLayer, newArrowLayer, newWidgetLayer, setPropAt, valueAt, clone } from '../sceneOps.js';
 import { exportPng, downloadBlob } from '../export/mp4.js';
+import { prepareMedia } from '../media.js';
 import { slug } from '../slug.js';
 import Timeline from '../components/studio/Timeline.vue';
 import Inspector from '../components/studio/Inspector.vue';
@@ -254,6 +255,7 @@ function render() {
   }
   const ctx = c.getContext('2d');
   ctx.setTransform(k * dpr, 0, 0, k * dpr, 0, 0);
+  prepareMedia(toRaw(s), time.value, res.value, { onUpdate: requestRender });
   frameInfo = renderFrame(ctx, toRaw(s), time.value, res.value, { format: formatObj.value ? toRaw(formatObj.value) : null, only: onlySet.value });
   drawOverlay();
 }
@@ -891,6 +893,14 @@ function addText() {
   selectedId.value = layer.id;
   rightTab.value = 'inspector';
 }
+const showWidgetMenu = ref(false);
+function addWidget(type) {
+  const layer = newWidgetLayer(scene.value, type, time.value);
+  edit(() => scene.value.layers.push(layer));
+  selectedId.value = layer.id;
+  rightTab.value = 'inspector';
+  showWidgetMenu.value = false;
+}
 function addParticles() {
   // Parçacık efektleri kütüphanededir: seçiciyi "efektler" kategorisiyle aç
   pickerCat.value = 'efektler';
@@ -913,6 +923,20 @@ function deleteSelectedLayer() {
 }
 
 // ----------------------------------------------------------------- notlar
+const applying = ref(false);
+/** Açık notları sunucudan Claude API ile uygula (ANTHROPIC_API_KEY gerekir) */
+async function applyNotesApi() {
+  if (dirty.value) return toast('Önce kaydet (Ctrl+S): uygulama sahneyi diskten yeniler', 'info');
+  applying.value = true;
+  try {
+    const r = await api.applyNotes(props.id);
+    toast(`${r.applied.length}/${r.open} not uygulandı`, 'ok');
+  } catch (e) {
+    toastError(e);
+  } finally {
+    applying.value = false;
+  }
+}
 async function addNote(n) {
   try {
     const created = await api.addNote(props.id, n);
@@ -1100,6 +1124,15 @@ const fmt = (t) => {
       <button class="btn" @click="addText">＋ Metin</button>
       <button class="btn" title="Konfeti, kar, yağmur, kabarcık…" @click="addParticles">＋ Parçacık</button>
       <button class="btn" title="Nesneden nesneye geçiş oku (seçili katmandan en yakın nesneye)" @click="addArrow">＋ Ok</button>
+      <span class="wmenu">
+        <button class="btn" title="Grafik, cihaz çerçevesi, resim / video, ses dalgası" @click="showWidgetMenu = !showWidgetMenu">＋ Bileşen ▾</button>
+        <span v-if="showWidgetMenu" class="wpop" @mouseleave="showWidgetMenu = false">
+          <button class="btn sm" @click="addWidget('chart')">📊 Grafik / sayaç</button>
+          <button class="btn sm" @click="addWidget('device')">📱 Cihaz çerçevesi</button>
+          <button class="btn sm" @click="addWidget('media')">🖼 Resim / video</button>
+          <button class="btn sm" @click="addWidget('waveform')">🎚 Ses dalgası</button>
+        </span>
+      </span>
       <button class="btn" :disabled="!dirty" @click="save">Kaydet</button>
       <button class="btn primary" @click="showExport = true">⬇ Dışa aktar</button>
     </header>
@@ -1195,7 +1228,9 @@ const fmt = (t) => {
           :selected-note-id="selectedNoteId"
           :pin-mode="pinMode"
           :pending-pos="pendingPos"
+          :applying="applying"
           @add="addNote"
+          @apply="applyNotesApi"
           @update="updateNote"
           @delete="deleteNote"
           @go="goNote"
@@ -1242,6 +1277,10 @@ const fmt = (t) => {
 </template>
 
 <style scoped>
+.wmenu { position: relative; display: inline-block; }
+.wpop { position: absolute; top: 100%; left: 0; z-index: 30; display: grid; gap: 4px; padding: 6px; min-width: 170px;
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+.wpop .btn { text-align: left; }
 .studio {
   display: grid; height: 100%;
   grid-template-columns: minmax(0, 1fr) 360px;

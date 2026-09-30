@@ -227,6 +227,66 @@ export const PRESETS = {
     },
   },
 
+  // ------------------------------------------------------- ses / ritme bağlı
+  // Sahnedeki ses izinin bpm / beatOffset (vuruş) ve env (frekans zarfı) verisinden beslenir; deterministiktir.
+  'ritimle-nabiz': {
+    name: 'Ritimle nabız', cat: 'surekli',
+    params: [
+      { key: 'genlik', label: 'Büyüme', type: 'number', def: 0.14, step: 0.01 },
+      { key: 'keskinlik', label: 'Sönüm hızı', type: 'number', def: 5, step: 0.5 },
+    ],
+    fn: (p, _s, env, k) => ({ scale: 1 + env.audio.beat(env.t, p.keskinlik).pulse * p.genlik * k }),
+  },
+  'ritimle-zipla': {
+    name: 'Ritimle zıpla', cat: 'surekli',
+    params: [
+      { key: 'yukseklik', label: 'Yükseklik (px)', type: 'number', def: 40, step: 5 },
+      { key: 'keskinlik', label: 'Sönüm hızı', type: 'number', def: 4, step: 0.5 },
+    ],
+    fn: (p, _s, env, k) => {
+      const b = env.audio.beat(env.t, p.keskinlik);
+      return { y: -b.pulse * p.yukseklik * k, scaleY: 1 + b.pulse * 0.06 * k, scaleX: 1 - b.pulse * 0.04 * k };
+    },
+  },
+  'ritimle-sallan': {
+    name: 'Ritimle sallan', cat: 'surekli',
+    params: [
+      { key: 'aci', label: 'Açı (°)', type: 'number', def: 7, step: 1 },
+      { key: 'keskinlik', label: 'Sönüm hızı', type: 'number', def: 3, step: 0.5 },
+    ],
+    fn: (p, _s, env, k) => {
+      const b = env.audio.beat(env.t, p.keskinlik);
+      return { rotation: (b.index % 2 ? 1 : -1) * b.pulse * p.aci * k };
+    },
+  },
+  'sesle-buyu': {
+    name: 'Sesle büyü', cat: 'surekli',
+    params: [
+      { key: 'genlik', label: 'Büyüme', type: 'number', def: 0.25, step: 0.02 },
+      { key: 'bant', label: 'Bant', type: 'select', options: [['hepsi', 'Hepsi'], ['bas', 'Bas'], ['orta', 'Orta'], ['tiz', 'Tiz']], def: 'bas' },
+    ],
+    fn: (p, _s, env, k) => ({ scale: 1 + env.audio.energy(env.t, p.bant) * p.genlik * k }),
+  },
+  'sesle-parla': {
+    name: 'Sesle parla (opaklık)', cat: 'surekli',
+    params: [
+      { key: 'alt', label: 'En sönük', type: 'number', def: 0.35, step: 0.05 },
+      { key: 'bant', label: 'Bant', type: 'select', options: [['hepsi', 'Hepsi'], ['bas', 'Bas'], ['orta', 'Orta'], ['tiz', 'Tiz']], def: 'hepsi' },
+    ],
+    fn: (p, _s, env, k) => ({ opacity: 1 - (1 - p.alt) * (1 - env.audio.energy(env.t, p.bant)) * k }),
+  },
+  'sesle-titre': {
+    name: 'Sesle titre', cat: 'surekli',
+    params: [
+      { key: 'genlik', label: 'Şiddet (px)', type: 'number', def: 12, step: 1 },
+      { key: 'bant', label: 'Bant', type: 'select', options: [['hepsi', 'Hepsi'], ['bas', 'Bas'], ['orta', 'Orta'], ['tiz', 'Tiz']], def: 'bas' },
+    ],
+    fn: (p, s, env, k) => {
+      const e = env.audio.energy(env.t, p.bant) * p.genlik * k;
+      return { x: noise(s * 45) * e, y: noise(s * 39 + 5) * e };
+    },
+  },
+
   // ---------------------------------------------------------------- hareket
   gec: {
     name: 'Ekranı geç', cat: 'hareket', dur: 6,
@@ -266,7 +326,7 @@ export function applyAnims(layer, st, t, env) {
   const anims = layer.anims;
   if (!anims || !anims.length) return st;
   const base = { ...st };
-  const e = { ...env, st: base };
+  const e = { ...env, st: base, t };
   for (const a of anims) {
     const P = PRESETS[a.preset];
     if (!P || a.off) continue;

@@ -8,8 +8,9 @@ const props = defineProps({
   selectedNoteId: { type: String, default: null },
   pinMode: { type: Boolean, default: false },
   pendingPos: { type: Array, default: null },
+  applying: { type: Boolean, default: false },
 });
-const emit = defineEmits(['add', 'update', 'delete', 'go', 'toggle-pin-mode', 'clear-pos']);
+const emit = defineEmits(['apply', 'add', 'update', 'delete', 'go', 'toggle-pin-mode', 'clear-pos']);
 
 const text = ref('');
 const attachLayer = ref(true);
@@ -75,6 +76,11 @@ const fmt = (t) => {
         <button v-if="pendingPos" type="button" class="btn icon sm ghost" @click="emit('clear-pos')">✕</button>
         <div class="grow" />
         <button type="submit" class="btn sm primary" :disabled="!text.trim()">Not ekle</button>
+      </div>
+      <div v-if="openCount" class="row small">
+        <button type="button" class="btn sm" :disabled="applying" title="Açık notları Claude API ile uygular (sunucuda ANTHROPIC_API_KEY gerekir); Geçmiş'ten geri alınabilir" @click="emit('apply')">
+          {{ applying ? 'Claude uyguluyor…' : `✨ Claude ile uygula (${openCount})` }}
+        </button>
       </div>
       <div class="dim small">Ctrl+Enter ile gönder. Notlar anında kaydedilir; Claude'a "notları uygula" demeniz yeterli.</div>
     </form>

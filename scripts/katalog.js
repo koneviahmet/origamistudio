@@ -16,6 +16,8 @@ const { EASE_NAMES, BEZIER_PRESETS } = await eng('easing.js');
 const { STYLES } = await eng('styles.js');
 const { PAPERS, ROLES } = await eng('theme.js');
 const { PARTICLE_MOTIONS, PARTICLE_SHAPES } = await eng('particles.js');
+const { WIDGET_FIELDS } = await eng('widgets.js');
+const { sablonListesi } = await import(pathToFileURL(path.join(ROOT, 'scripts', 'sablonlar', 'index.mjs')).href);
 const { ARROW_CURVES, ARROW_LINES, ARROW_HEADS, ARROW_FLOWS } = await eng('arrows.js');
 
 const readJson = (f) => JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -189,6 +191,32 @@ for (const p of projects) {
   const gen = fs.existsSync(path.join(ROOT, 'scripts', `scenes-${p}.mjs`)) ? ` — üreteç: \`scripts/scenes-${p}.mjs\`` : '';
   w(`- \`${p}\` **${s.name}** — ${s.width}×${s.height}, ${s.duration} sn, ${s.layers.length} katman${s.theme ? `, tema ${s.theme}` : ''}${s.style ? `, stil ${s.style}` : ''}${gen}`);
 }
+w();
+
+// ------------------------------------------------- bileşenler / şablonlar
+const WNAMES = { chart: 'Grafik', device: 'Cihaz çerçevesi', media: 'Resim / video', waveform: 'Ses dalgası' };
+w('## 12. Bileşen katmanları (Faz 16) — şema §12');
+w();
+w('Ortak alanlar: `x, y, scale, rotation, opacity, fold` (çizilme / görünme ilerlemesi), `anims`, `depth` (paralaks), `blur`, `start/end`.');
+w();
+for (const [type, fields] of Object.entries(WIDGET_FIELDS)) {
+  w(`### \`"type": "${type}"\` — ${WNAMES[type]}`);
+  w();
+  w('| alan | ad | tür | varsayılan / seçenekler |');
+  w('|---|---|---|---|');
+  for (const f of fields) {
+    const opts = f.options ? f.options.map((o) => `\`${o[0]}\``).join(' · ') : f.def === '' || f.def === undefined ? '—' : `\`${JSON.stringify(f.def)}\``;
+    w(`| \`${f.key}\` | ${f.label} | ${f.type} | ${opts} |`);
+  }
+  w();
+}
+w('## 13. Video şablonları (brief → sahne) — `node scripts/uret.mjs <brief.json>`');
+w();
+w('| id | ad | açıklama |');
+w('|---|---|---|');
+for (const t of sablonListesi()) w(`| \`${t.id}\` | ${t.ad} | ${esc(t.aciklama)} |`);
+w();
+w('Ortak brief alanları: `sablon, id, ad, format (reels|youtube|kare|dikey45), tema, stil, vurgu, muzik (dosya | {file,bpm,beatOffset} | false), fps`. Örnek brief: `node scripts/uret.mjs --ornek <sablon>`.');
 w();
 
 fs.writeFileSync(path.join(ROOT, 'docs', 'katalog.md'), out.join('\n'));

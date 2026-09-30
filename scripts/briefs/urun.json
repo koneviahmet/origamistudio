@@ -1,0 +1,37 @@
+{
+  "sablon": "urun",
+  "id": "sablon-urun",
+  "ad": "Not Defteri",
+  "format": "reels",
+  "tema": "kurumsal-mavi",
+  "vurgu": "#ff7b00",
+  "slogan": "Fikirlerin hep yanında",
+  "cihaz": {
+    "frame": "telefon",
+    "ui": "liste",
+    "title": "Notlarım",
+    "lines": [
+      "Alışveriş listesi",
+      "Toplantı notları",
+      "Kitap önerileri",
+      "Seyahat planı",
+      "Yapılacaklar"
+    ]
+  },
+  "ozellikler": [
+    {
+      "baslik": "Hızlı not",
+      "metin": "Tek dokunuşla yaz, anında kaydet"
+    },
+    {
+      "baslik": "Her yerde",
+      "metin": "Telefon, tablet ve bilgisayarda senkron"
+    },
+    {
+      "baslik": "Güvenli",
+      "metin": "Notların şifreli saklanır"
+    }
+  ],
+  "cta": "Ücretsiz dene",
+  "link": "notdefteri.app"
+}

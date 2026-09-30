@@ -11,6 +11,9 @@ npm run seed:design  # renk rolleri, varyantlar, temalar, metin stilleri
 npm run fonts        # Türkçe destekli font kütüphanesi (Google Fonts → data/fonts, bir kez)
 npm run gen-audio    # telifsiz örnek müzik + ses efektleri (data/audio/)
 npm run dev       # http://localhost:5180
+npm run uret -- scripts/briefs/veri.json   # şablondan video (explainer, veri, kinetik, urun, showreel, liste)
+npm run render -- <proje> --hepsi          # başsız tarayıcıyla MP4 (tüm formatlar), data/projects/<id>/renders/
+npm run zarf -- uzay-ambiyans.wav --proje <id>   # ses zarfı (sesle büyü / dalga formu)
 ```
 
 > MP4 dışa aktarım WebCodecs kullanır: **Chrome veya Edge** ile açın. ffmpeg gerekmez.

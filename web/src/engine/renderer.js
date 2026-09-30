@@ -14,6 +14,8 @@ import { glyphState } from './textanims.js';
 import { drawTransitions } from './transitions.js';
 import { pathAt } from './path.js';
 import { shade } from './color.js';
+import { WIDGET_DRAW, isWidget, deviceGeometry, mediaSize } from './widgets.js';
+import { audioApi } from './audiodrive.js';
 
 const DEG = Math.PI / 180;
 
@@ -114,20 +116,34 @@ export function resolveLayer(layer, t) {
   return st;
 }
 
+/** Bileşen katmanlarının (grafik / cihaz / medya / dalga) yerel boyutu */
+export function widgetSize(layer, res) {
+  if (layer.type === 'device') {
+    const g = deviceGeometry(layer);
+    return [g.w, g.h];
+  }
+  if (layer.type === 'media') return mediaSize(layer, res);
+  if (layer.type === 'chart') return [layer.width || 820, layer.height || 560];
+  return [layer.width || 800, layer.height || 240];
+}
+
 /** Ön ayarlar dahil tam katman durumu */
 export function resolveLayerFull(layer, t, scene, res) {
   const st = resolveLayer(layer, t);
   if (!layer.anims?.length) return st;
-  const asset = layer.type === 'text' ? null : res.assets?.get(layer.asset);
+  const asset = layer.type === 'text' || isWidget(layer) ? null : res.assets?.get(layer.asset);
   let radius;
-  if (asset) {
+  if (isWidget(layer)) {
+    const [bw, bh] = widgetSize(layer, res);
+    radius = (Math.max(bw, bh) / 2) * Math.abs(st.scale);
+  } else if (asset) {
     const [w, h] = asset.size || [200, 200];
     radius = (Math.max(w, h) / 2) * Math.abs(st.scale * Math.max(Math.abs(st.scaleX), Math.abs(st.scaleY)));
   } else {
     const tp = textProps(layer, res);
     radius = (prop(tp, 'size', t, 72) * String(tp.text || '').length * 0.3) * st.scale;
   }
-  return applyAnims(layer, st, t, { W: scene.width, H: scene.height, asset, radius });
+  return applyAnims(layer, st, t, { W: scene.width, H: scene.height, asset, radius, audio: audioApi(scene) });
 }
 
 /**
@@ -163,6 +179,12 @@ export function layerBox(layer, t, scene, res, ctx, fmt) {
     lx1 = lx0 + maxW;
     ly0 = -hh;
     ly1 = hh;
+  } else if (isWidget(layer)) {
+    const [bw, bh] = widgetSize(layer, res);
+    lx0 = -bw / 2;
+    lx1 = bw / 2;
+    ly0 = -bh / 2;
+    ly1 = bh / 2;
   } else if (layer.type !== 'particles' && layer.type !== 'arrow') {
     const asset = res.assets?.get(layer.asset);
     if (asset) {
@@ -410,10 +432,22 @@ export function renderFrame(ctx, scene, t, resIn, opts = {}) {
   const cx = prop(cam, 'x', t, W / 2);
   const cy = prop(cam, 'y', t, H / 2);
   const rot = prop(cam, 'rotation', t, 0);
-  ctx.translate(W / 2, H / 2);
-  ctx.scale(zoom, zoom);
-  ctx.rotate(rot * DEG);
-  ctx.translate(-cx, -cy);
+  // Derinlik (paralaks): layer.depth > 0 uzak (kamera hareketinden az etkilenir), < 0 yakın (daha çok).
+  // f = 1 − derinlik: kameranın pan / zoom etkisi bu çarpanla uygulanır.
+  const preCam = ctx.getTransform();
+  const applyCamera = (f) => {
+    ctx.setTransform(preCam);
+    ctx.translate(W / 2, H / 2);
+    const z = 1 + (zoom - 1) * f;
+    ctx.scale(z, z);
+    ctx.rotate(rot * DEG);
+    ctx.translate(-(W / 2 + (cx - W / 2) * f), -(H / 2 + (cy - H / 2) * f));
+  };
+  applyCamera(1);
+  const camBase = ctx.getTransform();
+  const pxScale = Math.hypot(preCam.a, preCam.b) || 1;
+  const focus = prop(cam, 'focus', t, 0);
+  const dof = prop(cam, 'dof', t, 0); // derinlik birimi başına bulanıklık (sahne px)
 
   // Klasörler: gizli klasördeki katmanlar çizilmez, kilitli olanlar seçilemez
   const groups = new Map((scene.groups || []).map((g) => [g.id, g]));
@@ -433,6 +467,21 @@ export function renderFrame(ctx, scene, t, resIn, opts = {}) {
       st.scale *= ov.scale ?? 1;
     }
     if (st.opacity <= 0) continue;
+    const depth = sample(layer.depth, t, 0);
+    if (depth) applyCamera(1 - depth);
+    else ctx.setTransform(camBase);
+    const blur = Math.max(0, sample(layer.blur, t, 0) + (dof ? Math.abs(depth - focus) * dof : 0)) * pxScale;
+    ctx.filter = blur > 0.3 ? `blur(${blur.toFixed(2)}px)` : 'none';
+    if (isWidget(layer)) {
+      ctx.save();
+      ctx.translate(st.x, st.y);
+      ctx.rotate(st.rotation * DEG);
+      ctx.scale(st.scale * st.scaleX, st.scale * st.scaleY);
+      const wbb = WIDGET_DRAW[layer.type](ctx, layer, t, st, scene, res, th);
+      info.layers.push({ id: layer.id, matrix: ctx.getTransform(), bbox: wbb, nohit: locked, group: layer.group });
+      ctx.restore();
+      continue;
+    }
     if (layer.type === 'particles') {
       ctx.save();
       const bb = drawParticles(ctx, layer, t, st, scene, res, th, fmt ? { x: -fm.tx / fm.s, y: -fm.ty / fm.s, w: OW / fm.s, h: OH / fm.s } : null);
@@ -503,6 +552,7 @@ export function renderFrame(ctx, scene, t, resIn, opts = {}) {
     ctx.restore();
   }
 
+  ctx.filter = 'none';
   ctx.setTransform(base);
   if (!opts.noTransitions && scene.transitions?.length) {
     const outScene = fmt ? { ...scene, width: OW, height: OH } : scene;

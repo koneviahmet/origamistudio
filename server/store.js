@@ -471,8 +471,52 @@ export function createStore(dataDir) {
     await fs.rm(f);
   }
 
+  // ------------------------------------------------------------------ medya
+  // Resim ve video dosyaları: data/media/<ad>.<uzantı> (medya / cihaz ekranı katmanları)
+  const MEDIA = path.join(dataDir, 'media');
+  const MEDIA_EXT = /.(png|jpe?g|webp|gif|svg|mp4|webm|mov)$/i;
+  function mediaName(name) {
+    const m = String(name || '').match(/^(.*?)(.[a-z0-9]+)$/i);
+    if (!m || !MEDIA_EXT.test(m[2])) throw new HttpError(400, 'Desteklenen biçimler: png, jpg, webp, gif, svg, mp4, webm, mov');
+    return `${slugify(m[1])}${m[2].toLowerCase()}`;
+  }
+  async function listMedia() {
+    await fs.mkdir(MEDIA, { recursive: true });
+    const out = [];
+    for (const f of (await fs.readdir(MEDIA)).filter((x) => MEDIA_EXT.test(x))) {
+      const st = await fs.stat(path.join(MEDIA, f));
+      out.push({ file: f, size: st.size, video: /.(mp4|webm|mov)$/i.test(f), addedAt: st.mtime.toISOString() });
+    }
+    return out.sort((a, b) => a.file.localeCompare(b.file));
+  }
+  async function saveMedia(name, buffer) {
+    const file = mediaName(name);
+    if (!Buffer.isBuffer(buffer) || buffer.length < 16) throw new HttpError(400, 'Dosya boş');
+    await fs.mkdir(MEDIA, { recursive: true });
+    await fs.writeFile(path.join(MEDIA, file), buffer);
+    return { file, size: buffer.length };
+  }
+  async function deleteMedia(name) {
+    const file = mediaName(name);
+    const f = path.join(MEDIA, file);
+    if (!(await exists(f))) throw new HttpError(404, `Medya yok: ${file}`);
+    await fs.rm(f);
+  }
+
+  // ---------------------------------------------------------- render çıktıları
+  // Sunucu tarafı render (scripts/render.mjs): data/projects/<id>/renders/<ad>.mp4
+  async function saveRender(id, name, buffer) {
+    assertId(id);
+    const safe = `${slugify(String(name || 'video').replace(/.mp4$/i, '')) || 'video'}.mp4`;
+    const dir = path.join(PROJ, id, 'renders');
+    await fs.mkdir(dir, { recursive: true });
+    await fs.writeFile(path.join(dir, safe), buffer);
+    return { file: safe, size: buffer.length, path: path.join(dir, safe) };
+  }
+
   return {
-    init, saveSnapshot, listAudio, saveAudio, deleteAudio, audioDir: AUDIO, colList, colGet, colCreate, colUpdate, colDelete,
+    init, saveSnapshot, listAudio, saveAudio, deleteAudio, audioDir: AUDIO,
+    listMedia, saveMedia, deleteMedia, mediaDir: MEDIA, saveRender, projectsDir: PROJ, colList, colGet, colCreate, colUpdate, colDelete,
     listCategories, listAssets, getAsset, createAsset, updateAsset, deleteAsset,
     createCategory, deleteCategory, renameCategory,
     listProjects, getProject, createProject, saveScene, duplicateProject, deleteProject,

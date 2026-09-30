@@ -339,3 +339,50 @@ etiketler 40 px olsun, "sekme" satırını kırmızı yap.
 | Test sonuçları tutarsız | Tarayıcıda `?t=` sürümü yerine yeni modül kopyası içe aktarıldı | §5'teki `find()` ile uygulamanın modülünü al |
 | Kabuk betiğinde `\n` gerçek satır sonu oldu | Heredoc / sed kaçışları | Çok satırlı düzenlemeyi Edit aracıyla ya da dosyaya yazılan betikle yap |
 | Kuş yolda ters uçuyor | Model sola bakıyor | `scaleX: -1` + `orient: true` (`orientOffset` 0) |
+
+---
+
+## 9. Şablonlar — brief'ten video (Faz 16)
+
+Büyük sahneyi elle yazmak yerine **brief** (kısa JSON) ver, şablon sahneyi üretsin. Sonra stüdyoda incele / düzelt (notlar, keyframe).
+Yol: Projeler → **✦ Şablondan** ya da `node scripts/uret.mjs <brief.json>` (örnek brief: `node scripts/uret.mjs --ornek <sablon>`).
+Hazır örnekler: `scripts/briefs/*.json`, üretilmiş projeler `sablon-*`.
+
+| Şablon | Ne için | Brief'e özgü alanlar |
+|---|---|---|
+| `explainer` | Adım adım anlatım (defter / çizim stiline çok uygun) | `adimlar: [{baslik, metin, nesne, varyant?}]`, `altBaslik`, `ozet`, `kapanis` |
+| `veri` | Sayı / grafik hikâyesi | `bolumler: [{baslik, grafik: {kind, data, unit, title, max}, not}]`, `sonuc` |
+| `kinetik` | Müzikli kinetik tipografi | `satirlar: [metin \| {metin, vurgu}]`, `vuruslarPerSatir`, `dalga`, `renkler` |
+| `urun` | Uygulama / ürün tanıtımı | `slogan`, `cihaz: {frame, src?, ui, title, lines}`, `ozellikler: [{baslik, metin}]`, `cta`, `link` |
+| `showreel` | Vuruşa oturan hızlı portfolyo | `kareler: [{baslik, alt, nesne \| medya}]`, `vuruslarPerKare`, `renkler` |
+| `liste` | "En iyi N" geri sayım | `maddeler: [{ad, bilgi, nesne}]`, `siralama: geri \| ileri`, `bitis` |
+
+Ortak: `sablon, id, ad, format (reels|youtube|kare|dikey45), tema, stil, vurgu (marka rengi), muzik (dosya | {file,bpm,beatOffset} | false), fps`.
+
+- `nesne` = kütüphane model id'si ([katalog.md §1](katalog.md)); yoksa `yildiz` kullanılır. `medya` / `cihaz.src` = `data/media/` dosyası.
+- Kendi müziğin için `muzik: { "file": "sarki.mp3", "bpm": 128, "beatOffset": 0.2 }` — bpm'i stüdyoda Ses → Algıla ile bul,
+  mp3'te "Zarf çıkar" ile dalga / sesle büyü verisini ekle (WAV'da şablon otomatik ekler).
+- Şablon çıktısı başlangıçtır: zamanlama, metin ve renk düzeltmelerini stüdyoda ya da notla yap. Yeni şablon eklemek:
+  `scripts/sablonlar/<ad>.mjs` (`export default { id, ad, aciklama, ornek, uret(brief) }`) + `index.mjs`'e kaydet, `npm run katalog`.
+
+### Prompt örneği (şablonlu)
+
+```text
+"Suyun döngüsü" için explainer şablonuyla 9:16 video: 4 adım (buharlaşma, yoğunlaşma, yağış, toplanma),
+nesneler gunes / bulut / bulut / dalga, stil cizim, tema pastel-ruya. Brief'i scripts/briefs/su-dongusu.json'a yaz,
+node scripts/uret.mjs ile üret, §5 yöntemiyle kareleri kontrol et, metin taşmalarını düzelt, raporla.
+```
+
+## 10. Bileşenler, derinlik ve ses (Faz 16 reçeteleri)
+
+- **Grafik**: `type: "chart"`. Çizilme `katlanarak-gir` ön ayarıyla (2–2.5 sn). 9:16'da genişlik ≈ 0.88·W, yükseklik ≈ 1.0·W.
+  Değerleri uydurma — kaynağı belli olmayan sayıyı raporda belirt.
+- **Cihaz**: ekran görüntüsü / video (`src`) varsa onu koy, yoksa `ui` (`liste` | `panel` | `sohbet`) sahte arayüzü kullan; `scroll` ile kayar.
+- **Derinlik (sahte 3B)**: arka plan nesnelerine `depth: 0.4–0.8` + `blur: 4–8`, ön plana `depth: −0.3…−0.6` + `blur: 8–12`,
+  sonra kameraya yavaş `x` / `zoom` keyframe'i ver — katmanlar farklı hızda kayar.
+- **Ritim**: önemli nesnelere `ritimle-nabiz` / `ritimle-zipla` (bpm gerekir); bas / müzik şiddetine `sesle-buyu`. Hareketi aşırıya
+  kaçırma (genlik 0.06–0.15).
+- **Sunucu render**: `node scripts/render.mjs <proje> --hepsi` tüm formatları arka planda üretir (`data/projects/<id>/renders/`).
+  Stüdyoyu açık tutmak gerekmez. `--olcek 0.5` taslak.
+- **Notları API ile uygula**: Notlar sekmesi → "✨ Claude ile uygula" (sunucu `ANTHROPIC_API_KEY` ile başlamalı) ya da
+  `node scripts/ai-notlar.mjs <proje>`. Sonucu Geçmiş'ten karşılaştır / geri al.

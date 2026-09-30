@@ -159,7 +159,7 @@ Renk değerleri `"$anahtar"` olabilir; temanın `colors` sözlüğünden okunur 
 ```jsonc
 {
   "theme": "sonbahar",          // data/themes/<id>.json (ya da satır içi tema nesnesi)
-  "style": "kagit-kesme",       // origami (varsayılan) | kagit-kesme | duz | cizim
+  "style": "kagit-kesme",       // origami (varsayılan) | kagit-kesme | duz | cizim | neon | cam | mozaik | teknik | vitray | kil | siluet | gazete | halftone | suluboya | nakis | piksel
   "background": { … },          // yoksa temanın arka planı kullanılır
   "layers": [
     {
@@ -495,3 +495,64 @@ Stil alanları (kütüphane öğesi ya da katman):
   Oka yalnızca çizgisine yakın tıklayınca seçilir; altındaki nesneler seçilebilir kalır.
 - Örnekler: `scripts/scenes-ok-vitrini.mjs` (rota + yolcu, neon, akış şeması), `scenes-kahve-cizim.mjs` (el çizimi yay).
 
+
+## 12. Bileşen katmanları, derinlik, ses-reaktif animasyon (Faz 16)
+
+### Bileşen katmanları
+`type: "chart" | "device" | "media" | "waveform"`. Merkez noktası (0,0) katman konumudur; `x, y, scale, rotation, opacity`,
+`anims`, `depth`, `blur`, `start/end`, `group` diğer katmanlar gibi çalışır. **`fold` = çizilme / görünme ilerlemesi**
+(`katlanarak-gir`, `cizerek-gir` ön ayarları ya da `fold` keyframe'i). Tam alan listesi: [katalog.md §12](katalog.md).
+
+```jsonc
+// Grafik — kind: bar | yatay | line | pie | donut | sayac
+{ "id": "g1", "type": "chart", "kind": "bar", "title": "Bin kullanıcı", "unit": "B", "width": 900, "height": 700,
+  "data": [ { "label": "2021", "value": 12 }, { "label": "2022", "value": 31, "color": "#ff7b00" } ],
+  "max": 100, "stagger": 0.5, "card": true, "textColor": "#2d2a3e",
+  "anims": [ { "preset": "katlanarak-gir", "t": 1, "dur": 2.4 } ] }
+
+// Cihaz çerçevesi — frame: telefon | tablet | laptop | tarayici. `src` verilirse ekranda resim/video, yoksa sahte arayüz
+{ "id": "cihaz", "type": "device", "frame": "telefon", "width": 460, "src": "ekran.mp4", "fit": "kapla" }
+{ "id": "cihaz2", "type": "device", "frame": "tarayici", "ui": "panel", "title": "Panel", "url": "ornek.com",
+  "lines": ["Satış", "Kullanıcı"], "accent": "$vurgu", "scroll": 40 }
+
+// Resim / video — dosya data/media/ altındadır (stüdyoda Yükle). Video: start'tan itibaren oynar
+{ "id": "m1", "type": "media", "src": "tanitim.mp4", "width": 800, "radius": 30, "trim": 2, "rate": 1, "loop": true }
+
+// Ses dalgası / ekolayzer — sahnedeki ses izinin `env` zarfını okur (yoksa vuruşa bağlı sahte görünüm)
+{ "id": "dalga", "type": "waveform", "style": "cubuk", "bars": 32, "width": 800, "height": 240, "color": "#e76f51", "color2": "#6c63ff" }
+```
+- Medya karesi `res.mediaFrames` üzerinden okunur; `web/src/media.js → prepareMedia(scene, t, res, {wait})` doldurur
+  (önizlemede beklemeden, dışa aktarımda her kare için bekleyerek). `renderFrame` saf ve senkron kalır.
+- Video sesi MP4'e **karışmaz**; müziği `audio` izi olarak ekle. Video karesi zamana göre seçilir (deterministik).
+- Dosyalar: `data/media/` (png, jpg, webp, gif, svg, mp4, webm, mov) — `GET/POST/DELETE /api/media`, `/media-files/<ad>`.
+
+### Derinlik (paralaks) ve alan derinliği
+```jsonc
+{ "layers": [ { "id": "uzak", "depth": 0.6, "blur": 4 }, { "id": "yakin", "depth": -0.4 } ],
+  "camera": { "zoom": […], "x": […], "focus": 0, "dof": 8 } }
+```
+- `layer.depth`: 0 = ekran düzlemi. **> 0 uzak** (kamera hareketinden az etkilenir), **< 0 yakın** (daha çok). Kameranın pan ve
+  zoom'u `1 − depth` çarpanıyla uygulanır. Keyframe'lenebilir.
+- `layer.blur` (sahne px): sabit bulanıklık. `camera.focus` odak derinliği, `camera.dof` = derinlik birimi başına bulanıklık:
+  `blur += |depth − focus| × dof` (sahne px).
+
+### Ses zarfı ve ses-reaktif animasyonlar
+- `audio[i].env = { fps, bands: 8, data: [...] }` — kare × 8 bant (bas → tiz) seviye, 0..1. Üretim: stüdyoda Ses → **Zarf çıkar**,
+  ya da `node scripts/analyze-audio.mjs <dosya.wav> --proje <id>`. Şablonlar WAV müzikte otomatik ekler.
+- Ritim: `audio[i].bpm` + `beatOffset` (Faz 11). Vuruş nabzı = `exp(−faz × keskinlik)`.
+- Ön ayarlar (`anims`, kategori sürekli): `ritimle-nabiz`, `ritimle-zipla`, `ritimle-sallan` (vuruşa bağlı; bpm gerekir);
+  `sesle-buyu`, `sesle-parla`, `sesle-titre` (zarfa bağlı; `bant`: hepsi | bas | orta | tiz). Zarf yoksa vuruş nabzına düşer.
+- Hepsi sahne verisinin saf fonksiyonudur (`engine/audiodrive.js`): önizleme = dışa aktarım, ses çözmek gerekmez.
+
+## 13. Şablonlar (brief → sahne) ve brief.json
+
+`node scripts/uret.mjs <brief.json>` ya da Projeler → **✦ Şablondan**. Brief, sahneyi üreten kısa bir JSON'dur; proje klasörüne
+`brief.json` olarak kaydedilir (yeniden üretmek için). Şablonlar: `explainer`, `veri`, `kinetik`, `urun`, `showreel`, `liste`
+(`scripts/sablonlar/`). Ortak alanlar: `sablon, id, ad, format (reels|youtube|kare|dikey45), tema, stil, vurgu, muzik, fps`.
+Yatay formatlarda düzen otomatik iki sütuna geçer (metin solda, nesne sağda). Ayrıntı: [prompt-rehberi.md §9](prompt-rehberi.md).
+
+## 14. Sunucu tarafı render
+
+`node scripts/render.mjs <proje> [--format <id> | --hepsi] [--olcek 1] [--from s --to s] [--sessiz] [--cikti <klasör>]`
+— başsız Edge/Chrome içinde `/render/<proje>` sayfasını açar; aynı `renderFrame` + WebCodecs ile MP4 üretir ve
+`data/projects/<id>/renders/` altına yazar (`POST /api/projects/:id/renders/:ad`).

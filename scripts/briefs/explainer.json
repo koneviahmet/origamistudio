@@ -1,0 +1,27 @@
+{
+  "sablon": "explainer",
+  "id": "sablon-explainer",
+  "ad": "Kahve Nasıl Olur?",
+  "format": "reels",
+  "tema": "gun-isigi",
+  "stil": "cizim",
+  "altBaslik": "3 adımda",
+  "adimlar": [
+    {
+      "baslik": "Cezveye koy",
+      "metin": "Su, kahve ve şeker cezveye konur",
+      "nesne": "cezve"
+    },
+    {
+      "baslik": "Kısık ateşte pişir",
+      "metin": "Köpük yükselince ateşten alınır",
+      "nesne": "gunes"
+    },
+    {
+      "baslik": "Fincana doldur",
+      "metin": "Köpüğü bozmadan fincana servis et",
+      "nesne": "fincan"
+    }
+  ],
+  "kapanis": "Afiyet olsun!"
+}

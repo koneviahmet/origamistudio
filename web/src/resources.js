@@ -12,6 +12,7 @@ export const resources = shallowRef({
   textStyles: new Map(),
   fonts: [],
   audio: [],
+  media: [],
   ready: false,
 });
 
@@ -28,6 +29,7 @@ async function loadPart(kind) {
   if (kind === 'themes' || kind === 'all') next.themes = byId(await api.colList('themes'));
   if (kind === 'textstyles' || kind === 'all') next.textStyles = byId(await api.colList('textstyles'));
   if (kind === 'audio' || kind === 'all') next.audio = await api.audio();
+  if (kind === 'media' || kind === 'all') next.media = await api.media();
   if (kind === 'fonts' || kind === 'all') {
     next.fonts = await api.fonts();
     registerFonts(next.fonts);
@@ -47,6 +49,7 @@ export function loadResources() {
       else if (e.kind === 'design') loadPart(e.col);
       else if (e.kind === 'fonts') loadPart('fonts');
       else if (e.kind === 'audio') loadPart('audio');
+      else if (e.kind === 'media') loadPart('media');
     });
   }
   return first;

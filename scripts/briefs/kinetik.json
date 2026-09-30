@@ -1,0 +1,17 @@
+{
+  "sablon": "kinetik",
+  "id": "sablon-kinetik",
+  "ad": "Kinetik Örnek",
+  "format": "reels",
+  "stil": "duz",
+  "tema": "gun-isigi",
+  "satirlar": [
+    "Fikir",
+    "Kağıda dökülür",
+    "Hareketle canlanır",
+    "Müzikle atar",
+    "Hadi başlayalım!"
+  ],
+  "vuruslarPerSatir": 4,
+  "dalga": true
+}

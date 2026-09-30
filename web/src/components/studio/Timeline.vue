@@ -405,7 +405,7 @@ const fmt = (t) => (ticks.value.step < 1 ? t.toFixed(ticks.value.step < 0.5 ? 2 
           <button class="eye" :title="d.r.layer.hidden ? 'Göster' : 'Gizle'" @click.stop="emit('toggle-hidden', d.r.layer.id)">
             {{ d.r.layer.hidden ? '◌' : '●' }}
           </button>
-          <span class="kind">{{ d.r.layer.type === 'text' ? 'T' : d.r.layer.type === 'particles' ? '✦' : d.r.layer.type === 'arrow' ? '➜' : '◆' }}</span>
+          <span class="kind">{{ d.r.layer.type === 'text' ? 'T' : d.r.layer.type === 'particles' ? '✦' : d.r.layer.type === 'arrow' ? '➜' : ({ chart: '📊', device: '📱', media: '🖼', waveform: '🎚' })[d.r.layer.type] || '◆' }}</span>
           <span class="grow ell">{{ d.r.layer.id }}</span>
           <button class="tg" :class="{ on: isSolo(d.r.layer.id) }" title="Solo: yalnız bu katmanı göster (önizleme)" @click.stop="emit('solo', d.r.layer.id)">S</button>
           <button class="tg" :class="{ on: d.r.layer.locked }" title="Kilitle (sahnede seçilemez)" @click.stop="layerLock(d.r.layer)">🔒</button>

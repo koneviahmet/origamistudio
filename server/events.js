@@ -26,6 +26,7 @@ export function createEvents(dataDir) {
     if (parts[0] === 'themes' || parts[0] === 'textstyles') return { kind: 'design', col: parts[0] };
     if (parts[0] === 'fonts' && parts[1] === 'fonts.json') return { kind: 'fonts' };
     if (parts[0] === 'audio') return { kind: 'audio' };
+    if (parts[0] === 'media') return { kind: 'media' };
     if (parts[0] === 'projects' && parts[1]) {
       if (parts[2] === 'scene.json') return { kind: 'scene', id: parts[1] };
       if (parts[2] === 'notes.json') return { kind: 'notes', id: parts[1] };
