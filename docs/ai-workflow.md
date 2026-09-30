@@ -77,3 +77,59 @@ Kullanıcı stüdyoda Geçmiş sekmesinden farkı görüp tek tıkla önceki sü
 Reels/Shorts/TikTok arayüzü üst ~%12'yi, alt ~%22'yi ve sağ kenardaki butonları kaplar.
 Başlıkları y ≈ 250–450 arasına, ana karakteri ekranın orta bandına yerleştirin.
 Stüdyoda **Güvenli alan** (S) kaplaması bu bölgeleri gösterir.
+
+## Uygulama içinden (Claude API) — AI4
+
+Claude Code oturumu açmadan da notlar uygulanabilir: sunucuyu `ANTHROPIC_API_KEY` ile başlat (`$env:ANTHROPIC_API_KEY="…"; npm run dev`),
+stüdyoda Notlar → **✨ Claude ile uygula**. CLI karşılığı: `npm run ai-notlar -- <proje-id>` (`--kuru` yalnızca istek boyutunu gösterir).
+Model `ANTHROPIC_MODEL` ile seçilir (varsayılan `claude-opus-5-5`). Açık notlar + not kareleri + sahne + şema/katalog gönderilir;
+dönen sahne `scene.json`'a yazılır (otomatik sürüm olur), notlar `done` + `reply` ile kapanır.
+
+## Yerel seslendirme (VoxCPM2, GPU)
+
+Metinden anlatım sesi üretir ve sahnenin `audio` izlerine ekler (env zarfı dahil).
+
+```bash
+npm run seslendir -- --proje <id> --metin "Merhaba" --start 0.5
+npm run seslendir -- --proje <id> --satirlar anlatim.txt --ad anlatim --ses-id anlatici   # satır: "başlangıç_sn | metin"
+```
+
+- **Ses sayfası** (`/ses`): veri setindeki 2.752 sesi gez/ara, referans kaydı dinle, metni sese dönüştürüp dinle. ★ ile kaydedilen sesler
+  `data/voices/` altında durur (`<id>.json`); sese ad verilebilir. Referans kayıtlar ilk dinlemede indirilip `data/voices-cache/` altında saklanır.
+  Kullanıcı "şu sesi kullan" derse `--ses-id <id|ad>` ver. Ses yoksa varsayılan ses kullanılır. Ses, referans kayıttan klonlanır (sentetik sesler).
+- **Katalog yerelde**: ilk açılışta 2.752 sesin metin bilgisi `data/voices-katalog.json`'a indirilir (bir kez, ~1 dk); arama/süzgeç/sayfalama oradan yapılır.
+- **Etiketler** (`data/voice-tags.json`, sayfada "Etiketleri yönet"; API `/api/tts/tags` CRUD, `PUT /api/tts/voices/:id/tags`): "Hazır etiketleri uygula"
+  tariflerden Genç/Orta yaş/Olgun/Yaşlı, Kalın/İnce ses, Sıcak/Sakin/Enerjik/Ciddi, tempo, Anlatıcı/Sunucu/Müşteri hizmetleri/Öğretmen atar.
+  Katalogda **çocuk sesi yok** (hepsi yetişkin); istenirse kullanıcı kendi etiketini ekleyip sesleri işaretler.
+- **Sesi etiketten seç**: kullanıcı "sakin bir kadın sesi", "anlatıcı" gibi tarif ederse:
+  `node scripts/sesler.mjs --etiket "Anlatıcı,Sakin" --cinsiyet kadin` (hepsini taşıyanlar; `--ara deep`, `--limit`, `--etiketler`, `--kayitli`) ile aday listele,
+  sonra `npm run seslendir -- … --etiket "Anlatıcı,Sakin" --cinsiyet kadin [--sira 1]` (kayıtlı sesler önce gelir) ya da seçtiğin id ile `--ses-id`. Seçtiğin sesi kullanıcıya söyle.
+- Motor (`tts/sunucu.py`) modeli bir kez yükler, 127.0.0.1:5181'de dinler. Sayfa ya da `seslendir` gerektiğinde başlatır; `npm run dev` kapanınca kapanır.
+  `seslendir` motoru kendi açtıysa işi bitince kapatır, sayfanın açtığına dokunmaz.
+- Kurulum `tts/` altında: `python -m venv tts/.venv`, torch (cu124), `pip install voxcpm soundfile`. `tts/.venv` git'e girmez.
+- Çıktı `data/audio/<ad>-<n>.wav` (48 kHz). Aynı `--ad` ile tekrar çalıştırmak eski izleri değiştirir.
+- Betik sonunda anlatımın bittiği anı ve sahne süresini karşılaştırır; uzunsa uyarır. Sahne süresini anlatıma göre ayarla.
+- Metinde rakamları yazıyla yaz (1554 → bin beş yüz elli dört), ardışık satırların çakışmadığını süreden kontrol et.
+- Veri seti CC-BY / CC-BY-SA: sesleri olduğu gibi yeniden dağıtırsan atıf ver; ürettiğin konuşma sana aittir.
+
+## Yerel müzik (ACE-Step 1.5, GPU)
+
+Enstrümantal fon müziği üretir ve sahnenin `audio` izlerine ekler (env zarfı dahil). Yalnızca müzik; ses efektleri için `npm run gen-audio` (kodla sentez, eğitim verisi yok).
+
+```bash
+npm run muzik -- --proje <id> --prompt "warm relaxed instrumental, soft acoustic guitar, cozy, slow tempo" --sure 30 --volume 0.3
+```
+
+- **Sayfa:** `/muzik` (hazır tarifler, süre, BPM, anahtar, seed; dinle; data/audio'ya kaydet).
+- Tarifi İngilizce yaz: tür, ruh hali, enstrümanlar, tempo. `--sure` 10–120 sn (sahne süresine eşitle; uzun sahne için birden çok parça ya da döngü). Konuşma altında `--volume 0.25–0.35`.
+- **Uzun sahne = döngü (kural):** motor tek seferde en çok 120 sn üretir. Sahne (start'tan sonra) buna sığmıyorsa **üretilemeyen süreyi uzatmaya çalışma; aynı parçayı art arda ekle**.
+  `npm run muzik` bunu kendisi yapar: parça (`--parca`, varsayılan 90 sn) aynı dosyadan N ses izi olarak arka arkaya eklenir, aralarda `--capraz 2` sn çapraz geçiş,
+  üretilen parçanın sondaki ~2 sn sessizliği (`--kuyruk`) kırpılır. Döngüye uygun, tempo/yoğunluk değişmeyen bir tarif yaz ("steady", "loopable", belirgin final/intro yok).
+  Elle eklersen: aynı `file`, `start = önceki start + (süre − kuyruk − çapraz)`, ara izlerde `fadeIn = fadeOut = çapraz`, son izde `dur` ile sahne sonuna kırp.
+- **Konuşma:** tek satır uzun sürerse metni cümlelere böl (`--satirlar`, her satır ayrı dosya); uzun anlatım böylece art arda dizilir, süre sorunu olmaz.
+- Çıktı `data/audio/<ad>.wav`; aynı `--ad` ile tekrar çalıştırmak izi değiştirir. `--seed` aynı sonucu tekrar üretir. Seed ve tarifi rapora yaz.
+- Motor `muzik/ACE-Step-1.5` içinde (`acestep-api`, 127.0.0.1:8001), gerektiğinde başlatılır; `muzik/` git'e girmez. Modeller ilk üretimde iner (~10 GB).
+  Kurulum: `git clone https://github.com/ACE-Step/ACE-Step-1.5 muzik/ACE-Step-1.5`, `uv sync` (uv: `pip install uv`).
+- GPU belleği: konuşma (VoxCPM2) ve müzik motorları aynı anda açıksa 12 GB sınırına yaklaşabilir; bellek hatasında birini kapat.
+- **Telif:** ACE-Step MIT lisanslı; eğitim verisi "lisanslı + telifsiz + sentetik" (geliştirici beyanı, bağımsız doğrulama yok). Çıktı mevcut bir esere kasıtsız benzeyebilir;
+  önemli videolarda dinleyip kontrol et. Yapay zekâ çıktısının telif statüsü ülkeye göre değişir. Başka modeller (MusicGen, AudioLDM 2, TangoFlux) ticari kullanıma kapalıdır, kullanma.

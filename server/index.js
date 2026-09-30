@@ -6,6 +6,8 @@ import { createStore } from './store.js';
 import { createEvents } from './events.js';
 import { createApi } from './api.js';
 import { createFonts } from './fonts.js';
+import { createTts } from './tts.js';
+import { createMuzik } from './muzik.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
@@ -16,6 +18,9 @@ const store = createStore(DATA);
 await store.init();
 const events = createEvents(DATA);
 const fonts = createFonts(DATA);
+const tts = createTts(DATA);
+tts.init();
+const muzik = createMuzik(DATA);
 
 // Sürüm geçmişi: scene.json her değiştiğinde (stüdyo ya da disk) sürüm al
 events.on((evt) => {
@@ -26,9 +31,12 @@ store.baselineHistory().catch((e) => console.warn('[history]', e.message));
 const app = express();
 const server = http.createServer(app);
 app.use(express.json({ limit: '25mb' }));
-app.use('/api', createApi(store, events, fonts));
+app.use('/api', createApi(store, events, fonts, tts, muzik));
 app.use('/font-files', express.static(fonts.dir, { maxAge: '30d', immutable: true }));
 app.use('/audio-files', express.static(store.audioDir));
+app.use('/media-files', express.static(store.mediaDir));
+app.use('/tts-onizleme', express.static(tts.previewDir));
+app.use('/muzik-onizleme', express.static(muzik.previewDir));
 
 if (PROD) {
   const dist = path.join(ROOT, 'web', 'dist');
@@ -47,3 +55,5 @@ if (PROD) {
 server.listen(PORT, () => {
   console.log(`\n  Origami Studio  →  http://localhost:${PORT}\n`);
 });
+
+for (const sig of ['SIGINT', 'SIGTERM', 'exit']) process.on(sig, () => { tts.stop(); muzik.stop(); if (sig !== 'exit') process.exit(0); });

@@ -4,3 +4,14 @@ web/dist/
 .DS_Store
 launcher/logs/
 *.lnk
+
+tts/.venv/
+tts/*.wav
+
+data/projects/*/renders/
+data/tts-onizleme/
+data/voices/*.flac
+data/voices-cache/
+data/voices-katalog.json
+muzik/
+data/muzik-onizleme/

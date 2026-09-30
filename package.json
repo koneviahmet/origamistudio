@@ -14,11 +14,20 @@
     "fonts": "node scripts/fetch-fonts.js",
     "seed:design": "node scripts/seed-design.js",
     "gen-audio": "node scripts/gen-audio.js && node scripts/gen-sfx.js",
-    "katalog": "node scripts/katalog.js"
+    "katalog": "node scripts/katalog.js",
+    "uret": "node scripts/uret.mjs",
+    "dogrula": "node scripts/dogrula.mjs",
+    "render": "node scripts/render.mjs",
+    "zarf": "node scripts/analyze-audio.mjs",
+    "seslendir": "node scripts/seslendir.mjs",
+    "sesler": "node scripts/sesler.mjs",
+    "muzik": "node scripts/muzik.mjs",
+    "ai-notlar": "node scripts/ai-notlar.mjs"
   },
   "dependencies": {
     "express": "^5.2.1",
     "mp4-muxer": "^5.2.2",
+    "puppeteer-core": "^25.12.0",
     "vue": "^3.5.43",
     "vue-router": "^5.3.1"
   },

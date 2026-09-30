@@ -5,6 +5,9 @@ import ProjectsView from './views/ProjectsView.vue';
 import LibraryView from './views/LibraryView.vue';
 import StudioView from './views/StudioView.vue';
 import DesignView from './views/DesignView.vue';
+import RenderView from './views/RenderView.vue';
+import TtsView from './views/TtsView.vue';
+import MuzikView from './views/MuzikView.vue';
 import './style.css';
 import { loadResources } from './resources.js';
 
@@ -17,6 +20,9 @@ const router = createRouter({
     { path: '/library', component: LibraryView },
     { path: '/studio/:id', component: StudioView, props: true },
     { path: '/design/:tab?', component: DesignView },
+    { path: '/ses', component: TtsView },
+    { path: '/muzik', component: MuzikView },
+    { path: '/render/:id', component: RenderView },
   ],
 });
 

@@ -16,6 +16,8 @@ const inStudio = computed(() => route.path.startsWith('/studio'));
     <nav class="nav row">
       <RouterLink to="/">Projeler</RouterLink>
       <RouterLink to="/library">Kütüphane</RouterLink>
+      <RouterLink to="/ses">Ses</RouterLink>
+      <RouterLink to="/muzik">Müzik</RouterLink>
       <RouterLink to="/design" :class="{ 'router-link-exact-active': route.path.startsWith('/design') }">Tasarım</RouterLink>
     </nav>
   </header>
