@@ -8,7 +8,12 @@ launcher/logs/
 tts/.venv/
 tts/*.wav
 
-data/projects/*/renders/
+# Üretilen projeler (scene.json, notlar, geçmiş, çıktılar) GitHub'a gitmez.
+# Sahneler scripts/scenes-*.mjs üreteçleriyle yeniden üretilir; üreteçler izlenir.
+data/projects/
+# Yerel TTS / müzik ile üretilen anlatım ve müzik dosyaları (npm run seslendir / muzik)
+data/audio/*-anlatim-*.wav
+data/audio/*muzik*.wav
 data/tts-onizleme/
 data/voices/*.flac
 data/voices-cache/
