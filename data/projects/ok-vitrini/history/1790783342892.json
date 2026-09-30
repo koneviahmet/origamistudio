@@ -1,0 +1,553 @@
+{
+  "ts": 1790783342892,
+  "source": "disk",
+  "summary": {
+    "added": [],
+    "removed": [],
+    "changed": [],
+    "scene": []
+  },
+  "scene": {
+    "name": "Ok Vitrini",
+    "width": 1080,
+    "height": 1080,
+    "fps": 30,
+    "duration": 17,
+    "background": {
+      "type": "radial",
+      "colors": [
+        "#fdf6ea",
+        "#efdcc0"
+      ],
+      "cx": 0.5,
+      "cy": 0.45,
+      "paper": 0.45,
+      "vignette": 0.12
+    },
+    "sections": [
+      {
+        "t": 0,
+        "name": "Rota + yolcu"
+      },
+      {
+        "t": 5.4,
+        "name": "Neon / noktalı akış"
+      },
+      {
+        "t": 10.8,
+        "name": "Akış şeması"
+      }
+    ],
+    "transitions": [
+      {
+        "type": "iris",
+        "t": 5.4,
+        "dur": 0.9,
+        "color": "#efdcc0"
+      },
+      {
+        "type": "iris",
+        "t": 10.8,
+        "dur": 0.9,
+        "color": "#efdcc0"
+      }
+    ],
+    "layers": [
+      {
+        "id": "b1",
+        "type": "text",
+        "textStyle": "baslik-kalin",
+        "text": "Bir yolculuk",
+        "x": 540,
+        "y": 110,
+        "size": 64,
+        "start": 0,
+        "end": 5.4,
+        "textAnims": [
+          {
+            "preset": "harf-zipla",
+            "t": 0.1,
+            "dur": 0.45,
+            "aralik": 0.03
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 4.95,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "istanbul",
+        "type": "text",
+        "textStyle": "etiket-kutu",
+        "text": "İstanbul",
+        "x": 230,
+        "y": 820,
+        "size": 44,
+        "start": 0.3,
+        "end": 5.4,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 0.3,
+            "dur": 0.5
+          },
+          {
+            "preset": "sol",
+            "t": 4.95,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "viyana",
+        "type": "text",
+        "textStyle": "etiket-kutu",
+        "text": "Viyana",
+        "x": 830,
+        "y": 330,
+        "size": 44,
+        "start": 0.6,
+        "end": 5.4,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 0.6,
+            "dur": 0.5
+          },
+          {
+            "preset": "sol",
+            "t": 4.95,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "rota",
+        "type": "arrow",
+        "arrow": "ok-kesikli-rota",
+        "from": "istanbul",
+        "to": "viyana",
+        "start": 1.2,
+        "end": 5.4,
+        "fold": [
+          {
+            "t": 1.2,
+            "v": 0
+          },
+          {
+            "t": 3.4000000000000004,
+            "v": 1,
+            "ease": "inOutSine"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 4.95,
+            "dur": 0.4
+          }
+        ],
+        "bend": 0.35,
+        "label": "1683",
+        "labelPos": 0.55,
+        "rider": {
+          "asset": "kagit-gemi",
+          "scale": 0.5,
+          "orient": "cevir",
+          "lift": 18
+        }
+      },
+      {
+        "id": "b2",
+        "type": "text",
+        "textStyle": "baslik-kalin",
+        "text": "Işık ve çekim",
+        "x": 540,
+        "y": 110,
+        "size": 64,
+        "start": 5.4,
+        "end": 10.8,
+        "textAnims": [
+          {
+            "preset": "harf-zipla",
+            "t": 5.5,
+            "dur": 0.45,
+            "aralik": 0.03
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 10.350000000000001,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "gunes",
+        "asset": "gunes",
+        "x": 210,
+        "y": 330,
+        "scale": 1.1,
+        "start": 5.6,
+        "end": 10.8,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 5.6,
+            "dur": 0.6
+          },
+          {
+            "preset": "don",
+            "t": 6.2,
+            "periyot": 30
+          },
+          {
+            "preset": "kuculerek-cik",
+            "t": 10.2,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "dunya",
+        "asset": "dunya",
+        "x": 600,
+        "y": 600,
+        "scale": 0.9,
+        "start": 5.9,
+        "end": 10.8,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 5.9,
+            "dur": 0.6
+          },
+          {
+            "preset": "kuculerek-cik",
+            "t": 10.200000000000001,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "ay",
+        "asset": "ay",
+        "x": 900,
+        "y": 860,
+        "scale": 0.45,
+        "start": 6.2,
+        "end": 10.8,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 6.2,
+            "dur": 0.6
+          },
+          {
+            "preset": "kuculerek-cik",
+            "t": 10.200000000000001,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "isik",
+        "type": "arrow",
+        "arrow": "ok-neon",
+        "from": "gunes",
+        "to": "dunya",
+        "start": 6.6,
+        "end": 10.8,
+        "fold": [
+          {
+            "t": 6.6,
+            "v": 0
+          },
+          {
+            "t": 7.8999999999999995,
+            "v": 1,
+            "ease": "inOutSine"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 10.350000000000001,
+            "dur": 0.4
+          }
+        ],
+        "label": "ışık",
+        "labelColor": "#0e7490"
+      },
+      {
+        "id": "cekim",
+        "type": "arrow",
+        "arrow": "ok-noktali-akis",
+        "from": "dunya",
+        "to": "ay",
+        "start": 7.9,
+        "end": 10.8,
+        "fold": [
+          {
+            "t": 7.9,
+            "v": 0
+          },
+          {
+            "t": 9,
+            "v": 1,
+            "ease": "inOutSine"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 10.350000000000001,
+            "dur": 0.4
+          }
+        ],
+        "label": "çekim",
+        "bend": 0.25
+      },
+      {
+        "id": "b3",
+        "type": "text",
+        "textStyle": "baslik-kalin",
+        "text": "Fikirden videoya",
+        "x": 540,
+        "y": 110,
+        "size": 64,
+        "start": 10.8,
+        "end": 17,
+        "textAnims": [
+          {
+            "preset": "harf-zipla",
+            "t": 10.9,
+            "dur": 0.45,
+            "aralik": 0.03
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 16.55,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "fikir",
+        "type": "text",
+        "textStyle": "etiket-kutu",
+        "text": "Fikir",
+        "x": 210,
+        "y": 300,
+        "size": 44,
+        "start": 11,
+        "end": 17,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 11,
+            "dur": 0.5
+          },
+          {
+            "preset": "sol",
+            "t": 16.55,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "taslak",
+        "type": "text",
+        "textStyle": "etiket-kutu",
+        "text": "Taslak",
+        "x": 540,
+        "y": 560,
+        "size": 44,
+        "start": 11.3,
+        "end": 17,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 11.3,
+            "dur": 0.5
+          },
+          {
+            "preset": "sol",
+            "t": 16.55,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "video",
+        "type": "text",
+        "textStyle": "etiket-kutu",
+        "text": "Video",
+        "x": 870,
+        "y": 820,
+        "size": 44,
+        "start": 11.6,
+        "end": 17,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 11.6,
+            "dur": 0.5
+          },
+          {
+            "preset": "sol",
+            "t": 16.55,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "s1",
+        "type": "arrow",
+        "arrow": "ok-akis-semasi",
+        "from": "fikir",
+        "to": "taslak",
+        "start": 12,
+        "end": 17,
+        "fold": [
+          {
+            "t": 12,
+            "v": 0
+          },
+          {
+            "t": 13,
+            "v": 1,
+            "ease": "inOutSine"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 16.55,
+            "dur": 0.4
+          }
+        ],
+        "fromAnchor": "sag",
+        "toAnchor": "ust"
+      },
+      {
+        "id": "s2",
+        "type": "arrow",
+        "arrow": "ok-akis-semasi",
+        "from": "taslak",
+        "to": "video",
+        "start": 13,
+        "end": 17,
+        "fold": [
+          {
+            "t": 13,
+            "v": 0
+          },
+          {
+            "t": 14,
+            "v": 1,
+            "ease": "inOutSine"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 16.55,
+            "dur": 0.4
+          }
+        ],
+        "fromAnchor": "sag",
+        "toAnchor": "ust"
+      },
+      {
+        "id": "geri",
+        "type": "arrow",
+        "arrow": "ok-el-cizimi",
+        "from": "video",
+        "to": "fikir",
+        "start": 14.2,
+        "end": 17,
+        "fold": [
+          {
+            "t": 14.2,
+            "v": 0
+          },
+          {
+            "t": 15.6,
+            "v": 1,
+            "ease": "inOutSine"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 16.55,
+            "dur": 0.4
+          }
+        ],
+        "bend": -0.35,
+        "label": "geri bildirim",
+        "labelPos": 0.5,
+        "color": "#b5651d"
+      },
+      {
+        "id": "yildiz",
+        "asset": "yildiz",
+        "x": 880,
+        "y": 330,
+        "scale": 0.55,
+        "start": 14.8,
+        "end": 17,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 14.8,
+            "dur": 0.6
+          },
+          {
+            "preset": "nabiz",
+            "t": 15.4,
+            "genlik": 0.08,
+            "periyot": 1.2
+          }
+        ]
+      },
+      {
+        "id": "hedef",
+        "type": "arrow",
+        "arrow": "ok-kalin-golge",
+        "from": "video",
+        "to": "yildiz",
+        "start": 15.3,
+        "end": 17,
+        "fold": [
+          {
+            "t": 15.3,
+            "v": 0
+          },
+          {
+            "t": 16.2,
+            "v": 1,
+            "ease": "inOutSine"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 16.55,
+            "dur": 0.4
+          }
+        ],
+        "bend": -0.2,
+        "gap": 26
+      }
+    ]
+  }
+}

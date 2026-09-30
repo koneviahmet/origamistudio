@@ -1,0 +1,425 @@
+{
+  "ts": 1790783432451,
+  "source": "disk",
+  "summary": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "id": "ok-ikram",
+        "keys": [
+          "bend",
+          "gap",
+          "fromAnchor",
+          "toAnchor"
+        ]
+      }
+    ],
+    "scene": []
+  },
+  "scene": {
+    "name": "Türk Kahvesi (çizim)",
+    "width": 1080,
+    "height": 1080,
+    "fps": 30,
+    "duration": 16,
+    "style": "cizim",
+    "sketch": {
+      "ink": "#2d3561",
+      "width": 3.4,
+      "wobble": 1.4,
+      "hatch": 5,
+      "angle": 62,
+      "wipe": 35
+    },
+    "background": {
+      "type": "solid",
+      "color": "#f7f1e3",
+      "paper": 0.6,
+      "vignette": 0.08
+    },
+    "sections": [
+      {
+        "t": 0,
+        "name": "Açılış"
+      },
+      {
+        "t": 2,
+        "name": "Kahvehane"
+      },
+      {
+        "t": 9.2,
+        "name": "Fincan"
+      }
+    ],
+    "layers": [
+      {
+        "id": "gunes",
+        "asset": "gunes",
+        "x": 940,
+        "y": 140,
+        "scale": 0.75,
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 0.4,
+            "dur": 1.8
+          },
+          {
+            "preset": "don",
+            "t": 2.2,
+            "periyot": 40
+          }
+        ]
+      },
+      {
+        "id": "bulut",
+        "asset": "bulut",
+        "x": [
+          {
+            "t": 0,
+            "v": 230
+          },
+          {
+            "t": 16,
+            "v": 330,
+            "ease": "linear"
+          }
+        ],
+        "y": 190,
+        "scale": 0.8,
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 0.9,
+            "dur": 1.8
+          }
+        ]
+      },
+      {
+        "id": "baslik",
+        "type": "text",
+        "text": "Türk Kahvesi'nin\nYolculuğu",
+        "x": 540,
+        "y": 150,
+        "size": 76,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 0.2,
+            "v": 0
+          },
+          {
+            "t": 1.8,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "lineHeight": 1.05,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 9.4,
+            "dur": 0.6
+          }
+        ]
+      },
+      {
+        "id": "tepeler",
+        "asset": "tepeler",
+        "x": 540,
+        "y": 905,
+        "anchor": [
+          0.5,
+          1
+        ],
+        "scale": 2.8,
+        "sketch": {
+          "ink": "#4d7d45",
+          "width": 2.4
+        },
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 0.6,
+            "dur": 2.4
+          }
+        ]
+      },
+      {
+        "id": "kahvehane",
+        "asset": "ev",
+        "x": 290,
+        "y": 880,
+        "anchor": [
+          0.5,
+          1
+        ],
+        "scale": 2.3,
+        "palette": {
+          "a": "#e8833a",
+          "c": "#f2d27a",
+          "b": "#7a4a2a",
+          "d": "#8cc7de"
+        },
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 2,
+            "dur": 2.8
+          },
+          {
+            "preset": "silinerek-cik",
+            "t": 9.2,
+            "dur": 1.2
+          }
+        ]
+      },
+      {
+        "id": "tabela",
+        "type": "text",
+        "text": "KAHVE",
+        "x": 290,
+        "y": 690,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#ffffff",
+        "reveal": [
+          {
+            "t": 4.6,
+            "v": 0
+          },
+          {
+            "t": 5.199999999999999,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "box": {
+          "color": "#3f8f6b",
+          "radius": 8,
+          "shadow": false,
+          "padding": [
+            4,
+            16
+          ]
+        },
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 9.2,
+            "dur": 0.6
+          }
+        ]
+      },
+      {
+        "id": "cezve",
+        "asset": "cezve",
+        "x": 640,
+        "y": 880,
+        "anchor": [
+          0.5,
+          1
+        ],
+        "scale": 1.05,
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 4.2,
+            "dur": 2.2
+          },
+          {
+            "preset": "sallan",
+            "t": 6.6,
+            "aci": 3,
+            "periyot": 1.8
+          },
+          {
+            "preset": "silinerek-cik",
+            "t": 9.3,
+            "dur": 1
+          }
+        ]
+      },
+      {
+        "id": "fincan",
+        "asset": "fincan",
+        "x": [
+          {
+            "t": 0,
+            "v": 870
+          },
+          {
+            "t": 9.8,
+            "v": 870
+          },
+          {
+            "t": 11.2,
+            "v": 540,
+            "ease": "inOutCubic"
+          }
+        ],
+        "y": [
+          {
+            "t": 0,
+            "v": 880
+          },
+          {
+            "t": 9.8,
+            "v": 880
+          },
+          {
+            "t": 11.2,
+            "v": 730,
+            "ease": "inOutCubic"
+          }
+        ],
+        "scale": [
+          {
+            "t": 0,
+            "v": 0.95
+          },
+          {
+            "t": 9.8,
+            "v": 0.95
+          },
+          {
+            "t": 11.2,
+            "v": 2.3,
+            "ease": "inOutCubic"
+          }
+        ],
+        "anchor": [
+          0.5,
+          1
+        ],
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 5.6,
+            "dur": 2.2
+          }
+        ]
+      },
+      {
+        "id": "ok-ikram",
+        "type": "arrow",
+        "arrow": "ok-el-cizimi",
+        "from": "cezve",
+        "to": "fincan",
+        "bend": 0.5,
+        "gap": 12,
+        "fromAnchor": "ust",
+        "toAnchor": "ust",
+        "label": "ikram",
+        "labelPos": 0.5,
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 7.8,
+            "dur": 1.1
+          },
+          {
+            "preset": "silinerek-cik",
+            "t": 9.2,
+            "dur": 0.6
+          }
+        ]
+      },
+      {
+        "id": "yil-1554",
+        "type": "text",
+        "text": "1554",
+        "x": 540,
+        "y": 975,
+        "size": 64,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 2.2,
+            "v": 0
+          },
+          {
+            "t": 2.7,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 9.2,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "aciklama-1",
+        "type": "text",
+        "text": "İstanbul'da ilk kahvehane açılır",
+        "x": 540,
+        "y": 1030,
+        "size": 40,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 2.8,
+            "v": 0
+          },
+          {
+            "t": 4.199999999999999,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 9.2,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "soz",
+        "type": "text",
+        "text": "Bir fincan kahvenin\nkırk yıl hatırı vardır",
+        "x": 540,
+        "y": 895,
+        "size": 64,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 11.6,
+            "v": 0
+          },
+          {
+            "t": 13.8,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "lineHeight": 1.1,
+        "box": {
+          "color": "#fbf6ea",
+          "opacity": 0.9,
+          "radius": 18,
+          "shadow": false,
+          "padding": [
+            14,
+            30
+          ]
+        }
+      }
+    ]
+  }
+}

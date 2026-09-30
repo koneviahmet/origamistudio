@@ -13,8 +13,10 @@ import FacetEditor from '../components/FacetEditor.vue';
 import ImportImageDialog from '../components/ImportImageDialog.vue';
 import ParticlePreview from '../components/ParticlePreview.vue';
 import ParticleItemEditor from '../components/ParticleItemEditor.vue';
+import ArrowPreview from '../components/ArrowPreview.vue';
+import ArrowItemEditor from '../components/ArrowItemEditor.vue';
 
-const CAT_LABELS = { hayvanlar: 'Hayvanlar', doga: 'Doğa', gokyuzu: 'Gökyüzü', nesneler: 'Nesneler', sekiller: 'Şekiller', deniz: 'Deniz', uzay: 'Uzay', efektler: 'Efektler' };
+const CAT_LABELS = { hayvanlar: 'Hayvanlar', doga: 'Doğa', gokyuzu: 'Gökyüzü', nesneler: 'Nesneler', sekiller: 'Şekiller', deniz: 'Deniz', uzay: 'Uzay', efektler: 'Efektler', oklar: 'Oklar' };
 const catLabel = (c) => CAT_LABELS[c] || c;
 
 const categories = ref([]);
@@ -158,6 +160,27 @@ function newEffect() {
   dirty.value = true;
 }
 
+function newArrow() {
+  if (dirty.value && !confirm('Kaydedilmemiş değişiklikler kaybolacak. Devam?')) return;
+  draft.value = {
+    id: 'yeni-ok',
+    name: 'Yeni ok',
+    category: categories.value.includes('oklar') ? 'oklar' : activeCat.value || categories.value[0] || 'genel',
+    tags: ['ok'],
+    type: 'arrow',
+    curve: 'kavis',
+    line: 'duz',
+    head: 'ucgen',
+    width: 8,
+    headSize: 34,
+    color: '#2d3561',
+    bend: 0.25,
+  };
+  origId.value = null;
+  afterOpen();
+  dirty.value = true;
+}
+
 function newAsset() {
   if (dirty.value && !confirm('Kaydedilmemiş değişiklikler kaybolacak. Devam?')) return;
   draft.value = {
@@ -209,7 +232,7 @@ watch(tab, (t) => {
 function applyJson() {
   try {
     const d = JSON.parse(jsonText.value);
-    if (d.type !== 'particles') {
+    if (!d.type) {
       if (!Array.isArray(d.facets)) throw new Error('"facets" dizisi gerekli');
       if (!Array.isArray(d.size) || d.size.length !== 2) throw new Error('"size": [genişlik, yükseklik] gerekli');
     }
@@ -413,6 +436,7 @@ const facetPointsText = computed({
         <span class="dim small">{{ filtered.length }} varlık</span>
         <button class="btn" title="PNG / JPG / SVG'den otomatik low-poly origami" @click="showImport = true">⬆ Görselden origami</button>
         <button class="btn" title="Kar, konfeti, yağmur gibi parçacık efekti" @click="newEffect">＋ Yeni efekt</button>
+        <button class="btn" title="Nesneden nesneye geçiş oku stili" @click="newArrow">＋ Yeni ok</button>
         <button class="btn primary" @click="newAsset">＋ Yeni varlık</button>
       </div>
       <div v-if="loading" class="dim pad">Yükleniyor…</div>
@@ -431,6 +455,7 @@ const facetPointsText = computed({
         >
           <div class="thumb" :class="{ fx: a.type === 'particles' }">
             <ParticlePreview v-if="a.type === 'particles'" :item="a" :animate="hover === a.id" />
+            <ArrowPreview v-else-if="a.type === 'arrow'" :item="a" :animate="hover === a.id" />
             <AssetCanvas v-else :asset="a" :animate="hover === a.id" />
           </div>
           <div class="meta">
@@ -439,6 +464,7 @@ const facetPointsText = computed({
             <div class="tags">
               <span class="chip">{{ catLabel(a.category) }}</span>
               <span v-if="a.type === 'particles'" class="chip fxchip">✦ efekt</span>
+              <span v-else-if="a.type === 'arrow'" class="chip okchip">➜ ok</span>
               <span v-else class="chip">{{ a.facets?.length || 0 }} facet</span>
               <span v-if="a.variants" class="chip">{{ Object.keys(a.variants).length }} varyant</span>
             </div>
@@ -463,8 +489,9 @@ const facetPointsText = computed({
         <button :class="{ active: tab === 'json' }" @click="tab = 'json'">JSON</button>
       </div>
 
-      <div v-if="tab === 'visual' && draft.type === 'particles'" class="ed-body fx-body">
-        <ParticleItemEditor :item="draft" @change="touch" />
+      <div v-if="tab === 'visual' && (draft.type === 'particles' || draft.type === 'arrow')" class="ed-body fx-body">
+        <ParticleItemEditor v-if="draft.type === 'particles'" :item="draft" @change="touch" />
+        <ArrowItemEditor v-else :item="draft" @change="touch" />
         <div class="ed-side">
           <div class="grid2">
             <div class="field"><label>İsim</label><input v-model="draft.name" class="input" @input="touch" /></div>
@@ -716,8 +743,9 @@ const facetPointsText = computed({
 .card.active { border-color: var(--accent); }
 .thumb.fx { background: #0b1026; }
 .fxchip { color: #f2c14e; border-color: #6b5520; }
+.okchip { color: #7dd3fc; border-color: #1e4a63; }
 .fx-body { grid-template-columns: 1fr 260px; }
-.thumb { aspect-ratio: 1; background: radial-gradient(circle at 50% 40%, #fbf1e2, #efd9bd); }
+.thumb { aspect-ratio: 1; overflow: hidden; background: radial-gradient(circle at 50% 40%, #fbf1e2, #efd9bd); }
 .meta { padding: 8px 10px 10px; display: grid; gap: 2px; }
 .name { font-weight: 600; }
 .tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px; }

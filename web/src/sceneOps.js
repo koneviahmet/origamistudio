@@ -75,6 +75,72 @@ export function newParticleLayer(scene, t, particle = 'konfeti') {
   };
 }
 
+/**
+ * Ok katmanı. Uçlar: seçili katmandan en yakın katmana; yoksa sahnedeki son iki nesne;
+ * hiçbiri yoksa ortada serbest iki nokta.
+ */
+export function newArrowLayer(scene, t, arrow = 'ok-kavis', selectedId = null, assets = null) {
+  const t0 = Math.round(t * 10) / 10;
+  const W = scene.width;
+  const H = scene.height;
+  const cands = (scene.layers || []).filter(
+    (l) => (!l.type || l.type === 'text') && (l.start == null || l.start <= t) && (l.end == null || l.end >= t),
+  );
+  // Kaba kutu (varlık boyutu × ölçek, çapa) → merkez; arka plan gibi seçileni içine alan katmanlar elenir
+  const box = (l) => {
+    const a = !l.type && assets?.get(l.asset);
+    const x = valueAt(l, 'x', t);
+    const y = valueAt(l, 'y', t);
+    if (!a) return { cx: x, cy: y, x0: x, y0: y, x1: x, y1: y };
+    const s = Math.abs(valueAt(l, 'scale', t));
+    const [w, h] = (a.size || [200, 200]).map((v) => v * s);
+    const [ax, ay] = l.anchor || [0.5, 0.5];
+    const x0 = x - ax * w;
+    const y0 = y - ay * h;
+    return { cx: x0 + w / 2, cy: y0 + h / 2, x0, y0, x1: x0 + w, y1: y0 + h };
+  };
+  const pos = (l) => {
+    const b = box(l);
+    return [b.cx, b.cy];
+  };
+  let from = [Math.round(W * 0.3), Math.round(H * 0.55)];
+  let to = [Math.round(W * 0.7), Math.round(H * 0.45)];
+  const sel = cands.find((l) => l.id === selectedId);
+  if (sel && cands.length > 1) {
+    const [sx, sy] = pos(sel);
+    // Önce nesneler (origami), metinler yalnızca nesne kalmazsa
+    const rank = (l) => (l.type === 'text' ? 1e6 : 0);
+    const [cx, cy] = pos(sel);
+    const encloses = (l) => {
+      const b = box(l);
+      return b.x1 > b.x0 && cx > b.x0 && cx < b.x1 && cy > b.y0 && cy < b.y1;
+    };
+    const pool = cands.filter((l) => l !== sel && !encloses(l));
+    const other = (pool.length ? pool : cands.filter((l) => l !== sel)).sort((a, b) => {
+      const [ax, ay] = pos(a);
+      const [bx, by] = pos(b);
+      return rank(a) + Math.hypot(ax - sx, ay - sy) - rank(b) - Math.hypot(bx - sx, by - sy);
+    })[0];
+    from = sel.id;
+    to = other.id;
+  } else {
+    const objs = cands.filter((l) => !l.type);
+    const pool = objs.length >= 2 ? objs : cands;
+    if (pool.length >= 2) {
+      from = pool[pool.length - 2].id;
+      to = pool[pool.length - 1].id;
+    }
+  }
+  return {
+    id: uid('ok', scene),
+    type: 'arrow',
+    arrow,
+    from,
+    to,
+    fold: [{ t: t0, v: 0 }, { t: t0 + 1.2, v: 1, ease: 'inOutSine' }],
+  };
+}
+
 export function valueAt(obj, name, t) {
   return sample(obj[name], t, PROP_DEFAULTS[name] ?? 0);
 }

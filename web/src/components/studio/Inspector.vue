@@ -3,6 +3,7 @@ import { computed, ref, watch } from 'vue';
 import PropRow from './PropRow.vue';
 import AnimsEditor from './AnimsEditor.vue';
 import ParticlesEditor from './ParticlesEditor.vue';
+import ArrowEditor from './ArrowEditor.vue';
 import AudioEditor from './AudioEditor.vue';
 import TransitionsEditor from './TransitionsEditor.vue';
 import FormatsEditor from './FormatsEditor.vue';
@@ -30,7 +31,7 @@ const isCamera = computed(() => props.selectedId === '__camera');
 
 const assetsByCat = computed(() => {
   const m = {};
-  for (const a of props.res.assets.values()) if (a.type !== 'particles') (m[a.category] ||= []).push(a);
+  for (const a of props.res.assets.values()) if (!a.type) (m[a.category] ||= []).push(a);
   return m;
 });
 
@@ -201,7 +202,7 @@ watch(isCamera, (on) => {
     <template v-else-if="layer">
       <div class="row">
         <input class="input mono grow" :value="layer.id" title="Katman id" @change="rename" />
-        <span class="chip">{{ layer.type === 'text' ? 'metin' : layer.type === 'particles' ? 'parçacık' : 'origami' }}</span>
+        <span class="chip">{{ layer.type === 'text' ? 'metin' : layer.type === 'particles' ? 'parçacık' : layer.type === 'arrow' ? 'ok' : 'origami' }}</span>
       </div>
       <div class="row actions">
         <button class="btn sm" title="Bir üst katmana (öne)" @click="move(1)">↑</button>
@@ -233,6 +234,11 @@ watch(isCamera, (on) => {
       <div v-if="layer.type === 'particles'" class="sec">
         <div class="sec-title">Parçacıklar</div>
         <ParticlesEditor :layer="layer" :scene="scene" :res="res" :edit="edit" />
+      </div>
+
+      <div v-if="layer.type === 'arrow'" class="sec">
+        <div class="sec-title">Ok <span class="dim small">· nesneden nesneye geçiş</span></div>
+        <ArrowEditor :layer="layer" :scene="scene" :res="res" :t="t" :eps="eps" :edit="edit" />
       </div>
 
       <div v-if="!layer.type" class="sec">
@@ -304,16 +310,18 @@ watch(isCamera, (on) => {
         <div class="props">
           <PropRow :obj="layer" name="x" :t="t" :eps="eps" :edit="edit" />
           <PropRow :obj="layer" name="y" :t="t" :eps="eps" :edit="edit" />
-          <PropRow :obj="layer" name="scale" label="ölçek" :t="t" :eps="eps" :step="0.05" :edit="edit" />
-          <PropRow :obj="layer" name="scaleX" label="ölçek X" :t="t" :eps="eps" :step="0.05" :edit="edit" />
-          <PropRow :obj="layer" name="scaleY" label="ölçek Y" :t="t" :eps="eps" :step="0.05" :edit="edit" />
-          <PropRow :obj="layer" name="rotation" label="açı°" :t="t" :eps="eps" :edit="edit" />
+          <template v-if="layer.type !== 'arrow'">
+            <PropRow :obj="layer" name="scale" label="ölçek" :t="t" :eps="eps" :step="0.05" :edit="edit" />
+            <PropRow :obj="layer" name="scaleX" label="ölçek X" :t="t" :eps="eps" :step="0.05" :edit="edit" />
+            <PropRow :obj="layer" name="scaleY" label="ölçek Y" :t="t" :eps="eps" :step="0.05" :edit="edit" />
+            <PropRow :obj="layer" name="rotation" label="açı°" :t="t" :eps="eps" :edit="edit" />
+          </template>
           <PropRow :obj="layer" name="opacity" label="opaklık" :t="t" :eps="eps" :step="0.05" :min="0" :max="1" :edit="edit" />
           <PropRow v-if="!layer.type" :obj="layer" name="fold" label="katlanma" :t="t" :eps="eps" :step="0.05" :min="0" :max="1" :edit="edit" />
         </div>
       </div>
 
-      <div v-if="layer.type !== 'particles'" class="sec">
+      <div v-if="layer.type !== 'particles' && layer.type !== 'arrow'" class="sec">
         <div class="sec-title">Hareket yolu</div>
         <PathEditor :layer="layer" :t="t" :eps="eps" :edit="edit" />
       </div>

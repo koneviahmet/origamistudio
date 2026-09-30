@@ -13,7 +13,8 @@
     "notes": "node scripts/notes.js",
     "fonts": "node scripts/fetch-fonts.js",
     "seed:design": "node scripts/seed-design.js",
-    "gen-audio": "node scripts/gen-audio.js && node scripts/gen-sfx.js"
+    "gen-audio": "node scripts/gen-audio.js && node scripts/gen-sfx.js",
+    "katalog": "node scripts/katalog.js"
   },
   "dependencies": {
     "express": "^5.2.1",

@@ -77,6 +77,9 @@ Stüdyoda not bırakın, sonra Claude'a **"notları uygula"** deyin. Ayrıntıla
 - [docs/plan.md](docs/plan.md) — fazlar ve yol haritası
 - [docs/schema.md](docs/schema.md) — varlık / sahne / not JSON şemaları
 - [docs/ai-workflow.md](docs/ai-workflow.md) — AI çalışma akışı ve animasyon tarifleri
+- [docs/prompt-rehberi.md](docs/prompt-rehberi.md) — **yapay zekâ ile video üretimi**: ana bağlam, hazır prompt şablonları, tasarım reçeteleri, kontrol listesi
+- [docs/katalog.md](docs/katalog.md) — modeller, efektler, temalar, fontlar, animasyonlar envanteri (`npm run katalog` ile otomatik üretilir)
+- `scripts/sablon-sahne.mjs` — yeni video üreteci şablonu
 
 ## Yapı
 

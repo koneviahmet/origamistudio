@@ -66,7 +66,7 @@ function textScene(p) {
 }
 // Parçacık efektleri artık kütüphane öğesidir
 const effects = computed(() => [...resources.value.assets.values()].filter((a) => a.type === 'particles'));
-const origamiAssets = computed(() => [...resources.value.assets.values()].filter((a) => a.type !== 'particles'));
+const origamiAssets = computed(() => [...resources.value.assets.values()].filter((a) => !a.type));
 
 function snippet(p) {
   return JSON.stringify(anim(p));

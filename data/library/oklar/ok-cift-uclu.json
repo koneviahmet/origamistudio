@@ -1,0 +1,18 @@
+{
+  "id": "ok-cift-uclu",
+  "name": "Çift uçlu",
+  "tags": [
+    "ok",
+    "karşılaştırma",
+    "ilişki"
+  ],
+  "type": "arrow",
+  "curve": "duz",
+  "line": "duz",
+  "head": "ucgen",
+  "tail": "ucgen",
+  "width": 7,
+  "headSize": 31,
+  "color": "#2a9d8f",
+  "bend": 0
+}

@@ -12,7 +12,7 @@ const props = defineProps({
 
 const P = computed(() => particleDef(props.layer, props.res));
 const effects = computed(() => [...props.res.assets.values()].filter((a) => a.type === 'particles'));
-const origami = computed(() => [...props.res.assets.values()].filter((a) => a.type !== 'particles'));
+const origami = computed(() => [...props.res.assets.values()].filter((a) => !a.type));
 const current = computed(() => props.layer.particle || props.layer.preset || 'konfeti');
 function setEffect(id) {
   props.edit(() => {

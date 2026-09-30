@@ -1,0 +1,19 @@
+{
+  "id": "ok-el-cizimi",
+  "name": "El çizimi ok",
+  "tags": [
+    "ok",
+    "çizim",
+    "defter",
+    "kalem"
+  ],
+  "type": "arrow",
+  "curve": "kavis",
+  "line": "el",
+  "head": "kalem",
+  "width": 6.5,
+  "headSize": 39,
+  "color": "#2d3561",
+  "bend": 0.3,
+  "wobble": 2.2
+}

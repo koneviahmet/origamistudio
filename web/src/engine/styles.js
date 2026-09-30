@@ -3,6 +3,7 @@
 // opts.fold her stilde "görünme ilerlemesi"dir (0 = görünmez, 1 = tam).
 import { drawAsset } from './origami.js';
 import { drawPapercut } from './papercut.js';
+import { drawSketch } from './sketch.js';
 
 export const STYLES = {
   origami: {
@@ -19,6 +20,11 @@ export const STYLES = {
     label: 'Düz vektör',
     hint: 'Gölgesiz, temiz renkler (minimal / infografik)',
     draw: (ctx, asset, opts) => drawAsset(ctx, asset, { ...opts, flat: true }),
+  },
+  cizim: {
+    label: 'Çizim / boya',
+    hint: 'El çizimi mürekkep kontur, pastel boya taraması; önce çizilir sonra boyanır',
+    draw: drawSketch,
   },
 };
 

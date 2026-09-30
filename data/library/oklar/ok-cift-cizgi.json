@@ -1,0 +1,18 @@
+{
+  "id": "ok-cift-cizgi",
+  "name": "Çift çizgi",
+  "tags": [
+    "ok",
+    "zarif",
+    "klasik"
+  ],
+  "type": "arrow",
+  "curve": "s",
+  "line": "cift",
+  "head": "elmas",
+  "tail": "cizgi",
+  "width": 7,
+  "headSize": 28.5,
+  "color": "#6d4c41",
+  "bend": 0.25
+}

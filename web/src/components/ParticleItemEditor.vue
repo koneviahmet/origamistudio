@@ -11,7 +11,7 @@ const emit = defineEmits(['change']);
 const animate = ref(true);
 const burst = ref(false);
 const dark = ref(true);
-const origami = computed(() => [...resources.value.assets.values()].filter((a) => a.type !== 'particles'));
+const origami = computed(() => [...resources.value.assets.values()].filter((a) => !a.type));
 const REFS = ['$vurgu', '$baslik', '$metin', '$arka1', '$arka2'];
 
 function set(k, v) {

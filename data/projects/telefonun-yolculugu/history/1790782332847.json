@@ -1,0 +1,2717 @@
+{
+  "ts": 1790782332847,
+  "source": "disk",
+  "summary": {
+    "added": [],
+    "removed": [],
+    "changed": [],
+    "scene": []
+  },
+  "scene": {
+    "name": "Telefonun Yolculuğu (çizim)",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration": 54.2,
+    "style": "cizim",
+    "sketch": {
+      "ink": "#2d3561",
+      "width": 3.4,
+      "wobble": 1.4,
+      "hatch": 5,
+      "angle": 62,
+      "wipe": 35,
+      "grain": 0.35
+    },
+    "background": {
+      "type": "solid",
+      "color": [
+        {
+          "t": 0,
+          "v": "#f7f1e3"
+        },
+        {
+          "t": 3.8,
+          "v": "#f7f1e3"
+        },
+        {
+          "t": 4.8,
+          "v": "#f5e8d3",
+          "ease": "inOutSine"
+        },
+        {
+          "t": 9.8,
+          "v": "#f5e8d3"
+        },
+        {
+          "t": 10.8,
+          "v": "#fbe4df",
+          "ease": "inOutSine"
+        },
+        {
+          "t": 15.8,
+          "v": "#fbe4df"
+        },
+        {
+          "t": 16.8,
+          "v": "#f3ecd4",
+          "ease": "inOutSine"
+        },
+        {
+          "t": 21.8,
+          "v": "#f3ecd4"
+        },
+        {
+          "t": 22.8,
+          "v": "#e1ecf7",
+          "ease": "inOutSine"
+        },
+        {
+          "t": 27.8,
+          "v": "#e1ecf7"
+        },
+        {
+          "t": 28.8,
+          "v": "#ebe4f6",
+          "ease": "inOutSine"
+        },
+        {
+          "t": 33.8,
+          "v": "#ebe4f6"
+        },
+        {
+          "t": 34.8,
+          "v": "#dff1ec",
+          "ease": "inOutSine"
+        },
+        {
+          "t": 39.8,
+          "v": "#dff1ec"
+        },
+        {
+          "t": 40.8,
+          "v": "#fbe9ef",
+          "ease": "inOutSine"
+        },
+        {
+          "t": 45.8,
+          "v": "#fbe9ef"
+        },
+        {
+          "t": 47,
+          "v": "#f7f1e3",
+          "ease": "inOutSine"
+        }
+      ],
+      "paper": 0.65,
+      "vignette": 0.1
+    },
+    "sfx": {
+      "auto": true,
+      "volume": 0.45
+    },
+    "audio": [
+      {
+        "file": "uzay-ambiyans.wav",
+        "start": 0,
+        "offset": 0,
+        "volume": 0.4,
+        "fadeIn": 1.5,
+        "fadeOut": 2.5
+      }
+    ],
+    "sections": [
+      {
+        "t": 0,
+        "name": "Açılış"
+      },
+      {
+        "t": 4.2,
+        "name": "1876 · İlk Telefon"
+      },
+      {
+        "t": 10.2,
+        "name": "1950'ler · Çevirmeli Telefon"
+      },
+      {
+        "t": 16.2,
+        "name": "1973 · İlk Cep Telefonu"
+      },
+      {
+        "t": 22.2,
+        "name": "1990'lar · Tuşlu Cep Telefonu"
+      },
+      {
+        "t": 28.2,
+        "name": "2000'ler · Kapaklı Telefon"
+      },
+      {
+        "t": 34.2,
+        "name": "2007 · Akıllı Telefon"
+      },
+      {
+        "t": 40.2,
+        "name": "Bugün · Cebimizdeki Bilgisayar"
+      },
+      {
+        "t": 46.2,
+        "name": "Kapanış"
+      }
+    ],
+    "groups": [
+      {
+        "id": "g-acilis",
+        "name": "Açılış"
+      },
+      {
+        "id": "g-1",
+        "name": "1876 · İlk Telefon"
+      },
+      {
+        "id": "g-2",
+        "name": "1950'ler · Çevirmeli Telefon"
+      },
+      {
+        "id": "g-3",
+        "name": "1973 · İlk Cep Telefonu"
+      },
+      {
+        "id": "g-4",
+        "name": "1990'lar · Tuşlu Cep Telefonu"
+      },
+      {
+        "id": "g-5",
+        "name": "2000'ler · Kapaklı Telefon"
+      },
+      {
+        "id": "g-6",
+        "name": "2007 · Akıllı Telefon"
+      },
+      {
+        "id": "g-7",
+        "name": "Bugün · Cebimizdeki Bilgisayar"
+      },
+      {
+        "id": "g-raf",
+        "name": "Raf"
+      },
+      {
+        "id": "g-kapanis",
+        "name": "Kapanış"
+      }
+    ],
+    "formats": [
+      {
+        "id": "youtube",
+        "name": "YouTube 16:9",
+        "width": 1920,
+        "height": 1080,
+        "mode": "sigdir",
+        "focusX": 0.5,
+        "focusY": 0.45,
+        "zoom": 1.32
+      }
+    ],
+    "layers": [
+      {
+        "id": "kanca",
+        "group": "g-acilis",
+        "type": "text",
+        "text": "Cebindeki telefonun",
+        "x": 540,
+        "y": 560,
+        "size": 68,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 0.15,
+            "v": 0
+          },
+          {
+            "t": 1.05,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 3.6,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "baslik",
+        "group": "g-acilis",
+        "type": "text",
+        "text": "150 yıllık\nyolculuğu",
+        "x": 540,
+        "y": 760,
+        "size": 150,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 0.9,
+            "v": 0
+          },
+          {
+            "t": 2.4,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "lineHeight": 1,
+        "anims": [
+          {
+            "preset": "nefes",
+            "t": 2.4,
+            "genlik": 0.015,
+            "periyot": 2
+          },
+          {
+            "preset": "kuculerek-cik",
+            "t": 3.5500000000000003,
+            "dur": 0.55
+          }
+        ]
+      },
+      {
+        "id": "yildiz-1",
+        "group": "g-acilis",
+        "asset": "yildiz",
+        "x": 200,
+        "y": 470,
+        "scale": 0.4,
+        "variant": "gumus",
+        "end": 4.2,
+        "palette": {
+          "a": "#ffd166"
+        },
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 1.6,
+            "dur": 1.2
+          },
+          {
+            "preset": "sallan",
+            "t": 2.8,
+            "aci": 10,
+            "periyot": 2
+          },
+          {
+            "preset": "sol",
+            "t": 3.6,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "yildiz-2",
+        "group": "g-acilis",
+        "asset": "yildiz",
+        "x": 880,
+        "y": 960,
+        "scale": 0.3,
+        "end": 4.2,
+        "palette": {
+          "a": "#f7a8a0"
+        },
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 2,
+            "dur": 1.2
+          },
+          {
+            "preset": "sallan",
+            "t": 3.2,
+            "aci": 10,
+            "periyot": 2.3
+          },
+          {
+            "preset": "sol",
+            "t": 3.6,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "raf",
+        "group": "g-raf",
+        "asset": "raf",
+        "x": 535,
+        "y": 1400,
+        "anchor": [
+          0.5,
+          0
+        ],
+        "scale": 2.2,
+        "scaleY": 0.62,
+        "sketch": {
+          "ink": "#7a4a2a",
+          "width": 2.6
+        },
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 1.6,
+            "dur": 2
+          }
+        ]
+      },
+      {
+        "id": "yil-1",
+        "group": "g-1",
+        "type": "text",
+        "text": "1876",
+        "x": 540,
+        "y": 272,
+        "size": 132,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 4.3,
+            "v": 0
+          },
+          {
+            "t": 4.8,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 4.2,
+        "end": 10.2,
+        "box": {
+          "color": "#f6d58e",
+          "opacity": 0.85,
+          "radius": 14,
+          "shadow": false,
+          "padding": [
+            0,
+            34
+          ]
+        },
+        "rotation": -2,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 4.25,
+            "dur": 0.6
+          },
+          {
+            "preset": "sol",
+            "t": 9.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "ad-1",
+        "group": "g-1",
+        "type": "text",
+        "text": "İlk Telefon",
+        "x": 540,
+        "y": 392,
+        "size": 68,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 4.8,
+            "v": 0
+          },
+          {
+            "t": 5.5,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 4.2,
+        "end": 10.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 9.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "tel-1",
+        "group": "g-1",
+        "asset": "duvar-telefonu",
+        "anchor": [
+          0.5,
+          1
+        ],
+        "start": 4.2,
+        "x": [
+          {
+            "t": 4.2,
+            "v": 540
+          },
+          {
+            "t": 9.2,
+            "v": 540
+          },
+          {
+            "t": 10.1,
+            "v": 120,
+            "ease": "inOutCubic"
+          }
+        ],
+        "y": [
+          {
+            "t": 4.2,
+            "v": 1010
+          },
+          {
+            "t": 9.2,
+            "v": 1010
+          },
+          {
+            "t": 9.65,
+            "v": 870,
+            "ease": "outQuad"
+          },
+          {
+            "t": 10.1,
+            "v": 1400,
+            "ease": "inQuad"
+          }
+        ],
+        "scale": [
+          {
+            "t": 4.2,
+            "v": 1.8
+          },
+          {
+            "t": 9.2,
+            "v": 1.8
+          },
+          {
+            "t": 10.1,
+            "v": 0.39,
+            "ease": "inOutCubic"
+          }
+        ],
+        "rotation": [
+          {
+            "t": 9.2,
+            "v": 0
+          },
+          {
+            "t": 9.65,
+            "v": -8,
+            "ease": "outQuad"
+          },
+          {
+            "t": 10.1,
+            "v": 0,
+            "ease": "outBack"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 4.4,
+            "dur": 2
+          },
+          {
+            "preset": "nefes",
+            "t": 6.4,
+            "dur": 2.6,
+            "genlik": 0.012,
+            "periyot": 2.4
+          },
+          {
+            "preset": "seksek",
+            "t": 46.6,
+            "yukseklik": 16,
+            "periyot": 0.9
+          }
+        ]
+      },
+      {
+        "id": "balon-1",
+        "group": "g-1",
+        "type": "text",
+        "text": "Alo?",
+        "x": 822,
+        "y": 560,
+        "size": 50,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 6.2,
+            "v": 0
+          },
+          {
+            "t": 6.21,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 4.2,
+        "end": 10.2,
+        "rotation": -6,
+        "box": {
+          "color": "#ffffff",
+          "opacity": 0.95,
+          "radius": 26,
+          "shadow": false,
+          "padding": [
+            6,
+            22
+          ]
+        },
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 6.2,
+            "dur": 0.6
+          },
+          {
+            "preset": "sallan",
+            "t": 6.800000000000001,
+            "aci": 4,
+            "periyot": 1.6
+          },
+          {
+            "preset": "kuculerek-cik",
+            "t": 8.899999999999999,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "bilgi-1a",
+        "group": "g-1",
+        "type": "text",
+        "text": "Bell, telefonun patentini alır",
+        "x": 540,
+        "y": 1090,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 5.9,
+            "v": 0
+          },
+          {
+            "t": 6.7,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 4.2,
+        "end": 10.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 9.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "bilgi-1b",
+        "group": "g-1",
+        "type": "text",
+        "text": "Ses artık tellerle yolculuk eder",
+        "x": 540,
+        "y": 1166,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#5b4a7a",
+        "reveal": [
+          {
+            "t": 6.6,
+            "v": 0
+          },
+          {
+            "t": 7.4,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 4.2,
+        "end": 10.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 9.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "raf-yil-1",
+        "group": "g-raf",
+        "type": "text",
+        "text": "1876",
+        "x": 120,
+        "y": 1464,
+        "size": 30,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#7a4a2a",
+        "start": 9.900000000000002,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 9.950000000000001,
+            "dur": 0.45
+          }
+        ]
+      },
+      {
+        "id": "yil-2",
+        "group": "g-2",
+        "type": "text",
+        "text": "1950'ler",
+        "x": 540,
+        "y": 272,
+        "size": 132,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 10.3,
+            "v": 0
+          },
+          {
+            "t": 10.8,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 10.2,
+        "end": 16.2,
+        "box": {
+          "color": "#f7b8ae",
+          "opacity": 0.85,
+          "radius": 14,
+          "shadow": false,
+          "padding": [
+            0,
+            34
+          ]
+        },
+        "rotation": -2,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 10.25,
+            "dur": 0.6
+          },
+          {
+            "preset": "sol",
+            "t": 15.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "ad-2",
+        "group": "g-2",
+        "type": "text",
+        "text": "Çevirmeli Telefon",
+        "x": 540,
+        "y": 392,
+        "size": 68,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 10.8,
+            "v": 0
+          },
+          {
+            "t": 11.5,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 10.2,
+        "end": 16.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 15.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "tel-2",
+        "group": "g-2",
+        "asset": "cevirmeli-telefon",
+        "anchor": [
+          0.5,
+          1
+        ],
+        "start": 10.2,
+        "x": [
+          {
+            "t": 10.2,
+            "v": 540
+          },
+          {
+            "t": 15.2,
+            "v": 540
+          },
+          {
+            "t": 16.1,
+            "v": 245,
+            "ease": "inOutCubic"
+          }
+        ],
+        "y": [
+          {
+            "t": 10.2,
+            "v": 1010
+          },
+          {
+            "t": 15.2,
+            "v": 1010
+          },
+          {
+            "t": 15.65,
+            "v": 870,
+            "ease": "outQuad"
+          },
+          {
+            "t": 16.1,
+            "v": 1400,
+            "ease": "inQuad"
+          }
+        ],
+        "scale": [
+          {
+            "t": 10.2,
+            "v": 2.33
+          },
+          {
+            "t": 15.2,
+            "v": 2.33
+          },
+          {
+            "t": 16.1,
+            "v": 0.42,
+            "ease": "inOutCubic"
+          }
+        ],
+        "rotation": [
+          {
+            "t": 15.2,
+            "v": 0
+          },
+          {
+            "t": 15.65,
+            "v": 8,
+            "ease": "outQuad"
+          },
+          {
+            "t": 16.1,
+            "v": 0,
+            "ease": "outBack"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 10.399999999999999,
+            "dur": 2
+          },
+          {
+            "preset": "titre",
+            "t": 12.6,
+            "dur": 1.6,
+            "genlik": 3
+          },
+          {
+            "preset": "seksek",
+            "t": 46.72,
+            "yukseklik": 16,
+            "periyot": 0.9
+          }
+        ]
+      },
+      {
+        "id": "balon-2",
+        "group": "g-2",
+        "type": "text",
+        "text": "Zırrr!",
+        "x": 822,
+        "y": 560,
+        "size": 50,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 12.2,
+            "v": 0
+          },
+          {
+            "t": 12.21,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 10.2,
+        "end": 16.2,
+        "rotation": 5,
+        "box": {
+          "color": "#ffffff",
+          "opacity": 0.95,
+          "radius": 26,
+          "shadow": false,
+          "padding": [
+            6,
+            22
+          ]
+        },
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 12.2,
+            "dur": 0.6
+          },
+          {
+            "preset": "sallan",
+            "t": 12.799999999999999,
+            "aci": 4,
+            "periyot": 1.6
+          },
+          {
+            "preset": "kuculerek-cik",
+            "t": 14.899999999999999,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "bilgi-2a",
+        "group": "g-2",
+        "type": "text",
+        "text": "Numara, kadran çevrilerek aranır",
+        "x": 540,
+        "y": 1090,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 11.9,
+            "v": 0
+          },
+          {
+            "t": 12.7,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 10.2,
+        "end": 16.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 15.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "bilgi-2b",
+        "group": "g-2",
+        "type": "text",
+        "text": "Evin en değerli köşesinde durur",
+        "x": 540,
+        "y": 1166,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#5b4a7a",
+        "reveal": [
+          {
+            "t": 12.6,
+            "v": 0
+          },
+          {
+            "t": 13.4,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 10.2,
+        "end": 16.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 15.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "raf-yil-2",
+        "group": "g-raf",
+        "type": "text",
+        "text": "1950'ler",
+        "x": 245,
+        "y": 1464,
+        "size": 30,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#7a4a2a",
+        "start": 15.900000000000002,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 15.950000000000001,
+            "dur": 0.45
+          }
+        ]
+      },
+      {
+        "id": "yil-3",
+        "group": "g-3",
+        "type": "text",
+        "text": "1973",
+        "x": 540,
+        "y": 272,
+        "size": 132,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 16.3,
+            "v": 0
+          },
+          {
+            "t": 16.8,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 16.2,
+        "end": 22.2,
+        "box": {
+          "color": "#ffd08a",
+          "opacity": 0.85,
+          "radius": 14,
+          "shadow": false,
+          "padding": [
+            0,
+            34
+          ]
+        },
+        "rotation": -2,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 16.25,
+            "dur": 0.6
+          },
+          {
+            "preset": "sol",
+            "t": 21.099999999999998,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "ad-3",
+        "group": "g-3",
+        "type": "text",
+        "text": "İlk Cep Telefonu",
+        "x": 540,
+        "y": 392,
+        "size": 68,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 16.8,
+            "v": 0
+          },
+          {
+            "t": 17.5,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 16.2,
+        "end": 22.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 21.099999999999998,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "tel-3",
+        "group": "g-3",
+        "asset": "tugla-telefon",
+        "anchor": [
+          0.5,
+          1
+        ],
+        "start": 16.2,
+        "x": [
+          {
+            "t": 16.2,
+            "v": 540
+          },
+          {
+            "t": 21.2,
+            "v": 540
+          },
+          {
+            "t": 22.1,
+            "v": 370,
+            "ease": "inOutCubic"
+          }
+        ],
+        "y": [
+          {
+            "t": 16.2,
+            "v": 1010
+          },
+          {
+            "t": 21.2,
+            "v": 1010
+          },
+          {
+            "t": 21.65,
+            "v": 870,
+            "ease": "outQuad"
+          },
+          {
+            "t": 22.1,
+            "v": 1400,
+            "ease": "inQuad"
+          }
+        ],
+        "scale": [
+          {
+            "t": 16.2,
+            "v": 1.69
+          },
+          {
+            "t": 21.2,
+            "v": 1.69
+          },
+          {
+            "t": 22.1,
+            "v": 0.37,
+            "ease": "inOutCubic"
+          }
+        ],
+        "rotation": [
+          {
+            "t": 21.2,
+            "v": 0
+          },
+          {
+            "t": 21.65,
+            "v": -8,
+            "ease": "outQuad"
+          },
+          {
+            "t": 22.1,
+            "v": 0,
+            "ease": "outBack"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 16.4,
+            "dur": 2
+          },
+          {
+            "preset": "nefes",
+            "t": 18.4,
+            "dur": 2.6,
+            "genlik": 0.012,
+            "periyot": 2.4
+          },
+          {
+            "preset": "seksek",
+            "t": 46.84,
+            "yukseklik": 16,
+            "periyot": 0.9
+          }
+        ]
+      },
+      {
+        "id": "balon-3",
+        "group": "g-3",
+        "type": "text",
+        "text": "1 kilo!",
+        "x": 822,
+        "y": 560,
+        "size": 50,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 18.2,
+            "v": 0
+          },
+          {
+            "t": 18.21,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 16.2,
+        "end": 22.2,
+        "rotation": -6,
+        "box": {
+          "color": "#ffffff",
+          "opacity": 0.95,
+          "radius": 26,
+          "shadow": false,
+          "padding": [
+            6,
+            22
+          ]
+        },
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 18.2,
+            "dur": 0.6
+          },
+          {
+            "preset": "sallan",
+            "t": 18.8,
+            "aci": 4,
+            "periyot": 1.6
+          },
+          {
+            "preset": "kuculerek-cik",
+            "t": 20.9,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "bilgi-3a",
+        "group": "g-3",
+        "type": "text",
+        "text": "Sokakta ilk cep telefonu görüşmesi",
+        "x": 540,
+        "y": 1090,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 17.9,
+            "v": 0
+          },
+          {
+            "t": 18.7,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 16.2,
+        "end": 22.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 21.099999999999998,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "bilgi-3b",
+        "group": "g-3",
+        "type": "text",
+        "text": "Ağırlığı neredeyse 1 kilo!",
+        "x": 540,
+        "y": 1166,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#5b4a7a",
+        "reveal": [
+          {
+            "t": 18.6,
+            "v": 0
+          },
+          {
+            "t": 19.4,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 16.2,
+        "end": 22.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 21.099999999999998,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "raf-yil-3",
+        "group": "g-raf",
+        "type": "text",
+        "text": "1973",
+        "x": 370,
+        "y": 1464,
+        "size": 30,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#7a4a2a",
+        "start": 21.900000000000002,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 21.950000000000003,
+            "dur": 0.45
+          }
+        ]
+      },
+      {
+        "id": "yil-4",
+        "group": "g-4",
+        "type": "text",
+        "text": "1990'lar",
+        "x": 540,
+        "y": 272,
+        "size": 132,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 22.3,
+            "v": 0
+          },
+          {
+            "t": 22.8,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 22.2,
+        "end": 28.2,
+        "box": {
+          "color": "#b9d98a",
+          "opacity": 0.85,
+          "radius": 14,
+          "shadow": false,
+          "padding": [
+            0,
+            34
+          ]
+        },
+        "rotation": -2,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 22.25,
+            "dur": 0.6
+          },
+          {
+            "preset": "sol",
+            "t": 27.099999999999998,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "ad-4",
+        "group": "g-4",
+        "type": "text",
+        "text": "Tuşlu Cep Telefonu",
+        "x": 540,
+        "y": 392,
+        "size": 68,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 22.8,
+            "v": 0
+          },
+          {
+            "t": 23.5,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 22.2,
+        "end": 28.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 27.099999999999998,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "tel-4",
+        "group": "g-4",
+        "asset": "tuslu-telefon",
+        "anchor": [
+          0.5,
+          1
+        ],
+        "start": 22.2,
+        "x": [
+          {
+            "t": 22.2,
+            "v": 540
+          },
+          {
+            "t": 27.2,
+            "v": 540
+          },
+          {
+            "t": 28.1,
+            "v": 495,
+            "ease": "inOutCubic"
+          }
+        ],
+        "y": [
+          {
+            "t": 22.2,
+            "v": 1010
+          },
+          {
+            "t": 27.2,
+            "v": 1010
+          },
+          {
+            "t": 27.65,
+            "v": 870,
+            "ease": "outQuad"
+          },
+          {
+            "t": 28.1,
+            "v": 1400,
+            "ease": "inQuad"
+          }
+        ],
+        "scale": [
+          {
+            "t": 22.2,
+            "v": 2.08
+          },
+          {
+            "t": 27.2,
+            "v": 2.08
+          },
+          {
+            "t": 28.1,
+            "v": 0.45,
+            "ease": "inOutCubic"
+          }
+        ],
+        "rotation": [
+          {
+            "t": 27.2,
+            "v": 0
+          },
+          {
+            "t": 27.65,
+            "v": 8,
+            "ease": "outQuad"
+          },
+          {
+            "t": 28.1,
+            "v": 0,
+            "ease": "outBack"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 22.4,
+            "dur": 2
+          },
+          {
+            "preset": "nefes",
+            "t": 24.4,
+            "dur": 2.6,
+            "genlik": 0.012,
+            "periyot": 2.4
+          },
+          {
+            "preset": "seksek",
+            "t": 46.96,
+            "yukseklik": 16,
+            "periyot": 0.9
+          }
+        ]
+      },
+      {
+        "id": "balon-4",
+        "group": "g-4",
+        "type": "text",
+        "text": "Naber? :)",
+        "x": 822,
+        "y": 560,
+        "size": 50,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 24.2,
+            "v": 0
+          },
+          {
+            "t": 24.21,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 22.2,
+        "end": 28.2,
+        "rotation": 5,
+        "box": {
+          "color": "#ffffff",
+          "opacity": 0.95,
+          "radius": 26,
+          "shadow": false,
+          "padding": [
+            6,
+            22
+          ]
+        },
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 24.2,
+            "dur": 0.6
+          },
+          {
+            "preset": "sallan",
+            "t": 24.8,
+            "aci": 4,
+            "periyot": 1.6
+          },
+          {
+            "preset": "kuculerek-cik",
+            "t": 26.9,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "bilgi-4a",
+        "group": "g-4",
+        "type": "text",
+        "text": "SMS ile kısa mesaj çağı başlar",
+        "x": 540,
+        "y": 1090,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 23.9,
+            "v": 0
+          },
+          {
+            "t": 24.7,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 22.2,
+        "end": 28.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 27.099999999999998,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "bilgi-4b",
+        "group": "g-4",
+        "type": "text",
+        "text": "Küçük ekran, uzun pil, yılan oyunu",
+        "x": 540,
+        "y": 1166,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#5b4a7a",
+        "reveal": [
+          {
+            "t": 24.6,
+            "v": 0
+          },
+          {
+            "t": 25.4,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 22.2,
+        "end": 28.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 27.099999999999998,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "raf-yil-4",
+        "group": "g-raf",
+        "type": "text",
+        "text": "1990'lar",
+        "x": 495,
+        "y": 1464,
+        "size": 30,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#7a4a2a",
+        "start": 27.900000000000002,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 27.950000000000003,
+            "dur": 0.45
+          }
+        ]
+      },
+      {
+        "id": "yil-5",
+        "group": "g-5",
+        "type": "text",
+        "text": "2000'ler",
+        "x": 540,
+        "y": 272,
+        "size": 132,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 28.3,
+            "v": 0
+          },
+          {
+            "t": 28.8,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 28.2,
+        "end": 34.2,
+        "box": {
+          "color": "#cdb8f0",
+          "opacity": 0.85,
+          "radius": 14,
+          "shadow": false,
+          "padding": [
+            0,
+            34
+          ]
+        },
+        "rotation": -2,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 28.25,
+            "dur": 0.6
+          },
+          {
+            "preset": "sol",
+            "t": 33.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "ad-5",
+        "group": "g-5",
+        "type": "text",
+        "text": "Kapaklı Telefon",
+        "x": 540,
+        "y": 392,
+        "size": 68,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 28.8,
+            "v": 0
+          },
+          {
+            "t": 29.5,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 28.2,
+        "end": 34.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 33.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "tel-5",
+        "group": "g-5",
+        "asset": "kapakli-telefon",
+        "anchor": [
+          0.5,
+          1
+        ],
+        "start": 28.2,
+        "x": [
+          {
+            "t": 28.2,
+            "v": 540
+          },
+          {
+            "t": 33.2,
+            "v": 540
+          },
+          {
+            "t": 34.1,
+            "v": 620,
+            "ease": "inOutCubic"
+          }
+        ],
+        "y": [
+          {
+            "t": 28.2,
+            "v": 1010
+          },
+          {
+            "t": 33.2,
+            "v": 1010
+          },
+          {
+            "t": 33.65,
+            "v": 870,
+            "ease": "outQuad"
+          },
+          {
+            "t": 34.1,
+            "v": 1400,
+            "ease": "inQuad"
+          }
+        ],
+        "scale": [
+          {
+            "t": 28.2,
+            "v": 1.59
+          },
+          {
+            "t": 33.2,
+            "v": 1.59
+          },
+          {
+            "t": 34.1,
+            "v": 0.35,
+            "ease": "inOutCubic"
+          }
+        ],
+        "rotation": [
+          {
+            "t": 33.2,
+            "v": 0
+          },
+          {
+            "t": 33.65,
+            "v": -8,
+            "ease": "outQuad"
+          },
+          {
+            "t": 34.1,
+            "v": 0,
+            "ease": "outBack"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 28.4,
+            "dur": 2
+          },
+          {
+            "preset": "nefes",
+            "t": 30.4,
+            "dur": 2.6,
+            "genlik": 0.012,
+            "periyot": 2.4
+          },
+          {
+            "preset": "seksek",
+            "t": 47.08,
+            "yukseklik": 16,
+            "periyot": 0.9
+          }
+        ]
+      },
+      {
+        "id": "balon-5",
+        "group": "g-5",
+        "type": "text",
+        "text": "Klik!",
+        "x": 822,
+        "y": 560,
+        "size": 50,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 30.2,
+            "v": 0
+          },
+          {
+            "t": 30.21,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 28.2,
+        "end": 34.2,
+        "rotation": -6,
+        "box": {
+          "color": "#ffffff",
+          "opacity": 0.95,
+          "radius": 26,
+          "shadow": false,
+          "padding": [
+            6,
+            22
+          ]
+        },
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 30.2,
+            "dur": 0.6
+          },
+          {
+            "preset": "sallan",
+            "t": 30.8,
+            "aci": 4,
+            "periyot": 1.6
+          },
+          {
+            "preset": "kuculerek-cik",
+            "t": 32.900000000000006,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "bilgi-5a",
+        "group": "g-5",
+        "type": "text",
+        "text": "Kapağı açıp kapatmak bir tarz olur",
+        "x": 540,
+        "y": 1090,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 29.9,
+            "v": 0
+          },
+          {
+            "t": 30.7,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 28.2,
+        "end": 34.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 33.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "bilgi-5b",
+        "group": "g-5",
+        "type": "text",
+        "text": "Telefonlara kamera gelir",
+        "x": 540,
+        "y": 1166,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#5b4a7a",
+        "reveal": [
+          {
+            "t": 30.6,
+            "v": 0
+          },
+          {
+            "t": 31.4,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 28.2,
+        "end": 34.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 33.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "raf-yil-5",
+        "group": "g-raf",
+        "type": "text",
+        "text": "2000'ler",
+        "x": 620,
+        "y": 1464,
+        "size": 30,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#7a4a2a",
+        "start": 33.9,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 33.95,
+            "dur": 0.45
+          }
+        ]
+      },
+      {
+        "id": "yil-6",
+        "group": "g-6",
+        "type": "text",
+        "text": "2007",
+        "x": 540,
+        "y": 272,
+        "size": 132,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 34.3,
+            "v": 0
+          },
+          {
+            "t": 34.8,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 34.2,
+        "end": 40.2,
+        "box": {
+          "color": "#9fd8c9",
+          "opacity": 0.85,
+          "radius": 14,
+          "shadow": false,
+          "padding": [
+            0,
+            34
+          ]
+        },
+        "rotation": -2,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 34.25,
+            "dur": 0.6
+          },
+          {
+            "preset": "sol",
+            "t": 39.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "ad-6",
+        "group": "g-6",
+        "type": "text",
+        "text": "Akıllı Telefon",
+        "x": 540,
+        "y": 392,
+        "size": 68,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 34.8,
+            "v": 0
+          },
+          {
+            "t": 35.5,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 34.2,
+        "end": 40.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 39.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "tel-6",
+        "group": "g-6",
+        "asset": "akilli-telefon",
+        "anchor": [
+          0.5,
+          1
+        ],
+        "start": 34.2,
+        "x": [
+          {
+            "t": 34.2,
+            "v": 540
+          },
+          {
+            "t": 39.2,
+            "v": 540
+          },
+          {
+            "t": 40.1,
+            "v": 745,
+            "ease": "inOutCubic"
+          }
+        ],
+        "y": [
+          {
+            "t": 34.2,
+            "v": 1010
+          },
+          {
+            "t": 39.2,
+            "v": 1010
+          },
+          {
+            "t": 39.65,
+            "v": 870,
+            "ease": "outQuad"
+          },
+          {
+            "t": 40.1,
+            "v": 1400,
+            "ease": "inQuad"
+          }
+        ],
+        "scale": [
+          {
+            "t": 34.2,
+            "v": 1.8
+          },
+          {
+            "t": 39.2,
+            "v": 1.8
+          },
+          {
+            "t": 40.1,
+            "v": 0.39,
+            "ease": "inOutCubic"
+          }
+        ],
+        "rotation": [
+          {
+            "t": 39.2,
+            "v": 0
+          },
+          {
+            "t": 39.65,
+            "v": 8,
+            "ease": "outQuad"
+          },
+          {
+            "t": 40.1,
+            "v": 0,
+            "ease": "outBack"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 34.400000000000006,
+            "dur": 2
+          },
+          {
+            "preset": "nefes",
+            "t": 36.400000000000006,
+            "dur": 2.6,
+            "genlik": 0.012,
+            "periyot": 2.4
+          },
+          {
+            "preset": "seksek",
+            "t": 47.2,
+            "yukseklik": 16,
+            "periyot": 0.9
+          }
+        ]
+      },
+      {
+        "id": "balon-6",
+        "group": "g-6",
+        "type": "text",
+        "text": "Dokun!",
+        "x": 822,
+        "y": 560,
+        "size": 50,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 36.2,
+            "v": 0
+          },
+          {
+            "t": 36.21,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 34.2,
+        "end": 40.2,
+        "rotation": 5,
+        "box": {
+          "color": "#ffffff",
+          "opacity": 0.95,
+          "radius": 26,
+          "shadow": false,
+          "padding": [
+            6,
+            22
+          ]
+        },
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 36.2,
+            "dur": 0.6
+          },
+          {
+            "preset": "sallan",
+            "t": 36.800000000000004,
+            "aci": 4,
+            "periyot": 1.6
+          },
+          {
+            "preset": "kuculerek-cik",
+            "t": 38.900000000000006,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "bilgi-6a",
+        "group": "g-6",
+        "type": "text",
+        "text": "Tuşlar gider, dokunmatik ekran gelir",
+        "x": 540,
+        "y": 1090,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 35.9,
+            "v": 0
+          },
+          {
+            "t": 36.7,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 34.2,
+        "end": 40.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 39.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "bilgi-6b",
+        "group": "g-6",
+        "type": "text",
+        "text": "İnternet ve uygulamalar cebimizde",
+        "x": 540,
+        "y": 1166,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#5b4a7a",
+        "reveal": [
+          {
+            "t": 36.6,
+            "v": 0
+          },
+          {
+            "t": 37.4,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 34.2,
+        "end": 40.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 39.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "raf-yil-6",
+        "group": "g-raf",
+        "type": "text",
+        "text": "2007",
+        "x": 745,
+        "y": 1464,
+        "size": 30,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#7a4a2a",
+        "start": 39.9,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 39.95,
+            "dur": 0.45
+          }
+        ]
+      },
+      {
+        "id": "yil-7",
+        "group": "g-7",
+        "type": "text",
+        "text": "Bugün",
+        "x": 540,
+        "y": 272,
+        "size": 132,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 40.3,
+            "v": 0
+          },
+          {
+            "t": 40.8,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 40.2,
+        "end": 46.2,
+        "box": {
+          "color": "#f7b3c6",
+          "opacity": 0.85,
+          "radius": 14,
+          "shadow": false,
+          "padding": [
+            0,
+            34
+          ]
+        },
+        "rotation": -2,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 40.25,
+            "dur": 0.6
+          },
+          {
+            "preset": "sol",
+            "t": 45.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "ad-7",
+        "group": "g-7",
+        "type": "text",
+        "text": "Cebimizdeki Bilgisayar",
+        "x": 540,
+        "y": 392,
+        "size": 68,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 40.8,
+            "v": 0
+          },
+          {
+            "t": 41.5,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 40.2,
+        "end": 46.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 45.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "tel-7",
+        "group": "g-7",
+        "asset": "modern-telefon",
+        "anchor": [
+          0.5,
+          1
+        ],
+        "start": 40.2,
+        "x": [
+          {
+            "t": 40.2,
+            "v": 540
+          },
+          {
+            "t": 45.2,
+            "v": 540
+          },
+          {
+            "t": 46.1,
+            "v": 870,
+            "ease": "inOutCubic"
+          }
+        ],
+        "y": [
+          {
+            "t": 40.2,
+            "v": 1010
+          },
+          {
+            "t": 45.2,
+            "v": 1010
+          },
+          {
+            "t": 45.65,
+            "v": 870,
+            "ease": "outQuad"
+          },
+          {
+            "t": 46.1,
+            "v": 1400,
+            "ease": "inQuad"
+          }
+        ],
+        "scale": [
+          {
+            "t": 40.2,
+            "v": 1.69
+          },
+          {
+            "t": 45.2,
+            "v": 1.69
+          },
+          {
+            "t": 46.1,
+            "v": 0.37,
+            "ease": "inOutCubic"
+          }
+        ],
+        "rotation": [
+          {
+            "t": 45.2,
+            "v": 0
+          },
+          {
+            "t": 45.65,
+            "v": -8,
+            "ease": "outQuad"
+          },
+          {
+            "t": 46.1,
+            "v": 0,
+            "ease": "outBack"
+          }
+        ],
+        "anims": [
+          {
+            "preset": "cizerek-gir",
+            "t": 40.400000000000006,
+            "dur": 2
+          },
+          {
+            "preset": "nefes",
+            "t": 42.400000000000006,
+            "dur": 2.6,
+            "genlik": 0.012,
+            "periyot": 2.4
+          },
+          {
+            "preset": "seksek",
+            "t": 47.32,
+            "yukseklik": 16,
+            "periyot": 0.9
+          }
+        ]
+      },
+      {
+        "id": "balon-7",
+        "group": "g-7",
+        "type": "text",
+        "text": "Merhaba!",
+        "x": 822,
+        "y": 560,
+        "size": 50,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 42.2,
+            "v": 0
+          },
+          {
+            "t": 42.21,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 40.2,
+        "end": 46.2,
+        "rotation": -6,
+        "box": {
+          "color": "#ffffff",
+          "opacity": 0.95,
+          "radius": 26,
+          "shadow": false,
+          "padding": [
+            6,
+            22
+          ]
+        },
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 42.2,
+            "dur": 0.6
+          },
+          {
+            "preset": "sallan",
+            "t": 42.800000000000004,
+            "aci": 4,
+            "periyot": 1.6
+          },
+          {
+            "preset": "kuculerek-cik",
+            "t": 44.900000000000006,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "id": "bilgi-7a",
+        "group": "g-7",
+        "type": "text",
+        "text": "Kamera, harita, müzik, yapay zekâ",
+        "x": 540,
+        "y": 1090,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 41.9,
+            "v": 0
+          },
+          {
+            "t": 42.7,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 40.2,
+        "end": 46.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 45.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "bilgi-7b",
+        "group": "g-7",
+        "type": "text",
+        "text": "Hepsi tek bir ekranda",
+        "x": 540,
+        "y": 1166,
+        "size": 54,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#5b4a7a",
+        "reveal": [
+          {
+            "t": 42.6,
+            "v": 0
+          },
+          {
+            "t": 43.4,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 40.2,
+        "end": 46.2,
+        "anims": [
+          {
+            "preset": "sol",
+            "t": 45.1,
+            "dur": 0.5
+          }
+        ]
+      },
+      {
+        "id": "raf-yil-7",
+        "group": "g-raf",
+        "type": "text",
+        "text": "Bugün",
+        "x": 870,
+        "y": 1464,
+        "size": 30,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#7a4a2a",
+        "start": 45.9,
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 45.95,
+            "dur": 0.45
+          }
+        ]
+      },
+      {
+        "id": "pirilti",
+        "group": "g-kapanis",
+        "type": "particles",
+        "particle": "yildiz-tozu",
+        "mode": "surekli",
+        "start": 46.2,
+        "end": 54.2,
+        "count": 45,
+        "prewarm": true,
+        "colors": [
+          "#ffd166",
+          "#f7a8a0",
+          "#b9a7e6"
+        ],
+        "area": [
+          60,
+          300,
+          1020,
+          1250
+        ]
+      },
+      {
+        "id": "son-1",
+        "group": "g-kapanis",
+        "type": "text",
+        "text": "150 yılda",
+        "x": 540,
+        "y": 540,
+        "size": 96,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 46.5,
+            "v": 0
+          },
+          {
+            "t": 47.2,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 46.2
+      },
+      {
+        "id": "son-2",
+        "group": "g-kapanis",
+        "type": "text",
+        "text": "duvardan cebe!",
+        "x": 540,
+        "y": 680,
+        "size": 132,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 47.1,
+            "v": 0
+          },
+          {
+            "t": 48.2,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 46.2,
+        "anims": [
+          {
+            "preset": "nefes",
+            "t": 48.400000000000006,
+            "genlik": 0.02,
+            "periyot": 1.8
+          }
+        ]
+      },
+      {
+        "id": "son-soru",
+        "group": "g-kapanis",
+        "type": "text",
+        "text": "Sıradaki ne olacak?",
+        "x": 540,
+        "y": 900,
+        "size": 76,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#2d3561",
+        "reveal": [
+          {
+            "t": 48.6,
+            "v": 0
+          },
+          {
+            "t": 48.61,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 46.2,
+        "rotation": -3,
+        "box": {
+          "color": "#f6d58e",
+          "opacity": 0.9,
+          "radius": 18,
+          "shadow": false,
+          "padding": [
+            4,
+            28
+          ]
+        },
+        "anims": [
+          {
+            "preset": "zipla-gir",
+            "t": 48.6,
+            "dur": 0.7
+          },
+          {
+            "preset": "sallan",
+            "t": 49.400000000000006,
+            "aci": 3,
+            "periyot": 2
+          }
+        ]
+      },
+      {
+        "id": "son-cta",
+        "group": "g-kapanis",
+        "type": "text",
+        "text": "Tahminini yorumlara yaz!",
+        "x": 540,
+        "y": 1060,
+        "size": 56,
+        "font": "Caveat",
+        "weight": 700,
+        "color": "#5b4a7a",
+        "reveal": [
+          {
+            "t": 49.8,
+            "v": 0
+          },
+          {
+            "t": 51,
+            "v": 1,
+            "ease": "linear"
+          }
+        ],
+        "start": 46.2
+      }
+    ]
+  }
+}

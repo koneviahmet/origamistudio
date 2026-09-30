@@ -154,6 +154,23 @@ TikTok gibi platformlar için MP4 video çıktısı alan bir masaüstü-web uygu
       stüdyoda kütüphane seçicisinden eklenir; +2 yeni efekt (uçuşan kağıt uçaklar, yıldız yağmuru)
 - [x] Parçacık motoru: rüzgâr baskın efektlerde yandan doğma (önceden ekran dışında kalıyordu)
 
+### Faz 14 — Çizim / boya stili ✅
+- [x] `style: "cizim"`: bölge sınırlarından çıkarılan titrek mürekkep konturu, kalemle çizilir gibi uzar (yay uzunluğu bütçesi)
+- [x] Pastel boya dolgusu: kağıtla karışmış taban + tohumlu eğik tarama + çapraz tarama + kenar baskısı + kağıt dişi
+- [x] Boyama çapraz silmeyle açılır (yarı düzlem çokgenlere hesapla uygulanır — GPU canvas'ta iç içe clip taşması giderildi)
+- [x] Z-sırası duyarlı bölge gruplama (ör. duvar üstündeki kapı, bacayla aynı renk olsa da ayrı bölge)
+- [x] `scene.sketch` / `layer.sketch` ayarları (sahne px cinsinden; ölçekten bağımsız kalem), `cizerek-gir` / `silinerek-cik` ön ayarları
+- [x] Örnek: `kahve-cizim` projesi + `cezve` / `fincan` varlıkları (`scripts/scenes-kahve-cizim.mjs`)
+
+### Faz 15 — Ok sistemi (nesneden nesneye geçiş) ✅
+- [x] `type: "arrow"` katmanı: uçlar katman id'si ya da serbest nokta; yönlü kutudan otomatik / sabit (üst-alt-sol-sağ) bağlantı + boşluk
+- [x] Eğriler: düz, kavis, S, dirsek (L/Z, yuvarlatılmış), dalga, halka; gövde: düz, kesikli, noktalı, çift, sivrilen şerit, el çizimi
+- [x] Uçlar (üçgen, açık V, kalem, yuvarlak, elmas, çizgi) çizim ucunu izler; geçişli renk, neon parıltı, gölge
+- [x] Akış animasyonları: akan kesikler, akan noktalar, kuyruklu yıldız, varışta nabız; etiket; yol boyunca taşınan "yolcu" nesne
+- [x] Kütüphane "oklar" kategorisi (12 stil, `scripts/seed-arrows.mjs`), kütüphanede ok düzenleyici + canlı önizleme
+- [x] Stüdyo: ＋ Ok (seçili nesneden en yakın nesneye), ok denetçisi (uçlar, çapa, etiket, yolcu, stil geçersiz kılma), yola yakın isabet testi
+- [x] Örnek: `ok-vitrini` projesi; `kahve-cizim`e cezve → fincan el çizimi ok
+
 ### Faz 8 — Sonraki adımlar
 - [x] Ses / müzik katmanı (WebCodecs AudioEncoder ile MP4'e mux) → Faz 10
 - [x] Görsel facet (poligon) çizim editörü → Faz 11 (K6)

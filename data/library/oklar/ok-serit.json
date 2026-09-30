@@ -1,0 +1,19 @@
+{
+  "id": "ok-serit",
+  "name": "Sivrilen şerit",
+  "tags": [
+    "ok",
+    "modern",
+    "dinamik"
+  ],
+  "type": "arrow",
+  "curve": "kavis",
+  "line": "serit",
+  "head": "ucgen",
+  "width": 31,
+  "headSize": 57,
+  "color": "#f4a261",
+  "color2": "#e76f51",
+  "bend": 0.3,
+  "shadow": true
+}

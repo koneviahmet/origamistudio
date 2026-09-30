@@ -159,7 +159,7 @@ Renk değerleri `"$anahtar"` olabilir; temanın `colors` sözlüğünden okunur 
 ```jsonc
 {
   "theme": "sonbahar",          // data/themes/<id>.json (ya da satır içi tema nesnesi)
-  "style": "kagit-kesme",       // origami (varsayılan) | kagit-kesme | duz
+  "style": "kagit-kesme",       // origami (varsayılan) | kagit-kesme | duz | cizim
   "background": { … },          // yoksa temanın arka planı kullanılır
   "layers": [
     {
@@ -414,3 +414,84 @@ Efektin tanımı kütüphane öğesidir: `data/library/efektler/<id>.json`
 Sahnede kullanım: `{ "type": "particles", "particle": "kagit-ucaklar", "mode": "surekli" }`. Katmandaki alanlar
 (`count`, `size`, `speed` çarpanı, `wind`, `colors`, `asset`, `area`, `seed`) tanımı geçersiz kılar.
 Eski `"preset": "<ad>"` yazımı da çalışır.
+
+## 10. Çizim / boya stili (Faz 14)
+
+`"style": "cizim"` — el çizimi mürekkep kontur + pastel boya taraması (çocuk kitabı / defter görünümü).
+Görünme ilerlemesi (`fold`, ya da `cizerek-gir` ön ayarı) iki aşamadır:
+1. **Kontur** (0 → `split`): varlığın dış hatları kalemle çiziliyormuş gibi uzar. Bölgeler facet sırasıyla çizilir.
+2. **Boya** (≈ `split`·0.65 → 1): her renk bölgesi çapraz bir silmeyle, tarama vuruşlarıyla boyanır; `foldStyle.spread` bölgelerin zaman yayılımı.
+
+Aynı renk + parçadaki facet'ler bir "bölge"dir; konturlar bölgelerin birleşik sınırından çıkarılır
+(bölge içindeki ortak kenarlar ve üstteki bölgelerin örttüğü kenarlar çizilmez). Tüm rastgelelik tohumludur.
+
+```jsonc
+{
+  "style": "cizim",
+  "sketch": {                   // sahne geneli; katmanda "sketch" aynı alanlarla üstüne yazar
+    "ink": "#2d3561",           // kontur rengi
+    "width": 3.2,               // kontur kalınlığı (sahne px — varlık ölçeğinden bağımsız)
+    "wobble": 1.3,              // kalem titremesi (sahne px)
+    "hatch": 5,                 // tarama aralığı (sahne px)
+    "angle": 62,                // tarama açısı (°)
+    "cross": true,              // ikinci, seyrek çapraz tarama
+    "wipe": 35,                 // boyama silmesinin yönü (°; 35 = sol üstten sağ alta)
+    "grain": 0.35,              // kağıt dişi (açık benekler)
+    "outline": true,            // false: yalnız boya
+    "split": 0.55               // fold içinde kontur aşamasının payı
+  },
+  "layers": [
+    { "asset": "ev", "anims": [{ "preset": "cizerek-gir", "t": 2, "dur": 2.8 }, { "preset": "silinerek-cik", "t": 9, "dur": 1.2 }] },
+    { "asset": "tepeler", "sketch": { "ink": "#4d7d45", "width": 2.4 } }
+  ]
+}
+```
+- `cizerek-gir` / `silinerek-cik` yalnızca `fold`'u sürer; diğer stillerde katlanarak gir/çık gibi davranır.
+- El yazısı metin için `font: "Caveat"` + `reveal` izi (daktilo) iyi eşleşir. Örnek: `scripts/scenes-kahve-cizim.mjs`.
+
+## 11. Oklar — nesneden nesneye geçiş (Faz 15)
+
+İki katmanı (ya da serbest noktayı) bağlayan ok katmanı. Bağlı nesneler hareket ederse ok da onları izler.
+Stil kütüphanededir (`data/library/oklar/<id>.json`, `"type": "arrow"`); katman aynı adlı alanlarla stili geçersiz kılar.
+
+```jsonc
+{
+  "type": "arrow",
+  "arrow": "ok-kesikli-rota",          // kütüphane stili (npm: node scripts/seed-arrows.mjs)
+  "from": "istanbul",                  // katman id'si ya da serbest nokta [x, y]
+  "to": "viyana",
+  "fromAnchor": "auto",                // auto (varsayılan) | merkez | ust | alt | sol | sag
+  "toAnchor": "ust",
+  "fold": [{ "t": 1, "v": 0 }, { "t": 3, "v": 1, "ease": "inOutSine" }],  // çizim ilerlemesi
+  "anims": [{ "preset": "cizerek-gir", "t": 1, "dur": 2 }],               // ya da ön ayarla (silinerek-cik de olur)
+  "label": "1683", "labelPos": 0.5, "labelOffset": 50,
+  "rider": { "asset": "kagit-gemi", "scale": 0.5, "orient": "cevir", "lift": 18 },  // ok boyunca taşınan nesne
+  "ride": [{ "t": 3, "v": 0 }, { "t": 5, "v": 1 }],   // yoksa yolcu çizim ucunu izler
+  "x": 0, "y": 0,                      // tüm oku kaydırır
+  "opacity": 1,
+  "bend": -0.3, "color": "#e63946"     // ↓ stil alanlarından herhangi biri
+}
+```
+
+Stil alanları (kütüphane öğesi ya da katman):
+
+| alan | değerler | açıklama |
+|---|---|---|
+| `curve` | `duz` · `kavis` · `s` · `dirsek` · `dalga` · `dongu` | yol biçimi; `dirsek` sabit çapalarda L, aksi hâlde Z çizer |
+| `line` | `duz` · `kesik` · `nokta` · `cift` · `serit` · `el` | gövde; `serit` kuyruktan başa kalınlaşan dolu şerit |
+| `head` / `tail` | `ucgen` · `acik` · `kalem` · `yuvarlak` · `elmas` · `cizgi` · `yok` | baş çizim ucunu izler |
+| `width`, `headSize` | px | kalınlık, uç boyu |
+| `color`, `color2` | renk (`$ref` olur) | `color2` → baştan sona geçişli renk |
+| `bend` | −1..1 | kavis (0 düz, negatif ters yön) |
+| `gap` | px | nesne kenarına bırakılan boşluk |
+| `glow` / `shadow` | px / bool | neon parıltı / yumuşak gölge |
+| `flow` | `yok` · `kesik` · `nokta` · `kuyruklu` · `nabiz` | sürekli akış animasyonu (`flowSpeed` px/sn, `flowColor`, `flowGap`) |
+| `wobble` | px | el titremesi |
+| `waves`, `amp` | | `dalga` eğrisi için |
+| `radius` | px | `dirsek` köşe yarıçapı |
+| `labelFont`, `labelSize`, `labelColor`, `labelBox` | | etiket görünümü (varsayılan Caveat 54) |
+
+- Stüdyo: **＋ Ok** seçili katmandan en yakın nesneye (arka plan gibi onu içine alanlar hariç) bağlı bir ok ekler.
+  Oka yalnızca çizgisine yakın tıklayınca seçilir; altındaki nesneler seçilebilir kalır.
+- Örnekler: `scripts/scenes-ok-vitrini.mjs` (rota + yolcu, neon, akış şeması), `scenes-kahve-cizim.mjs` (el çizimi yay).
+

@@ -1,0 +1,24 @@
+{
+  "id": "ok-akis-semasi",
+  "name": "Akış şeması",
+  "tags": [
+    "ok",
+    "diyagram",
+    "dirsek",
+    "süreç"
+  ],
+  "type": "arrow",
+  "curve": "dirsek",
+  "line": "duz",
+  "head": "ucgen",
+  "tail": "yuvarlak",
+  "width": 5.5,
+  "headSize": 26,
+  "color": "#334155",
+  "radius": 26,
+  "gap": 14,
+  "flow": "nokta",
+  "flowSpeed": 120,
+  "flowGap": 46,
+  "flowColor": "#94a3b8"
+}

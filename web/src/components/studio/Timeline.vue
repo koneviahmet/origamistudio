@@ -28,7 +28,11 @@ const zoom = ref(1);
 let ro;
 
 onMounted(() => {
-  ro = new ResizeObserver(() => (viewW.value = scroller.value?.clientWidth || 800));
+  // Yarım piksellik oynamalar yeniden yerleşim döngüsü başlatmasın (titreşim)
+  ro = new ResizeObserver(() => {
+    const w = scroller.value?.clientWidth || 800;
+    if (Math.abs(w - viewW.value) >= 2) viewW.value = w;
+  });
   ro.observe(scroller.value);
 });
 onBeforeUnmount(() => {
@@ -401,7 +405,7 @@ const fmt = (t) => (ticks.value.step < 1 ? t.toFixed(ticks.value.step < 0.5 ? 2 
           <button class="eye" :title="d.r.layer.hidden ? 'Göster' : 'Gizle'" @click.stop="emit('toggle-hidden', d.r.layer.id)">
             {{ d.r.layer.hidden ? '◌' : '●' }}
           </button>
-          <span class="kind">{{ d.r.layer.type === 'text' ? 'T' : d.r.layer.type === 'particles' ? '✦' : '◆' }}</span>
+          <span class="kind">{{ d.r.layer.type === 'text' ? 'T' : d.r.layer.type === 'particles' ? '✦' : d.r.layer.type === 'arrow' ? '➜' : '◆' }}</span>
           <span class="grow ell">{{ d.r.layer.id }}</span>
           <button class="tg" :class="{ on: isSolo(d.r.layer.id) }" title="Solo: yalnız bu katmanı göster (önizleme)" @click.stop="emit('solo', d.r.layer.id)">S</button>
           <button class="tg" :class="{ on: d.r.layer.locked }" title="Kilitle (sahnede seçilemez)" @click.stop="layerLock(d.r.layer)">🔒</button>
@@ -416,7 +420,7 @@ const fmt = (t) => (ticks.value.step < 1 ? t.toFixed(ticks.value.step < 0.5 ? 2 
     <div ref="scroller" class="scroller" @wheel="onWheel">
       <div class="inner" :style="{ width: innerW + 'px' }" @pointerdown="onDown" @pointermove="onMove" @pointerup="onUp">
         <div class="ruler">
-          <div v-for="t in ticks.list" :key="t" class="tick" :style="{ left: pos(t) }">
+          <div v-for="t in ticks.list" :key="t" class="tick" :class="{ end: t > dur - ticks.step / 2 && t > 0 }" :style="{ left: pos(t) }">
             <span>{{ fmt(t) }}</span>
           </div>
           <button
@@ -543,11 +547,13 @@ const fmt = (t) => (ticks.value.step < 1 ? t.toFixed(ticks.value.step < 0.5 ? 2 
 .kind { color: var(--accent-2); font-size: 10px; width: 10px; }
 .ell { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-.scroller { overflow-x: auto; overflow-y: visible; position: relative; }
+.scroller { overflow-x: auto; overflow-y: hidden; position: relative; }
 .inner { position: relative; min-height: 100%; cursor: text; padding-right: 16px; }
-.ruler { height: 28px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg-2); z-index: 2; }
+.ruler { height: 28px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg-2); z-index: 2; overflow: hidden; }
 .tick { position: absolute; top: 0; bottom: 0; border-left: 1px solid var(--line-2); }
 .tick span { position: absolute; left: 4px; top: 6px; color: var(--text-3); font-size: 10px; white-space: nowrap; }
+/* Son etiket çizginin soluna: sağ kenardan taşıp kaydırma çubuğu açmasın */
+.tick.end span { left: auto; right: 4px; }
 .row-track { position: relative; height: 24px; border-bottom: 1px solid #2a241d; }
 .row-track.sel { background: rgba(234, 122, 59, .07); }
 .row-track.hidden { opacity: .4; }

@@ -1,0 +1,23 @@
+{
+  "id": "ok-neon",
+  "name": "Neon akış",
+  "tags": [
+    "ok",
+    "modern",
+    "parlak",
+    "teknoloji"
+  ],
+  "type": "arrow",
+  "curve": "s",
+  "line": "duz",
+  "head": "ucgen",
+  "width": 7,
+  "headSize": 31,
+  "color": "#22d3ee",
+  "color2": "#a855f7",
+  "bend": 0.2,
+  "glow": 18,
+  "flow": "kuyruklu",
+  "flowSpeed": 520,
+  "flowColor": "#ffffff"
+}

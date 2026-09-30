@@ -1,0 +1,17 @@
+{
+  "id": "ok-kavis",
+  "name": "Kavisli ok",
+  "tags": [
+    "ok",
+    "temel",
+    "kavis"
+  ],
+  "type": "arrow",
+  "curve": "kavis",
+  "line": "duz",
+  "head": "ucgen",
+  "width": 8.5,
+  "headSize": 34,
+  "color": "#2d3561",
+  "bend": 0.25
+}

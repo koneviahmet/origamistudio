@@ -10,7 +10,7 @@ import { toast, toastError } from '../toast.js';
 import { renderFrame, formatMapping } from '../engine/renderer.js';
 import { samplePath, pathAt, nearestOnPath } from '../engine/path.js';
 import { prop as sampleProp } from '../engine/anim.js';
-import { newAssetLayer, newTextLayer, newParticleLayer, setPropAt, valueAt, clone } from '../sceneOps.js';
+import { newAssetLayer, newTextLayer, newParticleLayer, newArrowLayer, setPropAt, valueAt, clone } from '../sceneOps.js';
 import { exportPng, downloadBlob } from '../export/mp4.js';
 import { slug } from '../slug.js';
 import Timeline from '../components/studio/Timeline.vue';
@@ -93,9 +93,19 @@ const duration = computed(() => scene.value?.duration || 1);
 const frame = computed(() => Math.round(time.value * fps.value));
 const totalFrames = computed(() => Math.round(duration.value * fps.value));
 const openNotes = computed(() => notes.value.filter((n) => n.status !== 'done').length);
-const missingAssets = computed(() =>
-  (scene.value?.layers || []).filter((l) => l.type !== 'text' && !res.value.assets.has(l.asset)).map((l) => l.asset),
-);
+const missingAssets = computed(() => {
+  const lib = res.value.assets;
+  const out = [];
+  for (const l of scene.value?.layers || []) {
+    if (!l.type && !lib.has(l.asset)) out.push(l.asset);
+    // Ok: stil öğesi ve yolcu modeli kütüphanede olmalı (parçacıkların yerleşik yedekleri var)
+    if (l.type === 'arrow') {
+      if (l.arrow && !lib.has(l.arrow)) out.push(l.arrow);
+      if (l.rider?.asset && !lib.has(l.rider.asset)) out.push(l.rider.asset);
+    }
+  }
+  return out;
+});
 
 // ------------------------------------------------------------------ yükleme
 async function loadLib() {
@@ -315,7 +325,7 @@ function drawOverlay() {
     ctx.setLineDash([]);
     const layer = s.layers.find((l) => l.id === selectedId.value);
     handles = null;
-    if (layer) {
+    if (layer && !info.nohandles) {
       // Yol varsa katmanın merkezi yol üzerindeki anlık konumdur
       const pp = layer.path?.points?.length >= 2 ? pathAt(layer.path, sampleProp(layer, 'pathT', time.value, 0)) : null;
       const x = pp ? pp.x : sampleProp(layer, 'x', time.value, 0);
@@ -562,6 +572,21 @@ function hitLayer(px, py) {
     const { id, matrix, bbox, nohit } = frameInfo.layers[i];
     if (nohit) continue;
     const p = matrix.inverse().transformPoint(new DOMPoint(px * dpr, py * dpr));
+    if (bbox.hitPath) {
+      // Ok: yalnızca yola yakın tıklama
+      const k = Math.hypot(matrix.a, matrix.b) || 1;
+      const tol = bbox.hitW / 2 + (8 * dpr) / k;
+      const P = bbox.hitPath;
+      for (let j = 1; j < P.length; j++) {
+        const [ax, ay] = P[j - 1];
+        const [bx, by] = P[j];
+        const dx = bx - ax;
+        const dy = by - ay;
+        const u = Math.max(0, Math.min(1, ((p.x - ax) * dx + (p.y - ay) * dy) / (dx * dx + dy * dy || 1)));
+        if (Math.hypot(p.x - ax - dx * u, p.y - ay - dy * u) <= tol) return id;
+      }
+      continue;
+    }
     if (p.x >= bbox.x0 && p.x <= bbox.x1 && p.y >= bbox.y0 && p.y <= bbox.y1) return id;
   }
   return null;
@@ -849,7 +874,12 @@ function shiftLayer(layer, orig, dx, dy) {
   }
 }
 function addAsset(asset) {
-  const layer = asset.type === 'particles' ? newParticleLayer(scene.value, time.value, asset.id) : newAssetLayer(scene.value, asset, time.value);
+  const layer =
+    asset.type === 'particles'
+      ? newParticleLayer(scene.value, time.value, asset.id)
+      : asset.type === 'arrow'
+        ? newArrowLayer(scene.value, time.value, asset.id, selectedId.value, res.value?.assets)
+        : newAssetLayer(scene.value, asset, time.value);
   edit(() => scene.value.layers.push(layer));
   selectedId.value = layer.id;
   showPicker.value = false;
@@ -864,6 +894,11 @@ function addText() {
 function addParticles() {
   // Parçacık efektleri kütüphanededir: seçiciyi "efektler" kategorisiyle aç
   pickerCat.value = 'efektler';
+  showPicker.value = true;
+}
+function addArrow() {
+  // Ok stilleri kütüphanededir: seçiciyi "oklar" kategorisiyle aç (seçili katmandan başlar)
+  pickerCat.value = 'oklar';
   showPicker.value = true;
 }
 function toggleHidden(id) {
@@ -1064,6 +1099,7 @@ const fmt = (t) => {
       <button class="btn" @click="pickerCat = ''; showPicker = true">＋ Kütüphane</button>
       <button class="btn" @click="addText">＋ Metin</button>
       <button class="btn" title="Konfeti, kar, yağmur, kabarcık…" @click="addParticles">＋ Parçacık</button>
+      <button class="btn" title="Nesneden nesneye geçiş oku (seçili katmandan en yakın nesneye)" @click="addArrow">＋ Ok</button>
       <button class="btn" :disabled="!dirty" @click="save">Kaydet</button>
       <button class="btn primary" @click="showExport = true">⬇ Dışa aktar</button>
     </header>

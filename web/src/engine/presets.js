@@ -49,6 +49,12 @@ export const PRESETS = {
     params: [{ key: 'sira', label: 'Açılma sırası', type: 'select', options: [['', '(katman ayarı)'], ...FOLD_ORDERS.map((o) => [o, o])], def: '' }],
     fn: (p, u) => ({ fold: u, ...(p.sira ? { foldOrder: p.sira } : {}) }),
   },
+  // Çizim / boya stili için: önce kontur çizilir, sonra bölgeler boyanır (diğer stillerde fold gibi davranır)
+  'cizerek-gir': {
+    name: 'Çizerek gir', cat: 'giris', dur: 2.2,
+    params: [],
+    fn: (_p, u) => ({ fold: u }),
+  },
   'zipla-gir': {
     name: 'Zıplayarak gir', cat: 'giris', dur: 0.8,
     params: [{ key: 'yay', label: 'Yaylanma', type: 'select', options: [['outBack', 'Yumuşak'], ['outElastic', 'Elastik'], ['outBounce', 'Sekme']], def: 'outBack' }],
@@ -98,6 +104,11 @@ export const PRESETS = {
     name: 'Katlanarak çık', cat: 'cikis', dur: 1,
     params: [{ key: 'sira', label: 'Kapanma sırası', type: 'select', options: [['', '(katman ayarı)'], ...FOLD_ORDERS.map((o) => [o, o])], def: '' }],
     fn: (p, u) => ({ fold: 1 - u, ...(p.sira ? { foldOrder: p.sira } : {}) }),
+  },
+  'silinerek-cik': {
+    name: 'Silinerek çık', cat: 'cikis', dur: 1.2,
+    params: [],
+    fn: (_p, u) => ({ fold: 1 - u }),
   },
   'kuculerek-cik': {
     name: 'Küçülerek çık', cat: 'cikis', dur: 0.6,

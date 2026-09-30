@@ -2,6 +2,9 @@
 
 Bu projede üretimi Claude kod/JSON yazarak yapar; siz stüdyoda izleyip not bırakırsınız.
 
+> Sıfırdan video üretimi, hazır prompt şablonları ve kalite kontrol listesi için: [prompt-rehberi.md](prompt-rehberi.md).
+> Var olan modeller, temalar ve animasyonlar: [katalog.md](katalog.md).
+
 ## Döngü
 
 ```
@@ -48,7 +51,10 @@ Kullanıcı stüdyoda Geçmiş sekmesinden farkı görüp tek tıkla önceki sü
 - Renk için önce **tema** (`"theme": "sonbahar"`) ve **varyant** (`"variant": "kutup"`) kullan; katmana özel `palette` son çare.
 - Metinde **metin stili** (`"textStyle": "baslik-kalin"`) kullan. Font seçerken Türkçe testini geçmiş fontları seç
   (`data/fonts/fonts.json` → `check.ok`). Fredoka, Titan One ve Satisfy Türkçe başlıkta kullanılmamalı.
-- Stil: `"style": "origami" | "kagit-kesme" | "duz"` (sahne geneli ya da katman başına).
+- Stil: `"style": "origami" | "kagit-kesme" | "duz" | "cizim"` (sahne geneli ya da katman başına).
+  `cizim` = el çizimi kontur + pastel boya; girişte `cizerek-gir` kullan ([schema.md §10](schema.md#10-çizim--boya-stili-faz-14)).
+- İki nesne arasındaki geçiş / ilişki için **ok katmanı** kullan: `{ "type": "arrow", "arrow": "ok-kavis", "from": "a", "to": "b" }`.
+  Uçları katman id'siyle bağla (koordinat yazma); zaman için `cizerek-gir`, yolculuk için `rider`. Bkz. [schema.md §11](schema.md#11-oklar--nesneden-nesneye-geçiş-faz-15).
 - Yeni model eklerken palete `roles` ver ve 2-3 `variants` ekle. Böylece temalar ve kullanıcı modeli yeniden boyayabilir.
 
 ## İyi animasyon tarifleri (keyframe ile)

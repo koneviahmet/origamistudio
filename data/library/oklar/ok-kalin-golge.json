@@ -1,0 +1,21 @@
+{
+  "id": "ok-kalin-golge",
+  "name": "Kalın gölgeli",
+  "tags": [
+    "ok",
+    "vurgu",
+    "sunum"
+  ],
+  "type": "arrow",
+  "curve": "kavis",
+  "line": "duz",
+  "head": "ucgen",
+  "width": 19.5,
+  "headSize": 52,
+  "color": "#ffb703",
+  "color2": "#fb8500",
+  "bend": 0.22,
+  "shadow": true,
+  "flow": "nabiz",
+  "flowSpeed": 240
+}

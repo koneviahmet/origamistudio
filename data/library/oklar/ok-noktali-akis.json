@@ -1,0 +1,19 @@
+{
+  "id": "ok-noktali-akis",
+  "name": "Noktalı akış",
+  "tags": [
+    "ok",
+    "akış",
+    "veri"
+  ],
+  "type": "arrow",
+  "curve": "kavis",
+  "line": "nokta",
+  "head": "acik",
+  "width": 8.5,
+  "headSize": 28.5,
+  "color": "#457b9d",
+  "bend": -0.2,
+  "flow": "kesik",
+  "flowSpeed": 70
+}

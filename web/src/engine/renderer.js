@@ -9,6 +9,7 @@ import { applyAnims } from './presets.js';
 import { themeContext, resolveRef } from './theme.js';
 import { drawPaperTexture, drawVignette } from './texture.js';
 import { drawParticles } from './particles.js';
+import { drawArrow } from './arrows.js';
 import { glyphState } from './textanims.js';
 import { drawTransitions } from './transitions.js';
 import { pathAt } from './path.js';
@@ -127,6 +128,66 @@ export function resolveLayerFull(layer, t, scene, res) {
     radius = (prop(tp, 'size', t, 72) * String(tp.text || '').length * 0.3) * st.scale;
   }
   return applyAnims(layer, st, t, { W: scene.width, H: scene.height, asset, radius });
+}
+
+/**
+ * Katmanın t anındaki dünya uzayı yönlü kutusu — okların bağlandığı nesne sınırı.
+ * @returns {{cx, cy, ux, uy, vx, vy, hw, hh}} merkez, eksen birim vektörleri, yarı boyutlar
+ */
+export function layerBox(layer, t, scene, res, ctx, fmt) {
+  const st = resolveLayerFull(layer, t, scene, res);
+  const ov = fmt?.overrides?.[layer.id];
+  if (ov) {
+    st.x += ov.dx || 0;
+    st.y += ov.dy || 0;
+    st.scale *= ov.scale ?? 1;
+  }
+  let lx0 = 0;
+  let ly0 = 0;
+  let lx1 = 0;
+  let ly1 = 0;
+  if (layer.type === 'text') {
+    const L = textProps(layer, res);
+    const size = prop(L, 'size', t, 72);
+    let text = String(L.text ?? '');
+    if (L.uppercase) text = text.toLocaleUpperCase('tr');
+    const lines = text.split('\n');
+    ctx.save();
+    ctx.font = `${L.weight || 600} ${size}px ${fontCss(L.font)}`;
+    let maxW = 0;
+    for (const l of lines) maxW = Math.max(maxW, ctx.measureText(l).width);
+    ctx.restore();
+    const hh = (lines.length * size * (L.lineHeight || 1.15)) / 2;
+    const align = L.align || 'center';
+    lx0 = align === 'left' ? 0 : align === 'right' ? -maxW : -maxW / 2;
+    lx1 = lx0 + maxW;
+    ly0 = -hh;
+    ly1 = hh;
+  } else if (layer.type !== 'particles' && layer.type !== 'arrow') {
+    const asset = res.assets?.get(layer.asset);
+    if (asset) {
+      const [w, h] = asset.size || [200, 200];
+      const [ax, ay] = layer.anchor || [0.5, 0.5];
+      lx0 = -ax * w;
+      lx1 = (1 - ax) * w;
+      ly0 = -ay * h;
+      ly1 = (1 - ay) * h;
+    }
+  }
+  const sx = st.scale * st.scaleX;
+  const sy = st.scale * st.scaleY;
+  const r = st.rotation * DEG;
+  const c = Math.cos(r);
+  const s = Math.sin(r);
+  const mx = ((lx0 + lx1) / 2) * sx;
+  const my = ((ly0 + ly1) / 2) * sy;
+  return {
+    cx: st.x + mx * c - my * s,
+    cy: st.y + mx * s + my * c,
+    ux: c, uy: s, vx: -s, vy: c,
+    hw: Math.abs(((lx1 - lx0) / 2) * sx),
+    hh: Math.abs(((ly1 - ly0) / 2) * sy),
+  };
 }
 
 function resolveParts(layer, t, partFx) {
@@ -379,6 +440,17 @@ export function renderFrame(ctx, scene, t, resIn, opts = {}) {
       ctx.restore();
       continue;
     }
+    if (layer.type === 'arrow') {
+      ctx.save();
+      const byId = (id) => {
+        const target = id !== layer.id && (scene.layers || []).find((l) => l.id === id);
+        return target ? layerBox(target, t, scene, res, ctx, fmt) : null;
+      };
+      const bb = drawArrow(ctx, layer, t, st, scene, res, th, byId);
+      if (bb) info.layers.push({ id: layer.id, matrix: ctx.getTransform(), bbox: bb, nohit: locked, nohandles: true, group: layer.group });
+      ctx.restore();
+      continue;
+    }
     ctx.save();
     ctx.translate(st.x, st.y);
     ctx.rotate(st.rotation * DEG);
@@ -419,6 +491,9 @@ export function renderFrame(ctx, scene, t, resIn, opts = {}) {
             crease: layer.crease,
             fx: tc.identity ? null : tc.fx,
             paper: tc.paper,
+            // Çizim stili: kalem kalınlığı sahne pikseli cinsinden sabit kalsın
+            sketch: layer.sketch ? { ...scene.sketch, ...layer.sketch } : scene.sketch,
+            lineScale: 1 / Math.max(0.05, Math.abs(st.scale) * Math.sqrt(Math.abs(st.scaleX * st.scaleY))),
           });
         }
         bbox = { x0: 0, y0: 0, x1: w, y1: h };
@@ -447,6 +522,12 @@ export function usedFonts(scene, resIn) {
   const res = normalizeRes(resIn);
   const out = new Map();
   for (const l of scene.layers || []) {
+    if (l.type === 'arrow' && l.label) {
+      const it = l.arrow && res.assets?.get(l.arrow);
+      const fam = l.labelFont || it?.labelFont || 'Caveat';
+      out.set(`${fam}|700`, { family: fam, weight: 700 });
+      continue;
+    }
     if (l.type !== 'text') continue;
     const L = textProps(l, res);
     const fam = L.font || DEFAULT_FONT;

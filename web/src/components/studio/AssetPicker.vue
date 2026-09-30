@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue';
 import AssetCanvas from '../AssetCanvas.vue';
 import ParticlePreview from '../ParticlePreview.vue';
+import ArrowPreview from '../ArrowPreview.vue';
 
 const props = defineProps({ lib: { type: Map, required: true }, initialCat: { type: String, default: '' } });
 const emit = defineEmits(['pick', 'close']);
@@ -46,6 +47,7 @@ const list = computed(() => {
           >
             <div class="th" :class="{ fx: a.type === 'particles' }">
               <ParticlePreview v-if="a.type === 'particles'" :item="a" :animate="hover === a.id" />
+              <ArrowPreview v-else-if="a.type === 'arrow'" :item="a" :animate="hover === a.id" />
               <AssetCanvas v-else :asset="a" :animate="hover === a.id" />
             </div>
             <span class="small">{{ a.name || a.id }}</span>
@@ -62,5 +64,5 @@ const list = computed(() => {
 .item { background: var(--bg-2); border: 1px solid var(--line); border-radius: 8px; padding: 6px; cursor: pointer; display: grid; gap: 4px; }
 .item:hover { border-color: var(--accent); }
 .th.fx { background: #0b1026; }
-.th { aspect-ratio: 1; background: radial-gradient(circle at 50% 40%, #fbf1e2, #efd9bd); border-radius: 6px; }
+.th { aspect-ratio: 1; overflow: hidden; background: radial-gradient(circle at 50% 40%, #fbf1e2, #efd9bd); border-radius: 6px; }
 </style>

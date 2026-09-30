@@ -1,0 +1,19 @@
+{
+  "id": "ok-dalga",
+  "name": "Dalgalı ok",
+  "tags": [
+    "ok",
+    "eğlenceli",
+    "çocuk"
+  ],
+  "type": "arrow",
+  "curve": "dalga",
+  "line": "duz",
+  "head": "ucgen",
+  "width": 8.5,
+  "headSize": 34,
+  "color": "#8338ec",
+  "bend": 0.1,
+  "waves": 3,
+  "amp": 18
+}

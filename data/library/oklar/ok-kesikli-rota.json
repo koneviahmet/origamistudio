@@ -1,0 +1,20 @@
+{
+  "id": "ok-kesikli-rota",
+  "name": "Kesikli rota",
+  "tags": [
+    "ok",
+    "harita",
+    "yol",
+    "yolculuk"
+  ],
+  "type": "arrow",
+  "curve": "kavis",
+  "line": "kesik",
+  "head": "acik",
+  "width": 7,
+  "headSize": 31,
+  "color": "#e63946",
+  "bend": 0.35,
+  "flow": "kesik",
+  "flowSpeed": 60
+}

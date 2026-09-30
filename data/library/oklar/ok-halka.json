@@ -1,0 +1,17 @@
+{
+  "id": "ok-halka",
+  "name": "Halkalı ok",
+  "tags": [
+    "ok",
+    "eğlenceli",
+    "dikkat"
+  ],
+  "type": "arrow",
+  "curve": "dongu",
+  "line": "duz",
+  "head": "ucgen",
+  "width": 7,
+  "headSize": 31,
+  "color": "#ff006e",
+  "bend": 0.15
+}
