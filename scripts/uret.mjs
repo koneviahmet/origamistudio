@@ -28,6 +28,11 @@ if (args[0] === '--ornek') {
 
 const file = path.resolve(args[0]);
 const brief = JSON.parse(fs.readFileSync(file, 'utf8'));
-const { id, scene } = uret(brief);
+const { id, scene, anlatim } = uret(brief);
 const dir = projeYaz(id, scene, brief);
+if (anlatim?.length) {
+  // Anlatım metni: npm run seslendir -- --proje <id> --satirlar <bu dosya> --ad <ad> --etiket "Anlatıcı"
+  fs.writeFileSync(path.join(dir, 'anlatim.txt'), anlatim.map((a) => `${a.t} | ${a.metin}`).join('\n') + '\n');
+  console.log(`anlatım: ${path.relative(process.cwd(), path.join(dir, 'anlatim.txt'))} → npm run seslendir -- --proje ${id} --satirlar data/projects/${id}/anlatim.txt --ad ${id}-ses --etiket "Anlatıcı"`);
+}
 console.log(`ok — ${id}: ${scene.layers.length} katman, ${scene.duration} sn, ${scene.width}×${scene.height} (${path.relative(process.cwd(), dir)})`);

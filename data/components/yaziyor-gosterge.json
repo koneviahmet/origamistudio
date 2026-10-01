@@ -1,0 +1,46 @@
+{
+  "name": "Yazıyor… göstergesi",
+  "description": "Zıplayan üç noktalı sohbet balonu.",
+  "type": "balon",
+  "props": {
+    "kind": "yaziyor",
+    "width": 260,
+    "height": 110,
+    "side": "sol"
+  },
+  "etiketler": {
+    "amac": [
+      "sohbet-diyalog",
+      "bildirim-uyari"
+    ],
+    "konu": [
+      "sosyal-medya",
+      "uygulama-urun"
+    ],
+    "ton": [
+      "minimal",
+      "eglenceli"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "simge"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "yaziyor",
+      "gostergesi",
+      "gosterge"
+    ]
+  }
+}

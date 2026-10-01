@@ -1,0 +1,9 @@
+{
+  "name": "Başlık · İnce Geniş",
+  "font": "Raleway",
+  "weight": 300,
+  "size": 84,
+  "color": "$baslik",
+  "uppercase": true,
+  "letterSpacing": 18
+}

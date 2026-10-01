@@ -1,0 +1,49 @@
+{
+  "name": "İşaret etiketi",
+  "description": "Nokta, çizgi ve etiket: bir ayrıntıyı işaret eder.",
+  "type": "balon",
+  "props": {
+    "kind": "etiket",
+    "title": "Önemli nokta",
+    "sub": "Buraya dikkat",
+    "side": "sol",
+    "width": 560,
+    "height": 260
+  },
+  "etiketler": {
+    "amac": [
+      "ipucu-yonlendirme",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "egitim",
+      "teknoloji"
+    ],
+    "ton": [
+      "ciddi-kurumsal",
+      "minimal"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "metin",
+      "simge"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "isaret",
+      "etiketi"
+    ]
+  }
+}

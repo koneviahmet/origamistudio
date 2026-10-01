@@ -1,0 +1,13 @@
+{
+  "name": "Oyun · Seviye",
+  "font": "Russo One",
+  "weight": 400,
+  "size": 72,
+  "color": "#ffffff",
+  "stroke": {
+    "color": "#d6336c",
+    "width": 10
+  },
+  "uppercase": true,
+  "letterSpacing": 3
+}

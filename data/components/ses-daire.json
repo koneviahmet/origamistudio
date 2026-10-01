@@ -1,0 +1,46 @@
+{
+  "name": "Ses — daire",
+  "description": "Dairesel ses görselleştirmesi.",
+  "type": "waveform",
+  "props": {
+    "style": "daire",
+    "bars": 48,
+    "width": 520,
+    "height": 520
+  },
+  "etiketler": {
+    "amac": [
+      "ses-muzik",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "muzik-eglence",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "enerjik",
+      "dikkat-cekici"
+    ],
+    "stil": [
+      "acik",
+      "yuvarlak"
+    ],
+    "icerik": [
+      "ses"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "ses-gerek"
+    ],
+    "anahtar": [
+      "ses",
+      "daire"
+    ]
+  }
+}

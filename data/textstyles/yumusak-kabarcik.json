@@ -1,0 +1,17 @@
+{
+  "name": "Yumuşak · Kabarcık",
+  "font": "Comfortaa",
+  "weight": 700,
+  "size": 76,
+  "color": "#4aa8ff",
+  "stroke": {
+    "color": "#ffffff",
+    "width": 10
+  },
+  "shadow": {
+    "color": "rgba(30,80,160,0.3)",
+    "blur": 10,
+    "x": 0,
+    "y": 5
+  }
+}

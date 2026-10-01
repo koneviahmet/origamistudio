@@ -1,0 +1,19 @@
+{
+  "name": "Neon · Sarı",
+  "font": "Anton",
+  "weight": 400,
+  "size": 96,
+  "color": "#fffbd1",
+  "shadow": {
+    "color": "#ffe600",
+    "blur": 26,
+    "x": 0,
+    "y": 0
+  },
+  "stroke": {
+    "color": "#fff04d",
+    "width": 2
+  },
+  "uppercase": true,
+  "letterSpacing": 6
+}

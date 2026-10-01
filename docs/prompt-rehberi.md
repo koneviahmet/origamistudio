@@ -342,35 +342,49 @@ etiketler 40 px olsun, "sekme" satırını kırmızı yap.
 
 ---
 
-## 9. Şablonlar — brief'ten video (Faz 16)
+## 9. Şablonlar — reels için vuruşa oturan videolar
 
 Büyük sahneyi elle yazmak yerine **brief** (kısa JSON) ver, şablon sahneyi üretsin. Sonra stüdyoda incele / düzelt (notlar, keyframe).
-Yol: Projeler → **✦ Şablondan** ya da `node scripts/uret.mjs <brief.json>` (örnek brief: `node scripts/uret.mjs --ornek <sablon>`).
-Hazır örnekler: `scripts/briefs/*.json`, üretilmiş projeler `sablon-*`.
+Yol: **Şablonlar** sayfası (galeri, önizleme + ses, içerik / görünüm / paylaşım formu, proje oluştur) ya da `node scripts/uret.mjs <brief.json>` (örnek brief: `node scripts/uret.mjs --ornek <sablon>`).
+Hazır örnekler: `scripts/briefs/<sablon>.json`. Şablonlar **9:16 reels** odaklıdır; her şey bir **ritim parçasının vuruşuna** oturur
+(`scripts/gen-ritim.mjs` ile üretilen `ritim-*.wav`; kamera darbesi, kelime çarpması, silme geçişleri, halka dalgaları vuruşta olur).
 
 | Şablon | Ne için | Brief'e özgü alanlar |
 |---|---|---|
-| `explainer` | Adım adım anlatım (defter / çizim stiline çok uygun) | `adimlar: [{baslik, metin, nesne, varyant?}]`, `altBaslik`, `ozet`, `kapanis` |
-| `veri` | Sayı / grafik hikâyesi | `bolumler: [{baslik, grafik: {kind, data, unit, title, max}, not}]`, `sonuc` |
-| `kinetik` | Müzikli kinetik tipografi | `satirlar: [metin \| {metin, vurgu}]`, `vuruslarPerSatir`, `dalga`, `renkler` |
-| `urun` | Uygulama / ürün tanıtımı | `slogan`, `cihaz: {frame, src?, ui, title, lines}`, `ozellikler: [{baslik, metin}]`, `cta`, `link` |
-| `showreel` | Vuruşa oturan hızlı portfolyo | `kareler: [{baslik, alt, nesne \| medya}]`, `vuruslarPerKare`, `renkler` |
-| `liste` | "En iyi N" geri sayım | `maddeler: [{ad, bilgi, nesne}]`, `siralama: geri \| ileri`, `bitis` |
+| `vurus` | Vuruş metni (kinetik tipografi, hook) | `satirlar: [metin]` (`*vurgu*`), `cta`, `alt`, `dalga`, `vuruslarPerKelime` |
+| `hook` | Merak kancası → dev sayaç → tik maddeleri | `hook` (`*vurgu*`), `sayi`, `birim`, `sayiEtiketi`, `maddeler: [metin]`, `cta`, `alt` |
+| `siralama` | Top N / geri sayım | `maddeler: [{ad, bilgi, nesne, varyant?}]`, `siralama: geri \| ileri`, `bitis`, `alt` |
+| `karsilastir` | Mit–Gerçek / Önce–Sonra / A–B (bölünmüş ekran) | `ustBaslik`, `altBaslik`, `turlar: [{ust, alt}]`, `sonuc`, `alt` |
+| `urun` | Uygulama / ürün tanıtımı | `slogan`, `cihaz: {frame, src?, ui, title, lines}`, `ozellikler: [{baslik, metin}]`, `rozet`, `fiyat`, `fiyatAlt`, `cta`, `link` |
+| `rakamlar` | İstatistik sayaçları + sütun grafik | `istatistikler: [{deger, birim, onek, etiket, oran}]`, `grafik: {baslik, veri: [{etiket, deger}]}`, `cta` |
+| `adimlar` | Nasıl yapılır / tarif | `adimlar: [{baslik, metin}]`, `ozet`, `cta` |
+| `zaman` | Zaman tüneli: anlatımlı, el çizimi, dönem dönem; nesneler rafa dizilir | `kanca`, `baslik`, `altBaslik`, `bolumler: [{yil, ad, nesne, balon, bilgi: [2 satır], notlar: [..], anlatim, ses?}]`, `soru`, `cta`, `son1`, `son2`, `suslemeler`, `kapakNesne` |
+| `manzara` | Katmanlı manzara / sinematik kapak (paralaks bantlar, olay, başlık, sonda takip bloğu) | `sahne: okyanus \| daglar \| gece`, `baslik`, `altBaslik`, `sure` |
+| `dalis` | Model / kavram evrimi: şema + kamera dalışı + zincirleme zaman şeridi | `baslik`, `altBaslik`, `kapakDuzen`, `kapakNesne`, `bolumler: [{yil, ad, duzen: tek \| bolun \| kume \| gomulu \| isin \| yorunge \| bulut, nesne, nesne2, mermi, merkez, renk, bilgi: [2], notlar: [2], anlatim, ses?}]`, `son1`, `son2`, `soru`, `cta` |
+| `sohbet` | Mesajlaşma hikâyesi (yazıyor… + balonlar + kayma) | `kisiA`, `kisiB`, `mesajlar: [{kim: a \| b, metin}]`, `tepkiler: ["😂\|128"]`, `cta` |
 
-Ortak: `sablon, id, ad, format (reels|youtube|kare|dikey45), tema, stil, vurgu (marka rengi), muzik (dosya | {file,bpm,beatOffset} | false), fps`.
+Ortak: `yayin {baslik, aciklama, etiketler[]}` (paylaşım → `scene.publish`), `sablon, id, ad, format (reels|youtube|kare|dikey45), palet, muzik, font, stil, vurgu, renkler[], fps`.
+- `palet`: `canli · neon · gunbatimi · pastel · mono · okyanus · orman · kagit · tebesir` (zemin renkleri bölüm bölüm döner; yazı / vurgu rengi otomatik kontrastlı). `vurgu` hex'i vurgu listesinin başına geçer.
+- `muzik`: `pop-120 · house-126 · trap-140 · lofi-90 · hype-132` | `ritim-*.wav` | `{file, bpm, beatOffset}` | `false`. Yeni parça: `scripts/gen-ritim.mjs` (STILLER tablosuna ekle).
+- `font`: başlık fontu (Anton, Archivo Black, Bebas Neue, Bungee, Oswald, Russo One, Rubik, Sora, Outfit, Montserrat, Poppins…). Gövde yazısı Outfit.
+- `nesne` = kütüphane model id'si ([katalog.md §1](katalog.md)); yoksa `yildiz`. `medya` / `cihaz.src` = `data/media/` dosyası.
+- Kendi müziğin için `muzik: { "file": "sarki.wav", "bpm": 128, "beatOffset": 0.2 }` (bpm'i stüdyoda Ses → Algıla ile bul).
+- Şekil takımı (`daire, kare, ucgen, halka, patlama, elmas, yildirim, tik, ok-yukari, leke, yarim-daire` — `npm run seed:sekil`): şablonların dekoru; renk `palette: { a: '$vurgu' }`, esnetme `scaleX/scaleY`.
+- `zaman` şablonunda `anlatim` metinleri `anlatim.txt` olarak proje klasörüne yazılır → `npm run seslendir -- --proje <id> --satirlar data/projects/<id>/anlatim.txt --ad <ad>`; çıkan wav'ları bölümün `ses` alanına yaz (süre buna göre uzar).
+- **Takip bloğu:** her şablonun sonunda Instagram + YouTube logoları (`marka/instagram-logo`, `marka/youtube-logo`, `npm run seed:sosyal`) ve hesap adı gelir; varsayılan `@nasilldegisti`, brief'te `hesap` ile değişir, `takip: false` ile kapanır (`c.takip()`).
+- Sayaç metni: `type: 'text'` + `count: {from, to, decimals, prefix, suffix}` + `counter` (0..1 keyframe) — şema §3.
+- Şablon çıktısı başlangıçtır: zamanlama, metin ve renk düzeltmelerini stüdyoda ya da notla yap.
 
-- `nesne` = kütüphane model id'si ([katalog.md §1](katalog.md)); yoksa `yildiz` kullanılır. `medya` / `cihaz.src` = `data/media/` dosyası.
-- Kendi müziğin için `muzik: { "file": "sarki.mp3", "bpm": 128, "beatOffset": 0.2 }` — bpm'i stüdyoda Ses → Algıla ile bul,
-  mp3'te "Zarf çıkar" ile dalga / sesle büyü verisini ekle (WAV'da şablon otomatik ekler).
-- Şablon çıktısı başlangıçtır: zamanlama, metin ve renk düzeltmelerini stüdyoda ya da notla yap. Yeni şablon eklemek:
-  `scripts/sablonlar/<ad>.mjs` (`export default { id, ad, aciklama, ornek, uret(brief) }`) + `index.mjs`'e kaydet, `npm run katalog`.
+**Yeni şablon eklemek:** `scripts/sablonlar/<ad>.mjs` → `export default { id, ad, etiket, sure, aciklama, ornek, uret(brief) }`; `uret` içinde
+`const c = reels(brief, { palet, muzik, font })` (`reels.mjs`): `c.vurus(n)` vuruş zamanı, `c.yigin()` kelime yığını, `c.slam()` çarpan metin, `c.hap()` etiket,
+`c.sayac()`, `c.damga()`, `c.sekil()`, `c.halka()`, `c.silme()`, `c.flas()`, `c.dekor()`, `c.noktalar()`, `c.kapanis()`, `c.kameraVurus()`, `c.arkaplan()`, `c.bitir2()`.
+`index.mjs`'e kaydet, `ornek` brief'ine `yayin` ekle, `npm run katalog`, `npm run dogrula` + kare kontrolü (§5).
 
 ### Prompt örneği (şablonlu)
 
 ```text
-"Suyun döngüsü" için explainer şablonuyla 9:16 video: 4 adım (buharlaşma, yoğunlaşma, yağış, toplanma),
-nesneler gunes / bulut / bulut / dalga, stil cizim, tema pastel-ruya. Brief'i scripts/briefs/su-dongusu.json'a yaz,
-node scripts/uret.mjs ile üret, §5 yöntemiyle kareleri kontrol et, metin taşmalarını düzelt, raporla.
+"Sınav sabahı" için sohbet şablonuyla 9:16 video: Ece ve Can, 6 mesaj, sonunda tepkiler. palet gunbatimi, muzik pop-120.
+Brief'i scripts/briefs/sinav.json'a yaz, node scripts/uret.mjs ile üret, §5 yöntemiyle kareleri kontrol et, taşmaları düzelt, raporla.
 ```
 
 ## 10. Bileşenler, derinlik ve ses (Faz 16 reçeteleri)
@@ -386,3 +400,14 @@ node scripts/uret.mjs ile üret, §5 yöntemiyle kareleri kontrol et, metin taş
   Stüdyoyu açık tutmak gerekmez. `--olcek 0.5` taslak.
 - **Notları API ile uygula**: Notlar sekmesi → "✨ Claude ile uygula" (sunucu `ANTHROPIC_API_KEY` ile başlamalı) ya da
   `node scripts/ai-notlar.mjs <proje>`. Sonucu Geçmiş'ten karşılaştır / geri al.
+
+## 11. Karakterler (Faz 17)
+
+- **Ne zaman?** Konuşma / diyalog, ürün ya da konu tanıtımı, "anlatıcı" ister, soyut konuyu insanlaştırmak gerekir ya da çocuk / eğitim içeriği. Yalnızca nesne gösterimi yeterliyse karakter ekleme.
+- **Seçim**: `npm run karakter -- "<konu / ton>"` → 1–2 aday, `--detay <id>`. Konuya uy: teknoloji → robo, uzay → astro, çocuk / sıcak → bonbon, hayvan / mizah → miyav, sade / genel / eğitim → copadam.
+  İkili diyalog için aynı karakterin iki varyantı ya da zıt iki set (çöp adam + robo) iyi okunur. Karakter boyunu sahnenin %45–55'i yap; 9:16'da karakterleri alt yarıya, metni üste koy.
+- **Reçete**: önce `karakter()` ile katmanı kur, sonra `akis` ile ritim ver: giriş (yuru + dx) → selam → konuşma (`soz`; jest otomatik) → vurgu (tanit / isaret + hedef, sunum, fikir) → kapanış (el-salla / egil).
+  Her konuşma satırına duygu ver (nötrde bırakma). Dinleyen `dinle` + `bak`: diyalog() bunu kendisi kurar. Konuşma süresi = seslendirme süresi (seslendirme varsa); yoksa okuma hızı ≈ 14–16 karakter/sn + 0.9 sn.
+- **Dikkat**: balon metni ≤ 90 karakter, ≥ 1.6 sn; aynı anda tek balon; `tanit`/`isaret` için hedef katmanın id'si olmalı; `dx` ile yürütürken `sure` ver (bitince bekleme pozuna döner); aksiyon adlarını uydurma (`--aksiyonlar`);
+  Türkçe balon fontu Baloo 2 (varsayılan). Kareyi §5 yöntemiyle kontrol et: karakterler çerçeve dışında / üst üste mi?
+- **Yeni karakter**: Karakterler sayfası (ölçü, renk, şekil, aksesuar, varyant) ya da `data/characters/<id>.json` (şema §15). Eklenince `etiketler` ve `kullanim` doldur (arama bunlara bakar).

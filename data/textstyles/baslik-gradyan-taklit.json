@@ -1,0 +1,15 @@
+{
+  "name": "Başlık · Çift Katman",
+  "font": "Montserrat",
+  "weight": 900,
+  "size": 96,
+  "color": "$vurgu",
+  "shadow": {
+    "color": "$baslik",
+    "blur": 0,
+    "x": 5,
+    "y": 5
+  },
+  "uppercase": true,
+  "letterSpacing": -1
+}

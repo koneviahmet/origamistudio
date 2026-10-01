@@ -1,0 +1,18 @@
+{
+  "name": "Çıkartma · Siyah Beyaz",
+  "font": "Archivo Black",
+  "weight": 400,
+  "size": 80,
+  "color": "#111111",
+  "stroke": {
+    "color": "#ffffff",
+    "width": 18
+  },
+  "shadow": {
+    "color": "rgba(0,0,0,0.35)",
+    "blur": 8,
+    "x": 0,
+    "y": 6
+  },
+  "uppercase": true
+}

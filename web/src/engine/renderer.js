@@ -14,8 +14,10 @@ import { glyphState } from './textanims.js';
 import { drawTransitions } from './transitions.js';
 import { pathAt } from './path.js';
 import { shade } from './color.js';
-import { WIDGET_DRAW, isWidget, deviceGeometry, mediaSize } from './widgets.js';
+import { drawWidget, isWidget, deviceGeometry, mediaSize } from './widgets.js';
+import { WIDGET2_TYPES, widget2Size } from './widgets2.js';
 import { audioApi } from './audiodrive.js';
+import { drawCharacter, characterSize, characterState } from './character.js';
 
 const DEG = Math.PI / 180;
 
@@ -68,6 +70,24 @@ export function sceneTheme(scene, res) {
 export function fontCss(family) {
   const f = family || DEFAULT_FONT;
   return f.includes(',') ? f : `"${f}", system-ui, sans-serif`;
+}
+
+/**
+ * Sayaç metni: `count: { from, to, decimals, prefix, suffix, sep }` + `counter` (0..1, keyframe izi).
+ * Metin = prefix + biçimli(from + (to - from) * counter) + suffix. Yoksa `text`.
+ */
+export function layerText(L, t) {
+  const c = L.count;
+  if (!c || typeof c !== 'object') return String(L.text ?? '');
+  const k = Math.max(0, Math.min(1, prop(L, 'counter', t, 1)));
+  const v = (c.from ?? 0) + ((c.to ?? 100) - (c.from ?? 0)) * k;
+  const d = c.decimals ?? 0;
+  let s = Math.abs(v).toFixed(d);
+  if (c.sep !== false && c.sep !== '') {
+    const [i, f] = s.split('.');
+    s = i.replace(/\B(?=(\d{3})+(?!\d))/g, c.sep ?? '.') + (f ? ',' + f : '');
+  }
+  return `${c.prefix ?? ''}${v < 0 ? '-' : ''}${s}${c.suffix ?? ''}`;
 }
 
 /** Metin katmanının etkin ayarları: metin stili ← katman alanları */
@@ -123,6 +143,7 @@ export function widgetSize(layer, res) {
     return [g.w, g.h];
   }
   if (layer.type === 'media') return mediaSize(layer, res);
+  if (WIDGET2_TYPES.includes(layer.type)) return widget2Size(layer);
   if (layer.type === 'chart') return [layer.width || 820, layer.height || 560];
   return [layer.width || 800, layer.height || 240];
 }
@@ -131,10 +152,13 @@ export function widgetSize(layer, res) {
 export function resolveLayerFull(layer, t, scene, res) {
   const st = resolveLayer(layer, t);
   if (!layer.anims?.length) return st;
-  const asset = layer.type === 'text' || isWidget(layer) ? null : res.assets?.get(layer.asset);
+  const asset = layer.type === 'text' || layer.type === 'karakter' || isWidget(layer) ? null : res.assets?.get(layer.asset);
   let radius;
   if (isWidget(layer)) {
     const [bw, bh] = widgetSize(layer, res);
+    radius = (Math.max(bw, bh) / 2) * Math.abs(st.scale);
+  } else if (layer.type === 'karakter') {
+    const [bw, bh] = characterSize(layer, res);
     radius = (Math.max(bw, bh) / 2) * Math.abs(st.scale);
   } else if (asset) {
     const [w, h] = asset.size || [200, 200];
@@ -165,7 +189,7 @@ export function layerBox(layer, t, scene, res, ctx, fmt) {
   if (layer.type === 'text') {
     const L = textProps(layer, res);
     const size = prop(L, 'size', t, 72);
-    let text = String(L.text ?? '');
+    let text = layerText(L, t);
     if (L.uppercase) text = text.toLocaleUpperCase('tr');
     const lines = text.split('\n');
     ctx.save();
@@ -185,6 +209,15 @@ export function layerBox(layer, t, scene, res, ctx, fmt) {
     lx1 = bw / 2;
     ly0 = -bh / 2;
     ly1 = bh / 2;
+  } else if (layer.type === 'karakter') {
+    const [bw, bh] = characterSize(layer, res);
+    const cs = characterState(layer, t, scene, res);
+    st.x += cs.dx;
+    st.y += cs.dy;
+    lx0 = -bw / 2;
+    lx1 = bw / 2;
+    ly0 = -bh;
+    ly1 = 0;
   } else if (layer.type !== 'particles' && layer.type !== 'arrow') {
     const asset = res.assets?.get(layer.asset);
     if (asset) {
@@ -277,7 +310,7 @@ function drawText(ctx, layer, t, alpha, res, th) {
   ctx.textAlign = L.align || 'center';
   ctx.textBaseline = 'middle';
   if ('letterSpacing' in ctx) ctx.letterSpacing = `${(L.letterSpacing || 0) * (size / 100)}px`;
-  let text = String(L.text ?? '');
+  let text = layerText(L, t);
   if (L.uppercase) text = text.toLocaleUpperCase('tr');
   const lines = text.split('\n');
   const total = lines.reduce((s, l) => s + [...l].length, 0);
@@ -472,12 +505,23 @@ export function renderFrame(ctx, scene, t, resIn, opts = {}) {
     else ctx.setTransform(camBase);
     const blur = Math.max(0, sample(layer.blur, t, 0) + (dof ? Math.abs(depth - focus) * dof : 0)) * pxScale;
     ctx.filter = blur > 0.3 ? `blur(${blur.toFixed(2)}px)` : 'none';
+    if (layer.type === 'karakter') {
+      ctx.save();
+      const byId = (id) => {
+        const target = id !== layer.id && (scene.layers || []).find((l) => l.id === id);
+        return target ? layerBox(target, t, scene, res, ctx, fmt) : null;
+      };
+      const cr = drawCharacter(ctx, layer, t, st, scene, res, th, byId);
+      info.layers.push({ id: layer.id, matrix: cr.matrix, bbox: cr.bbox, nohit: locked, group: layer.group });
+      ctx.restore();
+      continue;
+    }
     if (isWidget(layer)) {
       ctx.save();
       ctx.translate(st.x, st.y);
       ctx.rotate(st.rotation * DEG);
       ctx.scale(st.scale * st.scaleX, st.scale * st.scaleY);
-      const wbb = WIDGET_DRAW[layer.type](ctx, layer, t, st, scene, res, th);
+      const wbb = drawWidget(ctx, layer, t, st, scene, res, th);
       info.layers.push({ id: layer.id, matrix: ctx.getTransform(), bbox: wbb, nohit: locked, group: layer.group });
       ctx.restore();
       continue;
@@ -576,6 +620,11 @@ export function usedFonts(scene, resIn) {
       const it = l.arrow && res.assets?.get(l.arrow);
       const fam = l.labelFont || it?.labelFont || 'Caveat';
       out.set(`${fam}|700`, { family: fam, weight: 700 });
+      continue;
+    }
+    if (l.type === 'karakter') {
+      const fam = l.balon?.font || res.characters?.get?.(l.karakter)?.balon?.font || DEFAULT_FONT;
+      if (!fam.includes(',')) for (const w of [700, 800]) out.set(`${fam}|${w}`, { family: fam, weight: w });
       continue;
     }
     if (l.type !== 'text') continue;

@@ -1,0 +1,53 @@
+{
+  "name": "Terminal — açık",
+  "description": "Açık renkli terminal penceresi.",
+  "type": "kod",
+  "props": {
+    "kind": "terminal",
+    "tema": "acik",
+    "title": "bash",
+    "lines": [
+      "$ git status",
+      "nothing to commit",
+      "$ git push"
+    ],
+    "accent": "#2f8a3a",
+    "width": 860,
+    "height": 400
+  },
+  "etiketler": {
+    "amac": [
+      "kod-teknik",
+      "egitim-anlatim"
+    ],
+    "konu": [
+      "yazilim",
+      "teknoloji"
+    ],
+    "ton": [
+      "teknik",
+      "sinematik"
+    ],
+    "stil": [
+      "acik",
+      "renkli"
+    ],
+    "icerik": [
+      "kod"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "terminal",
+      "acik"
+    ]
+  }
+}

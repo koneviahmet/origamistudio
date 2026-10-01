@@ -1,0 +1,46 @@
+{
+  "name": "Soru balonu",
+  "description": "Sallanan büyük soru işareti balonu.",
+  "type": "balon",
+  "props": {
+    "kind": "soru",
+    "icon": "?",
+    "side": "sol",
+    "width": 320,
+    "height": 320
+  },
+  "etiketler": {
+    "amac": [
+      "ic-ses-duygu",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "genel",
+      "egitim"
+    ],
+    "ton": [
+      "eglenceli",
+      "dikkat-cekici"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "simge"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "soru",
+      "balonu"
+    ]
+  }
+}

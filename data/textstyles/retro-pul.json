@@ -1,0 +1,22 @@
+{
+  "name": "Retro · Damga",
+  "font": "Alfa Slab One",
+  "weight": 400,
+  "size": 64,
+  "color": "#b5311f",
+  "stroke": {
+    "color": "#b5311f",
+    "width": 2
+  },
+  "uppercase": true,
+  "letterSpacing": 6,
+  "box": {
+    "color": "rgba(0,0,0,0)",
+    "radius": 8,
+    "padding": [
+      24,
+      40
+    ],
+    "shadow": false
+  }
+}

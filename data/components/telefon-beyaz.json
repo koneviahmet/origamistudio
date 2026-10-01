@@ -1,0 +1,54 @@
+{
+  "name": "Telefon — beyaz gövde",
+  "description": "Açık renk gövdeli, temiz mağaza görseli tadında telefon.",
+  "type": "device",
+  "props": {
+    "frame": "telefon",
+    "width": 460,
+    "title": "Uygulama",
+    "ui": "liste",
+    "color": "#e9e6f2",
+    "screenColor": "#ffffff",
+    "lines": [
+      "Keşfet",
+      "Favoriler",
+      "Profil"
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "tanitim",
+      "gorsel-sergi"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "teknoloji"
+    ],
+    "ton": [
+      "minimal",
+      "premium-sik"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "dikey-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "telefon",
+      "beyaz",
+      "govde"
+    ]
+  }
+}

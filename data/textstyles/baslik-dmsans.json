@@ -1,0 +1,8 @@
+{
+  "name": "Başlık · DM Sans",
+  "font": "DM Sans",
+  "weight": 900,
+  "size": 100,
+  "color": "$baslik",
+  "letterSpacing": -2
+}

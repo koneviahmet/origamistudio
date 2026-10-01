@@ -11,6 +11,19 @@ async function req(method, url, body) {
 }
 
 export const api = {
+  ytStatus: () => req('GET', '/youtube/status'),
+  ytConfig: (cfg) => req('PUT', '/youtube/config', cfg),
+  ytAuth: () => req('GET', '/youtube/auth'),
+  ytDisconnect: () => req('POST', '/youtube/disconnect'),
+  ytJob: (id) => req('GET', `/youtube/jobs/${id}`),
+  renders: (id) => req('GET', `/projects/${id}/renders`),
+  ytUpload: (id, body) => req('POST', `/projects/${id}/youtube-upload`, body),
+  saveRender: async (id, name, blob) => {
+    const res = await fetch(`/api/projects/${id}/renders/${encodeURIComponent(name)}`, { method: 'POST', headers: { 'Content-Type': 'video/mp4' }, body: blob });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || res.statusText);
+    return data;
+  },
   ollaya: () => req('GET', '/ollaya'),
   setOllaya: (aktif) => req('PUT', '/ollaya', { aktif }),
   library: () => req('GET', '/library'),
@@ -54,6 +67,14 @@ export const api = {
   },
   deleteAudio: (file) => req('DELETE', `/audio/${encodeURIComponent(file)}`),
   templates: () => req('GET', '/templates'),
+  templateMeta: () => req('GET', '/templates/meta'),
+  componentTags: () => req('GET', '/component-tags'),
+  saveComponentTags: (facetler) => req('PUT', '/component-tags', { facetler }),
+  userTemplates: () => req('GET', '/user-templates'),
+  saveAsTemplate: (projectId, ad, aciklama) => req('POST', '/user-templates', { projectId, ad, aciklama }),
+  updateUserTemplate: (id, patch) => req('PATCH', `/user-templates/${id}`, patch),
+  deleteUserTemplate: (id) => req('DELETE', `/user-templates/${id}`),
+  previewTemplate: (brief) => req('POST', '/templates/preview', brief),
   generateFromTemplate: (brief) => req('POST', '/templates/generate', brief),
   media: () => req('GET', '/media'),
   uploadMedia: async (file) => {

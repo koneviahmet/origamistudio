@@ -1,0 +1,59 @@
+{
+  "name": "Halka yüzde",
+  "description": "Tek bir oranı halka içinde gösterir.",
+  "type": "chart",
+  "props": {
+    "kind": "donut",
+    "title": "Tamamlanma",
+    "width": 620,
+    "height": 620,
+    "unit": "%",
+    "data": [
+      {
+        "label": "Tamamlanan",
+        "value": 72
+      },
+      {
+        "label": "Kalan",
+        "value": 28
+      }
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "veri-hikayesi",
+      "ilerleme-takip",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "genel",
+      "finans-is"
+    ],
+    "ton": [
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "kartli",
+      "yuvarlak"
+    ],
+    "icerik": [
+      "grafik",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "halka",
+      "yuzde"
+    ]
+  }
+}

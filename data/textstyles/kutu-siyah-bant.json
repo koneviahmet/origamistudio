@@ -1,0 +1,17 @@
+{
+  "name": "Kutu · Siyah Bant",
+  "font": "Oswald",
+  "weight": 600,
+  "size": 54,
+  "color": "#ffffff",
+  "box": {
+    "color": "#000000",
+    "radius": 0,
+    "padding": [
+      10,
+      34
+    ]
+  },
+  "uppercase": true,
+  "letterSpacing": 4
+}

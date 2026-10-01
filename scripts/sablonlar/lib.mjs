@@ -32,7 +32,7 @@ export function varliklar() {
       try {
         const j = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
         const id = f.replace(/\.json$/, '');
-        assetCache.set(id, { id, cat, type: j.type, size: j.size || [200, 200], name: j.name, variants: Object.keys(j.variants || {}) });
+        assetCache.set(id, { id, cat, type: j.type, size: j.size || [200, 200], name: j.name, variants: Object.keys(j.variants || {}), parts: Object.keys(j.parts || {}) });
       } catch { /* bozuk dosya atlanır */ }
     }
   }

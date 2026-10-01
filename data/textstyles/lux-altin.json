@@ -1,0 +1,14 @@
+{
+  "name": "Lüks · Altın",
+  "font": "Playfair Display",
+  "weight": 700,
+  "size": 90,
+  "color": "#e3b95a",
+  "shadow": {
+    "color": "rgba(0,0,0,0.5)",
+    "blur": 14,
+    "x": 0,
+    "y": 4
+  },
+  "letterSpacing": 3
+}

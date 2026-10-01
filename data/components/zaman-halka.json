@@ -1,0 +1,51 @@
+{
+  "name": "Geri sayım — halka",
+  "description": "Daire içinde azalan halka ve süre.",
+  "type": "zaman",
+  "props": {
+    "kind": "halka",
+    "from": 30,
+    "to": 0,
+    "label": "Saniye",
+    "width": 460
+  },
+  "etiketler": {
+    "amac": [
+      "zaman-sayim",
+      "ilerleme-takip"
+    ],
+    "konu": [
+      "saglik-spor",
+      "genel",
+      "egitim"
+    ],
+    "ton": [
+      "minimal",
+      "sakin"
+    ],
+    "stil": [
+      "acik",
+      "kartli",
+      "yuvarlak"
+    ],
+    "icerik": [
+      "zaman"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "geri",
+      "sayim",
+      "halka",
+      "zaman"
+    ]
+  }
+}

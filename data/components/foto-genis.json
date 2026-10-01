@@ -1,0 +1,46 @@
+{
+  "name": "Fotoğraf — geniş kapak",
+  "description": "Yatay kapak görseli, ince köşe.",
+  "type": "media",
+  "props": {
+    "width": 900,
+    "height": 506,
+    "fit": "kapla",
+    "radius": 20,
+    "shadow": true
+  },
+  "etiketler": {
+    "amac": [
+      "gorsel-sergi"
+    ],
+    "konu": [
+      "genel"
+    ],
+    "ton": [
+      "minimal"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "medya-gerek"
+    ],
+    "anahtar": [
+      "fotograf",
+      "genis",
+      "kapak",
+      "foto"
+    ]
+  }
+}

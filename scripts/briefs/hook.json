@@ -1,0 +1,32 @@
+{
+  "sablon": "hook",
+  "id": "sablon-hook",
+  "ad": "Merak Kancası",
+  "format": "reels",
+  "palet": "neon",
+  "muzik": "trap-140",
+  "font": "Anton",
+  "hook": "Bunu *yanlış* yapıyorsun!",
+  "sayi": 87,
+  "birim": "%",
+  "sayiEtiketi": "insan bu hatayı her gün yapıyor",
+  "maddeler": [
+    "Çoğu kişi fark bile etmiyor",
+    "Düzeltmek sadece 10 saniye",
+    "Hemen deneyebilirsin"
+  ],
+  "cta": "Kaydet ve dene",
+  "alt": "@kullaniciadi",
+  "yayin": {
+    "baslik": "Bunu yanlış yapıyor olabilirsin",
+    "aciklama": "Çoğu kişi bu hatayı her gün yapıyor. Düzeltmek sadece 10 saniye. Kaydet ve dene!",
+    "etiketler": [
+      "ipucu",
+      "bilgi",
+      "reels",
+      "shorts",
+      "ogren",
+      "hack"
+    ]
+  }
+}

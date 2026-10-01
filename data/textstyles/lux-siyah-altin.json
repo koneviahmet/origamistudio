@@ -1,0 +1,12 @@
+{
+  "name": "Lüks · Siyah Üstü Altın",
+  "font": "DM Serif Display",
+  "weight": 400,
+  "size": 96,
+  "color": "#d9a441",
+  "stroke": {
+    "color": "#2a1c05",
+    "width": 3
+  },
+  "letterSpacing": 2
+}

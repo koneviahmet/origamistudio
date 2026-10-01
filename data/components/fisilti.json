@@ -1,0 +1,46 @@
+{
+  "name": "Fısıltı balonu",
+  "description": "Kesik çizgili, soluk ve italik; sır paylaşır gibi.",
+  "type": "balon",
+  "props": {
+    "kind": "fisilti",
+    "text": "psst… sana bir sırrım var",
+    "width": 560,
+    "height": 200,
+    "side": "sol"
+  },
+  "etiketler": {
+    "amac": [
+      "ic-ses-duygu",
+      "sohbet-diyalog"
+    ],
+    "konu": [
+      "genel",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "sakin",
+      "minimal"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "fisilti",
+      "balonu"
+    ]
+  }
+}

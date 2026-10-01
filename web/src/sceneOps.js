@@ -1,6 +1,8 @@
 // Sahne JSON'u üzerinde saf yardımcı işlemler (keyframe ekle/sil, özellik yaz, şablonlar).
 import { isTrack, sample, keyIndexAt } from './engine/anim.js';
 import { PROP_DEFAULTS } from './engine/renderer.js';
+import { WIDGET2_TYPES, WIDGET2_DEFAULTS } from './engine/widgets2.js';
+import { mergeCharacter, characterMetrics } from './engine/character.js';
 
 export const PRESETS = [
   { id: 'reels', label: 'Reels / Shorts / TikTok — 9:16', width: 1080, height: 1920 },
@@ -144,8 +146,18 @@ export function newArrowLayer(scene, t, arrow = 'ok-kavis', selectedId = null, a
 const r1 = (n) => Math.round(n * 10) / 10;
 const foldIn = (t0, dur = 1.2, ease = 'outCubic') => [{ t: r1(t0), v: 0 }, { t: r1(t0 + dur), v: 1, ease }];
 
-/** Bileşen katmanı: 'chart' | 'device' | 'media' | 'waveform' */
+const WIDGET2_PREFIX = { kart: 'kart', liste: 'liste', kod: 'kod', zaman: 'zaman', balon: 'balon' };
+/** Bileşen katmanı: 'chart' | 'device' | 'media' | 'waveform' | 'kart' | 'liste' | 'kod' | 'zaman' */
 export function newWidgetLayer(scene, type, t, extra = {}) {
+  if (WIDGET2_TYPES.includes(type)) {
+    const d = JSON.parse(JSON.stringify(WIDGET2_DEFAULTS[type]));
+    const t0b = r1(t);
+    const base2 = { id: uid(WIDGET2_PREFIX[type], scene), type, x: Math.round(scene.width / 2), y: Math.round(scene.height / 2), fold: foldIn(t0b, 1.6) };
+    const merged = { ...base2, ...d, ...extra };
+    const maxW = scene.width * 0.9;
+    if (merged.width > maxW) merged.width = Math.round(maxW);
+    return merged;
+  }
   const t0 = r1(t);
   const W = scene.width;
   const H = scene.height;
@@ -162,6 +174,38 @@ export function newWidgetLayer(scene, type, t, extra = {}) {
   if (type === 'device') return { ...base, frame: 'telefon', width: Math.round(Math.min(W, H) * 0.42), title: 'Uygulama', ...extra };
   if (type === 'waveform') return { ...base, style: 'cubuk', bars: 32, width: Math.round(W * 0.7), height: Math.round(Math.min(W, H) * 0.22), y: Math.round(H * 0.75), ...extra };
   return { ...base, width: Math.round(W * 0.7), ...extra };
+}
+
+/** Karakter katmanı: ayak ucu sahne altına yakın, boyu sahnenin ~yarısı; belirme pop animasyonu (fold) */
+export function newCharacterLayer(scene, doc, t, sameCount = 0) {
+  const W = scene.width;
+  const H = scene.height;
+  const m = characterMetrics(mergeCharacter(doc, {}));
+  const portrait = H > W;
+  const scale = Math.round(Math.min(((portrait ? 0.3 : 0.5) * H) / m.height, (0.5 * W) / m.width) * 100) / 100;
+  const t0 = r1(t);
+  const offs = [0, -0.22, 0.22, -0.38, 0.38];
+  return {
+    id: uid(doc.id, scene),
+    type: 'karakter',
+    karakter: doc.id,
+    x: Math.round(W * (0.5 + (offs[sameCount % offs.length] || 0))),
+    y: Math.round(H * (portrait ? 0.78 : 0.9)),
+    scale,
+    fold: foldIn(t0, 0.6, 'outBack'),
+  };
+}
+
+// Kayıtlı bileşen (data/components): konuma / zamana bağlı olmayan görünüm alanları
+const COMPONENT_SKIP = ['id', 'type', 'x', 'y', 'fold', 'start', 'end', 'group', 'locked', 'hidden', 'anims', 'loops', 'rotation', 'opacity'];
+export function componentProps(layer) {
+  const out = {};
+  for (const [k, v] of Object.entries(layer)) if (!COMPONENT_SKIP.includes(k)) out[k] = JSON.parse(JSON.stringify(v));
+  return out;
+}
+/** Kayıtlı bileşenden sahne katmanı üretir (varsayılan yerleşim + giriş animasyonu) */
+export function layerFromComponent(scene, comp, t) {
+  return newWidgetLayer(scene, comp.type, t, JSON.parse(JSON.stringify(comp.props || {})));
 }
 
 export function valueAt(obj, name, t) {

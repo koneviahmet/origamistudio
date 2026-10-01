@@ -1,0 +1,10 @@
+{
+  "name": "Başlık · Oswald",
+  "font": "Oswald",
+  "weight": 600,
+  "size": 110,
+  "color": "$baslik",
+  "uppercase": true,
+  "letterSpacing": 2,
+  "lineHeight": 1
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Kutu · Keskin",
+  "font": "Space Mono",
+  "weight": 700,
+  "size": 40,
+  "color": "#0b0b0b",
+  "box": {
+    "color": "#ffffff",
+    "radius": 0,
+    "padding": [
+      12,
+      28
+    ],
+    "shadow": false
+  },
+  "uppercase": true
+}

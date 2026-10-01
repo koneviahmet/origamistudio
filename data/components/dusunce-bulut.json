@@ -1,0 +1,50 @@
+{
+  "name": "Düşünce balonu",
+  "description": "Bulut biçimli düşünce balonu, küçülen baloncuklar karaktere iner.",
+  "type": "balon",
+  "props": {
+    "kind": "dusunce",
+    "text": "Acaba bu nasıl çalışıyor?",
+    "side": "sol",
+    "width": 620,
+    "height": 420
+  },
+  "etiketler": {
+    "amac": [
+      "ic-ses-duygu",
+      "sohbet-diyalog"
+    ],
+    "konu": [
+      "genel",
+      "egitim",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "eglenceli",
+      "sakin",
+      "komik"
+    ],
+    "stil": [
+      "acik",
+      "keskin"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "dusunce",
+      "balonu",
+      "bulut"
+    ]
+  }
+}

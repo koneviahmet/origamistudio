@@ -1,0 +1,269 @@
+{
+  "name": "Gözlü",
+  "description": "İnce uzun boylu çöp adam: dev yuvarlak kafa, iri halkalı gözler, minik ağız, boyun, sivrilen gövde ve kollar, mitten eller. Temiz kalın çizgi; ifadeleri çok iyi okunur. Komik, şaşkın, meraklı anlatıcı karakter.",
+  "rig": "insan",
+  "etiketler": [
+    "çöp adam",
+    "stickman",
+    "gözlü",
+    "iri göz",
+    "uzun",
+    "ince",
+    "şaşkın",
+    "meraklı",
+    "komik",
+    "sade",
+    "temiz çizgi",
+    "anlatıcı",
+    "minimal",
+    "eğitim",
+    "whiteboard"
+  ],
+  "kullanim": "Sade, temiz çizgili anlatıcı; şaşkın / meraklı tepkiler. Beyaz ve açık zeminlerde keskin okunur. Varyantlar: mavi, kirmizi, yesil (renkli tişört), kafalisi.",
+  "olcu": {
+    "bas": [
+      64,
+      62
+    ],
+    "boyun": 14,
+    "boyunGen": 13,
+    "govde": [
+      40,
+      82
+    ],
+    "omuzY": 8,
+    "omuzX": 17,
+    "kolUst": 52,
+    "kolAlt": 48,
+    "kalcaX": 14,
+    "bacakUst": 64,
+    "bacakAlt": 60,
+    "el": 11,
+    "ayak": [
+      38,
+      11
+    ]
+  },
+  "cizgi": {
+    "renk": "#111111",
+    "kalinlik": 5,
+    "titrek": 0,
+    "kaynama": 0
+  },
+  "renkler": {
+    "kafa": "#ffffff",
+    "govde": "#ffffff",
+    "iris": "#111111",
+    "goz": "#111111",
+    "agiz": "#7a2a33"
+  },
+  "govde": {
+    "sekil": "elbise",
+    "detay": []
+  },
+  "kafa": {
+    "sekil": "daire"
+  },
+  "uzuv": {
+    "tur": "cubuk",
+    "kalinlik": 5,
+    "el": "top",
+    "ayak": "oval-dis"
+  },
+  "yuz": {
+    "goz": "buyuk",
+    "gozYuvarlak": true,
+    "boyut": 2.3,
+    "aralik": 0.99,
+    "yukseklik": -0.02,
+    "pupilBoyut": 0.78,
+    "agizY": 0.06,
+    "agizGen": 0.28,
+    "agizDerin": 1,
+    "agizKalinlik": 0.9,
+    "kasEsik": 8,
+    "kasSabit": true,
+    "yanakGuc": 0
+  },
+  "ekler": [
+    {
+      "id": "sac-kisa",
+      "ad": "Kısa saç",
+      "tur": "sac",
+      "stil": "kisa",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-dikenli",
+      "ad": "Dikenli saç",
+      "tur": "sac",
+      "stil": "dikenli",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-topuz",
+      "ad": "Topuz",
+      "tur": "sac",
+      "stil": "topuz",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-uzun",
+      "ad": "Uzun saç",
+      "tur": "sac",
+      "stil": "uzun",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-kuyruk",
+      "ad": "At kuyruğu",
+      "tur": "sac",
+      "stil": "at-kuyrugu",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-tutam",
+      "ad": "Tek tutam",
+      "tur": "sac",
+      "stil": "tutam",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-kabarik",
+      "ad": "Kabarık saç",
+      "tur": "sac",
+      "stil": "kabarik",
+      "varsayilan": false
+    },
+    {
+      "id": "gozluk",
+      "ad": "Yuvarlak gözlük",
+      "tur": "gozluk",
+      "stil": "yuvarlak",
+      "varsayilan": false
+    },
+    {
+      "id": "gunes-gozlugu",
+      "ad": "Güneş gözlüğü",
+      "tur": "gozluk",
+      "stil": "gunes",
+      "varsayilan": false
+    },
+    {
+      "id": "bere",
+      "ad": "Bere",
+      "tur": "sapka",
+      "stil": "bere",
+      "varsayilan": false,
+      "renk": "#e63946"
+    },
+    {
+      "id": "silindir",
+      "ad": "Silindir şapka",
+      "tur": "sapka",
+      "stil": "silindir",
+      "varsayilan": false
+    },
+    {
+      "id": "kep",
+      "ad": "Kep",
+      "tur": "sapka",
+      "stil": "kep",
+      "varsayilan": false,
+      "renk": "#3b82f6"
+    },
+    {
+      "id": "kask",
+      "ad": "İş kaskı",
+      "tur": "sapka",
+      "stil": "kask",
+      "varsayilan": false
+    },
+    {
+      "id": "sef-sapkasi",
+      "ad": "Aşçı şapkası",
+      "tur": "sapka",
+      "stil": "sef",
+      "varsayilan": false
+    },
+    {
+      "id": "parti-sapkasi",
+      "ad": "Parti şapkası",
+      "tur": "sapka",
+      "stil": "parti",
+      "varsayilan": false
+    },
+    {
+      "id": "tac",
+      "ad": "Taç",
+      "tur": "sapka",
+      "stil": "tac",
+      "varsayilan": false
+    },
+    {
+      "id": "kravat",
+      "ad": "Kravat",
+      "tur": "kravat",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "papyon",
+      "ad": "Papyon",
+      "tur": "papyon",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "atki",
+      "ad": "Atkı",
+      "tur": "atki",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "pelerin",
+      "ad": "Pelerin",
+      "tur": "pelerin",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "biyik",
+      "ad": "Bıyık",
+      "tur": "biyik",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "sakal",
+      "ad": "Sakal",
+      "tur": "sakal",
+      "stil": "duz",
+      "varsayilan": false
+    }
+  ],
+  "varyantlar": {
+    "mavi": {
+      "renkler": {
+        "govde": "#8ec5ff"
+      }
+    },
+    "kirmizi": {
+      "renkler": {
+        "govde": "#ff9a9a"
+      }
+    },
+    "yesil": {
+      "renkler": {
+        "govde": "#a6e3a1"
+      }
+    },
+    "kafalisi": {
+      "renkler": {
+        "kafa": "#ffe3c8",
+        "govde": "#ffd43b"
+      }
+    }
+  }
+}

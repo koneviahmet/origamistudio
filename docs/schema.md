@@ -126,6 +126,28 @@ ortadaki katlanma çizgisi hissini bu verir. Arkadaki parçalar (kuyruk, arka ka
   "opacity": 1, "scale": 1, "rotation": 0
 }
 ```
+**Sayaç metni:** `"count": { "from": 0, "to": 250, "decimals": 0, "prefix": "", "suffix": "B", "sep": "." }` + `"counter": [{"t":1,"v":0},{"t":2.5,"v":1,"ease":"outCubic"}]`
+(0..1 ilerleme) → metin sayarak yükselir; `text` yedektir (içerik panelinde görünür). Binlik ayırıcı `sep` (varsayılan `.`).
+
+### Paylaşım bilgisi (`publish`)
+
+Sahne köküne eklenen, videonun yayın metinleri. Stüdyo → **Paylaşım** sekmesinde düzenlenir; YouTube / Instagram / TikTok için
+biçimlenmiş çıktılar tek tıkla kopyalanır. Yeni video üretirken **her zaman doldur**.
+
+```jsonc
+"publish": {
+  "title": "Buzdolabı nasıl buzdolabı oldu?",     // ≤ 100 karakter (YouTube)
+  "description": "1755'ten bugüne … 
+
+İzlediğin için teşekkürler!",
+  "tags": ["buzdolabı", "tarih", "bilim"]          // '#' olmadan; ≤ 30 (Instagram)
+}
+```
+Şablon brief'inde karşılığı: `"yayin": { "baslik", "aciklama", "etiketler" }` → `scene.publish`.
+
+### İçerik sekmesi
+Stüdyo → **İçerik**: metin katmanları, ok etiketleri, grafik ve cihaz metinleri ile medya / cihaz ekranı görselleri tek listede
+(ara, bul-değiştir, görsel seç / yükle). Ayrı veri tutmaz; doğrudan katman alanlarını düzenler.
 
 ## 4. Notlar — `data/projects/<id>/notes.json`
 
@@ -301,6 +323,8 @@ MP4'e AAC olarak eklenir. Tarayıcıda AAC kodlayıcı yoksa Opus kullanılır.
   `katlama` (kağıt yelpaze; `kat`, `yon`), `perde`, `iris` (`cx`, `cy`), `yirtik` (`yon`, `seed`).
 - Kare tipleri, `[t, t + dur]` aralığında çalışır ve t'den bir kare önceki görüntüyü kullanır:
   `sayfa-cevir`, `kaydir` (`yon`: sol/sag/yukari/asagi), `yakinlas`.
+- Yeni örtüler: `jaluzi`, `mozaik` (`seed`), `benek`, `capraz`, `seritler`, `elmas`, `dalga` (`yon`), `yildiz`, `kepenk`, `saat`.
+  Yeni kare tipleri: `solma`, `uzaklas`, `kapi`, `dilim`, `pikselle`, `daire-ac`, `silme`, `dusen`, `don-kucul`, `cevir-dikey`.
 - `color` kağıt rengidir (`$ref` olabilir). `off: true` geçişi geçici olarak kapatır. `sfx`: false | "dosya.wav".
 
 ### Bölümler (`sections`)
@@ -499,7 +523,7 @@ Stil alanları (kütüphane öğesi ya da katman):
 ## 12. Bileşen katmanları, derinlik, ses-reaktif animasyon (Faz 16)
 
 ### Bileşen katmanları
-`type: "chart" | "device" | "media" | "waveform"`. Merkez noktası (0,0) katman konumudur; `x, y, scale, rotation, opacity`,
+`type: "chart" | "device" | "media" | "waveform"` (+ `kart | liste | kod | zaman`, aşağıda). Merkez noktası (0,0) katman konumudur; `x, y, scale, rotation, opacity`,
 `anims`, `depth`, `blur`, `start/end`, `group` diğer katmanlar gibi çalışır. **`fold` = çizilme / görünme ilerlemesi**
 (`katlanarak-gir`, `cizerek-gir` ön ayarları ya da `fold` keyframe'i). Tam alan listesi: [katalog.md §12](katalog.md).
 
@@ -526,6 +550,33 @@ Stil alanları (kütüphane öğesi ya da katman):
 - Video sesi MP4'e **karışmaz**; müziği `audio` izi olarak ekle. Video karesi zamana göre seçilir (deterministik).
 - Dosyalar: `data/media/` (png, jpg, webp, gif, svg, mp4, webm, mov) — `GET/POST/DELETE /api/media`, `/media-files/<ad>`.
 
+### İkinci bileşen ailesi: `kart`, `liste`, `kod`, `zaman` (`engine/widgets2.js`)
+Aynı sözleşme (x, y, scale, `fold` = giriş ilerlemesi, `anims`…). `kind` ile görünüm seçilir:
+- `kart`: `alinti` (text, sub) · `istatistik` (title, value, prefix/unit, sub "+12%" / "-3%") · `fiyat` (title, value, sub, lines[], text=düğme) · `profil` (title, sub, lines "değer|etiket") ·
+  `bildirim` (title, text, icon) · `rozet` (title, sub, icon) · `puan` (value 0–5, title, sub) · `altuc` (title, sub) · `takvim` (sub=ay, value=gün, title=gün adı) · `balon` (text, side sol|sag).
+  Ortak: `accent, bg, textColor, font, shadow, width, height`.
+- `liste`: `kontrol` (lines[]) · `adimlar` (lines "başlık|açıklama") · `ilerleme` (data [{label,value 0–100}]) · `tablo` (lines: ilk satır başlık, hücreler `|` ile). `title, width, card`.
+- `kod`: `terminal` | `editor`; `tema` koyu|acik; `lines[]` (fold ilerledikçe yazılır; terminalde `$` komuttur); `title, numbers`.
+- `zaman`: `dijital` | `halka` | `saat`; `from` → `to` saniye (fold boyunca akar); `label`.
+- `balon`: `dusunce` (text, side) · `bagirma` (text) · `fisilti` (text) · `anlatici` (text) · `yaziyor` (side) · `sesmesaji` (text=süre) · `ipucu` (text, side ust|alt|sol|sag) · `notkagidi` (title, text) · `etiket` (title, sub, side) · `tepki` (lines "emoji|sayı") · `soru` (icon ? ! 💡, side) · `yorum` (title, sub, text, value). Ortak: `accent, bg, textColor, font, shadow, width, height`. `yaziyor`, `bagirma`, `soru` zamana (t) bağlı hareket eder (deterministik).
+Hazır örnekler: `data/components/` (`npm run seed:bilesen`).
+
+### Bileşen etiketleri
+`data/components/<id>.json` içinde `"etiketler": { "amac": [], "konu": [], "ton": [], "stil": [], "icerik": [], "yerlesim": [], "boyut": [], "gereksinim": [], "anahtar": [] }`.
+Değerler sözlükten gelir (`web/src/componentTags.js` varsayılanı + `data/bilesen-etiketleri.json` özel eklemeler: `{facetler:{<facet>:{degerler:{<değer>:{ad, es}}}}}`, `es` = arama eş anlamlıları).
+Arama: `npm run bilesen -- "<sorgu>" [--amac a,b] [--konu …] [--ton …] [--stil …] [--icerik …] [--yerlesim …] [--boyut …] [--gereksinim …] [--tur kart] [--kind fiyat] [--n 8] [--json]`
+(facet içinde virgül = VEYA, facetler arası VE). `--etiketler` sözlük özeti, `--detay <id>` ayarlar. Etiketleri arayüzde Bileşenler sayfasından düzenle; `npm run etiketle:bilesen` boşları otomatik doldurur.
+
+### Bileşen özelleştirme (yapay zekâ için)
+Her bileşen katmanı, denetçide görünen **tüm alanları** katman üzerinde taşır; kayıtlı bileşen yalnızca başlangıç değerleridir. Ortak (evrensel) alanlar: `textScale` (tüm yazıları ölçekler), `weight` (tüm yazı kalınlığı).
+Renkler `"$vurgu" | "$metin" | "$baslik" | "$arka1" | "$arka2"` gibi tema rolleri olabilir (proje temasına uyum). Hızlı stil varyantları (`koyu, acik, vurgulu, sade, seffaf, buyuk, kucuk, kalin, ince`) denetçide "Hızlı stil" satırı, kodda `varyant`.
+`scripts/lib/bilesen.mjs`: `bilesenBaglam({W,H,tema})` → `B(id, over)`: `over` = katman alanları + yardımcılar (`konum`, `genislik`, `varyant`, `tema`, `giris`, `cikis`, `start`, `end`); iç içe nesneler birleştirilir, diziler değiştirilir.
+Alan listesi: `npm run bilesen -- --alanlar <id>`; varyantlar: `npm run bilesen -- --varyantlar`.
+
+### Kayıtlı bileşenler (`data/components/<id>.json`)
+`{ "name", "description", "type": "chart|device|media|waveform", "props": { …katman alanları; x, y, fold, id, anims yok } }`.
+Bileşenler sayfasında yönetilir; Stüdyo'da eklenince `props` yeni katmana kopyalanır (sonradan bileşen değişse de katman etkilenmez).
+
 ### Derinlik (paralaks) ve alan derinliği
 ```jsonc
 { "layers": [ { "id": "uzak", "depth": 0.6, "blur": 4 }, { "id": "yakin", "depth": -0.4 } ],
@@ -546,13 +597,102 @@ Stil alanları (kütüphane öğesi ya da katman):
 
 ## 13. Şablonlar (brief → sahne) ve brief.json
 
-`node scripts/uret.mjs <brief.json>` ya da Projeler → **✦ Şablondan**. Brief, sahneyi üreten kısa bir JSON'dur; proje klasörüne
-`brief.json` olarak kaydedilir (yeniden üretmek için). Şablonlar: `explainer`, `veri`, `kinetik`, `urun`, `showreel`, `liste`
-(`scripts/sablonlar/`). Ortak alanlar: `sablon, id, ad, format (reels|youtube|kare|dikey45), tema, stil, vurgu, muzik, fps`.
-Yatay formatlarda düzen otomatik iki sütuna geçer (metin solda, nesne sağda). Ayrıntı: [prompt-rehberi.md §9](prompt-rehberi.md).
+`node scripts/uret.mjs <brief.json>` ya da Şablonlar sayfası. Brief, sahneyi üreten kısa bir JSON'dur; proje klasörüne
+`brief.json` olarak kaydedilir (yeniden üretmek için). Şablonlar (reels, ritme oturan): `vurus`, `hook`, `siralama`, `karsilastir`, `urun`, `rakamlar`, `adimlar`, `sohbet`, `zaman`, `manzara`, `dalis`
+(`scripts/sablonlar/`, ortak yapı taşları `reels.mjs`). Ortak alanlar: `sablon, id, ad, format (reels|youtube|kare|dikey45), palet, muzik, font, stil, vurgu, renkler, fps, yayin`.
+API: `GET /api/templates`, `GET /api/templates/meta` (müzik / palet / font seçenekleri), `POST /api/templates/preview|generate`. Ayrıntı: [prompt-rehberi.md §9](prompt-rehberi.md).
 
 ## 14. Sunucu tarafı render
 
 `node scripts/render.mjs <proje> [--format <id> | --hepsi] [--olcek 1] [--from s --to s] [--sessiz] [--cikti <klasör>]`
 — başsız Edge/Chrome içinde `/render/<proje>` sayfasını açar; aynı `renderFrame` + WebCodecs ile MP4 üretir ve
 `data/projects/<id>/renders/` altına yazar (`POST /api/projects/:id/renders/:ad`).
+
+## 15. Karakterler (Faz 17) — `type: "karakter"`
+
+Konuşan / yürüyen / tepki veren karakterler. **Karakter = görünüm** (`data/characters/<id>.json`), **hareket = ortak katalog**
+(`web/src/engine/characterData.js`: 40 aksiyon, 23 duygu, 15 nesne, 8 efekt). Hepsi aynı iskeleti (`rig: "insan"`: baş, gövde, 2 kol × 2 eklem,
+2 bacak × 2 eklem) kullandığı için **yeni bir karakter yazınca bütün aksiyonlar ve duygular ona otomatik uyar**. Motor: `engine/character*.js`
+(saf, deterministik; titreme tohumlu). Sayfa: **Karakterler** (`/karakterler`); Stüdyo: **＋ Karakter**; üreteç: `scripts/lib/karakter.mjs`.
+
+### Katman
+```jsonc
+{ "id": "ayse", "type": "karakter", "karakter": "copadam",     // data/characters/<id>
+  "x": 540, "y": 1500, "scale": 1.4,                          // x,y = AYAK ucu (sahne px); scale: karakter boyu / ~380
+  "yon": 1,                                                   // 1 sağa, -1 sola bakar
+  "varyant": "kiz", "ekler": ["gozluk"], "renkler": {"govde":"#ffd1dc"},   // görünüm geçersiz kılma
+  "aksiyon": "bekle", "duygu": "notr",                        // başlangıç durumu
+  "akis": [ { "t": 0.5, "aksiyon": "yuru", "dx": 400, "sure": 2.5, "duygu": "mutlu" },
+            { "t": 3.2, "aksiyon": "tanit", "hedef": "urun-1", "efekt": "yildiz" } ],
+  "soz":  [ { "t": 1.0, "sure": 2.6, "metin": "Merhaba!", "tur": "soyle", "taraf": "sag" } ],
+  "tutar": { "nesne": "tabela", "metin": "İNDİRİM", "el": "R" },   // sabit; akış parçasında da verilebilir
+  "golge": true, "balon": { "font": "Baloo 2", "boyut": 48, "genislik": 640, "zemin": "#fff", "yazi": "#1f1c2e" } }
+```
+- `fold` (0→1) = beliriş "pop" animasyonu. `anims` giriş / çıkış ön ayarları (zipla-gir, kuculerek-cik…) normal çalışır. `depth`, `blur`, `path` geçerlidir.
+- **Akış parçası** `akis[i]`: `t` (başlangıç), `aksiyon`, `duygu` + `siddet` (0–1.5), `hiz` (çarpan; yürüyüşte otomatik), `sure` (**verilirse süre bitince bekleme pozuna döner**),
+  `dx`/`dy` (bu parça boyunca kayma, sahne px; yürüme/koşma hızı otomatik ayarlanır, yön kendiliğinden döner), `hareketEase`, `hedef` (katman id | [x,y]: işaret/tanıtma kolu oraya uzanır, karakter dönük durur),
+  `bak` (`ileri|sag|sol|yukari|asagi` | katman id | [x,y]: gözler/başı oraya çevirir), `yon`, `gecis` (önceki pozdan karışma süresi, vars. 0.25), `faz`, `tutar`, `efekt`.
+  **Yapışkan alanlar**: `duygu, siddet, bak, tutar, yon` sonraki parçalarda sürer (`tutar: null` = bırak). Bir parça bir sonrakine kadar sürer.
+- **Söz** `soz[i]`: `metin`, `t`, `sure` (vars. ≈ uzunluk/14 + 0.9 sn; seslendirme varsa gerçek süreyi ver), `tur` (`soyle|dusun|bagir|fisilda`), `taraf` (`sol|sag`, vars. sahne ortasına doğru).
+  Balon harf harf yazılır, ağız konuşurken oynar, bekleme türü aksiyondayken **otomatik `konus` jestine** geçilir (`otoJest: false` ile kapat). Balon sahne pikselinde çizilir, kenara taşmaz.
+- Aksiyon `bekle: true` (boşta türü) ise konuşma sırasında jestleşir; `adim` (yürü/koş/seker/sinsi) ise `dx/dy` ile hız otomatik; `isaret: 'R'` (tanit, isaret) `hedef` alır.
+- Katalog (`npm run karakter -- --aksiyonlar|--duygular|--nesneler|--efektler|--balonlar`):
+  durus (bekle, dinle, kollar-belde, kollar-kavusuk, sikilgan) · hareket (yuru, kos, sekerek-yuru, sinsi-yuru, zipla, zipla-yerinde, dans) ·
+  iletisim (konus, anlat, el-salla, selamla, tanit, sunum, isaret, goster, evet, hayir, omuz-silk, alkis, dusun, fikir, el-kaldir, sus, egil) ·
+  duygu (sevin, zafer, uzgun-ol, agla, kizgin, yumruk, saskin, kork, gule, yorgun, kas-goster).
+
+### Karakter belgesi — `data/characters/<id>.json`
+```jsonc
+{ "name", "description", "etiketler": [..], "kullanim": "..", "rig": "insan", "boy": 1,
+  "olcu":  { "bas":[rx,ry], "boyun", "govde":[w,h], "omuzY", "omuzX", "kolUst", "kolAlt", "kalcaX", "bacakUst", "bacakAlt", "el", "ayak":[w,h] },
+  "cizgi": { "renk", "kalinlik", "titrek" (el çizimi px), "kaynama" (titreme yenileme sn; 0 = sabit) },
+  "renkler": { "kafa","govde","kol","bacak","el","ayak","sac","goz","agiz","yanak","vurgu" },   // "$vurgu" tema rengi de olur
+  "govde": { "sekil": "dikdortgen|elbise|yumurta|kapsul|kutu", "yaricap": [..], "detay": "panel|dugme" },
+  "kafa":  { "sekil": "daire|yumurta|kutu|yumusak-kare" },
+  "uzuv":  { "tur": "cubuk|tup", "kalinlik", "el": "parmak|top|eldiven|yok", "ayak": "oval|ayakkabi|bot|yok" },
+  "yuz":   { "goz": "nokta|buyuk|oval|ekran", "boyut", "aralik", "yukseklik", "agizY", "agizGen", "burun": "top|cizgi|nokta" },
+  "ekler": [ { "id", "ad", "tur": "sac|sapka|gozluk|kulak|kuyruk|anten|kravat|papyon|atki|pelerin|biyik|sakal", "stil", "renk", "varsayilan": false } ],
+  "varyantlar": { "kiz": { "renkler": {..}, "govde": {..}, "ekAc": ["sac-uzun"], "ekKapat": [..] } },
+  "aksiyonlar": { },  "duygular": { },                        // isteğe bağlı: bu karaktere özel / ezen klipler (aşağıda)
+  "balon": { "font", "boyut", "zemin", "yazi" }, "golge": true }
+```
+Hazır setler (`npm run seed:karakter`): **copadam** (el çizimi çöp adam), **bonbon**, **robo**, **miyav** (renkli kedi), **astro**; çocuk doodle serisi **minik-kiz, minik-oglan, minik-lule**; doodle kediler **kedicik, kare-kedi, top-kedi**; ince uzun iri gözlü çöp adam **gozlu** (çizgi sanatı; saç stilleri ikili, tarak, bukle, firca, topuz-sarmal, lule; gövde detayları benekli, cizgili, atlet, sort).
+Aksesuar türleri / stiller: `npm run karakter -- --detay <id>`.
+
+### Özel aksiyon / duygu yazmak
+- Aksiyon (`characterData.js` ACTIONS ya da karakterin `aksiyonlar`): `{ ad, grup, aciklama, sure, dongu?, bekle?, adim?, isaret?, efekt?, tutar?, etiket[], ik?, poz }`.
+  `poz`: eklem → iz. Eklemler `x y rot sq govde bas basX basY omuz kolL/kolR dirL/dirR bacL/bacR dizL/dizR acik onL/onR` (açılar derece; `kol`/`dir`/`bac`/`diz`/`on` iki yana birden).
+  İz: sayı | `[[faz 0–1, değer, ease?]…]` | `{o,a,f,p}` = o + a·sin(2π(f·faz+p)). Döngüde faz sarar; tek seferlikte son pozda kalır.
+  **IK**: `ik: { R|L|LR: { ref: 'bas'|'govde', x, y, dirsek, w } }` — elin gideceği yer (baş yarıçapı / gövde oranı cinsinden); kol açıları karakterin oranına göre otomatik çözülür (eli yüze / belde tutan pozlar).
+- Duygu: `{ goz, ac, kas:[aL,aR,yL,yR], agiz:{egri,ac,gen,dis,dil,dalga}, kizar, gozyasi, ter, buhar, bakis:[x,y] }` (hepsi sayısal → duygular arası geçiş yumuşak).
+- Yeni rig (ör. dört ayaklı) için `rig` alanı ayrılmıştır; şimdilik tek rig (`insan`) vardır — kedi gibi hayvanlar iki ayaklı çizgi film oranlarıyla çözülür.
+
+### Üretimde kullanım (yapay zekâ)
+```js
+import { karakterBaglam, diyalog } from './lib/karakter.mjs';
+const K = karakterBaglam({ W, H });
+const a = L(K('copadam', { id: 'ayse', konum: 'sol', boy: 0.52, varyant: 'kiz', start: 0.3 }));
+const b = L(K('robo',    { id: 'robo', konum: 'sag', boy: 0.52, yon: -1, start: 0.3 }));
+const { bitis } = diyalog({ ayse: a, robo: b }, [
+  { kim: 'ayse', metin: 'Bunu hiç denedin mi?', duygu: 'dusunceli', sure: 2.4 },
+  { kim: 'robo', metin: 'Hayır! Anlat bakalım.', duygu: 'heyecanli', sure: 2.2 },
+  { kim: 'ayse', metin: 'İşte ürünümüz!', aksiyon: 'tanit', hedef: 'urun-1', duygu: 'cok-mutlu', sure: 2.5 },
+], { t0: 1 });
+```
+`karakter()` konum (`sol|sag|orta|sol-ic|sag-ic|…` ya da [fx, fy]), `boy` (sahne yüksekliği oranı), `giris`/`cikis` ön ayarı ekler ve aksiyon / duygu / varyant / ek / nesne adlarını **doğrular** (yakın adayı söyler).
+`diyalog()` söz + dinleme + bakış zamanlamasını kurar; satırdaki ek alanlar (`aksiyon, duygu, hedef, tutar, efekt…`) akışa aynen geçer; `tepki: { kim: duygu }` dinleyenin tepkisi. Örnek proje: `node scripts/scenes-karakter-demo.mjs`.
+Doğrulama: `npm run dogrula -- <id>` karakter / aksiyon / duygu / hedef katmanı ve söz okuma süresini denetler.
+
+### Görünüm cilası (karakter belgesinde isteğe bağlı)
+- `isik: 0–1` gradyanlı dolgu (sol üstten ışık) + parlama lekeleri; `cizgi.renkli: true` her parçanın konturu kendi renginin koyusu (`renkliGuc`). İkisi de yoksa düz çizgi stili (copadam).
+- `govde.detay` (dize ya da dizi): `panel` (animasyonlu ışık çubukları), `dugme`, `sirit` (yatay şeritler), `karin`, `tabby`, `kemer`, `tulum`, `yaka`, `halka` (boyun), `yama`, `cep`, `bagaj` (sırt çantası). Renkler `renkler.sirit/karin/desen/yaka/halka/yama/kemer/bagaj`.
+- `kafa.detay`: `seritler`, `kulaklik` (disk), `civata`, `yanak-tuy`. Kulak stilleri: `insan`, `kedi`, `ayi`, `tavsan`.
+- `uzuv`: `eklem` (robot mafsalı), `manset` (bilek bandı), `pati` (kedi pati yastığı); ayak: `ayakkabi` (tabanlı), `bot`.
+- `yuz`: `ekran` (koyu yüz paneli; LED rengi `renkler.led`), `pupil: "yarik"`, `iris` rengi (`renkler.iris`), `kirpik`, `biyik: "kedi"`, `burun: "ucgen"`, `yanakGuc` (sürekli yanak kızarması).
+- Parça başı yeniden tohumlama için `npm run seed:karakter -- --force --sadece=bonbon,robo` (yalnız adı geçen setleri yazar).
+
+### Tutulan nesne (`tutar`) kuralları
+- Nesne **başın ve kolların önünde** çizilir, el nesnenin üstüne yeniden çizilir (kafa nesneyi kapatmaz).
+- Nesneyi tutan kol serbestse (aksiyon o kolu kullanmıyorsa: bekle, yürü, konuş…) otomatik **taşıma pozuna** (IK) geçer; `goster`, `isaret`, `tanit`, `sevin` gibi kolu kullanan aksiyonlar kendi pozunu korur. Uzun nesneler (tabela, bayrak, balon-gaz, çiçek, kalem) kafayı kapatmamak için dışa kayar; `el: "L"` aynalar.
+- Yukarı kalkan kol (el-kaldir, fikir, el-salla, sevin…) başın içinden geçmez: dirsek / el baş elipsine giriyorsa kol otomatik dışa açılır; yüze temas eden pozlar (düşün, sus, ağla… IK / `onL`,`onR`) başın **önünde** çizilir, böylece el hiçbir zaman başın arkasında kalmaz.
+- Nesne modelleri `engine/characterProps.js` içindedir (15 nesne; gradyanlı, parlamalı, sallanan / yanan / buharlanan canlı parçalar).

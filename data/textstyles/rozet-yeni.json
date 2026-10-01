@@ -1,0 +1,17 @@
+{
+  "name": "Rozet · YENİ",
+  "font": "Poppins",
+  "weight": 800,
+  "size": 38,
+  "color": "#ffffff",
+  "box": {
+    "color": "#e8174b",
+    "radius": 12,
+    "padding": [
+      10,
+      26
+    ]
+  },
+  "uppercase": true,
+  "letterSpacing": 5
+}

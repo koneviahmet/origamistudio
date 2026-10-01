@@ -1,0 +1,17 @@
+{
+  "name": "Kod · Mono Açık",
+  "font": "Space Mono",
+  "weight": 400,
+  "size": 50,
+  "color": "#1f2a37",
+  "box": {
+    "color": "#eef1f5",
+    "radius": 8,
+    "padding": [
+      16,
+      28
+    ],
+    "shadow": false
+  },
+  "lineHeight": 1.35
+}

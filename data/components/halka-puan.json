@@ -1,0 +1,59 @@
+{
+  "name": "Halka — puan",
+  "description": "Tek bir puanı ya da başarı oranını vurgular.",
+  "type": "chart",
+  "props": {
+    "kind": "donut",
+    "title": "Başarı",
+    "width": 560,
+    "height": 560,
+    "unit": "%",
+    "data": [
+      {
+        "label": "Başarı",
+        "value": 87
+      },
+      {
+        "label": "Boş",
+        "value": 13
+      }
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "veri-hikayesi",
+      "ilerleme-takip",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "genel",
+      "finans-is"
+    ],
+    "ton": [
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "kartli",
+      "yuvarlak"
+    ],
+    "icerik": [
+      "grafik",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "halka",
+      "puan"
+    ]
+  }
+}

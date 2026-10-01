@@ -1,0 +1,63 @@
+{
+  "name": "Fiyat kartı — Ücretsiz",
+  "description": "Koyu zeminli ücretsiz plan kartı.",
+  "type": "kart",
+  "props": {
+    "kind": "fiyat",
+    "title": "Başlangıç",
+    "value": "₺0",
+    "sub": "sonsuza dek",
+    "lines": [
+      "3 proje",
+      "SD dışa aktarım",
+      "Topluluk desteği"
+    ],
+    "text": "Ücretsiz dene",
+    "bg": "#1f1c2e",
+    "textColor": "#f4f1ff",
+    "accent": "#3bb3a8",
+    "width": 520,
+    "height": 640
+  },
+  "etiketler": {
+    "amac": [
+      "fiyatlandirma",
+      "cagri-eylem",
+      "karsilastirma"
+    ],
+    "konu": [
+      "e-ticaret",
+      "uygulama-urun",
+      "finans-is"
+    ],
+    "ton": [
+      "premium-sik",
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "koyu",
+      "kartli",
+      "renkli"
+    ],
+    "icerik": [
+      "liste",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek",
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "fiyat",
+      "karti",
+      "ucretsiz"
+    ]
+  }
+}

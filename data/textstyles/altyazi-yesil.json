@@ -1,0 +1,12 @@
+{
+  "name": "Altyazı · Yeşil Vurgu",
+  "font": "Rubik",
+  "weight": 800,
+  "size": 62,
+  "color": "#7cff6b",
+  "stroke": {
+    "color": "#06220a",
+    "width": 12
+  },
+  "lineHeight": 1.2
+}

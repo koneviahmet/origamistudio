@@ -1,0 +1,19 @@
+{
+  "name": "Retro · VHS",
+  "font": "Space Mono",
+  "weight": 700,
+  "size": 70,
+  "color": "#ffffff",
+  "shadow": {
+    "color": "#ff2d6f",
+    "blur": 0,
+    "x": -3,
+    "y": 0
+  },
+  "stroke": {
+    "color": "#12c2e9",
+    "width": 2
+  },
+  "uppercase": true,
+  "letterSpacing": 4
+}

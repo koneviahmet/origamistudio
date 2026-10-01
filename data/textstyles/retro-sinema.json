@@ -1,0 +1,18 @@
+{
+  "name": "Retro · Sinema Afişi",
+  "font": "Alfa Slab One",
+  "weight": 400,
+  "size": 80,
+  "color": "#f7e7c3",
+  "shadow": {
+    "color": "#2b1b12",
+    "blur": 0,
+    "x": 6,
+    "y": 6
+  },
+  "stroke": {
+    "color": "#8a2b16",
+    "width": 6
+  },
+  "uppercase": true
+}

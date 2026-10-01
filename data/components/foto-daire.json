@@ -1,0 +1,49 @@
+{
+  "name": "Fotoğraf — daire (profil)",
+  "description": "Profil fotoğrafı / avatar için tam yuvarlak.",
+  "type": "media",
+  "props": {
+    "width": 520,
+    "height": 520,
+    "fit": "kapla",
+    "radius": 260,
+    "border": 10,
+    "borderColor": "#ffffff",
+    "shadow": true
+  },
+  "etiketler": {
+    "amac": [
+      "gorsel-sergi"
+    ],
+    "konu": [
+      "genel"
+    ],
+    "ton": [
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "yuvarlak"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "medya-gerek"
+    ],
+    "anahtar": [
+      "fotograf",
+      "daire",
+      "profil",
+      "foto"
+    ]
+  }
+}

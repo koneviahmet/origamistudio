@@ -1,0 +1,66 @@
+{
+  "name": "Pasta dağılım",
+  "description": "Parçaların bütündeki payı.",
+  "type": "chart",
+  "props": {
+    "kind": "pie",
+    "title": "Dağılım",
+    "width": 700,
+    "height": 620,
+    "data": [
+      {
+        "label": "A",
+        "value": 45
+      },
+      {
+        "label": "B",
+        "value": 30
+      },
+      {
+        "label": "C",
+        "value": 15
+      },
+      {
+        "label": "D",
+        "value": 10
+      }
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "veri-hikayesi",
+      "karsilastirma"
+    ],
+    "konu": [
+      "finans-is",
+      "genel"
+    ],
+    "ton": [
+      "eglenceli",
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik",
+      "kartli",
+      "yuvarlak"
+    ],
+    "icerik": [
+      "grafik",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "pasta",
+      "dagilim"
+    ]
+  }
+}

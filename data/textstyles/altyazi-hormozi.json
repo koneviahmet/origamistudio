@@ -1,0 +1,19 @@
+{
+  "name": "Altyazı · Vurucu",
+  "font": "Anton",
+  "weight": 400,
+  "size": 92,
+  "color": "#ffffff",
+  "stroke": {
+    "color": "#000000",
+    "width": 14
+  },
+  "shadow": {
+    "color": "rgba(0,0,0,0.5)",
+    "blur": 0,
+    "x": 0,
+    "y": 6
+  },
+  "uppercase": true,
+  "lineHeight": 1.1
+}

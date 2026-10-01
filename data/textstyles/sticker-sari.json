@@ -1,0 +1,17 @@
+{
+  "name": "Çıkartma · Sarı",
+  "font": "Baloo 2",
+  "weight": 800,
+  "size": 88,
+  "color": "#ffd23f",
+  "stroke": {
+    "color": "#ffffff",
+    "width": 16
+  },
+  "shadow": {
+    "color": "rgba(0,0,0,0.3)",
+    "blur": 10,
+    "x": 0,
+    "y": 6
+  }
+}

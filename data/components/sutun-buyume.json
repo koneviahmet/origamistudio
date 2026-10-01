@@ -1,0 +1,66 @@
+{
+  "name": "Sütun grafik",
+  "description": "Yıllık büyüme gibi karşılaştırmalar için sütunlar.",
+  "type": "chart",
+  "props": {
+    "kind": "bar",
+    "title": "Büyüme",
+    "width": 860,
+    "height": 620,
+    "data": [
+      {
+        "label": "2021",
+        "value": 12
+      },
+      {
+        "label": "2022",
+        "value": 31
+      },
+      {
+        "label": "2023",
+        "value": 58
+      },
+      {
+        "label": "2024",
+        "value": 90
+      }
+    ],
+    "stagger": 0.5
+  },
+  "etiketler": {
+    "amac": [
+      "veri-hikayesi",
+      "karsilastirma"
+    ],
+    "konu": [
+      "finans-is",
+      "genel"
+    ],
+    "ton": [
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "grafik",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "sutun",
+      "grafik",
+      "buyume"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Neon · Mor",
+  "font": "Sora",
+  "weight": 800,
+  "size": 78,
+  "color": "#ece0ff",
+  "shadow": {
+    "color": "#9b5cff",
+    "blur": 30,
+    "x": 0,
+    "y": 0
+  },
+  "stroke": {
+    "color": "#b78aff",
+    "width": 3
+  },
+  "letterSpacing": 5
+}

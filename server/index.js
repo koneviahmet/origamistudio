@@ -8,6 +8,7 @@ import { createApi } from './api.js';
 import { createFonts } from './fonts.js';
 import { createTts } from './tts.js';
 import { createMuzik } from './muzik.js';
+import { createYoutube } from './youtube.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
@@ -21,17 +22,18 @@ const fonts = createFonts(DATA);
 const tts = createTts(DATA);
 tts.init();
 const muzik = createMuzik(DATA);
+const youtube = createYoutube(DATA, store, events, PORT);
 
 // Sürüm geçmişi: scene.json her değiştiğinde (stüdyo ya da disk) sürüm al
 events.on((evt) => {
-  if (evt.kind === 'scene') store.snapshotScene(evt.id).then((ts) => ts && events.broadcast({ kind: 'history', id: evt.id, ts }));
+  if (evt.kind === 'scene') store.snapshotScene(evt.id).then((ts) => ts && events.broadcast({ kind: 'history', id: evt.id, ts })).catch((e) => console.warn(`[geçmiş] ${evt.id}: ${e.message}`));
 });
 store.baselineHistory().catch((e) => console.warn('[history]', e.message));
 
 const app = express();
 const server = http.createServer(app);
 app.use(express.json({ limit: '25mb' }));
-app.use('/api', createApi(store, events, fonts, tts, muzik));
+app.use('/api', createApi(store, events, fonts, tts, muzik, youtube));
 app.use('/font-files', express.static(fonts.dir, { maxAge: '30d', immutable: true }));
 app.use('/audio-files', express.static(store.audioDir));
 app.use('/media-files', express.static(store.mediaDir));

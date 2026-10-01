@@ -1,0 +1,49 @@
+{
+  "name": "Ses — ince çubuklar",
+  "description": "Çok sayıda ince çubuk; yoğun müzik görseli.",
+  "type": "waveform",
+  "props": {
+    "style": "cubuk",
+    "bars": 64,
+    "width": 900,
+    "height": 260,
+    "gap": 0.5,
+    "color2": "#3bb3a8"
+  },
+  "etiketler": {
+    "amac": [
+      "ses-muzik",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "muzik-eglence",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "enerjik",
+      "dikkat-cekici"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "ses"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "ses-gerek"
+    ],
+    "anahtar": [
+      "ses",
+      "ince",
+      "cubuklar",
+      "cubuk"
+    ]
+  }
+}

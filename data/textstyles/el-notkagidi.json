@@ -1,0 +1,16 @@
+{
+  "name": "El yazısı · Not Kağıdı",
+  "font": "Patrick Hand",
+  "weight": 400,
+  "size": 56,
+  "color": "#3a3a3a",
+  "box": {
+    "color": "#fff3a8",
+    "radius": 6,
+    "padding": [
+      22,
+      34
+    ]
+  },
+  "lineHeight": 1.3
+}

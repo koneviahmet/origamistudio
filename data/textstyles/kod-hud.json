@@ -1,0 +1,15 @@
+{
+  "name": "Kod · HUD",
+  "font": "JetBrains Mono",
+  "weight": 500,
+  "size": 44,
+  "color": "#8be9ff",
+  "shadow": {
+    "color": "#00bcd4",
+    "blur": 14,
+    "x": 0,
+    "y": 0
+  },
+  "uppercase": true,
+  "letterSpacing": 6
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Pastel · Şeftali",
+  "font": "Baloo 2",
+  "weight": 700,
+  "size": 84,
+  "color": "#ff8a65",
+  "stroke": {
+    "color": "#fff1e8",
+    "width": 8
+  }
+}

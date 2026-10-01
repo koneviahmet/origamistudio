@@ -1,0 +1,49 @@
+{
+  "name": "Alıntı — klasik",
+  "description": "Büyük tırnak işareti, daktilo gibi yazılan söz ve kaynak.",
+  "type": "kart",
+  "props": {
+    "kind": "alinti",
+    "text": "Küçük adımlar, büyük yolculukların başlangıcıdır.",
+    "sub": "Atasözü",
+    "width": 820,
+    "height": 460
+  },
+  "etiketler": {
+    "amac": [
+      "alinti-soz",
+      "sosyal-kanit"
+    ],
+    "konu": [
+      "genel",
+      "egitim",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "sinematik",
+      "sakin",
+      "nostaljik"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "alinti",
+      "klasik"
+    ]
+  }
+}

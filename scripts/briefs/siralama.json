@@ -1,0 +1,41 @@
+{
+  "sablon": "siralama",
+  "id": "sablon-siralama",
+  "ad": "En Hızlı 3 Hayvan",
+  "format": "reels",
+  "palet": "gunbatimi",
+  "muzik": "house-126",
+  "font": "Anton",
+  "siralama": "geri",
+  "maddeler": [
+    {
+      "ad": "Tilki",
+      "bilgi": "Saatte 50 km hıza çıkabilir",
+      "nesne": "tilki"
+    },
+    {
+      "ad": "Turna",
+      "bilgi": "Göç ederken günlerce uçar",
+      "nesne": "turna"
+    },
+    {
+      "ad": "Kelebek",
+      "bilgi": "Küçük ama çok çevik",
+      "nesne": "kelebek"
+    }
+  ],
+  "bitis": "Sence hangisi?",
+  "alt": "@kullaniciadi",
+  "yayin": {
+    "baslik": "En hızlı 3 hayvan — hangisi şaşırttı?",
+    "aciklama": "Sıralamayı izle, sence hangisi birinci olmalıydı? Yorumlara yaz!",
+    "etiketler": [
+      "siralama",
+      "hayvanlar",
+      "reels",
+      "shorts",
+      "ilginc",
+      "bilgi"
+    ]
+  }
+}

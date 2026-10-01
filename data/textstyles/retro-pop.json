@@ -1,0 +1,17 @@
+{
+  "name": "Retro · Pop Art",
+  "font": "Lilita One",
+  "weight": 400,
+  "size": 90,
+  "color": "#ffd400",
+  "shadow": {
+    "color": "#e8174b",
+    "blur": 0,
+    "x": 7,
+    "y": 7
+  },
+  "stroke": {
+    "color": "#111111",
+    "width": 9
+  }
+}

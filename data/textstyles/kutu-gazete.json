@@ -1,0 +1,15 @@
+{
+  "name": "Kutu · Manşet",
+  "font": "Merriweather",
+  "weight": 900,
+  "size": 48,
+  "color": "#ffffff",
+  "box": {
+    "color": "#c1121f",
+    "radius": 4,
+    "padding": [
+      14,
+      32
+    ]
+  }
+}

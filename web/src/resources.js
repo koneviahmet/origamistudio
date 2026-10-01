@@ -4,12 +4,17 @@ import { shallowRef } from 'vue';
 import { api, toLibMap } from './api.js';
 import { onLive } from './live.js';
 import { registerFonts } from './fonts.js';
+import { mergeTaxonomy } from './componentTags.js';
 
 export const resources = shallowRef({
   assets: new Map(),
   categories: [],
   themes: new Map(),
   textStyles: new Map(),
+  components: [],
+  characters: new Map(),
+  taxonomy: mergeTaxonomy(null),
+  taxonomyCustom: { facetler: {} },
   fonts: [],
   audio: [],
   media: [],
@@ -28,6 +33,12 @@ async function loadPart(kind) {
   }
   if (kind === 'themes' || kind === 'all') next.themes = byId(await api.colList('themes'));
   if (kind === 'textstyles' || kind === 'all') next.textStyles = byId(await api.colList('textstyles'));
+  if (kind === 'components' || kind === 'all') {
+    next.components = await api.colList('components');
+    next.taxonomyCustom = await api.componentTags().catch(() => ({ facetler: {} }));
+    next.taxonomy = mergeTaxonomy(next.taxonomyCustom);
+  }
+  if (kind === 'characters' || kind === 'all') next.characters = byId(await api.colList('characters'));
   if (kind === 'audio' || kind === 'all') next.audio = await api.audio();
   if (kind === 'media' || kind === 'all') next.media = await api.media();
   if (kind === 'fonts' || kind === 'all') {

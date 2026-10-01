@@ -1,0 +1,331 @@
+{
+  "name": "Miyav",
+  "description": "İki ayaklı sevimli çizgi film kedisi: iri yeşil gözler, pembe burun, bıyıklar, alında tabby çizgileri, krem karın, sallanan kuyruk. Hayvan / mizah / sıcak anlatımlar için.",
+  "rig": "insan",
+  "etiketler": [
+    "kedi",
+    "cat",
+    "hayvan",
+    "miyav",
+    "sevimli",
+    "evcil",
+    "komik",
+    "mizah",
+    "maskot",
+    "turuncu",
+    "tüylü",
+    "pati",
+    "çizgi film"
+  ],
+  "kullanim": "Hayvan temalı, esprili veya sıcak videolar; maskot. Çift olarak varyantlarla (siyah, beyaz, gri) ikili diyalog için uygundur.",
+  "olcu": {
+    "bas": [
+      68,
+      58
+    ],
+    "boyun": 0,
+    "govde": [
+      74,
+      104
+    ],
+    "omuzY": 18,
+    "omuzX": 33,
+    "kolUst": 42,
+    "kolAlt": 38,
+    "kalcaX": 17,
+    "bacakUst": 38,
+    "bacakAlt": 34,
+    "el": 13,
+    "ayak": [
+      28,
+      14
+    ]
+  },
+  "isik": 0.7,
+  "cizgi": {
+    "renk": "#5a3015",
+    "kalinlik": 4,
+    "titrek": 0.4,
+    "kaynama": 0.2,
+    "renkli": true,
+    "renkliGuc": 0.55
+  },
+  "renkler": {
+    "kafa": "#f5a04d",
+    "govde": "#f5a04d",
+    "kol": "#f5a04d",
+    "bacak": "#f5a04d",
+    "kuyruk": "#f5a04d",
+    "kuyrukUc": "#fff1de",
+    "el": "#fff1de",
+    "ayak": "#fff1de",
+    "karin": "#fff1de",
+    "desen": "#c9702a",
+    "pati": "#ffa9b8",
+    "goz": "#2a1b12",
+    "iris": "#79c86a",
+    "agiz": "#8f2d3a",
+    "yanak": "#ff8fa3",
+    "burun": "#ff8fa3"
+  },
+  "govde": {
+    "sekil": "yumurta",
+    "detay": [
+      "karin",
+      "tabby"
+    ]
+  },
+  "kafa": {
+    "sekil": "yumurta",
+    "detay": [
+      "seritler",
+      "yanak-tuy"
+    ]
+  },
+  "uzuv": {
+    "tur": "tup",
+    "kalinlik": 11,
+    "el": "top",
+    "ayak": "oval",
+    "pati": true
+  },
+  "yuz": {
+    "goz": "buyuk",
+    "boyut": 1.1,
+    "aralik": 0.86,
+    "yukseklik": 0,
+    "burun": "ucgen",
+    "biyik": "kedi",
+    "pupil": "yarik",
+    "agizY": 0.04,
+    "agizGen": 0.8,
+    "yanakGuc": 0.2
+  },
+  "ekler": [
+    {
+      "id": "kulak",
+      "ad": "Kedi kulakları",
+      "tur": "kulak",
+      "stil": "kedi",
+      "ic": "#ffb3c1"
+    },
+    {
+      "id": "kuyruk",
+      "ad": "Kuyruk",
+      "tur": "kuyruk",
+      "stil": "kedi"
+    },
+    {
+      "id": "sac-kisa",
+      "ad": "Kısa saç",
+      "tur": "sac",
+      "stil": "kisa",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-dikenli",
+      "ad": "Dikenli saç",
+      "tur": "sac",
+      "stil": "dikenli",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-topuz",
+      "ad": "Topuz",
+      "tur": "sac",
+      "stil": "topuz",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-uzun",
+      "ad": "Uzun saç",
+      "tur": "sac",
+      "stil": "uzun",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-kuyruk",
+      "ad": "At kuyruğu",
+      "tur": "sac",
+      "stil": "at-kuyrugu",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-tutam",
+      "ad": "Tek tutam",
+      "tur": "sac",
+      "stil": "tutam",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-kabarik",
+      "ad": "Kabarık saç",
+      "tur": "sac",
+      "stil": "kabarik",
+      "varsayilan": false
+    },
+    {
+      "id": "gozluk",
+      "ad": "Yuvarlak gözlük",
+      "tur": "gozluk",
+      "stil": "yuvarlak",
+      "varsayilan": false
+    },
+    {
+      "id": "gunes-gozlugu",
+      "ad": "Güneş gözlüğü",
+      "tur": "gozluk",
+      "stil": "gunes",
+      "varsayilan": false
+    },
+    {
+      "id": "bere",
+      "ad": "Bere",
+      "tur": "sapka",
+      "stil": "bere",
+      "varsayilan": false,
+      "renk": "#e63946"
+    },
+    {
+      "id": "silindir",
+      "ad": "Silindir şapka",
+      "tur": "sapka",
+      "stil": "silindir",
+      "varsayilan": false
+    },
+    {
+      "id": "kep",
+      "ad": "Kep",
+      "tur": "sapka",
+      "stil": "kep",
+      "varsayilan": false,
+      "renk": "#3b82f6"
+    },
+    {
+      "id": "kask",
+      "ad": "İş kaskı",
+      "tur": "sapka",
+      "stil": "kask",
+      "varsayilan": false
+    },
+    {
+      "id": "sef-sapkasi",
+      "ad": "Aşçı şapkası",
+      "tur": "sapka",
+      "stil": "sef",
+      "varsayilan": false
+    },
+    {
+      "id": "parti-sapkasi",
+      "ad": "Parti şapkası",
+      "tur": "sapka",
+      "stil": "parti",
+      "varsayilan": false
+    },
+    {
+      "id": "tac",
+      "ad": "Taç",
+      "tur": "sapka",
+      "stil": "tac",
+      "varsayilan": false
+    },
+    {
+      "id": "kravat",
+      "ad": "Kravat",
+      "tur": "kravat",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "papyon",
+      "ad": "Papyon",
+      "tur": "papyon",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "atki",
+      "ad": "Atkı",
+      "tur": "atki",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "pelerin",
+      "ad": "Pelerin",
+      "tur": "pelerin",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "biyik",
+      "ad": "Bıyık",
+      "tur": "biyik",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "sakal",
+      "ad": "Sakal",
+      "tur": "sakal",
+      "stil": "duz",
+      "varsayilan": false
+    }
+  ],
+  "varyantlar": {
+    "siyah": {
+      "renkler": {
+        "kafa": "#3b3b4a",
+        "govde": "#3b3b4a",
+        "kol": "#3b3b4a",
+        "bacak": "#3b3b4a",
+        "kuyruk": "#3b3b4a",
+        "kuyrukUc": "#3b3b4a",
+        "el": "#56566b",
+        "ayak": "#56566b",
+        "karin": "#4e4e62",
+        "desen": "#2a2a36",
+        "iris": "#ffd43b"
+      },
+      "cizgi": {
+        "renk": "#14141c"
+      }
+    },
+    "beyaz": {
+      "renkler": {
+        "kafa": "#ffffff",
+        "govde": "#ffffff",
+        "kol": "#ffffff",
+        "bacak": "#ffffff",
+        "kuyruk": "#ffffff",
+        "kuyrukUc": "#e8d9f2",
+        "el": "#ffffff",
+        "ayak": "#ffffff",
+        "karin": "#f3eef7",
+        "desen": "#cdbfd6",
+        "iris": "#5aa9e6"
+      },
+      "cizgi": {
+        "renk": "#7a6a85"
+      }
+    },
+    "gri": {
+      "renkler": {
+        "kafa": "#aeb6bf",
+        "govde": "#aeb6bf",
+        "kol": "#aeb6bf",
+        "bacak": "#aeb6bf",
+        "kuyruk": "#aeb6bf",
+        "kuyrukUc": "#e9ecef",
+        "el": "#e9ecef",
+        "ayak": "#e9ecef",
+        "karin": "#e9ecef",
+        "desen": "#6c757d",
+        "iris": "#fcc419"
+      },
+      "cizgi": {
+        "renk": "#3d444b"
+      }
+    }
+  }
+}

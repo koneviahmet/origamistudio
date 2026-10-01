@@ -1,0 +1,4 @@
+{
+  "_not": "Özel etiket değerleri (varsayılan sözlüğün üstüne biner): facetler.<facet>.degerler.<değer> = {ad, es}. es = arama için eş anlamlılar (TR+EN). Varsayılanlar: web/src/componentTags.js",
+  "facetler": {}
+}

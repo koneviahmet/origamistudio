@@ -1,0 +1,77 @@
+{
+  "name": "Sütun — koyu kart",
+  "description": "Koyu temalı videolar için açık yazılı sütun grafik.",
+  "type": "chart",
+  "props": {
+    "kind": "bar",
+    "title": "Aylık gelir",
+    "width": 860,
+    "height": 600,
+    "textColor": "#f4f1ff",
+    "unit": "K",
+    "prefix": "₺",
+    "data": [
+      {
+        "label": "Oca",
+        "value": 40
+      },
+      {
+        "label": "Şub",
+        "value": 64
+      },
+      {
+        "label": "Mar",
+        "value": 52
+      },
+      {
+        "label": "Nis",
+        "value": 88
+      },
+      {
+        "label": "May",
+        "value": 120
+      }
+    ],
+    "card": {
+      "color": "#1f1c2e"
+    }
+  },
+  "etiketler": {
+    "amac": [
+      "veri-hikayesi",
+      "karsilastirma"
+    ],
+    "konu": [
+      "finans-is",
+      "genel"
+    ],
+    "ton": [
+      "ciddi-kurumsal",
+      "sinematik"
+    ],
+    "stil": [
+      "koyu",
+      "kartli"
+    ],
+    "icerik": [
+      "grafik",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "sutun",
+      "koyu",
+      "kart",
+      "karanlik"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Düz · Yüksek Kontrast",
+  "font": "Inter",
+  "weight": 900,
+  "size": 96,
+  "color": "#000000",
+  "stroke": {
+    "color": "#ffffff",
+    "width": 14
+  },
+  "uppercase": true,
+  "letterSpacing": -1
+}

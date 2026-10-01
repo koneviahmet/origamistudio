@@ -15,6 +15,9 @@ const inStudio = computed(() => route.path.startsWith('/studio'));
     </div>
     <nav class="nav row">
       <RouterLink to="/">Projeler</RouterLink>
+      <RouterLink to="/sablonlar">Şablonlar</RouterLink>
+      <RouterLink to="/bilesenler">Bileşenler</RouterLink>
+      <RouterLink to="/karakterler">Karakterler</RouterLink>
       <RouterLink to="/library">Kütüphane</RouterLink>
       <RouterLink to="/ses">Ses</RouterLink>
       <RouterLink to="/muzik">Müzik</RouterLink>

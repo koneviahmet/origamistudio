@@ -1,0 +1,14 @@
+{
+  "name": "Neon · İnce Tüp",
+  "font": "Comfortaa",
+  "weight": 300,
+  "size": 90,
+  "color": "#ffffff",
+  "shadow": {
+    "color": "#00ffd5",
+    "blur": 22,
+    "x": 0,
+    "y": 0
+  },
+  "letterSpacing": 8
+}

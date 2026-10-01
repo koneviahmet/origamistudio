@@ -1,0 +1,51 @@
+{
+  "name": "Sesli mesaj — yeşil",
+  "description": "Mesajlaşma uygulaması yeşili ile sesli mesaj.",
+  "type": "balon",
+  "props": {
+    "kind": "sesmesaji",
+    "text": "0:38",
+    "width": 600,
+    "height": 130,
+    "accent": "#2fa36b"
+  },
+  "etiketler": {
+    "amac": [
+      "sohbet-diyalog",
+      "ses-muzik"
+    ],
+    "konu": [
+      "sosyal-medya",
+      "uygulama-urun"
+    ],
+    "ton": [
+      "minimal",
+      "sakin",
+      "sinematik"
+    ],
+    "stil": [
+      "acik",
+      "renkli"
+    ],
+    "icerik": [
+      "ses",
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "sesli",
+      "mesaj",
+      "yesil",
+      "koyu"
+    ]
+  }
+}

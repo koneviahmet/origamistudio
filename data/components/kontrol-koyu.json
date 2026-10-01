@@ -1,0 +1,58 @@
+{
+  "name": "Kontrol listesi — koyu",
+  "description": "Koyu zeminli, yeşil işaretli liste.",
+  "type": "liste",
+  "props": {
+    "kind": "kontrol",
+    "title": "Kontrol",
+    "lines": [
+      "Ses seviyesi",
+      "Altyazı",
+      "Kapak görseli"
+    ],
+    "bg": "#1f1c2e",
+    "textColor": "#f4f1ff",
+    "accent": "#3bb3a8",
+    "width": 680
+  },
+  "etiketler": {
+    "amac": [
+      "liste-ozet",
+      "egitim-anlatim",
+      "ilerleme-takip"
+    ],
+    "konu": [
+      "genel",
+      "egitim",
+      "uygulama-urun"
+    ],
+    "ton": [
+      "sakin",
+      "minimal",
+      "sinematik"
+    ],
+    "stil": [
+      "koyu",
+      "kartli",
+      "renkli"
+    ],
+    "icerik": [
+      "liste"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "kontrol",
+      "listesi",
+      "koyu"
+    ]
+  }
+}

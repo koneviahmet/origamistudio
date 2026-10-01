@@ -1,0 +1,18 @@
+{
+  "name": "Altyazı · Haber Bandı",
+  "font": "Work Sans",
+  "weight": 700,
+  "size": 44,
+  "color": "#ffffff",
+  "box": {
+    "color": "#0b3d91",
+    "radius": 0,
+    "padding": [
+      10,
+      30
+    ],
+    "shadow": false
+  },
+  "uppercase": true,
+  "letterSpacing": 1
+}

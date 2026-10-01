@@ -1,0 +1,52 @@
+{
+  "name": "Tablet — panel",
+  "description": "Tablette gösterge paneli.",
+  "type": "device",
+  "props": {
+    "frame": "tablet",
+    "width": 640,
+    "title": "Panel",
+    "ui": "panel",
+    "accent": "#6c63ff",
+    "lines": [
+      "Gelir",
+      "Müşteri",
+      "Sipariş"
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "tanitim",
+      "gorsel-sergi"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "egitim"
+    ],
+    "ton": [
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "renkli"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "tablet",
+      "panel"
+    ]
+  }
+}

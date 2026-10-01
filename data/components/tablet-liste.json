@@ -1,0 +1,50 @@
+{
+  "name": "Tablet — liste",
+  "description": "Tablet çerçevesi ile içerik gösterimi.",
+  "type": "device",
+  "props": {
+    "frame": "tablet",
+    "width": 640,
+    "title": "Kitaplık",
+    "ui": "liste",
+    "lines": [
+      "Roman",
+      "Bilim",
+      "Tarih"
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "tanitim",
+      "gorsel-sergi"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "egitim"
+    ],
+    "ton": [
+      "minimal"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "tablet",
+      "liste"
+    ]
+  }
+}

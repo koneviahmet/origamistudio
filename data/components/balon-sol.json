@@ -1,0 +1,48 @@
+{
+  "name": "Konuşma balonu — sol",
+  "description": "Beyaz sohbet balonu, kuyruk solda.",
+  "type": "kart",
+  "props": {
+    "kind": "balon",
+    "text": "Merhaba! Bugün neler öğreneceğiz?",
+    "side": "sol",
+    "width": 640,
+    "height": 220
+  },
+  "etiketler": {
+    "amac": [
+      "sohbet-diyalog"
+    ],
+    "konu": [
+      "sosyal-medya",
+      "egitim",
+      "genel"
+    ],
+    "ton": [
+      "eglenceli",
+      "sakin"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "konusma",
+      "balonu",
+      "sol",
+      "balon"
+    ]
+  }
+}

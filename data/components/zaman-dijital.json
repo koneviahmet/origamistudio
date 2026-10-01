@@ -1,0 +1,51 @@
+{
+  "name": "Geri sayım — dijital",
+  "description": "Koyu rakam kutuları, yanıp sönen iki nokta.",
+  "type": "zaman",
+  "props": {
+    "kind": "dijital",
+    "from": 60,
+    "to": 0,
+    "label": "Kalan süre",
+    "width": 760
+  },
+  "etiketler": {
+    "amac": [
+      "zaman-sayim",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "etkinlik-organizasyon",
+      "e-ticaret",
+      "genel"
+    ],
+    "ton": [
+      "enerjik",
+      "dikkat-cekici"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "zaman",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "geri",
+      "sayim",
+      "dijital",
+      "zaman"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Not kâğıdı — sarı",
+  "description": "Bantlı, kıvrık köşeli sarı yapışkan not.",
+  "type": "balon",
+  "props": {
+    "kind": "notkagidi",
+    "title": "Hatırlat",
+    "text": "Videoyu yarın paylaş!\nKapak görselini unutma",
+    "width": 460,
+    "height": 460
+  },
+  "etiketler": {
+    "amac": [
+      "not-hatirlatma"
+    ],
+    "konu": [
+      "egitim",
+      "genel"
+    ],
+    "ton": [
+      "sakin",
+      "nostaljik",
+      "eglenceli"
+    ],
+    "stil": [
+      "acik",
+      "keskin"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "not",
+      "gidi",
+      "sari"
+    ]
+  }
+}

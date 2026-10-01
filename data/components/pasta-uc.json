@@ -1,0 +1,62 @@
+{
+  "name": "Pasta — üç dilim",
+  "description": "Basit pay karşılaştırması (3 parça).",
+  "type": "chart",
+  "props": {
+    "kind": "pie",
+    "title": "Pay",
+    "width": 640,
+    "height": 560,
+    "data": [
+      {
+        "label": "Mobil",
+        "value": 55
+      },
+      {
+        "label": "Web",
+        "value": 30
+      },
+      {
+        "label": "Diğer",
+        "value": 15
+      }
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "veri-hikayesi",
+      "karsilastirma"
+    ],
+    "konu": [
+      "finans-is",
+      "genel"
+    ],
+    "ton": [
+      "eglenceli",
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik",
+      "kartli",
+      "yuvarlak"
+    ],
+    "icerik": [
+      "grafik",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "pasta",
+      "dilim"
+    ]
+  }
+}

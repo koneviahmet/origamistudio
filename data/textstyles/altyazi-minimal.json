@@ -1,0 +1,14 @@
+{
+  "name": "Altyazı · Minimal",
+  "font": "Figtree",
+  "weight": 600,
+  "size": 44,
+  "color": "#ffffff",
+  "shadow": {
+    "color": "rgba(0,0,0,0.6)",
+    "blur": 8,
+    "x": 0,
+    "y": 2
+  },
+  "lineHeight": 1.3
+}

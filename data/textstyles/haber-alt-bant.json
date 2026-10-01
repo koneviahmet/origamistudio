@@ -1,0 +1,17 @@
+{
+  "name": "Haber · Alt Bant",
+  "font": "Work Sans",
+  "weight": 600,
+  "size": 40,
+  "color": "#ffffff",
+  "box": {
+    "color": "#1b2a49",
+    "radius": 0,
+    "padding": [
+      12,
+      36
+    ],
+    "shadow": false
+  },
+  "align": "left"
+}

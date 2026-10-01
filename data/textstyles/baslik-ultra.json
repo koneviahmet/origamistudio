@@ -1,0 +1,9 @@
+{
+  "name": "Başlık · Ultra Kalın",
+  "font": "Inter",
+  "weight": 900,
+  "size": 120,
+  "color": "$baslik",
+  "letterSpacing": -3,
+  "lineHeight": 1
+}

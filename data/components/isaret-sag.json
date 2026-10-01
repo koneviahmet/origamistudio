@@ -1,0 +1,52 @@
+{
+  "name": "İşaret etiketi — sağ",
+  "description": "Sağdaki ayrıntıyı gösteren mor etiket.",
+  "type": "balon",
+  "props": {
+    "kind": "etiket",
+    "title": "Yeni özellik",
+    "sub": "v2.0 ile geldi",
+    "side": "sag",
+    "width": 560,
+    "height": 260,
+    "accent": "#6c63ff"
+  },
+  "etiketler": {
+    "amac": [
+      "ipucu-yonlendirme",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "egitim",
+      "teknoloji"
+    ],
+    "ton": [
+      "ciddi-kurumsal",
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "renkli"
+    ],
+    "icerik": [
+      "metin",
+      "simge"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "isaret",
+      "etiketi",
+      "sag"
+    ]
+  }
+}

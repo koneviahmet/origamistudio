@@ -1,0 +1,52 @@
+{
+  "name": "Tarayıcı — sohbet",
+  "description": "Web tabanlı sohbet / destek penceresi.",
+  "type": "device",
+  "props": {
+    "frame": "tarayici",
+    "width": 900,
+    "title": "destek.ornek.com",
+    "ui": "sohbet",
+    "lines": [
+      "Merhaba, nasıl yardımcı olabilirim?",
+      "Siparişim nerede?",
+      "Hemen bakıyorum."
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "tanitim",
+      "gorsel-sergi",
+      "sohbet-diyalog"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "e-ticaret",
+      "teknoloji"
+    ],
+    "ton": [
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "tarayici",
+      "sohbet"
+    ]
+  }
+}

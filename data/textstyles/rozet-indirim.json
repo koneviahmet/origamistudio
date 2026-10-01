@@ -1,0 +1,17 @@
+{
+  "name": "Rozet · İndirim",
+  "font": "Anton",
+  "weight": 400,
+  "size": 70,
+  "color": "#fff",
+  "box": {
+    "color": "#ff3b30",
+    "radius": 18,
+    "padding": [
+      14,
+      34
+    ]
+  },
+  "uppercase": true,
+  "letterSpacing": 2
+}

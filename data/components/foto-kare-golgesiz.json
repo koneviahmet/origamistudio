@@ -1,0 +1,48 @@
+{
+  "name": "Fotoğraf — düz kare",
+  "description": "Gölgesiz, keskin köşeli kare görsel (minimal).",
+  "type": "media",
+  "props": {
+    "width": 640,
+    "height": 640,
+    "fit": "kapla",
+    "radius": 0,
+    "shadow": false
+  },
+  "etiketler": {
+    "amac": [
+      "gorsel-sergi"
+    ],
+    "konu": [
+      "genel"
+    ],
+    "ton": [
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "keskin"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "medya-gerek"
+    ],
+    "anahtar": [
+      "fotograf",
+      "duz",
+      "kare",
+      "foto",
+      "golgesiz"
+    ]
+  }
+}

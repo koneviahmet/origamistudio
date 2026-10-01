@@ -1,0 +1,49 @@
+{
+  "name": "Not kâğıdı — pembe",
+  "description": "Pembe yapışkan not (liste, yapılacak).",
+  "type": "balon",
+  "props": {
+    "kind": "notkagidi",
+    "title": "Yapılacak",
+    "text": "Müzik seç\nAltyazı ekle\nDışa aktar",
+    "width": 420,
+    "height": 420,
+    "bg": "#ffb3c7"
+  },
+  "etiketler": {
+    "amac": [
+      "not-hatirlatma"
+    ],
+    "konu": [
+      "egitim",
+      "genel"
+    ],
+    "ton": [
+      "sakin",
+      "nostaljik",
+      "eglenceli"
+    ],
+    "stil": [
+      "acik",
+      "keskin"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "not",
+      "gidi",
+      "pembe"
+    ]
+  }
+}

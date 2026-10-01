@@ -1,0 +1,62 @@
+{
+  "name": "Sütun — kartsız",
+  "description": "Arka plan kartı olmayan, sahneye doğrudan oturan sütunlar.",
+  "type": "chart",
+  "props": {
+    "kind": "bar",
+    "title": "Karşılaştırma",
+    "width": 820,
+    "height": 560,
+    "card": false,
+    "stagger": 0.7,
+    "data": [
+      {
+        "label": "A",
+        "value": 35
+      },
+      {
+        "label": "B",
+        "value": 72
+      },
+      {
+        "label": "C",
+        "value": 51
+      }
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "veri-hikayesi",
+      "karsilastirma"
+    ],
+    "konu": [
+      "finans-is",
+      "genel"
+    ],
+    "ton": [
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik",
+      "kartsiz"
+    ],
+    "icerik": [
+      "grafik",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "sutun",
+      "kartsiz"
+    ]
+  }
+}

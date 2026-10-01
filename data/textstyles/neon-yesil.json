@@ -1,0 +1,18 @@
+{
+  "name": "Neon · Yeşil",
+  "font": "Bungee",
+  "weight": 400,
+  "size": 76,
+  "color": "#eaffd9",
+  "shadow": {
+    "color": "#39ff14",
+    "blur": 26,
+    "x": 0,
+    "y": 0
+  },
+  "stroke": {
+    "color": "#6dff4d",
+    "width": 3
+  },
+  "uppercase": true
+}

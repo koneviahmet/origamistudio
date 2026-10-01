@@ -1,0 +1,48 @@
+{
+  "name": "Analog saat",
+  "description": "Akrep ve yelkovanıyla dönen analog saat.",
+  "type": "zaman",
+  "props": {
+    "kind": "saat",
+    "from": 3600,
+    "to": 0,
+    "label": "Zaman",
+    "width": 460
+  },
+  "etiketler": {
+    "amac": [
+      "zaman-sayim"
+    ],
+    "konu": [
+      "genel",
+      "etkinlik-organizasyon"
+    ],
+    "ton": [
+      "nostaljik",
+      "sakin"
+    ],
+    "stil": [
+      "acik",
+      "kartli",
+      "yuvarlak"
+    ],
+    "icerik": [
+      "zaman"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "analog",
+      "saat",
+      "zaman"
+    ]
+  }
+}

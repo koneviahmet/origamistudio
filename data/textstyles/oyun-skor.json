@@ -1,0 +1,18 @@
+{
+  "name": "Oyun · Skor",
+  "font": "Bungee",
+  "weight": 400,
+  "size": 80,
+  "color": "#ffe14d",
+  "stroke": {
+    "color": "#2a1a6e",
+    "width": 10
+  },
+  "shadow": {
+    "color": "#2a1a6e",
+    "blur": 0,
+    "x": 0,
+    "y": 7
+  },
+  "uppercase": true
+}

@@ -1,0 +1,63 @@
+{
+  "name": "Yatay çubuk — yüzde",
+  "description": "Anket sonuçları ve yüzdelik karşılaştırma.",
+  "type": "chart",
+  "props": {
+    "kind": "yatay",
+    "title": "Anket sonucu",
+    "width": 860,
+    "height": 520,
+    "unit": "%",
+    "max": 100,
+    "data": [
+      {
+        "label": "Evet",
+        "value": 68
+      },
+      {
+        "label": "Kararsız",
+        "value": 20
+      },
+      {
+        "label": "Hayır",
+        "value": 12
+      }
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "karsilastirma",
+      "liste-ozet"
+    ],
+    "konu": [
+      "genel",
+      "finans-is"
+    ],
+    "ton": [
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "grafik",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "yatay",
+      "cubuk",
+      "yuzde"
+    ]
+  }
+}

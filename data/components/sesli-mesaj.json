@@ -1,0 +1,46 @@
+{
+  "name": "Sesli mesaj",
+  "description": "Oynatma düğmeli, dalga formlu mesaj balonu.",
+  "type": "balon",
+  "props": {
+    "kind": "sesmesaji",
+    "text": "0:12",
+    "width": 560,
+    "height": 130
+  },
+  "etiketler": {
+    "amac": [
+      "sohbet-diyalog",
+      "ses-muzik"
+    ],
+    "konu": [
+      "sosyal-medya",
+      "uygulama-urun"
+    ],
+    "ton": [
+      "minimal",
+      "sakin"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "ses",
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "sesli",
+      "mesaj"
+    ]
+  }
+}

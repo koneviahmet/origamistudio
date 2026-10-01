@@ -1,0 +1,54 @@
+{
+  "name": "Tablo — karşılaştırma",
+  "description": "İki ürünün özellik karşılaştırması.",
+  "type": "liste",
+  "props": {
+    "kind": "tablo",
+    "title": "A mı B mi?",
+    "lines": [
+      "Özellik|A|B",
+      "Hız|Hızlı|Orta",
+      "Fiyat|Yüksek|Düşük",
+      "Destek|7/24|Mesai"
+    ],
+    "accent": "#4d9de0",
+    "width": 820
+  },
+  "etiketler": {
+    "amac": [
+      "karsilastirma",
+      "fiyatlandirma",
+      "liste-ozet"
+    ],
+    "konu": [
+      "finans-is",
+      "e-ticaret",
+      "uygulama-urun"
+    ],
+    "ton": [
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik",
+      "kartli",
+      "renkli"
+    ],
+    "icerik": [
+      "tablo"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "tablo",
+      "karsilastirma"
+    ]
+  }
+}

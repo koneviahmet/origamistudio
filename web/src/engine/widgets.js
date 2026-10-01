@@ -7,6 +7,8 @@
 import { ease } from './easing.js';
 import { resolveRef } from './theme.js';
 import { spectrumAt } from './audiodrive.js';
+import { WIDGET2_TYPES, WIDGET2_FIELDS, WIDGET2_DRAW } from './widgets2.js';
+import { COMMON_FIELDS, styledContext } from './widgetStyle.js';
 
 const TAU = Math.PI * 2;
 const clamp01 = (v) => Math.max(0, Math.min(1, v));
@@ -759,4 +761,15 @@ export function drawWaveform(ctx, L, t, st, scene, res, th) {
   return { x0: -W / 2, y0: -H / 2, x1: W / 2, y1: H / 2 };
 }
 
-export const WIDGET_DRAW = { chart: drawChart, device: drawDevice, media: drawMedia, waveform: drawWaveform };
+export const WIDGET_DRAW = { chart: drawChart, device: drawDevice, media: drawMedia, waveform: drawWaveform, ...WIDGET2_DRAW };
+// İkinci aile (widgets2.js): kart, liste, kod, zaman
+WIDGET_TYPES.push(...WIDGET2_TYPES);
+Object.assign(WIDGET_FIELDS, WIDGET2_FIELDS);
+// Evrensel alanlar (yazı ölçeği, kalınlık) her türe eklenir
+for (const t of WIDGET_TYPES) WIDGET_FIELDS[t] = [...WIDGET_FIELDS[t], ...COMMON_FIELDS];
+
+/** Renderer'ın tek çizim girişi: evrensel stil (textScale, weight) sonra türe özgü çizim */
+export function drawWidget(ctx, layer, t, st, scene, res, th) {
+  const draw = WIDGET_DRAW[layer.type];
+  return draw(styledContext(ctx, layer), layer, t, st, scene, res, th);
+}

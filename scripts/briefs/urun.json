@@ -3,8 +3,9 @@
   "id": "sablon-urun",
   "ad": "Not Defteri",
   "format": "reels",
-  "tema": "kurumsal-mavi",
-  "vurgu": "#ff7b00",
+  "palet": "okyanus",
+  "muzik": "pop-120",
+  "font": "Archivo Black",
   "slogan": "Fikirlerin hep yanında",
   "cihaz": {
     "frame": "telefon",
@@ -32,6 +33,20 @@
       "metin": "Notların şifreli saklanır"
     }
   ],
-  "cta": "Ücretsiz dene",
-  "link": "notdefteri.app"
+  "rozet": "YENİ",
+  "fiyat": "Ücretsiz",
+  "fiyatAlt": "ilk ay",
+  "cta": "Hemen indir",
+  "link": "notdefteri.app",
+  "yayin": {
+    "baslik": "Not Defteri ile fikirlerin hep yanında",
+    "aciklama": "Hızlı not, her cihazda senkron, güvenli. İlk ay ücretsiz — hemen indir!",
+    "etiketler": [
+      "uygulama",
+      "tanitim",
+      "verimlilik",
+      "reels",
+      "shorts"
+    ]
+  }
 }

@@ -1,0 +1,18 @@
+{
+  "name": "Altyazı · Karaoke",
+  "font": "Lexend",
+  "weight": 800,
+  "size": 66,
+  "color": "#ff5fa2",
+  "stroke": {
+    "color": "#ffffff",
+    "width": 10
+  },
+  "shadow": {
+    "color": "rgba(0,0,0,0.35)",
+    "blur": 6,
+    "x": 0,
+    "y": 4
+  },
+  "lineHeight": 1.2
+}

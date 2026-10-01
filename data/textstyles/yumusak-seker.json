@@ -1,0 +1,17 @@
+{
+  "name": "Yumuşak · Şeker",
+  "font": "M PLUS Rounded 1c",
+  "weight": 800,
+  "size": 88,
+  "color": "#ff7eb6",
+  "stroke": {
+    "color": "#ffffff",
+    "width": 12
+  },
+  "shadow": {
+    "color": "rgba(160,60,110,0.35)",
+    "blur": 12,
+    "x": 0,
+    "y": 6
+  }
+}

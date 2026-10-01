@@ -1,0 +1,14 @@
+{
+  "name": "Lüks · Bakır",
+  "font": "DM Serif Display",
+  "weight": 400,
+  "size": 94,
+  "color": "#c77d4a",
+  "shadow": {
+    "color": "rgba(60,25,5,0.55)",
+    "blur": 0,
+    "x": 3,
+    "y": 4
+  },
+  "letterSpacing": 2
+}

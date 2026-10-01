@@ -1,0 +1,17 @@
+{
+  "name": "Çıkartma · Mavi",
+  "font": "Nunito",
+  "weight": 900,
+  "size": 84,
+  "color": "#2e86ff",
+  "stroke": {
+    "color": "#ffffff",
+    "width": 16
+  },
+  "shadow": {
+    "color": "rgba(0,0,0,0.3)",
+    "blur": 10,
+    "x": 0,
+    "y": 6
+  }
+}

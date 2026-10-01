@@ -1,0 +1,64 @@
+{
+  "name": "Yatay sıralama",
+  "description": "Sıralı listeler (en çok / en az) için yatay çubuklar.",
+  "type": "chart",
+  "props": {
+    "kind": "yatay",
+    "title": "Sıralama",
+    "width": 860,
+    "height": 560,
+    "data": [
+      {
+        "label": "Birinci",
+        "value": 80
+      },
+      {
+        "label": "İkinci",
+        "value": 62
+      },
+      {
+        "label": "Üçüncü",
+        "value": 47
+      },
+      {
+        "label": "Dördüncü",
+        "value": 30
+      }
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "karsilastirma",
+      "liste-ozet"
+    ],
+    "konu": [
+      "genel",
+      "finans-is"
+    ],
+    "ton": [
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "grafik",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "yatay",
+      "siralama"
+    ]
+  }
+}

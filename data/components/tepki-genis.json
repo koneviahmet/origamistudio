@@ -1,0 +1,52 @@
+{
+  "name": "Tepki — dört emoji",
+  "description": "Dört farklı tepki ile geniş çubuk.",
+  "type": "balon",
+  "props": {
+    "kind": "tepki",
+    "lines": [
+      "🔥|128",
+      "😍|96",
+      "👏|54",
+      "🤯|31"
+    ],
+    "width": 760,
+    "height": 130
+  },
+  "etiketler": {
+    "amac": [
+      "yorum-etkilesim",
+      "sosyal-kanit"
+    ],
+    "konu": [
+      "sosyal-medya"
+    ],
+    "ton": [
+      "eglenceli",
+      "enerjik"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "emoji",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "tepki",
+      "dort",
+      "emoji",
+      "genis"
+    ]
+  }
+}

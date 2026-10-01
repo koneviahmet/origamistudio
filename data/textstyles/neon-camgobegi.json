@@ -1,0 +1,18 @@
+{
+  "name": "Neon · Camgöbeği",
+  "font": "Righteous",
+  "weight": 400,
+  "size": 84,
+  "color": "#d9ffff",
+  "shadow": {
+    "color": "#00e5ff",
+    "blur": 30,
+    "x": 0,
+    "y": 0
+  },
+  "stroke": {
+    "color": "#33f0ff",
+    "width": 3
+  },
+  "letterSpacing": 3
+}

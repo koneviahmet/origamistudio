@@ -1,0 +1,18 @@
+{
+  "name": "Çıkartma · Grafiti",
+  "font": "Bungee",
+  "weight": 400,
+  "size": 90,
+  "color": "#ffe14d",
+  "stroke": {
+    "color": "#1a1a1a",
+    "width": 12
+  },
+  "shadow": {
+    "color": "#e8174b",
+    "blur": 0,
+    "x": 6,
+    "y": 8
+  },
+  "uppercase": true
+}

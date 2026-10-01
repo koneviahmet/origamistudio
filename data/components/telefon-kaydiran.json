@@ -1,0 +1,57 @@
+{
+  "name": "Telefon — kayan liste",
+  "description": "Liste kendiliğinden yukarı kayar (kaydırma hissi).",
+  "type": "device",
+  "props": {
+    "frame": "telefon",
+    "width": 460,
+    "title": "Akış",
+    "ui": "liste",
+    "scroll": 30,
+    "lines": [
+      "Gönderi 1",
+      "Gönderi 2",
+      "Gönderi 3",
+      "Gönderi 4",
+      "Gönderi 5",
+      "Gönderi 6"
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "tanitim",
+      "gorsel-sergi"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "teknoloji"
+    ],
+    "ton": [
+      "minimal",
+      "premium-sik"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "dikey-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "telefon",
+      "kayan",
+      "liste",
+      "kaydiran"
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "Alt üçlü — haber",
+  "description": "Haber bülteni tarzı kırmızı-sarı bant.",
+  "type": "kart",
+  "props": {
+    "kind": "altuc",
+    "title": "SON DAKİKA",
+    "sub": "Gelişmeler takip ediliyor",
+    "bg": "#b3261e",
+    "accent": "#ffd54a",
+    "width": 900,
+    "height": 170
+  },
+  "etiketler": {
+    "amac": [
+      "kimlik-tanitim"
+    ],
+    "konu": [
+      "haber",
+      "genel",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "ciddi-kurumsal",
+      "dikkat-cekici"
+    ],
+    "stil": [
+      "koyu",
+      "renkli"
+    ],
+    "icerik": [
+      "metin",
+      "kisi"
+    ],
+    "yerlesim": [
+      "alt-bant",
+      "tam-genislik",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "alt",
+      "uclu",
+      "haber",
+      "altuc"
+    ]
+  }
+}

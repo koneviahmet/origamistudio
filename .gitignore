@@ -20,3 +20,6 @@ data/voices-cache/
 data/voices-katalog.json
 muzik/
 data/muzik-onizleme/
+
+# YouTube OAuth istemci bilgisi ve token'lar (gizli)
+data/youtube.json

@@ -1,0 +1,56 @@
+{
+  "name": "Profil — marka",
+  "description": "Marka / kanal tanıtım kartı.",
+  "type": "kart",
+  "props": {
+    "kind": "profil",
+    "title": "Origami Atölye",
+    "sub": "Kağıt sanatı kanalı",
+    "lines": [
+      "86|Video",
+      "120B|Abone",
+      "4,8|Puan"
+    ],
+    "accent": "#6c63ff",
+    "width": 560,
+    "height": 420
+  },
+  "etiketler": {
+    "amac": [
+      "kimlik-tanitim",
+      "sosyal-kanit"
+    ],
+    "konu": [
+      "sosyal-medya",
+      "genel"
+    ],
+    "ton": [
+      "sakin",
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "kartli",
+      "renkli"
+    ],
+    "icerik": [
+      "kisi",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek",
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "profil",
+      "marka"
+    ]
+  }
+}

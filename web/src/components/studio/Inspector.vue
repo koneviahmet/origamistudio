@@ -5,6 +5,7 @@ import AnimsEditor from './AnimsEditor.vue';
 import ParticlesEditor from './ParticlesEditor.vue';
 import ArrowEditor from './ArrowEditor.vue';
 import WidgetEditor from './WidgetEditor.vue';
+import CharacterEditor from './CharacterEditor.vue';
 import AudioEditor from './AudioEditor.vue';
 import TransitionsEditor from './TransitionsEditor.vue';
 import FormatsEditor from './FormatsEditor.vue';
@@ -205,7 +206,7 @@ watch(isCamera, (on) => {
     <template v-else-if="layer">
       <div class="row">
         <input class="input mono grow" :value="layer.id" title="Katman id" @change="rename" />
-        <span class="chip">{{ layer.type === 'text' ? 'metin' : layer.type === 'particles' ? 'parçacık' : layer.type === 'arrow' ? 'ok' : ({ chart: 'grafik', device: 'cihaz', media: 'medya', waveform: 'dalga' })[layer.type] || 'origami' }}</span>
+        <span class="chip">{{ layer.type === 'text' ? 'metin' : layer.type === 'particles' ? 'parçacık' : layer.type === 'arrow' ? 'ok' : ({ chart: 'grafik', device: 'cihaz', media: 'medya', waveform: 'dalga', kart: 'kart', liste: 'liste', kod: 'kod', zaman: 'zaman', balon: 'balon', karakter: 'karakter' })[layer.type] || 'origami' }}</span>
       </div>
       <div class="row actions">
         <button class="btn sm" title="Bir üst katmana (öne)" @click="move(1)">↑</button>
@@ -239,9 +240,14 @@ watch(isCamera, (on) => {
         <ParticlesEditor :layer="layer" :scene="scene" :res="res" :edit="edit" />
       </div>
 
-      <div v-if="['chart', 'device', 'media', 'waveform'].includes(layer.type)" class="sec">
-        <div class="sec-title">{{ { chart: 'Grafik', device: 'Cihaz çerçevesi', media: 'Resim / video', waveform: 'Ses dalgası' }[layer.type] }}</div>
+      <div v-if="['chart', 'device', 'media', 'waveform', 'kart', 'liste', 'kod', 'zaman', 'balon'].includes(layer.type)" class="sec">
+        <div class="sec-title">{{ { chart: 'Grafik', device: 'Cihaz çerçevesi', media: 'Resim / video', waveform: 'Ses dalgası', kart: 'Kart', liste: 'Liste / tablo', kod: 'Kod penceresi', zaman: 'Zamanlayıcı', balon: 'Balon / not' }[layer.type] }}</div>
         <WidgetEditor :layer="layer" :scene="scene" :res="res" :edit="edit" />
+      </div>
+
+      <div v-if="layer.type === 'karakter'" class="sec">
+        <div class="sec-title">Karakter</div>
+        <CharacterEditor :layer="layer" :scene="scene" :res="res" :t="t" :edit="edit" />
       </div>
 
       <div v-if="layer.type === 'arrow'" class="sec">

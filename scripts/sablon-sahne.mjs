@@ -103,6 +103,11 @@ L({
   start: S.kapanis, textAnims: [{ preset: 'harf-zipla', t: S.kapanis + 0.4, dur: 0.45, aralik: 0.04 }],
 });
 
+// Hazır bileşen (grafik, kart, liste, kod, zamanlayıcı…): npm run bilesen -- "<sorgu>" ile id bul, sonra
+//   import { bilesenBaglam } from './lib/bilesen.mjs';  const B = bilesenBaglam({ W, H, tema: TEMA });
+//   L(B('fiyat-pro', { id: 'plan', konum: 'orta', genislik: 0.8, start: 4, end: 9, varyant: ['koyu'], tema: true, title: 'Takım' }));
+//   Alanlar: npm run bilesen -- --alanlar fiyat-pro
+
 // ─── 5. Sahne ──────────────────────────────────────────────────────────────
 const scene = {
   name: PROJE_ADI,
@@ -110,6 +115,8 @@ const scene = {
   height: H,
   fps: FPS,
   duration: SURE,
+  // Paylaşım bilgisi (Stüdyo → Paylaşım sekmesi): videoya göre doldur. tags '#'sız yazılır.
+  publish: { title: '', description: '', tags: [] },
   theme: TEMA,
   ...(STIL ? { style: STIL } : {}),
   // Müzik (katalog §10) — kendi müziğin için bpm/beatOffset'i stüdyoda "Algıla" ile bul

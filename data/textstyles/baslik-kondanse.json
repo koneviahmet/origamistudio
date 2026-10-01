@@ -1,0 +1,10 @@
+{
+  "name": "Başlık · Dar Yüksek",
+  "font": "Bebas Neue",
+  "weight": 400,
+  "size": 130,
+  "color": "$baslik",
+  "letterSpacing": 4,
+  "uppercase": true,
+  "lineHeight": 0.95
+}

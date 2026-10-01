@@ -1,0 +1,50 @@
+{
+  "name": "Takvim yaprağı",
+  "description": "Halkalı takvim yaprağı: ay, gün ve haftanın günü.",
+  "type": "kart",
+  "props": {
+    "kind": "takvim",
+    "sub": "Aralık",
+    "value": "24",
+    "title": "Cuma",
+    "width": 420,
+    "height": 460
+  },
+  "etiketler": {
+    "amac": [
+      "etkinlik-tarih",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "etkinlik-organizasyon",
+      "genel"
+    ],
+    "ton": [
+      "sakin",
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "sayi",
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "takvim",
+      "yapragi",
+      "gun"
+    ]
+  }
+}

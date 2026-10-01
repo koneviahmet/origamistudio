@@ -1,0 +1,14 @@
+{
+  "name": "Altyazı · Film",
+  "font": "Lora",
+  "weight": 500,
+  "size": 46,
+  "color": "#f5f1e6",
+  "shadow": {
+    "color": "rgba(0,0,0,0.8)",
+    "blur": 6,
+    "x": 0,
+    "y": 2
+  },
+  "lineHeight": 1.3
+}

@@ -1,0 +1,55 @@
+{
+  "sablon": "sohbet",
+  "id": "sablon-sohbet",
+  "ad": "Sınav Sabahı",
+  "format": "reels",
+  "palet": "gunbatimi",
+  "muzik": "pop-120",
+  "font": "Anton",
+  "kisiA": "Ece",
+  "kisiB": "Can",
+  "mesajlar": [
+    {
+      "kim": "a",
+      "metin": "Can, sınav kaçta başlıyor?"
+    },
+    {
+      "kim": "b",
+      "metin": "Dokuzda. Neden?"
+    },
+    {
+      "kim": "a",
+      "metin": "Saat şu an 9.20 😅"
+    },
+    {
+      "kim": "b",
+      "metin": "NE?! Hemen çıkıyorum!!"
+    },
+    {
+      "kim": "a",
+      "metin": "Şaka şaka, 7.20 daha 😂"
+    },
+    {
+      "kim": "b",
+      "metin": "Seni görünce konuşuruz."
+    }
+  ],
+  "tepkiler": [
+    "😂|128",
+    "❤️|64",
+    "😱|31"
+  ],
+  "cta": "Devamı yorumlarda",
+  "alt": "@kullaniciadi",
+  "yayin": {
+    "baslik": "Sınav sabahı mesajlaşması 😂",
+    "aciklama": "Böyle bir şaka yaptın mı hiç? Devamı yorumlarda!",
+    "etiketler": [
+      "komik",
+      "mesajlasma",
+      "hikaye",
+      "reels",
+      "shorts"
+    ]
+  }
+}

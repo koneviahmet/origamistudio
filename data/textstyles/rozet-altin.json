@@ -1,0 +1,16 @@
+{
+  "name": "Rozet · Altın",
+  "font": "DM Serif Display",
+  "weight": 400,
+  "size": 46,
+  "color": "#4a3200",
+  "box": {
+    "color": "#f2c14e",
+    "radius": 999,
+    "padding": [
+      14,
+      40
+    ]
+  },
+  "letterSpacing": 2
+}

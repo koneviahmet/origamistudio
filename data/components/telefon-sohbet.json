@@ -1,0 +1,52 @@
+{
+  "name": "Telefon — sohbet",
+  "description": "Mesajlaşma arayüzü gösterimi.",
+  "type": "device",
+  "props": {
+    "frame": "telefon",
+    "width": 460,
+    "title": "Sohbet",
+    "ui": "sohbet",
+    "lines": [
+      "Merhaba!",
+      "Nasılsın?",
+      "İyiyim, sen?"
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "tanitim",
+      "gorsel-sergi",
+      "sohbet-diyalog"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "teknoloji"
+    ],
+    "ton": [
+      "minimal",
+      "premium-sik"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "dikey-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "telefon",
+      "sohbet"
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "Yorum kartı — koyu",
+  "description": "Koyu temalı yorum kartı.",
+  "type": "balon",
+  "props": {
+    "kind": "yorum",
+    "title": "Mehmet K.",
+    "sub": "5 dk önce",
+    "text": "Bunu daha önce hiç böyle anlatmamışlardı.",
+    "value": "108",
+    "width": 700,
+    "height": 250,
+    "bg": "#1f1c2e",
+    "textColor": "#f4f1ff",
+    "accent": "#3bb3a8"
+  },
+  "etiketler": {
+    "amac": [
+      "yorum-etkilesim",
+      "sosyal-kanit"
+    ],
+    "konu": [
+      "sosyal-medya",
+      "e-ticaret"
+    ],
+    "ton": [
+      "minimal",
+      "sakin",
+      "sinematik"
+    ],
+    "stil": [
+      "koyu",
+      "renkli"
+    ],
+    "icerik": [
+      "kisi",
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "yorum",
+      "karti",
+      "koyu"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Rozet · Açık",
+  "font": "Outfit",
+  "weight": 700,
+  "size": 40,
+  "color": "#1c1c24",
+  "box": {
+    "color": "#ffffff",
+    "radius": 999
+  },
+  "uppercase": true,
+  "letterSpacing": 4
+}

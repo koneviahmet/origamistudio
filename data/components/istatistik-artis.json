@@ -1,0 +1,51 @@
+{
+  "name": "İstatistik — artış",
+  "description": "Sayarak yükselen büyük rakam, yeşil artış oku ve mini grafik.",
+  "type": "kart",
+  "props": {
+    "kind": "istatistik",
+    "title": "Aylık gelir",
+    "value": "128",
+    "prefix": "₺",
+    "unit": "K",
+    "sub": "+12,4% geçen aya göre",
+    "width": 560,
+    "height": 360
+  },
+  "etiketler": {
+    "amac": [
+      "veri-hikayesi",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "finans-is",
+      "teknoloji",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "ciddi-kurumsal",
+      "enerjik"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "istatistik",
+      "artis"
+    ]
+  }
+}

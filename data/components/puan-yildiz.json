@@ -1,0 +1,49 @@
+{
+  "name": "Yıldız puanı",
+  "description": "Yıldızlar sırayla dolar, yanında puan ve açıklama.",
+  "type": "kart",
+  "props": {
+    "kind": "puan",
+    "title": "Kullanıcı puanı",
+    "sub": "2.340 değerlendirme",
+    "value": "4,6",
+    "width": 640,
+    "height": 300
+  },
+  "etiketler": {
+    "amac": [
+      "sosyal-kanit"
+    ],
+    "konu": [
+      "e-ticaret",
+      "uygulama-urun"
+    ],
+    "ton": [
+      "sakin",
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "sayi",
+      "simge"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "yildiz",
+      "puani",
+      "puan"
+    ]
+  }
+}

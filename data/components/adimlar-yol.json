@@ -1,0 +1,53 @@
+{
+  "name": "Adımlar — zaman çizgisi",
+  "description": "Dikey çizgi çizilir, numaralı adımlar belirir.",
+  "type": "liste",
+  "props": {
+    "kind": "adimlar",
+    "title": "Nasıl çalışır?",
+    "lines": [
+      "Fikir|Konuyu belirle",
+      "Taslak|Sahneleri çiz",
+      "Yayın|Videoyu paylaş"
+    ],
+    "width": 760
+  },
+  "etiketler": {
+    "amac": [
+      "egitim-anlatim",
+      "ilerleme-takip"
+    ],
+    "konu": [
+      "egitim",
+      "genel",
+      "uygulama-urun"
+    ],
+    "ton": [
+      "sakin",
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "liste"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "adimlar",
+      "zaman",
+      "cizgisi",
+      "yol"
+    ]
+  }
+}

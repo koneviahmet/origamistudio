@@ -1,0 +1,54 @@
+{
+  "name": "Profil — kişi",
+  "description": "Renkli başlık bandı, baş harfli avatar, ad ve üç istatistik.",
+  "type": "kart",
+  "props": {
+    "kind": "profil",
+    "title": "Ayşe Demir",
+    "sub": "Ürün Tasarımcısı",
+    "lines": [
+      "128|Gönderi",
+      "4,2B|Takipçi",
+      "310|Takip"
+    ],
+    "width": 560,
+    "height": 420
+  },
+  "etiketler": {
+    "amac": [
+      "kimlik-tanitim",
+      "sosyal-kanit"
+    ],
+    "konu": [
+      "sosyal-medya",
+      "genel"
+    ],
+    "ton": [
+      "sakin",
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "kisi",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek",
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "profil",
+      "kisi"
+    ]
+  }
+}

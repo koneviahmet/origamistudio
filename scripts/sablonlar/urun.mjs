@@ -1,13 +1,15 @@
-// Ürün / uygulama tanıtımı: marka açılışı → cihaz çerçevesi + özellik çağrıları (oklu) → çağrı (CTA).
-// Derinlik: arka planda bulanık uzak nesneler, öndeki bokeh yıldızları; kamera yavaşça kayar (paralaks).
-import { baglam, gerekli, kelimeSayisi, r2, clamp } from './lib.mjs';
+// Ürün / uygulama tanıtımı: marka vuruşu → cihaz uçarak gelir → özellik etiketleri her turda çarpar → fiyat damgası → çağrı.
+import { gerekli } from './lib.mjs';
+import { reels, sarMetin, sigdirFont, yaziRengi } from './reels.mjs';
 
 export default {
   id: 'urun',
-  ad: 'Ürün / uygulama tanıtımı',
-  aciklama: 'Marka + slogan, cihaz çerçevesinde uygulama (ekran görüntüsü / video ya da sahte arayüz), özellik çağrıları ve son çağrı.',
+  ad: 'Ürün tanıtımı',
+  etiket: 'Uygulama · Ürün',
+  sure: '15–30 sn',
+  aciklama: 'Marka vuruşu, cihaz çerçevesi (sahte arayüz ya da kendi ekran görüntün / videon) uçarak gelir; özellikler tek tek çarpar, fiyat damgası ve çağrı kapatır.',
   ornek: {
-    sablon: 'urun', id: 'sablon-urun', ad: 'Not Defteri', format: 'reels', tema: 'kurumsal-mavi', vurgu: '#ff7b00',
+    sablon: 'urun', id: 'sablon-urun', ad: 'Not Defteri', format: 'reels', palet: 'okyanus', muzik: 'pop-120', font: 'Archivo Black',
     slogan: 'Fikirlerin hep yanında',
     cihaz: { frame: 'telefon', ui: 'liste', title: 'Notlarım', lines: ['Alışveriş listesi', 'Toplantı notları', 'Kitap önerileri', 'Seyahat planı', 'Yapılacaklar'] },
     ozellikler: [
@@ -15,99 +17,102 @@ export default {
       { baslik: 'Her yerde', metin: 'Telefon, tablet ve bilgisayarda senkron' },
       { baslik: 'Güvenli', metin: 'Notların şifreli saklanır' },
     ],
-    cta: 'Ücretsiz dene', link: 'notdefteri.app',
+    rozet: 'YENİ', fiyat: 'Ücretsiz', fiyatAlt: 'ilk ay', cta: 'Hemen indir', link: 'notdefteri.app',
+    yayin: { baslik: 'Not Defteri ile fikirlerin hep yanında', aciklama: 'Hızlı not, her cihazda senkron, güvenli. İlk ay ücretsiz — hemen indir!', etiketler: ['uygulama', 'tanitim', 'verimlilik', 'reels', 'shorts'] },
   },
   uret(brief) {
     gerekli(brief, ['ad', 'ozellikler'], 'urun');
-    const c = baglam(brief, { tema: 'kurumsal-mavi', stil: 'kagit-kesme' });
-    const { W, H, dikey, m } = c;
-    const oz = brief.ozellikler;
-    const cikisKay = { preset: 'kayarak-cik', dur: 0.45, yon: 'sol', mesafe: 700, ease: 'inCubic' };
-
-    const tIntro = 3.6;
-    const ozSure = oz.map((o) => r2(clamp(3 + kelimeSayisi(o.metin) / 3, 4, 6)));
-    const tFeat = tIntro;
-    const tCta = tFeat + ozSure.reduce((a, b) => a + b, 0);
-    const sure = tCta + 4.2;
-
-    // Arka plan derinliği: uzak, bulanık nesneler
-    const gBg = c.grup('g-derinlik', 'Derinlik (paralaks)', true);
-    const uzak = [['bulut', 0.12, 0.2, 0.7, 0.14], ['bulut', 0.85, 0.62, 0.55, 0.11], ['yildiz', 0.8, 0.14, 0.8, 0.06], ['kalp', 0.15, 0.78, 0.7, 0.07]];
-    uzak.forEach(([asset, fx, fy, depth, boy], i) => {
-      c.nesne(`uzak-${i + 1}`, gBg, asset, 0.2 + i * 0.3, null, Math.round(m * (0.22 + boy * 2)), {
-        x: Math.round(W * fx), y: Math.round(H * fy), yasam: true,
-        extra: { depth, blur: 6, opacity: 0.55 },
-      });
-    });
-    // Öndeki bokeh (yakın, çok bulanık)
-    [['yildiz', 0.92, 0.42, -0.6], ['yildiz', 0.06, 0.55, -0.5]].forEach(([asset, fx, fy, depth], i) => {
-      c.nesne(`yakin-${i + 1}`, gBg, asset, 1 + i * 0.4, null, Math.round(m * 0.16), {
-        x: Math.round(W * fx), y: Math.round(H * fy), yasam: true,
-        extra: { depth, blur: 10, opacity: 0.45 },
-      });
-    });
-
-    // Açılış
-    const gA = c.grup('g-acilis', 'Açılış');
-    c.bolum(0, 'Açılış');
-    c.metin('marka', gA, brief.ad, 0, tIntro, {
-      stil: 'baslik-modern', x: W / 2, y: c.Y(0.36, 0.42), maxW: W * 0.88, size: 170,
-      giris: [{ preset: 'harf-katla', t: 0.3, dur: 0.6, aralik: 0.05 }], cikis: [{ ...cikisKay, t: tIntro - 0.6 }],
-    });
-    if (brief.slogan) c.metin('slogan', gA, brief.slogan, 0.8, tIntro, { stil: 'alt-baslik', x: W / 2, y: c.Y(0.46, 0.56), sar: dikey ? 26 : 40, maxW: W * 0.86, reveal: [0.4, 1.2], giris: [], cikis: [{ preset: 'sol', t: tIntro - 0.5, dur: 0.35 }] });
-
-    // Cihaz — açılıştan sonra gelir ve kapanışa kadar kalır
-    const gD = c.grup('g-cihaz', 'Cihaz');
+    const c = reels(brief, { palet: 'okyanus', muzik: 'pop-120', font: 'Archivo Black' });
+    const { W, H, k, m } = c;
+    const oz = brief.ozellikler.slice(0, 5);
     const cihaz = brief.cihaz || {};
-    const dw = Math.round(cihaz.frame === 'laptop' || cihaz.frame === 'tarayici' ? (dikey ? W * 0.9 : W * 0.46) : dikey ? W * 0.52 : H * 0.42);
+    const vuruslar = [];
+    const bgler = [];
+
+    // 1) marka
+    const gA = c.grup('g-marka', 'Marka', true);
+    c.bolum(0, 'Marka');
+    bgler.push({ t: 0, i: 0 });
+    const ra = c.yigin('marka', brief.ad, 0, { i: 0, grup: gA, y: 0.4, yuk: 0.38, dekor: 'daireler', sure: 4 });
+    vuruslar.push(...ra.vuruslar);
+    if (brief.slogan) c.hap('slogan', brief.slogan, c.vurus(2), c.vurus(4), W / 2, H * 0.62, { grup: gA, zemin: c.vurgu(0), renk: yaziRengi(c.vurgu(0)), size: m * 0.05 });
+
+    // 2) cihaz + özellikler
+    const b0 = 4;
+    const tD = c.vurus(b0);
+    const tF = c.vurus(b0 + oz.length * 4 + 2);
+    const tOffer = tF;
+    const gD = c.grup('g-cihaz', 'Cihaz');
+    c.bolum(tD, 'Cihaz');
+    bgler.push({ t: tD, i: 1 });
+    c.silme('silme-cihaz', tD, c.vurgu(1));
+    c.dekor('seritler', tD, tF, c.vurgu(1), { grup: gD, id: 'cihaz-dekor', alfa: 0.16 });
+    const dw = Math.round(cihaz.frame === 'laptop' || cihaz.frame === 'tarayici' ? W * 0.9 : cihaz.frame === 'tablet' ? W * 0.78 : W * 0.6);
+    const dy = cihaz.frame === 'laptop' || cihaz.frame === 'tarayici' ? H * 0.4 : H * 0.42;
+    c.halka('cihaz-halka', tD + 0.5, W / 2, dy, c.vurgu(1), { group: gD, alfa: 0.5, boyut: m * 0.3, son: m * 1.6, sure: 0.7 });
     c.L({
-      id: 'cihaz', group: gD, type: 'device', frame: cihaz.frame || 'telefon', width: dw, x: c.ox, y: c.Y(dikey ? 0.42 : 0.5),
-      ...(cihaz.src ? { src: cihaz.src } : { ui: cihaz.ui || 'liste', title: cihaz.title || brief.ad, lines: cihaz.lines }),
-      ...(cihaz.url ? { url: cihaz.url } : {}), scroll: cihaz.scroll ?? 40,
-      start: r2(tIntro - 0.8), end: r2(tCta),
+      id: 'cihaz', group: gD, type: 'device', frame: cihaz.frame || 'telefon', width: dw, x: W / 2, y: Math.round(dy),
+      ...(cihaz.src ? { src: cihaz.src, fit: 'kapla' } : { ui: cihaz.ui || 'liste', title: cihaz.title || brief.ad, lines: cihaz.lines }),
+      ...(cihaz.url ? { url: cihaz.url } : {}), accent: '$vurgu', scroll: cihaz.scroll ?? 40,
+      start: c.vurus(b0), end: tF + 0.3, depth: 0,
+      rotation: [k(tD, -14), k(tD + 0.7, 0, 'outBack')],
       anims: [
-        { preset: 'kayarak-gir', t: tIntro - 0.8, dur: 1.1, yon: 'alt', mesafe: 500, ease: 'outCubic' },
-        { preset: 'suzul', t: tIntro + 0.4, genlik: 10, periyot: 3.4 },
-        { preset: 'sol', t: tCta - 0.6, dur: 0.5 },
+        { preset: 'kayarak-gir', t: tD, dur: 0.7, yon: 'alt', mesafe: 1100, ease: 'outBack' },
+        { preset: 'ritimle-zipla', t: tD + 0.9, yukseklik: 14 },
+        { preset: 'sallan', t: tD + 0.9, aci: 1.5, periyot: c.p * 8 },
+        { preset: 'kuculerek-cik', t: tF - 0.25, dur: 0.3 },
       ],
     });
-    c.bolum(tFeat, 'Özellikler');
-    let t = tFeat;
+    if (brief.rozet) c.damga('rozet', brief.rozet, c.vurus(b0 + 2), tF, W * 0.82, H * 0.2, m * 0.3, { grup: gD, zemin: '#ffe600', font: c.font });
+
     oz.forEach((o, i) => {
-      const t0 = t;
-      const t1 = t + ozSure[i];
+      const t0 = c.vurus(b0 + 2 + i * 4);
+      const t1 = c.vurus(b0 + 2 + (i + 1) * 4);
       const g = c.grup(`g-oz${i + 1}`, `Özellik ${i + 1}`);
-      const ly = c.Y(0.76, 0.42);
-      c.metin(`oz${i + 1}-baslik`, g, o.baslik, t0, t1, {
-        stil: 'etiket-kutu', y: ly, giris: [], cikis: [], extra: { anims: [{ preset: 'zipla-gir', t: t0 + 0.2, dur: 0.5 }, { preset: 'sol', t: t1 - 0.45, dur: 0.35 }] },
+      c.bolum(t0, o.baslik);
+      vuruslar.push(t0, c.vurus(b0 + 2 + i * 4 + 2));
+      c.flas(`oz${i + 1}-flas`, t0, { alfa: 0.25 });
+      c.halka(`oz${i + 1}-h`, t0, W / 2, H * 0.8, c.vurgu(1), { group: g, alfa: 0.5, boyut: m * 0.1, son: m * 1.1, sure: 0.5 });
+      const sizeB = Math.round(m * 0.075);
+      c.slam(`oz${i + 1}-baslik`, o.baslik, t0, t1, {
+        y: H * 0.775, x: W / 2, font: c.font, size: sizeB, sabit: true, giris: i % 2 ? 'sag' : 'sol', grup: g, golge: false, renk: yaziRengi(c.vurgu(1)), weight: 400,
+        kutu: { color: c.vurgu(1), radius: 999, padding: [sizeB * 0.28, sizeB * 0.7], shadow: false },
       });
-      c.metin(`oz${i + 1}-metin`, g, o.metin, t0, t1, { stil: 'alt-baslik', y: ly + Math.round(H * (dikey ? 0.065 : 0.1)), sar: dikey ? 26 : 24, reveal: [0.7, 1.0], giris: [] });
-      c.L({
-        id: `oz${i + 1}-ok`, group: g, type: 'arrow', arrow: 'ok-kavis', from: `oz${i + 1}-baslik`, to: 'cihaz', start: r2(t0 + 0.5), end: r2(t1),
-        fold: [c.k(t0 + 0.5, 0), c.k(t0 + 1.3, 1, 'inOutSine')], anims: [{ preset: 'sol', t: t1 - 0.45, dur: 0.35 }],
-      });
-      t = t1;
+      if (o.metin) {
+        const metin = sarMetin(o.metin, 26);
+        const sz = sigdirFont(metin, c.govde, W * 0.8, 58, false);
+        c.slam(`oz${i + 1}-metin`, metin, c.vurus(b0 + 2 + i * 4 + 1), t1, {
+          y: H * 0.86, font: c.govde, upper: false, weight: 700, size: sz, sabit: true, giris: 'asagi', grup: g, golge: false, renk: c.yazi(1), lh: 1.15,
+        });
+      }
     });
 
-    // CTA
-    const gC = c.grup('g-cta', 'Çağrı');
-    c.bolum(tCta, 'Çağrı');
-    c.gecis('iris', tCta, 1.0, '$vurgu');
-    c.metin('cta', gC, brief.cta || 'Hemen dene', tCta, null, {
-      stil: 'baslik-modern', x: W / 2, y: c.Y(0.42, 0.45), sar: dikey ? 14 : 26, maxW: W * 0.88,
-      giris: [{ preset: 'harf-zipla', t: tCta + 0.5, dur: 0.45, aralik: 0.04 }], cikis: [],
-    });
-    if (brief.link) c.metin('link', gC, brief.link, tCta + 1.2, null, { stil: 'etiket-kutu', x: W / 2, y: c.Y(0.54, 0.6), giris: [], cikis: [], extra: { anims: [{ preset: 'zipla-gir', t: tCta + 1.3, dur: 0.5 }, { preset: 'nabiz', t: tCta + 2.2 }] } });
-    c.L({ id: 'cta-konfeti', group: gC, type: 'particles', particle: 'yildiz-yagmuru', mode: 'patlama', x: W / 2, y: c.Y(0.4), start: r2(tCta + 0.6) });
+    // 3) fiyat + kapanış
+    const gF = c.grup('g-fiyat', 'Fiyat', true);
+    let bAfter = b0 + oz.length * 4 + 2;
+    let tCta = tF;
+    if (brief.fiyat) {
+      bgler.push({ t: tF, i: 2 });
+      c.silme('silme-fiyat', tF, c.vurgu(2));
+      c.bolum(tF, 'Fiyat');
+      const tE = c.vurus(bAfter + 4);
+      c.dekor('patlama', tF, tE, c.vurgu(2), { grup: gF, id: 'fiyat-dekor', alfa: 0.22 });
+      c.slam('fiyat-ust', brief.fiyatUst || 'Şimdi', tF + 0.1, tE, { y: H * 0.3, size: 150, renk: c.yazi(2), grup: gF, giris: 'asagi' });
+      c.slam('fiyat', String(brief.fiyat), c.vurus(bAfter + 1), tE, { y: H * 0.46, size: 420, maxW: W * 0.86, renk: c.vurgu(2), grup: gF, nabiz: 0.04, stroke: undefined });
+      if (brief.fiyatAlt) c.hap('fiyat-alt', brief.fiyatAlt, c.vurus(bAfter + 2), tE, W / 2, H * 0.6, { grup: gF, zemin: c.vurgu(2), renk: yaziRengi(c.vurgu(2)), size: m * 0.05 });
+      vuruslar.push(tF, c.vurus(bAfter + 1), c.vurus(bAfter + 2));
+      bAfter += 4;
+      tCta = tE;
+    }
+    const tEnd = c.vurus(bAfter + 6);
+    bgler.push({ t: tCta, i: 3 });
+    if (brief.fiyat) c.silme('silme-cta', tCta, c.vurgu(3));
+    c.kapanis(tCta, tEnd, brief.cta || 'Hemen dene', brief.link || brief.alt, { i: 3, ikon: 'ok' });
+    for (let j = 0; j < 6; j++) vuruslar.push(c.vurus(bAfter + j));
 
-    if (brief.muzik !== false) c.sesEkle(brief.muzik);
-    return c.bitir(brief.ad, sure, {
-      // Yavaş kamera kayması: derinlikli katmanlar farklı hızda hareket eder
-      camera: {
-        zoom: [c.k(0, 1), c.k(sure * 0.5, 1.06, 'inOutSine'), c.k(sure, 1, 'inOutSine')],
-        x: [c.k(0, W / 2 - W * 0.03), c.k(sure, W / 2 + W * 0.03, 'inOutSine')],
-        y: H / 2,
-      },
+    return c.bitir2(brief.ad, tEnd, {
+      background: c.arkaplan(bgler),
+      camera: c.kameraVurus(vuruslar, { zoom: 0.04, egim: 0.7 }),
     });
   },
 };

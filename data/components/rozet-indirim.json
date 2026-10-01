@@ -1,0 +1,51 @@
+{
+  "name": "Rozet — indirim",
+  "description": "Kırmızı büyük indirim etiketi.",
+  "type": "kart",
+  "props": {
+    "kind": "rozet",
+    "title": "%50",
+    "sub": "İNDİRİM",
+    "accent": "#e0584a",
+    "width": 380,
+    "height": 380
+  },
+  "etiketler": {
+    "amac": [
+      "vurgu-dikkat",
+      "cagri-eylem"
+    ],
+    "konu": [
+      "e-ticaret",
+      "sosyal-medya",
+      "genel"
+    ],
+    "ton": [
+      "dikkat-cekici",
+      "eglenceli"
+    ],
+    "stil": [
+      "acik",
+      "yuvarlak",
+      "renkli"
+    ],
+    "icerik": [
+      "simge",
+      "metin"
+    ],
+    "yerlesim": [
+      "kose-etiket",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "rozet",
+      "indirim"
+    ]
+  }
+}

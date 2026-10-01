@@ -1,0 +1,9 @@
+{
+  "name": "Lüks · İnce Serif",
+  "font": "Fraunces",
+  "weight": 300,
+  "size": 100,
+  "color": "$baslik",
+  "letterSpacing": 1,
+  "lineHeight": 1.1
+}

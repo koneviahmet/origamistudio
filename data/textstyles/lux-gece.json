@@ -1,0 +1,14 @@
+{
+  "name": "Lüks · Gece",
+  "font": "Playfair Display",
+  "weight": 800,
+  "size": 92,
+  "color": "#f5efe0",
+  "shadow": {
+    "color": "rgba(0,0,0,0.6)",
+    "blur": 18,
+    "x": 0,
+    "y": 6
+  },
+  "letterSpacing": 1
+}

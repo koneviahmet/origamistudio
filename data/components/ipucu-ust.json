@@ -1,0 +1,47 @@
+{
+  "name": "İpucu — üstte ok",
+  "description": "Koyu tooltip; ok yukarıdaki öğeyi gösterir.",
+  "type": "balon",
+  "props": {
+    "kind": "ipucu",
+    "text": "İpucu: Kaydet düğmesine bas",
+    "side": "ust",
+    "width": 520,
+    "height": 160
+  },
+  "etiketler": {
+    "amac": [
+      "ipucu-yonlendirme"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "egitim",
+      "yazilim"
+    ],
+    "ton": [
+      "minimal",
+      "teknik"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "ipucu",
+      "ustte",
+      "ust"
+    ]
+  }
+}

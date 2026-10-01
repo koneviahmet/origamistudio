@@ -1,0 +1,17 @@
+{
+  "name": "Retro · 70'ler",
+  "font": "Lobster",
+  "weight": 400,
+  "size": 92,
+  "color": "#f6c445",
+  "shadow": {
+    "color": "#7a2e12",
+    "blur": 0,
+    "x": 5,
+    "y": 5
+  },
+  "stroke": {
+    "color": "#3b140a",
+    "width": 6
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Haber · Büyük Rakam",
+  "font": "Anton",
+  "weight": 400,
+  "size": 180,
+  "color": "$vurgu",
+  "shadow": {
+    "color": "rgba(0,0,0,0.25)",
+    "blur": 0,
+    "x": 6,
+    "y": 8
+  }
+}

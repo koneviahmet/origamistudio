@@ -1,0 +1,16 @@
+{
+  "name": "Rozet · Pastel",
+  "font": "Quicksand",
+  "weight": 700,
+  "size": 42,
+  "color": "#5b4a7a",
+  "box": {
+    "color": "#e7dcff",
+    "radius": 999,
+    "padding": [
+      14,
+      36
+    ]
+  },
+  "letterSpacing": 1
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Düşünce balonu — sağ",
+  "description": "Baloncuk izi sağa doğru; renkli kontur.",
+  "type": "balon",
+  "props": {
+    "kind": "dusunce",
+    "text": "Belki de haklıyım…",
+    "side": "sag",
+    "width": 560,
+    "height": 380,
+    "accent": "#6c63ff"
+  },
+  "etiketler": {
+    "amac": [
+      "ic-ses-duygu",
+      "sohbet-diyalog"
+    ],
+    "konu": [
+      "genel",
+      "egitim",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "eglenceli",
+      "sakin",
+      "komik"
+    ],
+    "stil": [
+      "acik",
+      "renkli",
+      "keskin"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "dusunce",
+      "balonu",
+      "sag"
+    ]
+  }
+}

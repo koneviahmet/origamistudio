@@ -1,0 +1,13 @@
+{
+  "name": "El yazısı · Lobster",
+  "font": "Lobster",
+  "weight": 400,
+  "size": 94,
+  "color": "$baslik",
+  "shadow": {
+    "color": "rgba(0,0,0,0.2)",
+    "blur": 6,
+    "x": 3,
+    "y": 4
+  }
+}

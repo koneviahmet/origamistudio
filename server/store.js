@@ -56,7 +56,19 @@ async function writeJson(file, data) {
   await fs.mkdir(path.dirname(file), { recursive: true });
   const tmp = `${file}.${process.pid}.${Date.now()}.tmp`;
   await fs.writeFile(tmp, JSON.stringify(data, null, 2) + '\n', 'utf8');
-  await fs.rename(tmp, file);
+  // Windows'ta virüs tarayıcı / indeksleyici anlık kilit tutabilir (EPERM / EBUSY): kısa yeniden deneme
+  for (let i = 0; ; i++) {
+    try {
+      await fs.rename(tmp, file);
+      return;
+    } catch (e) {
+      if (i >= 5 || !['EPERM', 'EBUSY', 'EACCES'].includes(e.code)) {
+        await fs.rm(tmp, { force: true }).catch(() => {});
+        throw e;
+      }
+      await new Promise((r) => setTimeout(r, 40 * (i + 1)));
+    }
+  }
 }
 
 export function createStore(dataDir) {
@@ -391,7 +403,7 @@ export function createStore(dataDir) {
 
   // ------------------------------------------------------------ collections
   // Basit belge koleksiyonları: data/<koleksiyon>/<id>.json (temalar, metin stilleri)
-  const COLLECTIONS = ['themes', 'textstyles'];
+  const COLLECTIONS = ['themes', 'textstyles', 'components', 'characters'];
   function colDir(col) {
     if (!COLLECTIONS.includes(col)) throw new HttpError(404, `Bilinmeyen koleksiyon: ${col}`);
     return path.join(dataDir, col);

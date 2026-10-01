@@ -1,0 +1,73 @@
+{
+  "name": "Çizgi grafik",
+  "description": "Zaman içindeki değişim ve eğilim.",
+  "type": "chart",
+  "props": {
+    "kind": "line",
+    "title": "Eğilim",
+    "width": 860,
+    "height": 560,
+    "data": [
+      {
+        "label": "Oca",
+        "value": 20
+      },
+      {
+        "label": "Şub",
+        "value": 34
+      },
+      {
+        "label": "Mar",
+        "value": 28
+      },
+      {
+        "label": "Nis",
+        "value": 52
+      },
+      {
+        "label": "May",
+        "value": 61
+      },
+      {
+        "label": "Haz",
+        "value": 80
+      }
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "veri-hikayesi",
+      "ilerleme-takip"
+    ],
+    "konu": [
+      "finans-is",
+      "genel"
+    ],
+    "ton": [
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "grafik",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "cizgi",
+      "grafik",
+      "trend"
+    ]
+  }
+}

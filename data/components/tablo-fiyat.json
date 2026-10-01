@@ -1,0 +1,53 @@
+{
+  "name": "Tablo — fiyatlar",
+  "description": "Başlık satırı vurgulu, satırlar tek tek gelen tablo.",
+  "type": "liste",
+  "props": {
+    "kind": "tablo",
+    "title": "Planlar",
+    "lines": [
+      "Plan|Fiyat|Kullanıcı",
+      "Başlangıç|₺0|1",
+      "Takım|₺99|10",
+      "Kurumsal|₺499|Sınırsız"
+    ],
+    "width": 820
+  },
+  "etiketler": {
+    "amac": [
+      "karsilastirma",
+      "fiyatlandirma",
+      "liste-ozet"
+    ],
+    "konu": [
+      "finans-is",
+      "e-ticaret",
+      "uygulama-urun"
+    ],
+    "ton": [
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "tablo"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "tablo",
+      "fiyatlar",
+      "fiyat"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "El yazısı · Tebeşir",
+  "font": "Caveat",
+  "weight": 700,
+  "size": 96,
+  "color": "#f4f4ee",
+  "shadow": {
+    "color": "rgba(255,255,255,0.35)",
+    "blur": 6,
+    "x": 0,
+    "y": 0
+  }
+}

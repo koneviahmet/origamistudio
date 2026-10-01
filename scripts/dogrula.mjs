@@ -118,6 +118,14 @@ for (let i = 0; i < texts.length; i++) for (let j = i + 1; j < texts.length; j++
   if (over > 0.8 && Math.abs(num(a.y) - num(b.y)) < 30 && Math.abs(num(a.x) - num(b.x)) < 200 && !Array.isArray(a.y) && !Array.isArray(b.y)) Wn(`metin çakışması olası: ${a.id} / ${b.id} (aynı konum, ${over.toFixed(1)} sn)`);
 }
 
+{
+  const p = scene.publish;
+  if (!p || !p.title || !p.description || !(p.tags || []).length) Wn('paylaşım bilgisi eksik: scene.publish { title, description, tags[] } doldur (Stüdyo → Paylaşım)');
+  else {
+    if (p.title.length > 100) Wn(`publish.title ${p.title.length} karakter (YouTube sınırı 100)`);
+    if (p.tags.length > 30) Wn(`publish.tags ${p.tags.length} adet (Instagram sınırı 30)`);
+  }
+}
 console.log(`${id}: ${W}×${H}, ${D} sn, ${scene.layers.length} katman, ${(scene.transitions || []).length} geçiş`);
 for (const m of err) console.log('  ✗ HATA  ', m);
 for (const m of warn) console.log('  ! uyarı ', m);

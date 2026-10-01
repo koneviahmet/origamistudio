@@ -1,0 +1,17 @@
+{
+  "name": "Kod · Terminal",
+  "font": "JetBrains Mono",
+  "weight": 700,
+  "size": 52,
+  "color": "#7dff9b",
+  "box": {
+    "color": "#0c1410",
+    "radius": 10,
+    "padding": [
+      18,
+      30
+    ],
+    "shadow": false
+  },
+  "lineHeight": 1.3
+}

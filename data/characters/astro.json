@@ -1,0 +1,309 @@
+{
+  "name": "Astro",
+  "description": "Parlak beyaz uzay giysili, sırt çantalı, camlı kasklı astronot: yansımalı kask, göğüs paneli, yama, turuncu eldiven ve botlar. Uzay, bilim, keşif ve gökyüzü videoları için.",
+  "rig": "insan",
+  "etiketler": [
+    "astronot",
+    "uzay",
+    "space",
+    "astronaut",
+    "bilim",
+    "gezegen",
+    "keşif",
+    "roket",
+    "gökyüzü",
+    "güneş",
+    "eğitim",
+    "fen"
+  ],
+  "kullanim": "Uzay / astronomi / bilim anlatıcısı; karanlık yıldızlı arka planlarda parlak okunur.",
+  "olcu": {
+    "bas": [
+      64,
+      60
+    ],
+    "boyun": 0,
+    "govde": [
+      88,
+      110
+    ],
+    "omuzY": 20,
+    "omuzX": 40,
+    "kolUst": 45,
+    "kolAlt": 41,
+    "kalcaX": 20,
+    "bacakUst": 41,
+    "bacakAlt": 37,
+    "el": 15,
+    "ayak": [
+      32,
+      16
+    ]
+  },
+  "isik": 0.7,
+  "cizgi": {
+    "renk": "#3a4663",
+    "kalinlik": 4,
+    "titrek": 0,
+    "kaynama": 0,
+    "renkli": true,
+    "renkliGuc": 0.42
+  },
+  "renkler": {
+    "kafa": "#ffd7b5",
+    "govde": "#f6f8fc",
+    "kol": "#f6f8fc",
+    "bacak": "#f6f8fc",
+    "el": "#ff9f43",
+    "ayak": "#ff9f43",
+    "manset": "#c9d3e6",
+    "halka": "#8fa0bf",
+    "bagaj": "#aab4c6",
+    "yama": "#e63946",
+    "kemer": "#8fa0bf",
+    "taban": "#e9edf5",
+    "sirit": "#ffd23f",
+    "sac": "#5a3b2a",
+    "goz": "#2a1b17",
+    "iris": "#3b6ea8",
+    "agiz": "#8f2d3a",
+    "yanak": "#ff8f8f",
+    "vurgu": "#3df5e0"
+  },
+  "govde": {
+    "sekil": "kapsul",
+    "detay": [
+      "bagaj",
+      "halka",
+      "panel",
+      "yama"
+    ]
+  },
+  "kafa": {
+    "sekil": "daire"
+  },
+  "uzuv": {
+    "tur": "tup",
+    "kalinlik": 13,
+    "el": "eldiven",
+    "ayak": "bot",
+    "manset": true
+  },
+  "yuz": {
+    "goz": "buyuk",
+    "boyut": 0.95,
+    "aralik": 0.9,
+    "yukseklik": 0,
+    "agizGen": 0.9,
+    "burun": "nokta",
+    "yanakGuc": 0.25,
+    "kirpik": false
+  },
+  "ekler": [
+    {
+      "id": "kulak-insan",
+      "ad": "Kulaklar",
+      "tur": "kulak",
+      "stil": "insan"
+    },
+    {
+      "id": "sac",
+      "ad": "Saç",
+      "tur": "sac",
+      "stil": "kisa"
+    },
+    {
+      "id": "kask-cam",
+      "ad": "Uzay kaskı (cam)",
+      "tur": "sapka",
+      "stil": "astronot",
+      "renk": "#eef1f8"
+    },
+    {
+      "id": "sac-kisa",
+      "ad": "Kısa saç",
+      "tur": "sac",
+      "stil": "kisa",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-dikenli",
+      "ad": "Dikenli saç",
+      "tur": "sac",
+      "stil": "dikenli",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-topuz",
+      "ad": "Topuz",
+      "tur": "sac",
+      "stil": "topuz",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-uzun",
+      "ad": "Uzun saç",
+      "tur": "sac",
+      "stil": "uzun",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-kuyruk",
+      "ad": "At kuyruğu",
+      "tur": "sac",
+      "stil": "at-kuyrugu",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-tutam",
+      "ad": "Tek tutam",
+      "tur": "sac",
+      "stil": "tutam",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-kabarik",
+      "ad": "Kabarık saç",
+      "tur": "sac",
+      "stil": "kabarik",
+      "varsayilan": false
+    },
+    {
+      "id": "gozluk",
+      "ad": "Yuvarlak gözlük",
+      "tur": "gozluk",
+      "stil": "yuvarlak",
+      "varsayilan": false
+    },
+    {
+      "id": "gunes-gozlugu",
+      "ad": "Güneş gözlüğü",
+      "tur": "gozluk",
+      "stil": "gunes",
+      "varsayilan": false
+    },
+    {
+      "id": "bere",
+      "ad": "Bere",
+      "tur": "sapka",
+      "stil": "bere",
+      "varsayilan": false,
+      "renk": "#e63946"
+    },
+    {
+      "id": "silindir",
+      "ad": "Silindir şapka",
+      "tur": "sapka",
+      "stil": "silindir",
+      "varsayilan": false
+    },
+    {
+      "id": "kep",
+      "ad": "Kep",
+      "tur": "sapka",
+      "stil": "kep",
+      "varsayilan": false,
+      "renk": "#3b82f6"
+    },
+    {
+      "id": "kask",
+      "ad": "İş kaskı",
+      "tur": "sapka",
+      "stil": "kask",
+      "varsayilan": false
+    },
+    {
+      "id": "sef-sapkasi",
+      "ad": "Aşçı şapkası",
+      "tur": "sapka",
+      "stil": "sef",
+      "varsayilan": false
+    },
+    {
+      "id": "parti-sapkasi",
+      "ad": "Parti şapkası",
+      "tur": "sapka",
+      "stil": "parti",
+      "varsayilan": false
+    },
+    {
+      "id": "tac",
+      "ad": "Taç",
+      "tur": "sapka",
+      "stil": "tac",
+      "varsayilan": false
+    },
+    {
+      "id": "kravat",
+      "ad": "Kravat",
+      "tur": "kravat",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "papyon",
+      "ad": "Papyon",
+      "tur": "papyon",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "atki",
+      "ad": "Atkı",
+      "tur": "atki",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "pelerin",
+      "ad": "Pelerin",
+      "tur": "pelerin",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "biyik",
+      "ad": "Bıyık",
+      "tur": "biyik",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "sakal",
+      "ad": "Sakal",
+      "tur": "sakal",
+      "stil": "duz",
+      "varsayilan": false
+    }
+  ],
+  "varyantlar": {
+    "turuncu": {
+      "renkler": {
+        "govde": "#ff9f43",
+        "kol": "#ff9f43",
+        "bacak": "#ff9f43",
+        "el": "#f6f8fc",
+        "ayak": "#f6f8fc",
+        "manset": "#e18329",
+        "halka": "#d9d9e3",
+        "yama": "#3b6ea8"
+      }
+    },
+    "mavi": {
+      "renkler": {
+        "govde": "#74c0fc",
+        "kol": "#74c0fc",
+        "bacak": "#74c0fc",
+        "el": "#f6f8fc",
+        "ayak": "#f6f8fc",
+        "manset": "#4a9ee0",
+        "halka": "#d9e3f2"
+      }
+    },
+    "kaskisiz": {
+      "ekKapat": [
+        "kask-cam"
+      ]
+    }
+  }
+}

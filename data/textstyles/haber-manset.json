@@ -1,0 +1,10 @@
+{
+  "name": "Haber · Manşet",
+  "font": "Archivo Black",
+  "weight": 400,
+  "size": 70,
+  "color": "#0a0a0a",
+  "uppercase": true,
+  "lineHeight": 1.05,
+  "letterSpacing": -1
+}

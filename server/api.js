@@ -1,12 +1,12 @@
 import express from 'express';
-import { HttpError } from './store.js';
-import { sablonListesi, uret } from '../scripts/sablonlar/index.mjs';
+import { HttpError, assertId, slugify } from './store.js';
+import { sablonListesi, sablonMeta, uret } from '../scripts/sablonlar/index.mjs';
 import { notlariUygula } from '../scripts/ai-notlar.mjs';
 import { ayarOku, ayarYaz, ollayaDurum } from '../scripts/kutuphane-ara.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-export function createApi(store, events, fonts, tts, muzik) {
+export function createApi(store, events, fonts, tts, muzik, youtube) {
   const r = express.Router();
 
   r.get('/events', events.handler);
@@ -33,6 +33,15 @@ export function createApi(store, events, fonts, tts, muzik) {
   // -------------------------------------------------------------- şablonlar
   // Brief → sahne: scripts/sablonlar/ üreteçleri (CLI: node scripts/uret.mjs)
   r.get('/templates', (_req, res) => res.json(sablonListesi()));
+  r.get('/templates/meta', (_req, res) => res.json(sablonMeta()));
+  // Önizleme: sahneyi üretir ama proje oluşturmaz (Şablonlar sayfası)
+  r.post('/templates/preview', (req, res) => {
+    try {
+      res.json(uret(req.body || {}));
+    } catch (e) {
+      throw new HttpError(400, e.message);
+    }
+  });
   r.post('/templates/generate', async (req, res) => {
     let out;
     try {
@@ -42,7 +51,72 @@ export function createApi(store, events, fonts, tts, muzik) {
     }
     const project = await store.createProject(out.scene);
     await fs.writeFile(path.join(store.projectsDir, project.id, 'brief.json'), JSON.stringify(req.body, null, 2) + '\n');
+    if (out.anlatim?.length) await fs.writeFile(path.join(store.projectsDir, project.id, 'anlatim.txt'), out.anlatim.map((a) => `${a.t} | ${a.metin}`).join('\n') + '\n');
     res.status(201).json(project);
+  });
+
+  // ------------------------------------------- bileşen etiket sözlüğü (özel değerler)
+  // data/bilesen-etiketleri.json = { facetler: { <facet>: { degerler: { <değer>: { ad, es } } } } } — varsayılanların üstüne biner
+  const TAXF = path.join(store.projectsDir, '..', 'bilesen-etiketleri.json');
+  r.get('/component-tags', async (_req, res) => {
+    try {
+      res.json(JSON.parse(await fs.readFile(TAXF, 'utf8')));
+    } catch {
+      res.json({ facetler: {} });
+    }
+  });
+  r.put('/component-tags', async (req, res) => {
+    const facetler = req.body?.facetler;
+    if (!facetler || typeof facetler !== 'object') throw new HttpError(400, 'facetler nesnesi gerekli');
+    await fs.writeFile(TAXF, JSON.stringify({ _not: 'Özel etiket değerleri (varsayılan sözlüğün üstüne biner). Varsayılanlar: web/src/componentTags.js', facetler }, null, 2) + '\n');
+    res.json({ facetler });
+  });
+
+  // ------------------------------------------- kullanıcı şablonları (projeden)
+  // data/templates/<id>.json = { id, ad, aciklama, kaynak, createdAt, scene } — sahnenin tam kopyası
+  const TPL = path.join(store.projectsDir, '..', 'templates');
+  const tplFile = (id) => path.join(TPL, `${assertId(id, 'şablon id')}.json`);
+  const readTpl = async (id) => {
+    try {
+      return JSON.parse(await fs.readFile(tplFile(id), 'utf8'));
+    } catch (e) {
+      if (e.status) throw e;
+      throw new HttpError(404, `Şablon bulunamadı: ${id}`);
+    }
+  };
+  r.get('/user-templates', async (_req, res) => {
+    await fs.mkdir(TPL, { recursive: true });
+    const out = [];
+    for (const f of await fs.readdir(TPL)) {
+      if (!f.endsWith('.json')) continue;
+      try {
+        out.push(JSON.parse(await fs.readFile(path.join(TPL, f), 'utf8')));
+      } catch { /* bozuk dosya atlanır */ }
+    }
+    res.json(out.sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt))));
+  });
+  r.post('/user-templates', async (req, res) => {
+    const { projectId, ad, aciklama } = req.body || {};
+    const { scene } = await store.getProject(projectId);
+    const name = String(ad || scene.name || projectId).trim();
+    await fs.mkdir(TPL, { recursive: true });
+    let id = slugify(name);
+    for (let i = 2; await fs.access(tplFile(id)).then(() => true, () => false); i++) id = `${slugify(name)}-${i}`;
+    const doc = { id, ad: name, aciklama: String(aciklama || '').trim(), kaynak: projectId, createdAt: new Date().toISOString(), scene };
+    await fs.writeFile(tplFile(id), JSON.stringify(doc, null, 2) + '\n');
+    res.status(201).json(doc);
+  });
+  r.patch('/user-templates/:id', async (req, res) => {
+    const doc = await readTpl(req.params.id);
+    if (typeof req.body?.ad === 'string' && req.body.ad.trim()) doc.ad = req.body.ad.trim();
+    if (typeof req.body?.aciklama === 'string') doc.aciklama = req.body.aciklama.trim();
+    await fs.writeFile(tplFile(doc.id), JSON.stringify(doc, null, 2) + '\n');
+    res.json(doc);
+  });
+  r.delete('/user-templates/:id', async (req, res) => {
+    await readTpl(req.params.id);
+    await fs.unlink(tplFile(req.params.id));
+    res.status(204).end();
   });
 
   // ------------------------------------------------------------------ audio
@@ -218,6 +292,30 @@ export function createApi(store, events, fonts, tts, muzik) {
     });
     res.status(201).json(await store.saveAudio(`${ad}.wav`, buf));
   });
+
+  // ------------------------------------------------------------ YouTube
+  r.get('/youtube/status', (_req, res) => res.json(youtube.status()));
+  r.put('/youtube/config', (req, res) => res.json(youtube.saveConfig(req.body || {})));
+  r.get('/youtube/auth', (_req, res) => res.json(youtube.authUrl()));
+  r.get('/youtube/callback', async (req, res) => {
+    const page = (msg, ok) => res.status(ok ? 200 : 400).type('html').send(
+      `<meta charset="utf-8"><body style="font:16px system-ui;background:#1a1410;color:#eee;display:grid;place-items:center;height:100vh"><div><h2>${ok ? '✓ YouTube bağlandı' : 'Bağlanılamadı'}</h2><p>${msg.replace(/</g, '&lt;')}</p></div>`);
+    try {
+      await youtube.callback(req.query);
+      page("Bu sekmeyi kapatıp Origami Studio'ya dönebilirsin.", true);
+    } catch (e) {
+      page(e.message, false);
+    }
+  });
+  r.post('/youtube/disconnect', (_req, res) => res.json(youtube.disconnect()));
+  r.get('/youtube/jobs', (_req, res) => res.json(youtube.jobs()));
+  r.get('/youtube/jobs/:id', (req, res) => {
+    const j = youtube.job(req.params.id);
+    if (!j) throw new HttpError(404, 'Yükleme işi bulunamadı');
+    res.json(j);
+  });
+  r.get('/projects/:id/renders', async (req, res) => res.json(await youtube.listRenders(req.params.id)));
+  r.post('/projects/:id/youtube-upload', async (req, res) => res.status(202).json(await youtube.upload(req.params.id, req.body || {})));
 
   r.use((_req, _res, next) => next(new HttpError(404, 'API yolu bulunamadı')));
   // eslint-disable-next-line no-unused-vars

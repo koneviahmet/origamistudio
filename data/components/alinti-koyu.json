@@ -1,0 +1,52 @@
+{
+  "name": "Alıntı — koyu",
+  "description": "Koyu zemin, altın vurgu; sinematik söz kartı.",
+  "type": "kart",
+  "props": {
+    "kind": "alinti",
+    "text": "Hayal edebiliyorsan, yapabilirsin.",
+    "sub": "Bilinmeyen",
+    "width": 820,
+    "height": 420,
+    "bg": "#1f1c2e",
+    "textColor": "#f4f1ff",
+    "accent": "#f6b73c"
+  },
+  "etiketler": {
+    "amac": [
+      "alinti-soz",
+      "sosyal-kanit"
+    ],
+    "konu": [
+      "genel",
+      "egitim",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "sinematik",
+      "sakin"
+    ],
+    "stil": [
+      "koyu",
+      "kartli",
+      "renkli"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "alinti",
+      "koyu"
+    ]
+  }
+}

@@ -6,15 +6,22 @@ import { api } from '../../api.js';
 import { reloadResources } from '../../resources.js';
 import { forgetMedia } from '../../media.js';
 import { toast, toastError } from '../../toast.js';
+import { componentProps } from '../../sceneOps.js';
+import { VARIANTS, VARIANT_NAMES, applyVariant } from '../../engine/widgetStyle.js';
+import { slug } from '../../slug.js';
+import { withAutoTags } from '../../componentTags.js';
 
 const props = defineProps({
   layer: { type: Object, required: true },
   scene: { type: Object, required: true },
   res: { type: Object, required: true },
   edit: { type: Function, required: true },
+  bare: { type: Boolean, default: false }, // Bileşenler sayfasında 'bileşen olarak kaydet' düğmesi gizlenir
 });
 
-const fields = computed(() => WIDGET_FIELDS[props.layer.type] || []);
+const kindOf = computed(() => props.layer.kind || (WIDGET_FIELDS[props.layer.type] || []).find((f) => f.key === 'kind')?.def);
+// `kinds` olan alan yalnızca o türlerde gösterilir
+const fields = computed(() => (WIDGET_FIELDS[props.layer.type] || []).filter((f) => !f.kinds || f.kinds.includes(kindOf.value)));
 const val = (f) => props.layer[f.key] ?? f.def ?? '';
 
 function set(key, v) {
@@ -65,12 +72,35 @@ async function upload(e) {
     uploading.value = false;
   }
 }
+async function saveAsComponent() {
+  const name = prompt('Bileşen adı:', '');
+  if (!name || !name.trim()) return;
+  try {
+    let id = slug(name);
+    if (props.res.components.some((c) => c.id === id)) id = `${id}-${Date.now().toString(36).slice(-3)}`;
+    const doc = { id, name: name.trim(), description: '', type: props.layer.type, props: componentProps(props.layer) };
+    await api.colCreate('components', { ...doc, etiketler: withAutoTags(doc) });
+    await reloadResources('components');
+    toast('Bileşen kaydedildi → Bileşenler sayfası', 'ok');
+  } catch (e) {
+    toastError(e);
+  }
+}
+function applyVar(name) {
+  const add = applyVariant(props.layer.type, {}, name);
+  if (!Object.keys(add).length) return toast('Bu varyant bu bileşene uygulanmaz');
+  props.edit(() => Object.assign(props.layer, add), `w:var:${name}`);
+}
 const hasAudio = computed(() => (props.scene.audio || []).length > 0);
 const hasEnv = computed(() => (props.scene.audio || []).some((a) => a.env?.data?.length));
 </script>
 
 <template>
   <div class="we">
+    <div class="qv">
+      <span class="dim small">Hızlı stil</span>
+      <button v-for="n in VARIANT_NAMES" :key="n" type="button" class="chip qb" :title="VARIANTS[n].info" @click="applyVar(n)">{{ n }}</button>
+    </div>
     <div v-for="f in fields" :key="f.key" class="field">
       <label>{{ f.label }}</label>
       <select v-if="f.type === 'select'" class="input" :value="val(f)" @change="set(f.key, $event.target.value)">
@@ -83,6 +113,7 @@ const hasEnv = computed(() => (props.scene.audio || []).some((a) => a.env?.data?
         <input v-if="isHex(val(f))" type="color" class="input color" :value="val(f)" @input="set(f.key, $event.target.value)" />
         <input class="input mono grow" :value="layer[f.key] ?? ''" :placeholder="String(f.def)" @change="set(f.key, $event.target.value.trim())" />
       </div>
+      <textarea v-else-if="f.type === 'area'" class="input" rows="3" :value="layer[f.key] ?? ''" @input="set(f.key, $event.target.value)" />
       <textarea v-else-if="f.type === 'data'" class="input mono" rows="6" spellcheck="false" :value="dataText" :placeholder="f.hint" @change="setData($event.target.value)" />
       <textarea v-else-if="f.type === 'lines'" class="input mono" rows="4" spellcheck="false" :value="linesText" :placeholder="f.hint" @change="setLines($event.target.value)" />
       <div v-else-if="f.type === 'media'" class="row">
@@ -97,6 +128,7 @@ const hasEnv = computed(() => (props.scene.audio || []).some((a) => a.env?.data?
       <input v-else-if="f.type === 'number'" type="number" class="input" :step="f.step || 1" :value="layer[f.key] ?? ''" :placeholder="String(f.def)" @change="set(f.key, $event.target.value === '' ? null : Number($event.target.value))" />
       <input v-else class="input" :value="layer[f.key] ?? ''" :placeholder="String(f.def)" @change="set(f.key, $event.target.value)" />
     </div>
+    <button v-if="!bare" class="btn sm" title="Bu görünümü kayıtlı bileşen olarak sakla; Bileşen menüsünden tekrar eklenir" @click="saveAsComponent">☆ Bileşen olarak kaydet</button>
     <p v-if="layer.type === 'waveform'" class="dim small">
       {{ !hasAudio ? 'Sahneye bir müzik izi ekleyin.' : hasEnv ? 'Ses zarfı var — çubuklar müziğe göre hareket eder.' : 'Ses zarfı yok: sahte vuruş animasyonu gösterilir. Ses bölümünden “Zarf çıkar”a basın.' }}
     </p>
@@ -108,5 +140,8 @@ const hasEnv = computed(() => (props.scene.audio || []).some((a) => a.env?.data?
 <style scoped>
 .we { display: grid; gap: 8px; }
 .chk { height: 30px; }
+.qv { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.qb { cursor: pointer; background: transparent; color: inherit; }
+.qb:hover { border-color: var(--accent); }
 textarea.input { resize: vertical; }
 </style>

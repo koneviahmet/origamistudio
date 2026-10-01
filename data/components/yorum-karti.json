@@ -1,0 +1,49 @@
+{
+  "name": "Yorum kartı",
+  "description": "Avatar, ad, yorum metni ve beğeni sayısı.",
+  "type": "balon",
+  "props": {
+    "kind": "yorum",
+    "title": "Ayşe Demir",
+    "sub": "2 sa önce",
+    "text": "Çok güzel olmuş, elinize sağlık!",
+    "value": "24",
+    "width": 680,
+    "height": 240
+  },
+  "etiketler": {
+    "amac": [
+      "yorum-etkilesim",
+      "sosyal-kanit"
+    ],
+    "konu": [
+      "sosyal-medya",
+      "e-ticaret"
+    ],
+    "ton": [
+      "minimal",
+      "sakin"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "kisi",
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "yorum",
+      "karti"
+    ]
+  }
+}

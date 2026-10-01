@@ -1,0 +1,9 @@
+{
+  "name": "Başlık · Urbanist",
+  "font": "Urbanist",
+  "weight": 800,
+  "size": 104,
+  "color": "$baslik",
+  "letterSpacing": -2,
+  "lineHeight": 1.05
+}

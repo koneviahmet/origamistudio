@@ -1,0 +1,13 @@
+{
+  "name": "El yazısı · Pacifico",
+  "font": "Pacifico",
+  "weight": 400,
+  "size": 88,
+  "color": "$vurgu",
+  "shadow": {
+    "color": "rgba(0,0,0,0.2)",
+    "blur": 8,
+    "x": 0,
+    "y": 4
+  }
+}

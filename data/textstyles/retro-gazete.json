@@ -1,0 +1,15 @@
+{
+  "name": "Retro · Gazete Başlığı",
+  "font": "Playfair Display",
+  "weight": 900,
+  "size": 78,
+  "color": "#1d1a16",
+  "shadow": {
+    "color": "rgba(0,0,0,0.18)",
+    "blur": 0,
+    "x": 3,
+    "y": 3
+  },
+  "uppercase": true,
+  "letterSpacing": 1
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Retro · Atari",
+  "font": "Russo One",
+  "weight": 400,
+  "size": 78,
+  "color": "#ffe14d",
+  "shadow": {
+    "color": "#d13a1c",
+    "blur": 0,
+    "x": 5,
+    "y": 5
+  },
+  "uppercase": true,
+  "letterSpacing": 4
+}

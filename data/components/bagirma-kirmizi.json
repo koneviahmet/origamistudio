@@ -1,0 +1,50 @@
+{
+  "name": "Bağırma — kırmızı",
+  "description": "Kırmızı dikkat çekici patlama (uyarı, büyük haber).",
+  "type": "balon",
+  "props": {
+    "kind": "bagirma",
+    "text": "DİKKAT!",
+    "width": 560,
+    "height": 420,
+    "accent": "#e0584a"
+  },
+  "etiketler": {
+    "amac": [
+      "vurgu-dikkat",
+      "ic-ses-duygu"
+    ],
+    "konu": [
+      "genel",
+      "sosyal-medya",
+      "muzik-eglence"
+    ],
+    "ton": [
+      "enerjik",
+      "dikkat-cekici",
+      "komik"
+    ],
+    "stil": [
+      "acik",
+      "renkli",
+      "keskin"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "bagirma",
+      "kirmizi"
+    ]
+  }
+}

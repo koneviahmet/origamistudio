@@ -10,7 +10,7 @@ import { toast, toastError } from '../toast.js';
 import { renderFrame, formatMapping } from '../engine/renderer.js';
 import { samplePath, pathAt, nearestOnPath } from '../engine/path.js';
 import { prop as sampleProp } from '../engine/anim.js';
-import { newAssetLayer, newTextLayer, newParticleLayer, newArrowLayer, newWidgetLayer, setPropAt, valueAt, clone } from '../sceneOps.js';
+import { newAssetLayer, newTextLayer, newParticleLayer, newArrowLayer, newWidgetLayer, newCharacterLayer, layerFromComponent, setPropAt, valueAt, clone } from '../sceneOps.js';
 import { exportPng, downloadBlob } from '../export/mp4.js';
 import { prepareMedia } from '../media.js';
 import { slug } from '../slug.js';
@@ -20,6 +20,9 @@ import NotesPanel from '../components/studio/NotesPanel.vue';
 import ExportDialog from '../components/studio/ExportDialog.vue';
 import AssetPicker from '../components/studio/AssetPicker.vue';
 import HistoryPanel from '../components/studio/HistoryPanel.vue';
+import ContentPanel from '../components/studio/ContentPanel.vue';
+import PublishPanel from '../components/studio/PublishPanel.vue';
+import { matchComponent } from '../componentTags.js';
 
 const props = defineProps({ id: { type: String, required: true } });
 const router = useRouter();
@@ -560,6 +563,15 @@ function seek(t) {
   if (playing.value) pause();
   time.value = Math.max(0, Math.min(duration.value, t));
 }
+// İçerik panelinden bir katmana git: seç, görünür değilse başlangıç anına atla
+function goLayer(id) {
+  selectedId.value = id;
+  const l = scene.value?.layers.find((x) => x.id === id);
+  if (!l) return;
+  const t0 = l.start ?? 0;
+  const t1 = l.end ?? duration.value;
+  if (time.value < t0 || time.value > t1) seek(Math.min(t0 + 0.8, t1));
+}
 const stepFrame = (n) => seek(Math.round((time.value + n / fps.value) * fps.value) / fps.value);
 
 // ------------------------------------------------------- sahne etkileşimi
@@ -894,12 +906,29 @@ function addText() {
   rightTab.value = 'inspector';
 }
 const showWidgetMenu = ref(false);
-function addWidget(type) {
-  const layer = newWidgetLayer(scene.value, type, time.value);
+const compQ = ref('');
+const compList = computed(() => {
+  const rows = res.value.components.map((c) => ({ c, s: matchComponent(c, compQ.value, {}, res.value.taxonomy) })).filter((x) => x.s > 0);
+  if (compQ.value.trim()) rows.sort((a, b) => b.s - a.s);
+  return rows.map((x) => x.c);
+});
+const compTip = (c) => [c.description, ...['amac', 'ton'].map((f) => (c.etiketler?.[f] || []).map((v) => res.value.taxonomy[f]?.degerler?.[v]?.ad || v).join(', '))].filter(Boolean).join(' · ');
+function addWidget(type, comp) {
+  const layer = comp ? layerFromComponent(scene.value, comp, time.value) : newWidgetLayer(scene.value, type, time.value);
   edit(() => scene.value.layers.push(layer));
   selectedId.value = layer.id;
   rightTab.value = 'inspector';
   showWidgetMenu.value = false;
+}
+const showCharMenu = ref(false);
+const charList = computed(() => [...res.value.characters.values()].sort((a, b) => (a.name || a.id).localeCompare(b.name || b.id, 'tr')));
+function addCharacter(c) {
+  const same = scene.value.layers.filter((l) => l.type === 'karakter').length;
+  const layer = newCharacterLayer(scene.value, c, time.value, same);
+  edit(() => scene.value.layers.push(layer));
+  selectedId.value = layer.id;
+  rightTab.value = 'inspector';
+  showCharMenu.value = false;
 }
 function addParticles() {
   // Parçacık efektleri kütüphanededir: seçiciyi "efektler" kategorisiyle aç
@@ -1011,6 +1040,29 @@ async function snapshot() {
     toastError(e);
   }
 }
+/** Şu anki kareyi (önizleme kaplamaları olmadan, tam çıktı çözünürlüğünde) PNG olarak indirir. */
+function saveFrame() {
+  const s = scene.value;
+  if (!s) return;
+  const W = outW.value;
+  const H = outH.value;
+  const c = document.createElement('canvas');
+  c.width = W;
+  c.height = H;
+  const ctx = c.getContext('2d');
+  prepareMedia(toRaw(s), time.value, res.value, { onUpdate: requestRender });
+  renderFrame(ctx, toRaw(s), time.value, res.value, { format: formatObj.value ? toRaw(formatObj.value) : null, only: onlySet.value });
+  c.toBlob((blob) => {
+    if (!blob) return toast('Kare kaydedilemedi', 'error');
+    const name = `${props.id}-${time.value.toFixed(2).replace('.', '_')}s.png`;
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    toast(`Kare kaydedildi: ${name}`, 'ok', 2500);
+  }, 'image/png');
+}
 function fullscreen() {
   if (document.fullscreenElement) document.exitFullscreen();
   else stageWrap.value?.requestFullscreen();
@@ -1024,7 +1076,7 @@ function onKey(e) {
   const mod = e.ctrlKey || e.metaKey;
   if (mod && e.key.toLowerCase() === 's') {
     e.preventDefault();
-    save();
+    e.shiftKey ? saveFrame() : save();
     return;
   }
   if (isTyping(e) || showExport.value || showPicker.value) return;
@@ -1062,6 +1114,7 @@ function onKey(e) {
     case 'KeyN': e.preventDefault(); rightTab.value = 'notes'; notesPanel.value?.focus(); break;
     case 'KeyP': pinMode.value = !pinMode.value; break;
     case 'Delete':
+    case 'Backspace':
       if (!timeline.value?.deleteSelected()) deleteSelectedLayer();
       break;
     case 'Escape': pinMode.value = false; selectedId.value = null; break;
@@ -1125,12 +1178,32 @@ const fmt = (t) => {
       <button class="btn" title="Konfeti, kar, yağmur, kabarcık…" @click="addParticles">＋ Parçacık</button>
       <button class="btn" title="Nesneden nesneye geçiş oku (seçili katmandan en yakın nesneye)" @click="addArrow">＋ Ok</button>
       <span class="wmenu">
-        <button class="btn" title="Grafik, cihaz çerçevesi, resim / video, ses dalgası" @click="showWidgetMenu = !showWidgetMenu">＋ Bileşen ▾</button>
+        <button class="btn" title="Grafik, cihaz, resim / video, ses dalgası, kart, liste, kod, zamanlayıcı" @click="showWidgetMenu = !showWidgetMenu">＋ Bileşen ▾</button>
         <span v-if="showWidgetMenu" class="wpop" @mouseleave="showWidgetMenu = false">
           <button class="btn sm" @click="addWidget('chart')">📊 Grafik / sayaç</button>
           <button class="btn sm" @click="addWidget('device')">📱 Cihaz çerçevesi</button>
           <button class="btn sm" @click="addWidget('media')">🖼 Resim / video</button>
           <button class="btn sm" @click="addWidget('waveform')">🎚 Ses dalgası</button>
+          <button class="btn sm" @click="addWidget('kart')">🪪 Kart (alıntı, fiyat, profil…)</button>
+          <button class="btn sm" @click="addWidget('liste')">📋 Liste / tablo</button>
+          <button class="btn sm" @click="addWidget('kod')">💻 Kod penceresi</button>
+          <button class="btn sm" @click="addWidget('zaman')">⏱ Zamanlayıcı</button>
+          <button class="btn sm" @click="addWidget('balon')">💭 Balon / not (düşünce, yorum…)</button>
+          <span class="wsep">Kayıtlı bileşenler</span>
+          <input v-model="compQ" class="input wq" placeholder="Ara: ad, etiket, anlam…" @keydown.stop />
+          <span v-if="!compList.length" class="dim small wnone">{{ res.components.length ? 'Eşleşen yok' : 'Henüz yok' }}</span>
+          <span class="wlist">
+            <button v-for="c in compList" :key="c.id" class="btn sm" :title="compTip(c)" @click="addWidget(c.type, c)">{{ c.name || c.id }}</button>
+          </span>
+          <RouterLink class="btn sm ghost" to="/bilesenler" target="_blank">⚙ Bileşenleri yönet</RouterLink>
+        </span>
+      </span>
+      <span class="wmenu">
+        <button class="btn" title="Konuşan, yürüyen, tepki veren karakterler" @click="showCharMenu = !showCharMenu">＋ Karakter ▾</button>
+        <span v-if="showCharMenu" class="wpop" @mouseleave="showCharMenu = false">
+          <button v-for="c in charList" :key="c.id" class="btn sm" :title="c.description" @click="addCharacter(c)">🧍 {{ c.name || c.id }}</button>
+          <span v-if="!charList.length" class="dim small wnone">Henüz karakter yok</span>
+          <RouterLink class="btn sm ghost" to="/karakterler" target="_blank">⚙ Karakterleri yönet</RouterLink>
         </span>
       </span>
       <button class="btn" :disabled="!dirty" @click="save">Kaydet</button>
@@ -1203,6 +1276,8 @@ const fmt = (t) => {
     <aside class="side">
       <div class="tabs">
         <button :class="{ active: rightTab === 'inspector' }" @click="rightTab = 'inspector'">Denetçi</button>
+        <button :class="{ active: rightTab === 'content' }" title="Metinler ve görseller — tek yerden düzenle" @click="rightTab = 'content'">İçerik</button>
+        <button :class="{ active: rightTab === 'publish' }" title="Başlık, açıklama, etiketler — platforma kopyala" @click="rightTab = 'publish'">Paylaşım</button>
         <button :class="{ active: rightTab === 'notes' }" @click="rightTab = 'notes'">
           Notlar <span v-if="openNotes" class="chip warn">{{ openNotes }}</span>
         </button>
@@ -1219,6 +1294,15 @@ const fmt = (t) => {
           :edit="edit"
           @select="(id) => (selectedId = id)"
         />
+        <ContentPanel
+          v-else-if="rightTab === 'content' && scene"
+          :scene="scene"
+          :res="res"
+          :selected-id="selectedId"
+          :edit="edit"
+          @go="goLayer"
+        />
+        <PublishPanel v-else-if="rightTab === 'publish' && scene" :scene="scene" :edit="edit" :project-id="id" />
         <NotesPanel
           v-else-if="rightTab === 'notes'"
           ref="notesPanel"
@@ -1265,13 +1349,14 @@ const fmt = (t) => {
         :solo="solo"
         @solo="toggleSolo"
         @new-group="newGroup"
+        @save-frame="saveFrame"
         @select-note="selectNote"
         @toggle-hidden="toggleHidden"
         @info="(m) => (tlInfo = m)"
       />
     </section>
 
-    <ExportDialog v-if="showExport && scene" :scene="scene" :res="res" :initial-format="activeFormat" @close="showExport = false" />
+    <ExportDialog v-if="showExport && scene" :project-id="id" :scene="scene" :res="res" :initial-format="activeFormat" @close="showExport = false" />
     <AssetPicker v-if="showPicker" :lib="res.assets" :initial-cat="pickerCat" @pick="addAsset" @close="showPicker = false" />
   </div>
 </template>
@@ -1283,7 +1368,7 @@ const fmt = (t) => {
 .wpop .btn { text-align: left; }
 .studio {
   display: grid; height: 100%;
-  grid-template-columns: minmax(0, 1fr) 360px;
+  grid-template-columns: minmax(0, 1fr) 400px;
   grid-template-rows: 48px auto auto minmax(0, 1fr) 250px;
   grid-template-areas: 'bar bar' 'b1 b1' 'b2 b2' 'stage side' 'tl side';
 }
@@ -1319,6 +1404,12 @@ const fmt = (t) => {
 .speed { width: 64px; height: 28px; }
 .sep { width: 1px; height: 20px; background: var(--line); margin: 0 4px; }
 .side { grid-area: side; border-left: 1px solid var(--line); background: var(--panel); display: flex; flex-direction: column; min-height: 0; }
+.wsep { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); padding: 6px 4px 0; }
+.wnone { padding: 0 4px; }
+.wq { margin: 2px 0; }
+.wlist { display: grid; gap: 4px; max-height: 240px; overflow: auto; }
+.side .tabs { padding: 0 4px; }
+.side .tabs button { padding: 10px 7px 8px; font-size: 13px; }
 .side-body { flex: 1; overflow: auto; min-height: 0; }
 .json-tab { display: flex; flex-direction: column; gap: 8px; padding: 10px; height: 100%; }
 .json { flex: 1; resize: none; min-height: 300px; line-height: 1.45; font-size: 11.5px; }

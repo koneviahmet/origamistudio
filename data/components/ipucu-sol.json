@@ -1,0 +1,49 @@
+{
+  "name": "İpucu — soldan ok",
+  "description": "Ok sola bakan tooltip, açık zemin.",
+  "type": "balon",
+  "props": {
+    "kind": "ipucu",
+    "text": "Buradan paylaşabilirsin",
+    "side": "sol",
+    "width": 520,
+    "height": 130,
+    "bg": "#ffffff",
+    "textColor": "#2d2a3e"
+  },
+  "etiketler": {
+    "amac": [
+      "ipucu-yonlendirme"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "egitim",
+      "yazilim"
+    ],
+    "ton": [
+      "minimal",
+      "teknik"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "ipucu",
+      "soldan",
+      "sol"
+    ]
+  }
+}

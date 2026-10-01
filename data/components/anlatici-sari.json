@@ -1,0 +1,48 @@
+{
+  "name": "Anlatıcı kutusu",
+  "description": "Çizgi roman anlatıcı kutusu: sarı zemin, sert gölge.",
+  "type": "balon",
+  "props": {
+    "kind": "anlatici",
+    "text": "Bu sırada, şehrin öbür ucunda…",
+    "width": 700,
+    "height": 150
+  },
+  "etiketler": {
+    "amac": [
+      "anlatici-gecis"
+    ],
+    "konu": [
+      "genel",
+      "haber",
+      "egitim"
+    ],
+    "ton": [
+      "sinematik",
+      "komik",
+      "nostaljik"
+    ],
+    "stil": [
+      "acik",
+      "keskin"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "anlatici",
+      "kutusu",
+      "sari"
+    ]
+  }
+}

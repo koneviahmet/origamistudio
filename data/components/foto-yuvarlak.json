@@ -1,0 +1,45 @@
+{
+  "name": "Fotoğraf — yuvarlak köşe",
+  "description": "Yüklediğin fotoğraf ya da logo; yumuşak köşe ve gölge.",
+  "type": "media",
+  "props": {
+    "width": 760,
+    "fit": "kapla",
+    "radius": 36,
+    "shadow": true
+  },
+  "etiketler": {
+    "amac": [
+      "gorsel-sergi"
+    ],
+    "konu": [
+      "genel"
+    ],
+    "ton": [
+      "minimal"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "medya-gerek"
+    ],
+    "anahtar": [
+      "fotograf",
+      "yuvarlak",
+      "kose",
+      "foto"
+    ]
+  }
+}

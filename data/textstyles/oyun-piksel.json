@@ -1,0 +1,15 @@
+{
+  "name": "Oyun · Mono Piksel Hissi",
+  "font": "Space Mono",
+  "weight": 700,
+  "size": 64,
+  "color": "#f8f8f8",
+  "shadow": {
+    "color": "#000000",
+    "blur": 0,
+    "x": 5,
+    "y": 5
+  },
+  "uppercase": true,
+  "letterSpacing": 3
+}

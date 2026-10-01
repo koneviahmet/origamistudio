@@ -1,0 +1,50 @@
+{
+  "name": "Alt üçlü — isim bandı",
+  "description": "Röportaj / konuşmacı için soldan açılan isim bandı.",
+  "type": "kart",
+  "props": {
+    "kind": "altuc",
+    "title": "Ayşe Demir",
+    "sub": "Yazılım Mühendisi",
+    "width": 900,
+    "height": 170
+  },
+  "etiketler": {
+    "amac": [
+      "kimlik-tanitim"
+    ],
+    "konu": [
+      "haber",
+      "genel",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "koyu"
+    ],
+    "icerik": [
+      "metin",
+      "kisi"
+    ],
+    "yerlesim": [
+      "alt-bant",
+      "tam-genislik",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "alt",
+      "uclu",
+      "isim",
+      "bandi",
+      "altuc"
+    ]
+  }
+}

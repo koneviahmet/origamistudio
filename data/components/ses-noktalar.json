@@ -1,0 +1,46 @@
+{
+  "name": "Ses — noktalar",
+  "description": "Zıplayan noktalarla hafif, oyunsu ekolayzer.",
+  "type": "waveform",
+  "props": {
+    "style": "nokta",
+    "bars": 24,
+    "width": 760,
+    "height": 220,
+    "color2": "#ff7b00"
+  },
+  "etiketler": {
+    "amac": [
+      "ses-muzik",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "muzik-eglence",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "enerjik",
+      "dikkat-cekici"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "ses"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "ses-gerek"
+    ],
+    "anahtar": [
+      "ses",
+      "noktalar"
+    ]
+  }
+}

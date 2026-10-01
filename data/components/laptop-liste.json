@@ -1,0 +1,56 @@
+{
+  "name": "Dizüstü — liste",
+  "description": "Görev listesi gösteren masaüstü uygulaması.",
+  "type": "device",
+  "props": {
+    "frame": "laptop",
+    "width": 900,
+    "title": "Görevler",
+    "ui": "liste",
+    "accent": "#3bb3a8",
+    "lines": [
+      "Tasarım",
+      "Kodlama",
+      "Test",
+      "Yayın"
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "tanitim",
+      "kod-teknik"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "teknoloji",
+      "yazilim"
+    ],
+    "ton": [
+      "ciddi-kurumsal",
+      "teknik"
+    ],
+    "stil": [
+      "acik",
+      "renkli"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "dizustu",
+      "liste",
+      "laptop"
+    ]
+  }
+}

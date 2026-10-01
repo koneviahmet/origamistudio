@@ -1,0 +1,9 @@
+{
+  "name": "Lüks · Küçük Üst Başlık",
+  "font": "Playfair Display",
+  "weight": 600,
+  "size": 36,
+  "color": "$vurgu",
+  "uppercase": true,
+  "letterSpacing": 14
+}

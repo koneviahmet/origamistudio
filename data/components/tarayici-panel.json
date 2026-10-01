@@ -1,0 +1,51 @@
+{
+  "name": "Tarayıcı — panel",
+  "description": "Web sitesi / yönetim paneli tanıtımı.",
+  "type": "device",
+  "props": {
+    "frame": "tarayici",
+    "width": 900,
+    "title": "ornek.com",
+    "ui": "panel",
+    "lines": [
+      "Satış",
+      "Kullanıcı",
+      "Gelir"
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "tanitim",
+      "gorsel-sergi"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "e-ticaret",
+      "teknoloji"
+    ],
+    "ton": [
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "tarayici",
+      "panel"
+    ]
+  }
+}

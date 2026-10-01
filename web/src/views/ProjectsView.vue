@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, shallowRef } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { api } from '../api.js';
 import { resources, loadResources } from '../resources.js';
@@ -19,7 +19,7 @@ async function load() {
   try {
     const [list] = await Promise.all([api.projects(), loadResources()]);
     projects.value = list;
-    const out = {};
+    const out = { ...scenes.value };
     await Promise.all(list.map(async (p) => {
       try {
         out[p.id] = (await api.project(p.id)).scene;
@@ -46,48 +46,14 @@ async function create() {
   }
 }
 
-// ---------------------------------------------------------------- şablondan oluştur
-const showTpl = ref(false);
-const templates = ref([]);
-const tplId = ref('');
-const briefText = ref('');
-const briefErr = ref('');
-const busy = ref(false);
-async function openTpl() {
-  showTpl.value = true;
-  if (!templates.value.length) {
-    try {
-      templates.value = await api.templates();
-    } catch (e) {
-      toastError(e);
-    }
-  }
-  if (!tplId.value && templates.value.length) pickTpl(templates.value[0].id);
-}
-function pickTpl(id) {
-  tplId.value = id;
-  const t = templates.value.find((x) => x.id === id);
-  const { id: _omit, ...ornek } = t.ornek;
-  briefText.value = JSON.stringify(ornek, null, 2);
-  briefErr.value = '';
-}
-async function createFromTpl() {
-  let brief;
+async function saveAsTemplate(p) {
+  const ad = prompt('Şablon adı:', p.name);
+  if (ad === null) return;
   try {
-    brief = JSON.parse(briefText.value);
+    await api.saveAsTemplate(p.id, ad.trim() || p.name);
+    toast('Şablon olarak kaydedildi → Şablonlar sayfası', 'ok');
   } catch (e) {
-    briefErr.value = `JSON hatası: ${e.message}`;
-    return;
-  }
-  busy.value = true;
-  try {
-    const p = await api.generateFromTemplate(brief);
-    showTpl.value = false;
-    router.push(`/studio/${p.id}`);
-  } catch (e) {
-    briefErr.value = e.message;
-  } finally {
-    busy.value = false;
+    toastError(e);
   }
 }
 
@@ -118,6 +84,103 @@ const aspect = (p) => {
   return `${p.width / d}:${p.height / d}`;
 };
 const fmtDate = (s) => new Date(s).toLocaleString('tr-TR', { dateStyle: 'medium', timeStyle: 'short' });
+
+// ---- liste yönetimi: arama, sıralama, filtre, görünüm, yıldız, seçim
+const ls = (k, d) => { try { return JSON.parse(localStorage.getItem('proj.' + k)) ?? d; } catch { return d; } };
+const sv = (k, v) => { try { localStorage.setItem('proj.' + k, JSON.stringify(v)); } catch { /* yok say */ } };
+const q = ref('');
+const sort = ref(ls('sort', 'updated'));
+const fmt = ref('all');
+const view = ref(ls('view', 'grid'));
+const onlyNotes = ref(false);
+const onlyStar = ref(false);
+const stars = ref(new Set(ls('stars', [])));
+const picked = ref(new Set());
+watch(sort, (v) => sv('sort', v));
+watch(view, (v) => sv('view', v));
+
+const kind = (p) => (p.width === p.height ? 'kare' : p.width > p.height ? 'yatay' : 'dikey');
+const KINDS = { all: 'Tümü', dikey: 'Dikey', yatay: 'Yatay', kare: 'Kare' };
+const SORTS = { updated: 'Son düzenlenen', name: 'Ad (A-Z)', duration: 'Süre', layers: 'Katman sayısı' };
+const count = (k) => projects.value.filter((p) => k === 'all' || kind(p) === k).length;
+
+const shown = computed(() => {
+  const t = q.value.trim().toLocaleLowerCase('tr');
+  let l = projects.value.filter((p) =>
+    (!t || p.name.toLocaleLowerCase('tr').includes(t) || p.id.includes(t)) &&
+    (fmt.value === 'all' || kind(p) === fmt.value) &&
+    (!onlyNotes.value || p.openNotes) && (!onlyStar.value || stars.value.has(p.id)));
+  const by = {
+    updated: (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt),
+    name: (a, b) => a.name.localeCompare(b.name, 'tr'),
+    duration: (a, b) => b.duration - a.duration,
+    layers: (a, b) => b.layers - a.layers,
+  }[sort.value];
+  l = [...l].sort(by);
+  return [...l.filter((p) => stars.value.has(p.id)), ...l.filter((p) => !stars.value.has(p.id))];
+});
+const totalSec = computed(() => projects.value.reduce((n, p) => n + (p.duration || 0), 0));
+const openNotesTotal = computed(() => projects.value.reduce((n, p) => n + (p.openNotes || 0), 0));
+
+function toggleStar(p) {
+  const s = new Set(stars.value);
+  if (s.has(p.id)) s.delete(p.id); else s.add(p.id);
+  stars.value = s;
+  sv('stars', [...s]);
+}
+function togglePick(p) {
+  const s = new Set(picked.value);
+  if (s.has(p.id)) s.delete(p.id); else s.add(p.id);
+  picked.value = s;
+}
+async function removePicked() {
+  const ids = [...picked.value];
+  if (!ids.length || !confirm(`${ids.length} proje ve notları kalıcı olarak silinsin mi?`)) return;
+  try {
+    await Promise.all(ids.map((id) => api.deleteProject(id)));
+    picked.value = new Set();
+    toast(`${ids.length} proje silindi`);
+    load();
+  } catch (e) {
+    toastError(e);
+  }
+}
+function clearFilters() {
+  q.value = '';
+  fmt.value = 'all';
+  onlyNotes.value = false;
+  onlyStar.value = false;
+}
+
+// ---- üzerine gelince küçük resim oynar
+const hoverId = ref(null);
+const hoverT = ref(0);
+let raf = 0;
+function hoverStart(p) {
+  hoverId.value = p.id;
+  const t0 = performance.now();
+  cancelAnimationFrame(raf);
+  const tick = (now) => {
+    hoverT.value = ((now - t0) / 1000) % Math.max(p.duration, 0.5);
+    raf = requestAnimationFrame(tick);
+  };
+  raf = requestAnimationFrame(tick);
+}
+function hoverEnd() {
+  cancelAnimationFrame(raf);
+  hoverId.value = null;
+}
+onBeforeUnmount(() => cancelAnimationFrame(raf));
+const thumbT = (p) => (hoverId.value === p.id ? hoverT.value : Math.min(p.duration, p.duration * 0.62));
+const fmtDur = (s) => (s >= 60 ? `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, '0')}` : `${Math.round(s * 10) / 10} sn`);
+const ago = (s) => {
+  const m = (Date.now() - new Date(s)) / 60000;
+  if (m < 1) return 'şimdi';
+  if (m < 60) return `${Math.floor(m)} dk önce`;
+  if (m < 1440) return `${Math.floor(m / 60)} sa önce`;
+  if (m < 43200) return `${Math.floor(m / 1440)} gün önce`;
+  return fmtDate(s);
+};
 </script>
 
 <template>
@@ -127,8 +190,42 @@ const fmtDate = (s) => new Date(s).toLocaleString('tr-TR', { dateStyle: 'medium'
         <h1>Projeler</h1>
         <p class="muted">Her proje bir video sahnesidir. Stüdyoda açıp oynatın, not bırakın, MP4 alın.</p>
       </div>
-      <button class="btn" title="Hazır video iskeletleri: açıklayıcı, veri hikâyesi, kinetik yazı, ürün tanıtımı, showreel, liste" @click="openTpl">✦ Şablondan</button>
+      <button class="btn" title="Hazır video iskeletleri: önizle, düzenle, projeye dönüştür" @click="router.push('/sablonlar')">✦ Şablonlar</button>
       <button class="btn primary" @click="showNew = true">＋ Yeni proje</button>
+    </div>
+
+    <div v-if="projects.length" class="stats">
+      <div class="stat"><b>{{ projects.length }}</b><span>proje</span></div>
+      <div class="stat"><b>{{ fmtDur(totalSec) }}</b><span>toplam video</span></div>
+      <div class="stat" :class="{ hot: openNotesTotal }"><b>{{ openNotesTotal }}</b><span>açık not</span></div>
+      <div class="stat"><b>{{ stars.size }}</b><span>yıldızlı</span></div>
+    </div>
+
+    <div v-if="projects.length" class="toolbar">
+      <div class="search">
+        <span>⌕</span>
+        <input v-model="q" placeholder="Proje ara…  (ad ya da kimlik)" />
+        <button v-if="q" class="x" @click="q = ''">✕</button>
+      </div>
+      <div class="seg">
+        <button v-for="(l, k) in KINDS" :key="k" :class="{ on: fmt === k }" @click="fmt = k">{{ l }} <i>{{ count(k) }}</i></button>
+      </div>
+      <button class="pill" :class="{ on: onlyStar }" @click="onlyStar = !onlyStar">★ Yıldızlı</button>
+      <button class="pill" :class="{ on: onlyNotes }" @click="onlyNotes = !onlyNotes">✎ Açık notlu</button>
+      <div class="grow" />
+      <select v-model="sort" class="sel">
+        <option v-for="(l, k) in SORTS" :key="k" :value="k">{{ l }}</option>
+      </select>
+      <div class="seg">
+        <button :class="{ on: view === 'grid' }" title="Kart görünümü" @click="view = 'grid'">▦</button>
+        <button :class="{ on: view === 'list' }" title="Liste görünümü" @click="view = 'list'">☰</button>
+      </div>
+    </div>
+
+    <div v-if="picked.size" class="bulk">
+      <b>{{ picked.size }} seçili</b>
+      <button class="btn sm danger" @click="removePicked">Seçilenleri sil</button>
+      <button class="btn sm" @click="picked = new Set()">Seçimi kaldır</button>
     </div>
 
     <div v-if="loading" class="dim">Yükleniyor…</div>
@@ -136,53 +233,42 @@ const fmtDate = (s) => new Date(s).toLocaleString('tr-TR', { dateStyle: 'medium'
       <p>Henüz proje yok.</p>
       <button class="btn primary" @click="showNew = true">İlk projeyi oluştur</button>
     </div>
+    <div v-else-if="!shown.length" class="empty">
+      <p>Filtreyle eşleşen proje yok.</p>
+      <button class="btn" @click="clearFilters">Filtreleri temizle</button>
+    </div>
 
-    <div class="grid">
-      <div v-for="p in projects" :key="p.id" class="card" @click="router.push(`/studio/${p.id}`)">
+    <div :class="view === 'grid' ? 'grid' : 'list'">
+      <div
+        v-for="p in shown" :key="p.id" class="card" :class="{ picked: picked.has(p.id) }"
+        @click="router.push(`/studio/${p.id}`)" @mouseenter="hoverStart(p)" @mouseleave="hoverEnd"
+      >
         <div class="thumb">
-          <SceneThumb v-if="scenes[p.id]" :scene="scenes[p.id]" :res="resources" :t="Math.min(p.duration, p.duration * 0.62)" :width="200" />
+          <SceneThumb v-if="scenes[p.id]" :scene="scenes[p.id]" :res="resources" :t="thumbT(p)" :width="view === 'grid' ? 240 : 90" />
+          <span class="dur">{{ fmtDur(p.duration) }}</span>
+          <input type="checkbox" class="pick" :checked="picked.has(p.id)" title="Seç" @click.stop @change="togglePick(p)" />
+          <button class="star" :class="{ on: stars.has(p.id) }" title="Yıldızla" @click.stop="toggleStar(p)">{{ stars.has(p.id) ? '★' : '☆' }}</button>
         </div>
         <div class="info">
           <div class="row">
-            <strong class="grow name">{{ p.name }}</strong>
+            <strong class="grow name" :title="p.name">{{ p.name }}</strong>
             <span v-if="p.openNotes" class="chip warn" title="Açık notlar">✎ {{ p.openNotes }}</span>
           </div>
-          <div class="row dim small">
-            <span>{{ aspect(p) }}</span>·<span>{{ p.width }}×{{ p.height }}</span>·<span>{{ p.duration }} sn</span>·<span>{{ p.layers }} katman</span>
+          <div class="meta">
+            <span class="tag">{{ kind(p) }} {{ aspect(p) }}</span>
+            <span>{{ p.width }}×{{ p.height }}</span>
+            <span>{{ p.layers }} katman</span>
+            <span :title="fmtDate(p.updatedAt)">{{ ago(p.updatedAt) }}</span>
           </div>
-          <div class="row dim small">{{ fmtDate(p.updatedAt) }}</div>
           <div class="row actions" @click.stop>
             <button class="btn sm primary" @click="router.push(`/studio/${p.id}`)">Aç</button>
             <button class="btn sm" @click="duplicate(p)">Çoğalt</button>
+            <button class="btn sm" title="Bu projeyi Şablonlar sayfasına şablon olarak kaydet" @click="saveAsTemplate(p)">☆ Şablon</button>
             <div class="grow" />
             <button class="btn sm danger" @click="remove(p)">Sil</button>
           </div>
         </div>
       </div>
-    </div>
-
-    <div v-if="showTpl" class="modal-backdrop" @click.self="showTpl = false">
-      <form class="modal wide" @submit.prevent="createFromTpl">
-        <header>Şablondan video oluştur</header>
-        <div class="body">
-          <div class="tpls">
-            <button v-for="t in templates" :key="t.id" type="button" class="tpl" :class="{ on: tplId === t.id }" @click="pickTpl(t.id)">
-              <strong>{{ t.ad }}</strong>
-              <span class="dim small">{{ t.aciklama }}</span>
-            </button>
-          </div>
-          <div class="field">
-            <label>Brief (JSON) — metinleri, nesneleri, formatı, temayı düzenle</label>
-            <textarea v-model="briefText" class="input mono" rows="16" spellcheck="false" />
-            <span v-if="briefErr" class="err">{{ briefErr }}</span>
-            <span class="dim small">format: reels · youtube · kare · dikey45 · tema / stil / vurgu / muzik isteğe bağlı. Alanlar: docs/prompt-rehberi.md §9</span>
-          </div>
-        </div>
-        <footer>
-          <button type="button" class="btn" @click="showTpl = false">Vazgeç</button>
-          <button type="submit" class="btn primary" :disabled="busy">{{ busy ? 'Üretiliyor…' : 'Oluştur ve aç' }}</button>
-        </footer>
-      </form>
     </div>
 
     <div v-if="showNew" class="modal-backdrop" @click.self="showNew = false">
@@ -215,27 +301,60 @@ const fmtDate = (s) => new Date(s).toLocaleString('tr-TR', { dateStyle: 'medium'
 </template>
 
 <style scoped>
-.wrap { padding: 24px 28px; max-width: 1400px; margin: 0 auto; }
-.head { margin-bottom: 20px; }
-h1 { margin: 0 0 4px; font-family: Fredoka, sans-serif; font-weight: 600; }
+.wrap { padding: 24px 28px; max-width: 1500px; margin: 0 auto; }
+.head { margin-bottom: 18px; }
+h1 { margin: 0 0 4px; font-family: Fredoka, sans-serif; font-weight: 600; font-size: 28px; }
 .head p { margin: 0; }
 .empty { display: grid; gap: 12px; justify-items: start; padding: 24px 0; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.stat { background: linear-gradient(135deg, var(--panel), var(--panel-2)); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; display: grid; }
+.stat b { font-size: 24px; font-family: Fredoka, sans-serif; color: var(--accent-2); }
+.stat span { font-size: 12px; color: var(--text-3); }
+.stat.hot b { color: var(--warn); }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 8px 0; }
+.search { display: flex; align-items: center; gap: 6px; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 0 12px; min-width: 240px; }
+.search:focus-within { border-color: var(--accent); }
+.search input { background: none; border: 0; outline: 0; color: var(--text); padding: 8px 0; flex: 1; font: inherit; }
+.search .x { background: none; border: 0; color: var(--text-3); cursor: pointer; }
+.seg { display: flex; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.seg button { background: none; border: 0; color: var(--text-2); padding: 7px 12px; cursor: pointer; font: inherit; font-size: 13px; }
+.seg button i { font-style: normal; color: var(--text-3); font-size: 11px; margin-left: 2px; }
+.seg button.on { background: var(--accent); color: var(--accent-ink); }
+.seg button.on i { color: var(--accent-ink); }
+.pill { background: var(--panel); border: 1px solid var(--line); color: var(--text-2); border-radius: 999px; padding: 7px 12px; cursor: pointer; font: inherit; font-size: 13px; }
+.pill.on { border-color: var(--accent); color: var(--accent-2); background: #2d2118; }
+.sel { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; font: inherit; font-size: 13px; }
+.bulk { display: flex; gap: 10px; align-items: center; background: #2d2118; border: 1px solid var(--accent); border-radius: 10px; padding: 8px 12px; margin-bottom: 14px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
 .card {
-  display: grid; grid-template-columns: 130px 1fr; gap: 14px;
-  background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px; cursor: pointer;
+  position: relative; display: flex; flex-direction: column; overflow: hidden;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 14px; cursor: pointer;
+  transition: transform .15s, border-color .15s, box-shadow .15s;
 }
-.card:hover { border-color: var(--line-2); }
-.thumb { height: 180px; display: grid; place-items: center; background: var(--bg-2); border-radius: 8px; overflow: hidden; }
-.info { display: grid; gap: 6px; align-content: start; min-width: 0; }
+.card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 10px 28px #0007; }
+.card.picked { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent) inset; }
+.thumb { position: relative; height: 210px; display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, var(--panel-2), var(--bg-2)); overflow: hidden; }
+.thumb :deep(canvas), .thumb :deep(svg) { max-height: 100%; max-width: 100%; }
+.dur { position: absolute; right: 8px; bottom: 8px; background: #000a; color: #fff; font-size: 11px; padding: 2px 7px; border-radius: 6px; }
+.pick { position: absolute; left: 8px; top: 8px; width: 17px; height: 17px; opacity: 0; accent-color: var(--accent); cursor: pointer; }
+.card:hover .pick, .card.picked .pick { opacity: 1; }
+.star { position: absolute; right: 6px; top: 4px; background: none; border: 0; font-size: 22px; color: #fff9; cursor: pointer; opacity: 0; text-shadow: 0 1px 4px #000; }
+.card:hover .star, .star.on { opacity: 1; }
+.star.on { color: var(--warn); }
+.info { display: grid; gap: 8px; align-content: start; min-width: 0; padding: 12px 14px 14px; }
 .info .row { flex-wrap: wrap; gap: 4px 6px; }
-.name { font-size: 15px; }
-.actions { margin-top: 8px; }
-.modal.wide { width: min(820px, 94vw); }
-.tpls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
-.tpl { display: grid; gap: 4px; text-align: left; padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-2); color: inherit; cursor: pointer; }
-.tpl.on { border-color: var(--accent); background: #2d2118; }
-.err { color: #ff8a8a; font-size: 12px; }
+.name { font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 12px; color: var(--text-3); align-items: center; }
+.tag { background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px; color: var(--text-2); text-transform: capitalize; }
+.actions { margin-top: 2px; opacity: .85; }
+.card:hover .actions { opacity: 1; }
+.list { display: grid; gap: 8px; }
+.list .card { flex-direction: row; align-items: center; border-radius: 12px; }
+.list .card:hover { transform: none; }
+.list .thumb { height: 76px; width: 110px; flex: none; }
+.list .dur { display: none; }
+.list .info { flex: 1; grid-template-columns: minmax(180px, 1.4fr) 2fr auto; align-items: center; padding: 8px 14px; }
+.list .star { top: 2px; right: 2px; font-size: 17px; }
 .presets { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .preset {
   display: grid; justify-items: center; gap: 6px; padding: 12px 8px; text-align: center;
@@ -245,4 +364,5 @@ h1 { margin: 0 0 4px; font-family: Fredoka, sans-serif; font-weight: 600; }
 .preset input { display: none; }
 .shape { height: 44px; border: 2px solid var(--text-2); border-radius: 4px; }
 .preset.on .shape { border-color: var(--accent); }
+@media (max-width: 700px) { .list .info { grid-template-columns: 1fr; } }
 </style>

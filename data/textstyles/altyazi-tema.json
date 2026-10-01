@@ -1,0 +1,12 @@
+{
+  "name": "Altyazı · Tema Rengi",
+  "font": "Baloo 2",
+  "weight": 800,
+  "size": 58,
+  "color": "$vurgu",
+  "stroke": {
+    "color": "$arka1",
+    "width": 12
+  },
+  "lineHeight": 1.2
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Fotoğraf — polaroid",
+  "description": "Kalın beyaz çerçeveli anı fotoğrafı görünümü.",
+  "type": "media",
+  "props": {
+    "width": 560,
+    "height": 560,
+    "fit": "kapla",
+    "radius": 4,
+    "border": 28,
+    "borderColor": "#fffdf7",
+    "shadow": true
+  },
+  "etiketler": {
+    "amac": [
+      "gorsel-sergi"
+    ],
+    "konu": [
+      "genel"
+    ],
+    "ton": [
+      "minimal",
+      "nostaljik"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "medya-gerek"
+    ],
+    "anahtar": [
+      "fotograf",
+      "polaroid",
+      "foto"
+    ]
+  }
+}

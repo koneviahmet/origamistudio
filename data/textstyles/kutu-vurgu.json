@@ -1,0 +1,15 @@
+{
+  "name": "Kutu · Vurgu Şerit",
+  "font": "Manrope",
+  "weight": 800,
+  "size": 54,
+  "color": "#ffffff",
+  "box": {
+    "color": "$vurgu",
+    "radius": 6,
+    "padding": [
+      12,
+      30
+    ]
+  }
+}

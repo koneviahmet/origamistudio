@@ -1,0 +1,14 @@
+{
+  "name": "Gece · Soluk Parlama",
+  "font": "Poppins",
+  "weight": 600,
+  "size": 80,
+  "color": "#f0f4ff",
+  "shadow": {
+    "color": "rgba(120,160,255,0.7)",
+    "blur": 26,
+    "x": 0,
+    "y": 0
+  },
+  "letterSpacing": 2
+}

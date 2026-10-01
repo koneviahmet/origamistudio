@@ -1,0 +1,53 @@
+{
+  "name": "İstatistik — düşüş",
+  "description": "Kırmızı düşüş oklu istatistik kartı (iptal, hata oranı vb.).",
+  "type": "kart",
+  "props": {
+    "kind": "istatistik",
+    "title": "İptal oranı",
+    "value": "4,2",
+    "unit": "%",
+    "sub": "-1,8% geçen aya göre",
+    "accent": "#e0584a",
+    "width": 560,
+    "height": 360
+  },
+  "etiketler": {
+    "amac": [
+      "veri-hikayesi",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "finans-is",
+      "teknoloji",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "ciddi-kurumsal",
+      "enerjik",
+      "dikkat-cekici"
+    ],
+    "stil": [
+      "acik",
+      "kartli",
+      "renkli"
+    ],
+    "icerik": [
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "istatistik",
+      "dusus"
+    ]
+  }
+}

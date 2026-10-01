@@ -1,0 +1,54 @@
+{
+  "name": "Sayaç — yüzde",
+  "description": "Yükselen yüzde rakamı (büyüme, doluluk).",
+  "type": "chart",
+  "props": {
+    "kind": "sayac",
+    "title": "Büyüme",
+    "width": 640,
+    "height": 340,
+    "unit": "%",
+    "prefix": "+",
+    "data": [
+      {
+        "label": "Yıllık",
+        "value": 240
+      }
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "veri-hikayesi",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "finans-is",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "enerjik",
+      "dikkat-cekici"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "sayac",
+      "yuzde"
+    ]
+  }
+}

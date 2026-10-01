@@ -1,0 +1,321 @@
+{
+  "name": "Bonbon",
+  "description": "Yumuşak, canlı renkli çizgi film çocuğu: parlak gradyanlı yüz, iri ışıltılı gözler, çizgili tişört, renkli konturlar. Çocuk içerikleri, ürün tanıtımı ve sıcak anlatım için.",
+  "rig": "insan",
+  "etiketler": [
+    "bonbon",
+    "sevimli",
+    "çocuk",
+    "renkli",
+    "kukla",
+    "chibi",
+    "cute",
+    "mascot",
+    "maskot",
+    "yumuşak",
+    "eğlenceli",
+    "ürün",
+    "reklam",
+    "oyuncak",
+    "çizgi film"
+  ],
+  "kullanim": "Çocuk / aile içeriği, maskot, ürün tanıtımı. Konuşma balonlarıyla çok iyi çalışır. Renk varyantlarıyla ekip kurulabilir.",
+  "olcu": {
+    "bas": [
+      66,
+      61
+    ],
+    "boyun": 0,
+    "govde": [
+      76,
+      100
+    ],
+    "omuzY": 20,
+    "omuzX": 35,
+    "kolUst": 44,
+    "kolAlt": 40,
+    "kalcaX": 18,
+    "bacakUst": 38,
+    "bacakAlt": 34,
+    "el": 13,
+    "ayak": [
+      28,
+      14
+    ]
+  },
+  "isik": 0.75,
+  "cizgi": {
+    "renk": "#3d2a24",
+    "kalinlik": 3.6,
+    "titrek": 0,
+    "kaynama": 0,
+    "renkli": true,
+    "renkliGuc": 0.5
+  },
+  "renkler": {
+    "kafa": "#ffd2ac",
+    "govde": "#ff7f50",
+    "sirit": "#ffb48a",
+    "yaka": "#ffffff",
+    "kol": "#ffd2ac",
+    "bacak": "#5f5ad8",
+    "el": "#ffd2ac",
+    "ayak": "#46302a",
+    "taban": "#f6efe6",
+    "sac": "#8a4f2a",
+    "goz": "#2a1b17",
+    "iris": "#7a4a2b",
+    "agiz": "#8f2d3a",
+    "yanak": "#ff7e8b"
+  },
+  "govde": {
+    "sekil": "yumurta",
+    "detay": [
+      "sirit",
+      "yaka"
+    ]
+  },
+  "kafa": {
+    "sekil": "daire"
+  },
+  "uzuv": {
+    "tur": "tup",
+    "kalinlik": 11,
+    "el": "top",
+    "ayak": "ayakkabi"
+  },
+  "yuz": {
+    "goz": "buyuk",
+    "boyut": 1.05,
+    "aralik": 0.95,
+    "yukseklik": 0.02,
+    "agizGen": 1,
+    "agizKalinlik": 1,
+    "burun": "nokta",
+    "yanakGuc": 0.32,
+    "kirpik": true
+  },
+  "ekler": [
+    {
+      "id": "kulak-insan",
+      "ad": "Kulaklar",
+      "tur": "kulak",
+      "stil": "insan"
+    },
+    {
+      "id": "sac",
+      "ad": "Saç",
+      "tur": "sac",
+      "stil": "kisa"
+    },
+    {
+      "id": "sac-kisa",
+      "ad": "Kısa saç",
+      "tur": "sac",
+      "stil": "kisa",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-dikenli",
+      "ad": "Dikenli saç",
+      "tur": "sac",
+      "stil": "dikenli",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-topuz",
+      "ad": "Topuz",
+      "tur": "sac",
+      "stil": "topuz",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-uzun",
+      "ad": "Uzun saç",
+      "tur": "sac",
+      "stil": "uzun",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-kuyruk",
+      "ad": "At kuyruğu",
+      "tur": "sac",
+      "stil": "at-kuyrugu",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-tutam",
+      "ad": "Tek tutam",
+      "tur": "sac",
+      "stil": "tutam",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-kabarik",
+      "ad": "Kabarık saç",
+      "tur": "sac",
+      "stil": "kabarik",
+      "varsayilan": false
+    },
+    {
+      "id": "gozluk",
+      "ad": "Yuvarlak gözlük",
+      "tur": "gozluk",
+      "stil": "yuvarlak",
+      "varsayilan": false
+    },
+    {
+      "id": "gunes-gozlugu",
+      "ad": "Güneş gözlüğü",
+      "tur": "gozluk",
+      "stil": "gunes",
+      "varsayilan": false
+    },
+    {
+      "id": "bere",
+      "ad": "Bere",
+      "tur": "sapka",
+      "stil": "bere",
+      "varsayilan": false,
+      "renk": "#e63946"
+    },
+    {
+      "id": "silindir",
+      "ad": "Silindir şapka",
+      "tur": "sapka",
+      "stil": "silindir",
+      "varsayilan": false
+    },
+    {
+      "id": "kep",
+      "ad": "Kep",
+      "tur": "sapka",
+      "stil": "kep",
+      "varsayilan": false,
+      "renk": "#3b82f6"
+    },
+    {
+      "id": "kask",
+      "ad": "İş kaskı",
+      "tur": "sapka",
+      "stil": "kask",
+      "varsayilan": false
+    },
+    {
+      "id": "sef-sapkasi",
+      "ad": "Aşçı şapkası",
+      "tur": "sapka",
+      "stil": "sef",
+      "varsayilan": false
+    },
+    {
+      "id": "parti-sapkasi",
+      "ad": "Parti şapkası",
+      "tur": "sapka",
+      "stil": "parti",
+      "varsayilan": false
+    },
+    {
+      "id": "tac",
+      "ad": "Taç",
+      "tur": "sapka",
+      "stil": "tac",
+      "varsayilan": false
+    },
+    {
+      "id": "kravat",
+      "ad": "Kravat",
+      "tur": "kravat",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "papyon",
+      "ad": "Papyon",
+      "tur": "papyon",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "atki",
+      "ad": "Atkı",
+      "tur": "atki",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "pelerin",
+      "ad": "Pelerin",
+      "tur": "pelerin",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "biyik",
+      "ad": "Bıyık",
+      "tur": "biyik",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "sakal",
+      "ad": "Sakal",
+      "tur": "sakal",
+      "stil": "duz",
+      "varsayilan": false
+    }
+  ],
+  "varyantlar": {
+    "mavi": {
+      "renkler": {
+        "govde": "#4dabf7",
+        "sirit": "#a5d8ff",
+        "bacak": "#364fc7",
+        "sac": "#2b2b3a",
+        "iris": "#3b6ea8"
+      }
+    },
+    "pembe": {
+      "renkler": {
+        "govde": "#f783ac",
+        "sirit": "#ffc9de",
+        "bacak": "#9c36b5",
+        "sac": "#c2410c",
+        "iris": "#8f4a8f"
+      },
+      "ekAc": [
+        "sac-kuyruk"
+      ],
+      "ekKapat": [
+        "sac"
+      ]
+    },
+    "yesil": {
+      "renkler": {
+        "govde": "#51cf66",
+        "sirit": "#b2f2bb",
+        "bacak": "#2b8a3e",
+        "sac": "#3b2a1e",
+        "iris": "#2f7d4f"
+      }
+    },
+    "sari": {
+      "renkler": {
+        "govde": "#ffd43b",
+        "sirit": "#fff3bf",
+        "bacak": "#e67700",
+        "sac": "#6b3a1f"
+      }
+    },
+    "sef": {
+      "ekAc": [
+        "sef-sapkasi"
+      ],
+      "renkler": {
+        "govde": "#ffffff",
+        "sirit": "#e9ecef",
+        "bacak": "#495057"
+      }
+    }
+  }
+}

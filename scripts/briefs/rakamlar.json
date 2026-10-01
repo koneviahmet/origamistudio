@@ -1,0 +1,64 @@
+{
+  "sablon": "rakamlar",
+  "id": "sablon-rakamlar",
+  "ad": "Rakamlarla Büyüme",
+  "format": "reels",
+  "palet": "mono",
+  "muzik": "house-126",
+  "font": "Anton",
+  "istatistikler": [
+    {
+      "deger": 250,
+      "birim": "B",
+      "etiket": "aktif kullanıcı",
+      "oran": 0.62
+    },
+    {
+      "deger": 98,
+      "birim": "%",
+      "etiket": "memnuniyet oranı",
+      "oran": 0.98
+    },
+    {
+      "deger": 12,
+      "birim": "ay",
+      "etiket": "sürede 4 kat büyüme",
+      "oran": 0.4
+    }
+  ],
+  "grafik": {
+    "baslik": "Aylık kullanıcı (bin)",
+    "veri": [
+      {
+        "etiket": "Oca",
+        "deger": 40
+      },
+      {
+        "etiket": "Şub",
+        "deger": 90
+      },
+      {
+        "etiket": "Mar",
+        "deger": 150
+      },
+      {
+        "etiket": "Nis",
+        "deger": 250
+      }
+    ]
+  },
+  "cta": "Sen de katıl",
+  "alt": "@kullaniciadi",
+  "yayin": {
+    "baslik": "Rakamlarla büyüme hikâyemiz",
+    "aciklama": "12 ayda 4 kat büyüdük. Rakamlar yalan söylemez — sen de aramıza katıl!",
+    "etiketler": [
+      "rakamlar",
+      "buyume",
+      "girisim",
+      "reels",
+      "shorts",
+      "istatistik"
+    ]
+  }
+}

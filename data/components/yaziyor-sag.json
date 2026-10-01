@@ -1,0 +1,47 @@
+{
+  "name": "Yazıyor… — sağ",
+  "description": "Kendi mesajın için renkli yazıyor göstergesi.",
+  "type": "balon",
+  "props": {
+    "kind": "yaziyor",
+    "width": 260,
+    "height": 110,
+    "side": "sag",
+    "bg": "#cfe4ff",
+    "textColor": "#5b6a8c"
+  },
+  "etiketler": {
+    "amac": [
+      "sohbet-diyalog",
+      "bildirim-uyari"
+    ],
+    "konu": [
+      "sosyal-medya",
+      "uygulama-urun"
+    ],
+    "ton": [
+      "minimal",
+      "eglenceli"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "simge"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "yaziyor",
+      "sag"
+    ]
+  }
+}

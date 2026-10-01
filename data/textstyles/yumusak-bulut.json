@@ -1,0 +1,13 @@
+{
+  "name": "Yumuşak · Bulut",
+  "font": "Varela Round",
+  "weight": 400,
+  "size": 84,
+  "color": "#ffffff",
+  "shadow": {
+    "color": "rgba(90,120,180,0.55)",
+    "blur": 20,
+    "x": 0,
+    "y": 8
+  }
+}

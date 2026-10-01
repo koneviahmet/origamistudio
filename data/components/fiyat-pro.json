@@ -1,0 +1,60 @@
+{
+  "name": "Fiyat kartı — Pro",
+  "description": "Plan adı, fiyat, özellik listesi ve düğme.",
+  "type": "kart",
+  "props": {
+    "kind": "fiyat",
+    "title": "Pro",
+    "value": "₺99",
+    "sub": "/ ay",
+    "lines": [
+      "Sınırsız proje",
+      "HD dışa aktarım",
+      "Öncelikli destek",
+      "Ekip paylaşımı"
+    ],
+    "text": "Hemen başla",
+    "width": 520,
+    "height": 700
+  },
+  "etiketler": {
+    "amac": [
+      "fiyatlandirma",
+      "cagri-eylem",
+      "karsilastirma"
+    ],
+    "konu": [
+      "e-ticaret",
+      "uygulama-urun",
+      "finans-is"
+    ],
+    "ton": [
+      "premium-sik",
+      "ciddi-kurumsal"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "liste",
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "dikey-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek",
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "fiyat",
+      "karti",
+      "pro"
+    ]
+  }
+}

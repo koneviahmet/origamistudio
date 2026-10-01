@@ -1,0 +1,48 @@
+{
+  "name": "Konuşma balonu — sağ",
+  "description": "Renkli yanıt balonu, kuyruk sağda.",
+  "type": "kart",
+  "props": {
+    "kind": "balon",
+    "text": "Origami ile video yapmayı!",
+    "side": "sag",
+    "width": 640,
+    "height": 220
+  },
+  "etiketler": {
+    "amac": [
+      "sohbet-diyalog"
+    ],
+    "konu": [
+      "sosyal-medya",
+      "egitim",
+      "genel"
+    ],
+    "ton": [
+      "eglenceli",
+      "sakin"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "konusma",
+      "balonu",
+      "sag",
+      "balon"
+    ]
+  }
+}

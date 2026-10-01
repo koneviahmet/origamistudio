@@ -1,0 +1,48 @@
+{
+  "name": "Fotoğraf — beyaz çerçeve",
+  "description": "Baskı fotoğraf görünümü.",
+  "type": "media",
+  "props": {
+    "width": 760,
+    "fit": "kapla",
+    "radius": 8,
+    "border": 16,
+    "borderColor": "#ffffff",
+    "shadow": true
+  },
+  "etiketler": {
+    "amac": [
+      "gorsel-sergi"
+    ],
+    "konu": [
+      "genel"
+    ],
+    "ton": [
+      "minimal"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "medya-gerek"
+    ],
+    "anahtar": [
+      "fotograf",
+      "beyaz",
+      "cerceve",
+      "foto",
+      "cerceveli"
+    ]
+  }
+}

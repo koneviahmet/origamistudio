@@ -1,0 +1,49 @@
+{
+  "name": "Ünlem / fikir balonu",
+  "description": "Sarı ünlemli, dikkat ve fikir anı.",
+  "type": "balon",
+  "props": {
+    "kind": "soru",
+    "icon": "!",
+    "side": "sag",
+    "width": 320,
+    "height": 320,
+    "accent": "#f6b73c"
+  },
+  "etiketler": {
+    "amac": [
+      "ic-ses-duygu",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "genel",
+      "egitim"
+    ],
+    "ton": [
+      "eglenceli",
+      "dikkat-cekici"
+    ],
+    "stil": [
+      "acik",
+      "renkli"
+    ],
+    "icerik": [
+      "simge"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "unlem",
+      "fikir",
+      "balonu"
+    ]
+  }
+}

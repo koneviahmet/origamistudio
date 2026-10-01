@@ -1,0 +1,11 @@
+{
+  "name": "Pastel · Nane",
+  "font": "Nunito",
+  "weight": 800,
+  "size": 82,
+  "color": "#2f9e7c",
+  "stroke": {
+    "color": "#e6fff6",
+    "width": 8
+  }
+}

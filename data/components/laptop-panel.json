@@ -1,0 +1,53 @@
+{
+  "name": "Dizüstü — panel",
+  "description": "Masaüstü uygulama gösterimi.",
+  "type": "device",
+  "props": {
+    "frame": "laptop",
+    "width": 900,
+    "title": "Panel",
+    "ui": "panel",
+    "lines": [
+      "Özet",
+      "Raporlar",
+      "Ekip"
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "tanitim",
+      "kod-teknik"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "teknoloji",
+      "yazilim"
+    ],
+    "ton": [
+      "ciddi-kurumsal",
+      "teknik"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "dizustu",
+      "panel",
+      "laptop"
+    ]
+  }
+}

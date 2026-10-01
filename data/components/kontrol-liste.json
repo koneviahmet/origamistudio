@@ -1,0 +1,54 @@
+{
+  "name": "Kontrol listesi",
+  "description": "Maddeler sırayla işaretlenir.",
+  "type": "liste",
+  "props": {
+    "kind": "kontrol",
+    "title": "Yapılacaklar",
+    "lines": [
+      "Fikri belirle",
+      "Taslağı çiz",
+      "Videoyu oluştur",
+      "Paylaş"
+    ],
+    "width": 700
+  },
+  "etiketler": {
+    "amac": [
+      "liste-ozet",
+      "egitim-anlatim",
+      "ilerleme-takip"
+    ],
+    "konu": [
+      "genel",
+      "egitim",
+      "uygulama-urun"
+    ],
+    "ton": [
+      "sakin",
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "liste"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "kontrol",
+      "listesi",
+      "liste"
+    ]
+  }
+}

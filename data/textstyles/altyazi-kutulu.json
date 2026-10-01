@@ -1,0 +1,17 @@
+{
+  "name": "Altyazı · Kutulu",
+  "font": "Inter",
+  "weight": 700,
+  "size": 50,
+  "color": "#ffffff",
+  "box": {
+    "color": "rgba(0,0,0,0.7)",
+    "radius": 12,
+    "padding": [
+      10,
+      22
+    ],
+    "shadow": false
+  },
+  "lineHeight": 1.25
+}

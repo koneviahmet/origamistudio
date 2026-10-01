@@ -1,0 +1,50 @@
+{
+  "name": "Bildirim — mesaj",
+  "description": "Yukarıdan kayarak düşen mesaj bildirimi.",
+  "type": "kart",
+  "props": {
+    "kind": "bildirim",
+    "title": "Yeni mesaj",
+    "text": "Toplantı 15:00’e ertelendi, görüşürüz.",
+    "icon": "✉",
+    "width": 760,
+    "height": 170
+  },
+  "etiketler": {
+    "amac": [
+      "bildirim-uyari",
+      "sohbet-diyalog"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "teknoloji",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "dikkat-cekici",
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "metin",
+      "simge"
+    ],
+    "yerlesim": [
+      "ust-bildirim",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "bildirim",
+      "mesaj"
+    ]
+  }
+}

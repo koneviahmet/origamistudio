@@ -1,0 +1,15 @@
+{
+  "name": "Çıkartma · Bulut Konuşma",
+  "font": "Mali",
+  "weight": 700,
+  "size": 52,
+  "color": "#333333",
+  "box": {
+    "color": "#ffffff",
+    "radius": 40,
+    "padding": [
+      28,
+      44
+    ]
+  }
+}

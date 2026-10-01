@@ -1,0 +1,37 @@
+{
+  "sablon": "adimlar",
+  "id": "sablon-adimlar",
+  "ad": "3 Adımda Kahve",
+  "format": "reels",
+  "palet": "pastel",
+  "muzik": "lofi-90",
+  "font": "Archivo Black",
+  "adimlar": [
+    {
+      "baslik": "Suyu ısıt",
+      "metin": "Taze su koy, kaynamadan al."
+    },
+    {
+      "baslik": "Kahveyi ekle",
+      "metin": "Bir fincana bir tatlı kaşığı yeter."
+    },
+    {
+      "baslik": "Köpüğü yakala",
+      "metin": "Köpük yükselince ocaktan al."
+    }
+  ],
+  "ozet": "Afiyet olsun!",
+  "cta": "Kaydet",
+  "alt": "@kullaniciadi",
+  "yayin": {
+    "baslik": "3 adımda mükemmel kahve",
+    "aciklama": "Evde kolayca barista gibi kahve yap. Kaydet, sonra dene!",
+    "etiketler": [
+      "kahve",
+      "tarif",
+      "nasilyapilir",
+      "reels",
+      "shorts"
+    ]
+  }
+}

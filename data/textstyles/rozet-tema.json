@@ -1,0 +1,12 @@
+{
+  "name": "Rozet · Tema Başlık",
+  "font": "Poppins",
+  "weight": 600,
+  "size": 42,
+  "color": "$arka1",
+  "box": {
+    "color": "$baslik",
+    "radius": 999
+  },
+  "letterSpacing": 2
+}

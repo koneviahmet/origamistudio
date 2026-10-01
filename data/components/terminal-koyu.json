@@ -1,0 +1,52 @@
+{
+  "name": "Terminal — koyu",
+  "description": "Komutlar tek tek yazılır, yanıp sönen imleç.",
+  "type": "kod",
+  "props": {
+    "kind": "terminal",
+    "tema": "koyu",
+    "title": "terminal",
+    "lines": [
+      "$ npm install",
+      "added 128 packages in 4s",
+      "$ npm run dev",
+      "Sunucu hazır → http://localhost:5180"
+    ],
+    "width": 900,
+    "height": 480
+  },
+  "etiketler": {
+    "amac": [
+      "kod-teknik",
+      "egitim-anlatim"
+    ],
+    "konu": [
+      "yazilim",
+      "teknoloji"
+    ],
+    "ton": [
+      "teknik",
+      "sinematik"
+    ],
+    "stil": [
+      "koyu"
+    ],
+    "icerik": [
+      "kod"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "terminal",
+      "koyu"
+    ]
+  }
+}

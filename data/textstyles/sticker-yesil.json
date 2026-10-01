@@ -1,0 +1,17 @@
+{
+  "name": "Çıkartma · Yeşil",
+  "font": "Mali",
+  "weight": 700,
+  "size": 84,
+  "color": "#35c46a",
+  "stroke": {
+    "color": "#ffffff",
+    "width": 16
+  },
+  "shadow": {
+    "color": "rgba(0,0,0,0.3)",
+    "blur": 10,
+    "x": 0,
+    "y": 6
+  }
+}

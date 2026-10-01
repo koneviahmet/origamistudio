@@ -1,0 +1,12 @@
+{
+  "name": "Altyazı · Sarı",
+  "font": "Poppins",
+  "weight": 800,
+  "size": 60,
+  "color": "#ffe14d",
+  "stroke": {
+    "color": "#000000",
+    "width": 12
+  },
+  "lineHeight": 1.2
+}

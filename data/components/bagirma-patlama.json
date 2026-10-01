@@ -1,0 +1,52 @@
+{
+  "name": "Bağırma balonu",
+  "description": "Çizgi film patlaması: dikenli, sarsılan, kalın harfli.",
+  "type": "balon",
+  "props": {
+    "kind": "bagirma",
+    "text": "VAY CANINA!",
+    "width": 640,
+    "height": 480,
+    "accent": "#ffd54a",
+    "textColor": "#1f1c2e"
+  },
+  "etiketler": {
+    "amac": [
+      "vurgu-dikkat",
+      "ic-ses-duygu"
+    ],
+    "konu": [
+      "genel",
+      "sosyal-medya",
+      "muzik-eglence"
+    ],
+    "ton": [
+      "enerjik",
+      "dikkat-cekici",
+      "komik"
+    ],
+    "stil": [
+      "acik",
+      "renkli",
+      "keskin"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "bagirma",
+      "balonu",
+      "patlama"
+    ]
+  }
+}

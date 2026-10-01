@@ -190,9 +190,21 @@ TikTok gibi platformlar için MP4 video çıktısı alan bir masaüstü-web uygu
 - [x] **Video karesi hattı**: `prepareMedia` (deterministik seek) — `renderFrame` saf kalır; önizleme ve dışa aktarım aynı kareyi alır
 - [x] **Ses zarfı** (`env`, 8 bant, FFT) + `audiodrive.js`; ön ayarlar: `ritimle-*`, `sesle-*`; stüdyoda "Zarf çıkar", `scripts/analyze-audio.mjs`
 - [x] **Sahte 3B**: `layer.depth` paralaks (kamera pan/zoom), `layer.blur`, `camera.focus` / `camera.dof` alan derinliği
-- [x] **Şablonlar** (Faz 8 maddesi): `explainer`, `veri`, `kinetik`, `urun`, `showreel`, `liste` — `scripts/sablonlar/`, `node scripts/uret.mjs`,
-      Projeler → ✦ Şablondan, `brief.json`; yatay / dikey otomatik düzen
+- [x] **Şablonlar** (Faz 8 maddesi): `scripts/sablonlar/`, `node scripts/uret.mjs`, Projeler → ✦ Şablondan, `brief.json`
+      (ilk takım — explainer / veri / kinetik / urun / showreel / liste — kaldırıldı; yerine ↓ reels takımı)
+- [x] **Reels şablon takımı** (yeniden tasarım): `vurus, hook, siralama, karsilastir, urun, rakamlar, adimlar, sohbet` — vuruşa oturan kamera darbesi, kelime çarpması,
+      silme geçişleri, sayaç; `reels.mjs` yapı taşları, `gen-ritim.mjs` ritim parçaları (5), `seed-sekiller.mjs` şekil takımı (11), metin `count` / `counter` sayacı,
+      yeni Şablonlar sayfası (galeri + hover-oynat, palet / müzik / format kartları), yeni Animasyonlar sayfası (arama, favori, parametre ayarı, hızlı kuyruk)
 - [x] **Sunucu tarafı render** (D3): `scripts/render.mjs` — başsız Edge/Chrome, toplu format (`--hepsi`), `/render/:id` sayfası
 - [x] **AI4**: Notlar → "Claude ile uygula" (`POST /api/projects/:id/notes-apply`, `scripts/ai-notlar.mjs`; `ANTHROPIC_API_KEY` gerekir)
 - [ ] Sınır: video sesi karışıma girmez; bileşenler için stüdyoda sürükle-boyutlandır tutamağı yok (denetçiden ayarlanır)
 - [ ] Kapsam dışı bırakıldı (istek üzerine): podcast / seslendirme + otomatik altyazı hattı
+
+### Faz 17 — Karakter sistemi ✅
+- [x] **Karakter setleri** (`data/characters`, `type: "karakter"`): ortak iskelet (rig) + el çizimi titremeli çizim; 5 hazır set (copadam, bonbon, robo, miyav, astro) + varyant / aksesuar (saç, şapka, gözlük, kulak, kuyruk, kravat…)
+- [x] **Ortak aksiyon kataloğu** (40): duruş, yürü / koş / zıpla, konuş, tanıt, işaret et, el salla, düşün, fikir, sevin, ağla… — iz tabanlı, IK ile elin yüze / belde olması her oranda doğru
+- [x] **Duygular** (23 yüz ifadesi, yumuşak geçiş), tutulan nesneler (15), başın üstü efektleri (8), **konuşma balonu** (konuş / düşün / bağır / fısılda; harf harf yazılır, ağız oynar, otomatik jest)
+- [x] **Zaman akışı**: `akis` (aksiyon + duygu + hareket dx/dy + hedef / bakış + nesne), `soz`; ürün tanıtma (`hedef` katman), iki karakter diyaloğu (`diyalog()`)
+- [x] **Karakterler sayfası** (önizleme, aksiyon / duygu galerisi, görünüm editörü, varyant), Stüdyo **＋ Karakter** + denetçi (akış / söz editörü), İçerik panelinde sözler
+- [x] Yapay zekâ altyapısı: `scripts/lib/karakter.mjs` (`karakter`, `diyalog`, doğrulama), `npm run karakter` (ara / katalog), `npm run dogrula`, `npm run seed:karakter`, şema §15, örnek: `scripts/scenes-karakter-demo.mjs`
+- [ ] Sınır: tek iskelet (insan; dört ayaklılar yok), yan görünüm yok (yürüyüş ön görünüm "yürür" stilidir), sandalye / oturma yok

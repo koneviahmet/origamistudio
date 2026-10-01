@@ -1,0 +1,17 @@
+{
+  "name": "Retro · Motel Tabelası",
+  "font": "Pacifico",
+  "weight": 400,
+  "size": 92,
+  "color": "#ffeab0",
+  "shadow": {
+    "color": "#ff5e2b",
+    "blur": 18,
+    "x": 0,
+    "y": 0
+  },
+  "stroke": {
+    "color": "#c42a10",
+    "width": 4
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Pastel · Lavanta",
+  "font": "Quicksand",
+  "weight": 700,
+  "size": 82,
+  "color": "#8a6fd1",
+  "shadow": {
+    "color": "rgba(138,111,209,0.25)",
+    "blur": 14,
+    "x": 0,
+    "y": 6
+  }
+}

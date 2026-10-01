@@ -1,0 +1,56 @@
+{
+  "name": "Kod editörü — JavaScript",
+  "description": "Renkli sözdizimi ve satır numaralı koyu editör.",
+  "type": "kod",
+  "props": {
+    "kind": "editor",
+    "tema": "koyu",
+    "title": "app.js",
+    "lines": [
+      "// Selamlama",
+      "const ad = \"Dünya\";",
+      "function selam(x) {",
+      "  return `Merhaba ${x}!`;",
+      "}",
+      "console.log(selam(ad), 2025);"
+    ],
+    "width": 900,
+    "height": 520
+  },
+  "etiketler": {
+    "amac": [
+      "kod-teknik",
+      "egitim-anlatim"
+    ],
+    "konu": [
+      "yazilim",
+      "teknoloji",
+      "egitim"
+    ],
+    "ton": [
+      "teknik"
+    ],
+    "stil": [
+      "koyu"
+    ],
+    "icerik": [
+      "kod"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "kod",
+      "editoru",
+      "javascript",
+      "editor"
+    ]
+  }
+}

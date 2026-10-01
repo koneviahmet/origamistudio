@@ -1,0 +1,45 @@
+{
+  "name": "Ses — çizgi",
+  "description": "İnce dalga çizgisi (konuşma / podcast).",
+  "type": "waveform",
+  "props": {
+    "style": "cizgi",
+    "width": 860,
+    "height": 200,
+    "gain": 1.2
+  },
+  "etiketler": {
+    "amac": [
+      "ses-muzik",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "muzik-eglence",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "enerjik",
+      "dikkat-cekici"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "ses"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "ses-gerek"
+    ],
+    "anahtar": [
+      "ses",
+      "cizgi"
+    ]
+  }
+}

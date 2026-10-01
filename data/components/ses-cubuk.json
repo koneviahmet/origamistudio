@@ -1,0 +1,47 @@
+{
+  "name": "Ses — çubuklar",
+  "description": "Ekolayzer çubukları; müziğe göre oynar.",
+  "type": "waveform",
+  "props": {
+    "style": "cubuk",
+    "bars": 32,
+    "width": 800,
+    "height": 240,
+    "color2": "#6c63ff"
+  },
+  "etiketler": {
+    "amac": [
+      "ses-muzik",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "muzik-eglence",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "enerjik",
+      "dikkat-cekici"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "ses"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "ses-gerek"
+    ],
+    "anahtar": [
+      "ses",
+      "cubuklar",
+      "cubuk"
+    ]
+  }
+}

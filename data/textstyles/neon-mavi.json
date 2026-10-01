@@ -1,0 +1,17 @@
+{
+  "name": "Neon · Elektrik Mavisi",
+  "font": "Urbanist",
+  "weight": 900,
+  "size": 84,
+  "color": "#e0ecff",
+  "shadow": {
+    "color": "#2f6bff",
+    "blur": 32,
+    "x": 0,
+    "y": 0
+  },
+  "stroke": {
+    "color": "#5c8dff",
+    "width": 3
+  }
+}

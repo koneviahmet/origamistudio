@@ -1,0 +1,63 @@
+{
+  "name": "İlerleme çubukları",
+  "description": "Becerilerin ya da görevlerin yüzdelik doluluğu.",
+  "type": "liste",
+  "props": {
+    "kind": "ilerleme",
+    "title": "Beceriler",
+    "data": [
+      {
+        "label": "Tasarım",
+        "value": 90
+      },
+      {
+        "label": "Kodlama",
+        "value": 70
+      },
+      {
+        "label": "Sunum",
+        "value": 45
+      }
+    ],
+    "width": 820
+  },
+  "etiketler": {
+    "amac": [
+      "ilerleme-takip",
+      "veri-hikayesi",
+      "karsilastirma"
+    ],
+    "konu": [
+      "genel",
+      "egitim",
+      "saglik-spor"
+    ],
+    "ton": [
+      "minimal",
+      "enerjik"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "sayi",
+      "grafik"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "ilerleme",
+      "cubuklari",
+      "beceri"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "name": "Kod editörü — Python (açık)",
+  "description": "Açık temalı Python örneği.",
+  "type": "kod",
+  "props": {
+    "kind": "editor",
+    "tema": "acik",
+    "title": "main.py",
+    "lines": [
+      "# Toplam hesapla",
+      "def topla(a, b):",
+      "    return a + b",
+      "",
+      "print(topla(3, 4))"
+    ],
+    "accent": "#6c63ff",
+    "width": 860,
+    "height": 440
+  },
+  "etiketler": {
+    "amac": [
+      "kod-teknik",
+      "egitim-anlatim"
+    ],
+    "konu": [
+      "yazilim",
+      "teknoloji",
+      "egitim"
+    ],
+    "ton": [
+      "teknik"
+    ],
+    "stil": [
+      "acik",
+      "renkli"
+    ],
+    "icerik": [
+      "kod"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "liste-gerek"
+    ],
+    "anahtar": [
+      "kod",
+      "editoru",
+      "python",
+      "acik",
+      "editor"
+    ]
+  }
+}

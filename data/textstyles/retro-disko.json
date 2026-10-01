@@ -1,0 +1,17 @@
+{
+  "name": "Retro · Disko",
+  "font": "Righteous",
+  "weight": 400,
+  "size": 86,
+  "color": "#fff",
+  "shadow": {
+    "color": "#7a2cff",
+    "blur": 0,
+    "x": 6,
+    "y": 6
+  },
+  "stroke": {
+    "color": "#ff3ea5",
+    "width": 7
+  }
+}

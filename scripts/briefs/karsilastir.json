@@ -1,0 +1,38 @@
+{
+  "sablon": "karsilastir",
+  "id": "sablon-karsilastir",
+  "ad": "Mit mi Gerçek mi?",
+  "format": "reels",
+  "palet": "canli",
+  "muzik": "hype-132",
+  "font": "Anton",
+  "ustBaslik": "MİT",
+  "altBaslik": "GERÇEK",
+  "turlar": [
+    {
+      "ust": "Kediler süt ister",
+      "alt": "Çoğu kedi laktoz intoleranslıdır"
+    },
+    {
+      "ust": "Altın balık 3 saniye hatırlar",
+      "alt": "Aylarca hatırlayabilirler"
+    },
+    {
+      "ust": "Şimşek aynı yere düşmez",
+      "alt": "Aynı yere defalarca düşebilir"
+    }
+  ],
+  "sonuc": "Sen kaçını bildin?",
+  "alt": "@kullaniciadi",
+  "yayin": {
+    "baslik": "Mit mi gerçek mi? Sen kaçını biliyordun?",
+    "aciklama": "Yıllardır doğru sandığımız üç yanlış. Kaç tanesini biliyordun? Yorumlarda söyle!",
+    "etiketler": [
+      "mitgercek",
+      "bilgi",
+      "reels",
+      "shorts",
+      "ilginc"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Rozet · Koyu",
+  "font": "Outfit",
+  "weight": 700,
+  "size": 40,
+  "color": "#ffffff",
+  "box": {
+    "color": "#1c1c24",
+    "radius": 999
+  },
+  "uppercase": true,
+  "letterSpacing": 4
+}

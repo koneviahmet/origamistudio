@@ -1,0 +1,52 @@
+{
+  "name": "Rozet — onaylı",
+  "description": "Üstte onay işaretli güven damgası.",
+  "type": "kart",
+  "props": {
+    "kind": "rozet",
+    "title": "Onaylı",
+    "sub": "Güvenli",
+    "icon": "✓",
+    "accent": "#2fa36b",
+    "width": 380,
+    "height": 380
+  },
+  "etiketler": {
+    "amac": [
+      "vurgu-dikkat",
+      "cagri-eylem"
+    ],
+    "konu": [
+      "e-ticaret",
+      "sosyal-medya",
+      "genel"
+    ],
+    "ton": [
+      "dikkat-cekici",
+      "eglenceli"
+    ],
+    "stil": [
+      "acik",
+      "yuvarlak",
+      "renkli"
+    ],
+    "icerik": [
+      "simge",
+      "metin"
+    ],
+    "yerlesim": [
+      "kose-etiket",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "rozet",
+      "onayli"
+    ]
+  }
+}

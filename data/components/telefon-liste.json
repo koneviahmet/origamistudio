@@ -1,0 +1,52 @@
+{
+  "name": "Telefon — liste",
+  "description": "Uygulama tanıtımı için telefon çerçevesi, sahte liste arayüzü.",
+  "type": "device",
+  "props": {
+    "frame": "telefon",
+    "width": 460,
+    "title": "Uygulama",
+    "ui": "liste",
+    "lines": [
+      "Bugün",
+      "Yaklaşan",
+      "Tamamlanan",
+      "Ayarlar"
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "tanitim",
+      "gorsel-sergi"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "teknoloji"
+    ],
+    "ton": [
+      "minimal",
+      "premium-sik"
+    ],
+    "stil": [
+      "acik"
+    ],
+    "icerik": [
+      "gorsel",
+      "video"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "dikey-uyumlu"
+    ],
+    "boyut": [
+      "buyuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "telefon",
+      "liste"
+    ]
+  }
+}

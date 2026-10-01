@@ -1,0 +1,49 @@
+{
+  "name": "Anlatıcı — gece",
+  "description": "Koyu mavi gece sahnesi için anlatıcı kutusu.",
+  "type": "balon",
+  "props": {
+    "kind": "anlatici",
+    "text": "Ertesi sabah…",
+    "width": 520,
+    "height": 130,
+    "bg": "#9ad0ff"
+  },
+  "etiketler": {
+    "amac": [
+      "anlatici-gecis"
+    ],
+    "konu": [
+      "genel",
+      "haber",
+      "egitim"
+    ],
+    "ton": [
+      "sinematik",
+      "komik",
+      "nostaljik"
+    ],
+    "stil": [
+      "acik",
+      "keskin"
+    ],
+    "icerik": [
+      "metin"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "anlatici",
+      "gece",
+      "koyu"
+    ]
+  }
+}

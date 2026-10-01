@@ -1,0 +1,49 @@
+{
+  "name": "Rozet — YENİ",
+  "description": "Tırtıklı kenarlı, dönerek giren damga.",
+  "type": "kart",
+  "props": {
+    "kind": "rozet",
+    "title": "Yeni",
+    "sub": "Bu hafta",
+    "width": 360,
+    "height": 360
+  },
+  "etiketler": {
+    "amac": [
+      "vurgu-dikkat",
+      "cagri-eylem"
+    ],
+    "konu": [
+      "e-ticaret",
+      "sosyal-medya",
+      "genel"
+    ],
+    "ton": [
+      "dikkat-cekici",
+      "eglenceli"
+    ],
+    "stil": [
+      "acik",
+      "yuvarlak"
+    ],
+    "icerik": [
+      "simge",
+      "metin"
+    ],
+    "yerlesim": [
+      "kose-etiket",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "rozet",
+      "yeni"
+    ]
+  }
+}

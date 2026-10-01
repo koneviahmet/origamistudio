@@ -1,0 +1,19 @@
+{
+  "name": "Neon · Çift Işık",
+  "font": "Montserrat",
+  "weight": 800,
+  "size": 82,
+  "color": "#ffffff",
+  "shadow": {
+    "color": "#ff2fb3",
+    "blur": 12,
+    "x": -4,
+    "y": 0
+  },
+  "stroke": {
+    "color": "#00e5ff",
+    "width": 4
+  },
+  "uppercase": true,
+  "letterSpacing": 3
+}

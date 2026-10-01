@@ -1,0 +1,17 @@
+{
+  "name": "Çıkartma · Tema Vurgusu",
+  "font": "Baloo 2",
+  "weight": 800,
+  "size": 88,
+  "color": "$vurgu",
+  "stroke": {
+    "color": "$arka1",
+    "width": 16
+  },
+  "shadow": {
+    "color": "rgba(0,0,0,0.25)",
+    "blur": 10,
+    "x": 0,
+    "y": 6
+  }
+}

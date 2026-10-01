@@ -1,0 +1,57 @@
+{
+  "name": "Geri sayım — koyu halka",
+  "description": "Koyu zeminli, açık yazılı halka sayaç.",
+  "type": "zaman",
+  "props": {
+    "kind": "halka",
+    "from": 45,
+    "to": 0,
+    "label": "Kalan",
+    "bg": "#1f1c2e",
+    "textColor": "#f4f1ff",
+    "accent": "#f6b73c",
+    "width": 460
+  },
+  "etiketler": {
+    "amac": [
+      "zaman-sayim",
+      "ilerleme-takip"
+    ],
+    "konu": [
+      "saglik-spor",
+      "genel",
+      "egitim"
+    ],
+    "ton": [
+      "minimal",
+      "sakin",
+      "sinematik"
+    ],
+    "stil": [
+      "koyu",
+      "kartli",
+      "yuvarlak",
+      "renkli"
+    ],
+    "icerik": [
+      "zaman"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "kare-uyumlu"
+    ],
+    "boyut": [
+      "kucuk"
+    ],
+    "gereksinim": [
+      "kendi-basina"
+    ],
+    "anahtar": [
+      "geri",
+      "sayim",
+      "koyu",
+      "halka",
+      "zaman"
+    ]
+  }
+}

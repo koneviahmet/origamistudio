@@ -4,11 +4,13 @@ import { exportMp4, downloadBlob, canExportMp4 } from '../../export/mp4.js';
 import { slug } from '../../slug.js';
 import { ensureSceneFonts } from '../../fonts.js';
 import { renderMix } from '../../audio.js';
+import { api } from '../../api.js';
 
 const props = defineProps({
   scene: { type: Object, required: true },
   res: { type: Object, required: true },
   initialFormat: { type: String, default: null },
+  projectId: { type: String, default: '' },
 });
 const emit = defineEmits(['close']);
 
@@ -16,6 +18,7 @@ const emit = defineEmits(['close']);
 const target = ref(props.initialFormat || '');
 const scale = ref(1);
 const withAudio = ref(true);
+const keep = ref(true); // projeye de kaydet (YouTube yüklemesi için)
 const hasAudio = computed(() => (props.scene.audio || []).some((a) => a.file && !a.mute) || !!props.scene.sfx?.auto);
 const warn = ref('');
 const rangeMode = ref('all');
@@ -81,6 +84,13 @@ async function run() {
       const name = `${slug(props.scene.name || 'origami')}-${w}x${h}.mp4`;
       results.value.push({ blob, name, mb: (blob.size / 1024 / 1024).toFixed(1), secs: ((performance.now() - t0) / 1000).toFixed(1) });
       downloadBlob(blob, name);
+      if (keep.value && props.projectId) {
+        try {
+          await api.saveRender(props.projectId, name, blob);
+        } catch (e) {
+          warn.value = `Projeye kaydedilemedi: ${e.message}`;
+        }
+      }
     }
   } catch (e) {
     error.value = e.name === 'AbortError' ? 'İptal edildi.' : e.message || String(e);
@@ -130,6 +140,7 @@ function cancel() {
           <div class="field"><label>Bitiş (sn)</label><input v-model.number="to" type="number" step="0.1" :max="scene.duration" class="input" /></div>
         </div>
         <label v-if="hasAudio" class="row small"><input v-model="withAudio" type="checkbox" :disabled="running" /> Müziği / sesi dahil et (AAC)</label>
+        <label v-if="projectId" class="row small"><input v-model="keep" type="checkbox" :disabled="running" /> Projeye de kaydet (Paylaşım → YouTube'a yükle için)</label>
         <div v-if="warn" class="err">{{ warn }}</div>
         <div class="dim small">{{ size }} · {{ scene.fps }} fps · {{ frames }} kare · H.264 MP4 (Instagram / YouTube / TikTok uyumlu)</div>
 

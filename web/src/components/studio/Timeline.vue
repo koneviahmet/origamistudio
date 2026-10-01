@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue';
+import { computed, onBeforeUnmount, onMounted, reactive, ref, shallowRef, toRaw, watch } from 'vue';
 import { layerKeyTimes, foldSpan, keysAt, removeKeysAt, putKey, sortTracks } from '../../sceneOps.js';
 import { PRESETS } from '../../engine/presets.js';
 import { TEXT_ANIMS } from '../../engine/textanims.js';
@@ -20,7 +20,7 @@ const props = defineProps({
   edit: { type: Function, required: true },
   solo: { type: Array, default: () => [] },
 });
-const emit = defineEmits(['seek', 'select', 'select-note', 'toggle-hidden', 'info', 'solo', 'new-group']);
+const emit = defineEmits(['seek', 'select', 'select-note', 'toggle-hidden', 'info', 'solo', 'new-group', 'save-frame']);
 
 const scroller = ref(null);
 const viewW = ref(800);
@@ -170,7 +170,17 @@ const sel = ref(new Set()); // "katmanId|t"
 const selKey = (id, t) => `${id}|${r3(t)}`;
 const isSel = (id, t) => sel.value.has(selKey(id, t));
 const objOf = (id) => (id === '__camera' ? props.scene.camera : props.scene.layers.find((l) => l.id === id));
-watch(() => props.scene, () => (sel.value = new Set()));
+// Blok seçimi: ses izi, animasyon çubuğu, bölüm, geçiş (Delete / Backspace ile silinir)
+const blk = shallowRef(null);
+const isBlk = (o) => blk.value != null && toRaw(o) === blk.value;
+function selectBlock(o) {
+  blk.value = o ? toRaw(o) : null;
+  if (o) sel.value = new Set();
+}
+watch(() => props.scene, () => {
+  sel.value = new Set();
+  blk.value = null;
+});
 
 // ---------------------------------------------------------- oynatma kafası
 function timeFromEvent(e) {
@@ -182,7 +192,10 @@ let scrubbing = false;
 function onDown(e) {
   if (e.button !== 0) return;
   scrubbing = true;
-  if (!e.shiftKey) sel.value = new Set();
+  if (!e.shiftKey) {
+    sel.value = new Set();
+    blk.value = null;
+  }
   e.currentTarget.setPointerCapture(e.pointerId);
   emit('seek', timeFromEvent(e));
 }
@@ -232,6 +245,7 @@ function startKeyDrag(e, id, t) {
     sel.value = s;
     return;
   }
+  blk.value = null;
   if (!sel.value.has(k)) sel.value = new Set([k]);
   emit('select', id);
   // Seçili grupların keyframe nesnelerini topla
@@ -249,6 +263,7 @@ function startKeyDrag(e, id, t) {
 function startBlockDrag(e, target, field, t0, extra = {}) {
   e.stopPropagation();
   if (e.button !== 0) return;
+  selectBlock(target);
   drag = { kind: 'block', x0: e.clientX, target, field, t0, anchor: t0, moved: false, ...extra };
   listen();
 }
@@ -332,7 +347,28 @@ function paste() {
   return true;
 }
 
+function deleteBlock() {
+  const o = blk.value;
+  const sc = props.scene;
+  const lists = [sc.audio, sc.sections, sc.transitions];
+  for (const l of sc.layers || []) lists.push(l.anims, l.textAnims);
+  props.edit(() => {
+    for (const arr of lists) {
+      const i = arr ? arr.findIndex((x) => toRaw(x) === o) : -1;
+      if (i >= 0) {
+        arr.splice(i, 1);
+        break;
+      }
+    }
+  });
+  blk.value = null;
+  emit('info', 'Silindi (Ctrl+Z ile geri al)');
+  setTimeout(() => emit('info', ''), 1500);
+  return true;
+}
+
 function deleteSelected() {
+  if (blk.value) return deleteBlock();
   if (!sel.value.size) return false;
   props.edit(() => {
     for (const sk of sel.value) {
@@ -350,7 +386,7 @@ function deleteAt(id, t) {
   if (obj) props.edit(() => removeKeysAt(obj, t));
 }
 
-defineExpose({ copy, paste, deleteSelected, hasSelection: () => sel.value.size > 0 });
+defineExpose({ copy, paste, deleteSelected, hasSelection: () => sel.value.size > 0 || !!blk.value });
 
 function onWheel(e) {
   if (!e.ctrlKey) return;
@@ -374,6 +410,7 @@ const fmt = (t) => (ticks.value.step < 1 ? t.toFixed(ticks.value.step < 0.5 ? 2 
     <div class="names">
       <div class="ruler-name row">
         <span class="label grow">Katmanlar</span>
+        <button class="btn icon sm ghost" title="Şu anki kareyi PNG olarak bilgisayara kaydet (Ctrl+Shift+S)" @click="emit('save-frame')">📷</button>
         <button class="btn icon sm ghost" title="Yeni klasör (seçili katmanı içine alır)" @click="emit('new-group')">📁</button>
         <button class="btn icon sm ghost" title="Uzaklaş" @click="zoom = Math.max(1, zoom / 1.5)">−</button>
         <button class="btn icon sm ghost" title="Yakınlaş (Ctrl+tekerlek)" @click="zoom = Math.min(40, zoom * 1.5)">＋</button>
@@ -405,13 +442,13 @@ const fmt = (t) => (ticks.value.step < 1 ? t.toFixed(ticks.value.step < 0.5 ? 2 
           <button class="eye" :title="d.r.layer.hidden ? 'Göster' : 'Gizle'" @click.stop="emit('toggle-hidden', d.r.layer.id)">
             {{ d.r.layer.hidden ? '◌' : '●' }}
           </button>
-          <span class="kind">{{ d.r.layer.type === 'text' ? 'T' : d.r.layer.type === 'particles' ? '✦' : d.r.layer.type === 'arrow' ? '➜' : ({ chart: '📊', device: '📱', media: '🖼', waveform: '🎚' })[d.r.layer.type] || '◆' }}</span>
+          <span class="kind">{{ d.r.layer.type === 'text' ? 'T' : d.r.layer.type === 'particles' ? '✦' : d.r.layer.type === 'arrow' ? '➜' : ({ chart: '📊', device: '📱', media: '🖼', waveform: '🎚', karakter: '🧍' })[d.r.layer.type] || '◆' }}</span>
           <span class="grow ell">{{ d.r.layer.id }}</span>
           <button class="tg" :class="{ on: isSolo(d.r.layer.id) }" title="Solo: yalnız bu katmanı göster (önizleme)" @click.stop="emit('solo', d.r.layer.id)">S</button>
           <button class="tg" :class="{ on: d.r.layer.locked }" title="Kilitle (sahnede seçilemez)" @click.stop="layerLock(d.r.layer)">🔒</button>
         </div>
       </template>
-      <div v-for="(a, i) in audioRows" :key="'au' + i" class="name audio" :class="{ hidden: a.tr.mute }" @click="emit('select', null)">
+      <div v-for="(a, i) in audioRows" :key="'au' + i" class="name audio" :class="{ hidden: a.tr.mute, sel: isBlk(a.tr) }" @click="emit('select', null); selectBlock(a.tr)">
         <span class="kind">♪</span>
         <span class="grow ell">{{ a.tr.file }}</span>
       </div>
@@ -439,7 +476,7 @@ const fmt = (t) => (ticks.value.step < 1 ? t.toFixed(ticks.value.step < 0.5 ? 2 
             v-for="(s, i) in sectionRows"
             :key="'s' + i"
             class="section"
-            :class="{ odd: i % 2 }"
+            :class="{ odd: i % 2, 'blk-sel': isBlk(s.sec) }"
             :style="{ left: pos(s.a), width: `${Math.max(8, px(s.b) - px(s.a))}px` }"
             :title="`${s.sec.name} · ${s.sec.t}s — tıkla: git, sürükle: taşı`"
             @pointerdown="startBlockDrag($event, s.sec, 't', s.sec.t, { click: s.sec.t, select: '__transitions' })"
@@ -450,7 +487,7 @@ const fmt = (t) => (ticks.value.step < 1 ? t.toFixed(ticks.value.step < 0.5 ? 2 
             v-for="(g, i) in transRows"
             :key="'g' + i"
             class="trans-bar"
-            :class="{ off: g.tr.off }"
+            :class="{ off: g.tr.off, 'blk-sel': isBlk(g.tr) }"
             :style="{ left: pos(g.a), width: `${Math.max(8, px(g.b) - px(g.a))}px` }"
             :title="`${g.name} · kesme ${g.tr.t}s — sürükleyerek kaydır`"
             @pointerdown="startBlockDrag($event, g.tr, 't', g.tr.t, { click: g.tr.t, select: '__transitions' })"
@@ -483,8 +520,9 @@ const fmt = (t) => (ticks.value.step < 1 ? t.toFixed(ticks.value.step < 0.5 ? 2 
             v-for="(a, i) in r.anims"
             :key="'a' + i"
             class="anim-bar"
+            :class="{ 'blk-sel': isBlk(a.obj) }"
             :style="{ left: pos(a.t0), width: `${Math.max(6, px(a.t1) - px(a.t0))}px`, background: a.color }"
-            :title="`${a.name} · ${a.t0}s — sürükleyerek kaydır`"
+            :title="`${a.name} · ${a.t0}s — sürükleyerek kaydır · seçiliyken Delete ile sil`"
             @pointerdown="emit('select', r.layer.id); startBlockDrag($event, a.obj, 't', a.t0)"
           />
           <div v-if="r.fold" class="fold" :style="{ left: pos(r.fold[0]), width: `${px(r.fold[1]) - px(r.fold[0])}px` }" title="katlanma" />
@@ -504,6 +542,7 @@ const fmt = (t) => (ticks.value.step < 1 ? t.toFixed(ticks.value.step < 0.5 ? 2 
         <div v-for="(a, i) in audioRows" :key="'au' + i" class="row-track audio" :class="{ hidden: a.tr.mute }">
           <div
             class="audio-bar"
+            :class="{ 'blk-sel': isBlk(a.tr) }"
             :style="{ left: pos(a.start), width: `${Math.max(6, px(a.start + a.len) - px(a.start))}px` }"
             :title="`${a.tr.file} · ${a.start}s — sürükleyerek kaydır`"
             @pointerdown="startBlockDrag($event, a.tr, 'start', a.start)"
@@ -579,6 +618,8 @@ const fmt = (t) => (ticks.value.step < 1 ? t.toFixed(ticks.value.step < 0.5 ? 2 
   position: absolute; top: 7px; width: 10px; height: 10px; margin-left: -5px; padding: 0;
   background: var(--kf); border: 1px solid #1b120b; transform: rotate(45deg); cursor: grab; z-index: 2;
 }
+.blk-sel { outline: 2px solid #fff; outline-offset: 1px; box-shadow: 0 0 0 4px rgba(234, 122, 59, .55); filter: brightness(1.35); z-index: 3; }
+.audio-bar.blk-sel { background: #2b5780; border-color: #9fd0ff; }
 .kf:hover { background: #ffd9b8; }
 .kf.on { background: #fff; outline: 2px solid var(--accent); }
 .note-pin {

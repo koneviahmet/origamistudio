@@ -1,0 +1,29 @@
+{
+  "sablon": "vurus",
+  "id": "sablon-vurus",
+  "ad": "Vuruş Metni",
+  "format": "reels",
+  "palet": "canli",
+  "muzik": "pop-120",
+  "font": "Anton",
+  "satirlar": [
+    "Dur! *Kaydırma*",
+    "Bu 10 saniye",
+    "hayatını *değiştirebilir*",
+    "Dene ve *gör*"
+  ],
+  "cta": "Takip et!",
+  "alt": "@kullaniciadi",
+  "dalga": true,
+  "yayin": {
+    "baslik": "Bunu kaçırma! 10 saniyede dikkat çek",
+    "aciklama": "Vuruşa oturan hızlı yazı videosu. Beğen, kaydet ve takip etmeyi unutma!",
+    "etiketler": [
+      "reels",
+      "shorts",
+      "motivasyon",
+      "viral",
+      "kinetik"
+    ]
+  }
+}

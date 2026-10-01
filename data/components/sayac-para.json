@@ -1,0 +1,55 @@
+{
+  "name": "Sayaç — para",
+  "description": "Gelir / bütçe gibi parasal rakam sayacı.",
+  "type": "chart",
+  "props": {
+    "kind": "sayac",
+    "title": "Toplam gelir",
+    "width": 760,
+    "height": 340,
+    "prefix": "₺",
+    "unit": "M",
+    "decimals": 1,
+    "data": [
+      {
+        "label": "Gelir",
+        "value": 12.5
+      }
+    ]
+  },
+  "etiketler": {
+    "amac": [
+      "veri-hikayesi",
+      "vurgu-dikkat"
+    ],
+    "konu": [
+      "finans-is",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "enerjik",
+      "dikkat-cekici"
+    ],
+    "stil": [
+      "acik",
+      "kartli"
+    ],
+    "icerik": [
+      "sayi"
+    ],
+    "yerlesim": [
+      "orta-odak",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "veri-gerek"
+    ],
+    "anahtar": [
+      "sayac",
+      "para"
+    ]
+  }
+}

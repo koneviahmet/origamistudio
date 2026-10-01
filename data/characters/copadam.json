@@ -1,0 +1,288 @@
+{
+  "name": "Çöp adam",
+  "description": "Defter kenarı çizgi karakteri: beyaz dolgu, titrek siyah kontur, çubuk uzuvlar. Her konuya uyar; en hızlı okunan karakter.",
+  "rig": "insan",
+  "etiketler": [
+    "çöp adam",
+    "stickman",
+    "çizgi",
+    "el çizimi",
+    "doodle",
+    "defter",
+    "sade",
+    "genel",
+    "eğitim",
+    "anlatım",
+    "whiteboard",
+    "minimal",
+    "siyah beyaz"
+  ],
+  "kullanim": "Genel anlatıcı / diyalog. Kâğıt, kroki, çizim stilli ve sade videolar için. Renkli arka planlarda da okunur.",
+  "olcu": {
+    "bas": [
+      60,
+      56
+    ],
+    "boyun": 2,
+    "govde": [
+      80,
+      128
+    ],
+    "omuzY": 16,
+    "omuzX": 36,
+    "kolUst": 54,
+    "kolAlt": 50,
+    "kalcaX": 18,
+    "bacakUst": 52,
+    "bacakAlt": 50,
+    "el": 10,
+    "ayak": [
+      20,
+      9
+    ]
+  },
+  "cizgi": {
+    "renk": "#17171c",
+    "kalinlik": 5,
+    "titrek": 1.5,
+    "kaynama": 0.13
+  },
+  "renkler": {
+    "kafa": "#ffffff",
+    "govde": "#ffffff",
+    "sac": "#17171c",
+    "agiz": "#8c2a36",
+    "yanak": "#ff8f8f"
+  },
+  "govde": {
+    "sekil": "dikdortgen",
+    "yaricap": [
+      20,
+      20,
+      4,
+      4
+    ]
+  },
+  "kafa": {
+    "sekil": "daire"
+  },
+  "uzuv": {
+    "tur": "cubuk",
+    "kalinlik": 5,
+    "el": "parmak",
+    "ayak": "oval"
+  },
+  "yuz": {
+    "goz": "nokta",
+    "boyut": 1,
+    "burun": null
+  },
+  "ekler": [
+    {
+      "id": "sac-kisa",
+      "ad": "Kısa saç",
+      "tur": "sac",
+      "stil": "kisa",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-dikenli",
+      "ad": "Dikenli saç",
+      "tur": "sac",
+      "stil": "dikenli",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-topuz",
+      "ad": "Topuz",
+      "tur": "sac",
+      "stil": "topuz",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-uzun",
+      "ad": "Uzun saç",
+      "tur": "sac",
+      "stil": "uzun",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-kuyruk",
+      "ad": "At kuyruğu",
+      "tur": "sac",
+      "stil": "at-kuyrugu",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-tutam",
+      "ad": "Tek tutam",
+      "tur": "sac",
+      "stil": "tutam",
+      "varsayilan": false
+    },
+    {
+      "id": "sac-kabarik",
+      "ad": "Kabarık saç",
+      "tur": "sac",
+      "stil": "kabarik",
+      "varsayilan": false
+    },
+    {
+      "id": "gozluk",
+      "ad": "Yuvarlak gözlük",
+      "tur": "gozluk",
+      "stil": "yuvarlak",
+      "varsayilan": false
+    },
+    {
+      "id": "gunes-gozlugu",
+      "ad": "Güneş gözlüğü",
+      "tur": "gozluk",
+      "stil": "gunes",
+      "varsayilan": false
+    },
+    {
+      "id": "bere",
+      "ad": "Bere",
+      "tur": "sapka",
+      "stil": "bere",
+      "varsayilan": false,
+      "renk": "#e63946"
+    },
+    {
+      "id": "silindir",
+      "ad": "Silindir şapka",
+      "tur": "sapka",
+      "stil": "silindir",
+      "varsayilan": false
+    },
+    {
+      "id": "kep",
+      "ad": "Kep",
+      "tur": "sapka",
+      "stil": "kep",
+      "varsayilan": false,
+      "renk": "#3b82f6"
+    },
+    {
+      "id": "kask",
+      "ad": "İş kaskı",
+      "tur": "sapka",
+      "stil": "kask",
+      "varsayilan": false
+    },
+    {
+      "id": "sef-sapkasi",
+      "ad": "Aşçı şapkası",
+      "tur": "sapka",
+      "stil": "sef",
+      "varsayilan": false
+    },
+    {
+      "id": "parti-sapkasi",
+      "ad": "Parti şapkası",
+      "tur": "sapka",
+      "stil": "parti",
+      "varsayilan": false
+    },
+    {
+      "id": "tac",
+      "ad": "Taç",
+      "tur": "sapka",
+      "stil": "tac",
+      "varsayilan": false
+    },
+    {
+      "id": "kravat",
+      "ad": "Kravat",
+      "tur": "kravat",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "papyon",
+      "ad": "Papyon",
+      "tur": "papyon",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "atki",
+      "ad": "Atkı",
+      "tur": "atki",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "pelerin",
+      "ad": "Pelerin",
+      "tur": "pelerin",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "biyik",
+      "ad": "Bıyık",
+      "tur": "biyik",
+      "stil": "duz",
+      "varsayilan": false
+    },
+    {
+      "id": "sakal",
+      "ad": "Sakal",
+      "tur": "sakal",
+      "stil": "duz",
+      "varsayilan": false
+    }
+  ],
+  "varyantlar": {
+    "kiz": {
+      "govde": {
+        "sekil": "elbise"
+      },
+      "ekAc": [
+        "sac-uzun"
+      ],
+      "renkler": {
+        "govde": "#ffd1dc"
+      }
+    },
+    "ogretmen": {
+      "ekAc": [
+        "gozluk",
+        "papyon",
+        "sac-kisa"
+      ]
+    },
+    "patron": {
+      "ekAc": [
+        "kravat",
+        "sac-kisa"
+      ],
+      "renkler": {
+        "govde": "#dfe7ff"
+      }
+    },
+    "renkli": {
+      "renkler": {
+        "kafa": "#fff3c4",
+        "govde": "#ffcf9e"
+      }
+    },
+    "kirmizi": {
+      "renkler": {
+        "govde": "#ffb3b3"
+      }
+    },
+    "mavi": {
+      "renkler": {
+        "govde": "#b8d8ff"
+      }
+    },
+    "yesil": {
+      "renkler": {
+        "govde": "#bfe8b9"
+      }
+    }
+  }
+}

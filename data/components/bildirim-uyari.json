@@ -1,0 +1,52 @@
+{
+  "name": "Bildirim — uyarı",
+  "description": "Kırmızı uyarı bildirimi.",
+  "type": "kart",
+  "props": {
+    "kind": "bildirim",
+    "title": "Dikkat",
+    "text": "Depolama alanı %90 doldu.",
+    "icon": "!",
+    "accent": "#e0584a",
+    "width": 760,
+    "height": 170
+  },
+  "etiketler": {
+    "amac": [
+      "bildirim-uyari",
+      "sohbet-diyalog"
+    ],
+    "konu": [
+      "uygulama-urun",
+      "teknoloji",
+      "sosyal-medya"
+    ],
+    "ton": [
+      "dikkat-cekici",
+      "minimal"
+    ],
+    "stil": [
+      "acik",
+      "kartli",
+      "renkli"
+    ],
+    "icerik": [
+      "metin",
+      "simge"
+    ],
+    "yerlesim": [
+      "ust-bildirim",
+      "yatay-uyumlu"
+    ],
+    "boyut": [
+      "orta"
+    ],
+    "gereksinim": [
+      "metin-gerek"
+    ],
+    "anahtar": [
+      "bildirim",
+      "uyari"
+    ]
+  }
+}
