@@ -22,7 +22,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', component: ProjectsView },
-    { path: '/library', component: LibraryView },
+    { path: '/library/:category?/:id?', component: LibraryView },
     { path: '/onay/:id?', component: ApprovalView, props: true },
     { path: '/sablonlar', component: TemplatesView },
     { path: '/simulasyonlar/:slug?', component: SimulationsView, props: true },

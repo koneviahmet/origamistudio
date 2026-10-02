@@ -1,9 +1,9 @@
 # Origami Studio — Katalog
 
 > Bu dosya `npm run katalog` ile **otomatik üretilir** — elle düzenleme. Kütüphane / tasarım değişince yeniden üret.
-> Üretim: 2026-10-02 09:57
+> Üretim: 2026-10-02 11:52
 
-## 1. Origami modelleri (232)
+## 1. Origami modelleri (247)
 
 Sahnede: `{ "asset": "<id>", "variant": "<varyant>" }`. Boyut = varlık koordinat kutusu; `scale` = istenen px / en uzun kenar.
 Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canlanır.
@@ -55,6 +55,7 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `lale` | Lale | doga | 120×220 | — | a:vurgu g:ana | sari (Sarı), mor (Mor), beyaz (Beyaz) | çiçek, bahar |
 | `tepeler` | Tepeler | doga | 400×120 | — | a:ana b:ikincil | sonbahar (Sonbahar), kis (Kış), kum (Çöl) | zemin, çimen, manzara |
 | `bulut` | Bulut | gokyuzu | 220×120 | — | a:acik | gri (Yağmur), pembe (Gün batımı), firtina (Fırtına) | gökyüzü, hava |
+| `bulut-cizim` | Bulut (çizim) | gokyuzu | 330×220 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | bulut, yağmur, hava olayı, gökyüzü, damla, çizim, pastel |
 | `gunes` | Güneş | gokyuzu | 160×160 | — | a:ana b:vurgu | gunbatimi (Gün batımı) | gökyüzü, ışık |
 | `hilal` | Hilal Ay | gokyuzu | 140×140 | — | a:ana | gumus (Gümüş) | gece, ay |
 | `kagit-ucak` | Kağıt Uçak | gokyuzu | 200×100 | — | a:acik | mavi (Mavi), sari (Sarı) | uçan, klasik |
@@ -125,6 +126,7 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `mantar-yaprak` | Büyük Yaprak | hikaye-mantar | 300×530 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece), sonbahar (Sonbahar) | yaprak, orman, ön plan, hikaye |
 | `mantar-yer` | Yosunlu Zemin | hikaye-mantar | 1080×300 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece), uzak (Uzak) | zemin, yosun, orman, çimen, hikaye |
 | `akilli-telefon` | Akıllı Telefon (ilk dokunmatik) | iletisim | 160×300 | — | a:koyu b:ikincil c:acik e:vurgu f:vurgu g:ana h:detay | — | telefon, iletişim, teknoloji, akıllı, dokunmatik |
+| `basparmak-cizim` | Başparmak / beğen (çizim) | iletisim | 310×290 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | beğen, başparmak, like, onay, sosyal medya, youtube, çizim, pastel |
 | `cevirmeli-telefon` | Çevirmeli Telefon | iletisim | 240×220 | — | a:ana b:ikincil c:koyu d:acik | mint (Mint) | telefon, iletişim, teknoloji, kadran, ev |
 | `duvar-telefonu` | Duvar Telefonu (1800ler) | iletisim | 200×300 | — | a:ana b:vurgu c:ikincil d:koyu | — | telefon, iletişim, teknoloji, eski, ahşap |
 | `kapakli-telefon` | Kapaklı Telefon | iletisim | 140×340 | — | a:ana b:ikincil c:koyu d:acik e:detay f:vurgu | — | telefon, iletişim, teknoloji, cep, kamera |
@@ -136,8 +138,10 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `tugla-telefon` | Tuğla Cep Telefonu | iletisim | 120×320 | — | a:ana b:ikincil c:koyu d:detay e:vurgu | — | telefon, iletişim, teknoloji, cep, anten |
 | `tuslu-telefon` | Tuşlu Cep Telefonu | iletisim | 120×260 | — | a:ana b:acik c:koyu d:vurgu | sari (Sarı) | telefon, iletişim, teknoloji, cep, sms |
 | `wifi` | Wi‑Fi (pastel) | iletisim | 220×170 | — | a:vurgu b:ana c:golge | — | wifi, kablosuz, ağ, yerel ağ, lan |
+| `yorum-balonu-cizim` | Yorum balonu (çizim) | iletisim | 320×270 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | yorum, konuşma balonu, mesaj, sosyal medya, youtube, sohbet, çizim, pastel |
 | `yukle-bulut` | Yükleme (bulut + ok) | iletisim | 240×170 | — | bulut:ana ok:vurgu | — | yükle, bulut, dosya, medya |
 | `zamanlayici` | Zamanlayıcı | iletisim | 200×220 | — | cerceve:ana yuz:ekran el:golge | — | süre, zaman, saat, sayaç |
+| `zil-cizim` | Bildirim zili (çizim) | iletisim | 260×310 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | zil, bildirim, abone, youtube, sosyal medya, çan, çizim, pastel |
 | `instagram-logo` | Instagram logosu | marka | 200×200 | — | a:ana | koyu (Koyu), pembe (Pembe) | logo, marka, sosyal, instagram |
 | `logo` | Logo | marka | 416×344 | — | a:ana | koyu (Koyu), teal (Teal) | logo, marka |
 | `youtube-logo` | YouTube logosu | marka | 240×170 | — | a:ana | koyu (Koyu) | logo, marka, sosyal, youtube |
@@ -163,6 +167,8 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `kagit-gemi` | Kağıt Gemi | nesneler | 220×140 | — | a:ana c:acik | kirmizi (Kırmızı), sari (Sarı), yesil (Yeşil) | deniz, klasik |
 | `kamera-cizim` | Fotoğraf makinesi (çizim) | nesneler | 300×240 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | kamera, fotoğraf, çekim, çizim, pastel |
 | `mercek-cizim` | Mercek / büyüteç (çizim) | nesneler | 240×290 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | mercek, büyüteç, cam, ışık, çizim, pastel |
+| `saat-cizim` | Saat (çizim) | nesneler | 300×300 | ibre | a:ana b:ikincil c:acik d:koyu k:vurgu | — | saat, zaman, gün, 24 saat, ibre, süre, çizim, pastel |
+| `takvim-cizim` | Takvim (çizim) | nesneler | 300×300 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | takvim, gün, tarih, yıl, 365 gün, zaman, çizim, pastel |
 | `termometre-cizim` | Termometre (çizim) | nesneler | 160×300 | civa | a:ana b:ikincil c:acik d:koyu k:vurgu | — | termometre, sıcaklık, sıcak, soğuk, derece, çizim, pastel |
 | `acik-kitap` | Açık kitap | okul | 200×150 | — | a:ana b:isik c:vurgu | — | kitap, eğitim, ders, okuma |
 | `carpi` | Çarpı (yasak) | okul | 200×200 | — | a:vurgu | — | çarpı, hayır, iptal, yok |
@@ -199,6 +205,12 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `astronot-3d` | Astronot 3B | uzay | 153×240 | — | a:ana b:ikincil c:detay d:koyu v:cam w:yansima r:vurgu g:isik y:isik-2 | turuncu (Turuncu giysi), mavi (Mavi giysi) | astronot, kozmonot, uzay giysisi, insan, karakter, keşif, uzay yürüyüşü, el sallayan, uzay, 3d, 3 boyutlu, hacimli |
 | `ay` | Ay | uzay | 200×200 | — | a:ana b:ikincil d:koyu | kanli (Kanlı ay) | uydu, uzay, gece |
 | `ay-3d` | Ay 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu e:detay | kanli (Kanlı Ay) | uydu, gece, kraterli, gezegen, uzay, 3d, 3 boyutlu, hacimli |
+| `ay-cizim` | Ay (çizim) | uzay | 300×300 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | ay, dolunay, uydu, krater, gece, çizim, pastel, uzay |
+| `ay-evre-dordun-cizim` | İlk Dördün (çizim) | uzay | 300×300 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | ay, evre, ay evreleri, dördün, gece, çizim, pastel, uzay |
+| `ay-evre-hilal-cizim` | Hilal (çizim) | uzay | 300×300 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | ay, evre, ay evreleri, hilal, gece, çizim, pastel, uzay |
+| `ay-evre-sisk-cizim` | Şişkin Ay (çizim) | uzay | 300×300 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | ay, evre, ay evreleri, şişkin ay, gece, çizim, pastel, uzay |
+| `ay-evre-yeni-cizim` | Yeni Ay (çizim) | uzay | 300×300 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | ay, evre, ay evreleri, yeni ay, gece, çizim, pastel, uzay |
+| `ay-yuzeyi-cizim` | Ay yüzeyi (çizim) | uzay | 600×260 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | ay yüzeyi, kayalık, vadi, dağ, krater, uzay, çizim, pastel |
 | `donus-oku-cizim` | Dönüş oku (çizim) | uzay | 300×300 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | ok, dönüş, döngü, saat yönünün tersi, çizim, pastel |
 | `dunya` | Dünya | uzay | 200×200 | — | a:ana b:ikincil c:acik | buzul (Buzul çağı), col (Çöl gezegeni) | gezegen, uzay, yaşam |
 | `dunya-3d` | Dünya 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik g:kara h:koyu y:col k:bulut l:atmosfer | gece (Gece) | yaşam, mavi, kıtalar, ev, gezegen, uzay, 3d, 3 boyutlu, hacimli |
@@ -216,16 +228,19 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `jupiter` | Jüpiter | uzay | 200×200 | — | a:ana b:ikincil c:acik d:vurgu | — | gezegen, uzay, gaz devi |
 | `jupiter-3d` | Jüpiter 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:vurgu e:detay f:koyu g:detay | — | gaz devi, şeritli, fırtına, dev, gezegen, uzay, 3d, 3 boyutlu, hacimli |
 | `kara-delik-3d` | Kara Delik 3B | uzay | 240×148 | — | k:ana n:koyu y:isik o:disk r:disk-koyu p:disk-mor | mavi (Mavi disk) | kara delik, olay ufku, akresyon diski, yerçekimi, gizem, galaksi, karanlık, uzay, 3d, 3 boyutlu, hacimli |
+| `krater-cizim` | Krater (çizim) | uzay | 300×200 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | krater, çukur, ay yüzeyi, meteor çarpması, uzay, çizim, pastel |
 | `kuyruklu-yildiz-3d` | Kuyruklu Yıldız 3B | uzay | 240×121 | — | a:ana c:acik d:koyu i:kuyruk j:kuyruk-koyu k:kuyruk-acik | alev (Ateş kuyruğu) | kuyruklu yıldız, komet, buz, kuyruk, gökcismi, halley, uzay, 3d, 3 boyutlu, hacimli |
 | `mars` | Mars | uzay | 200×200 | — | a:ana b:ikincil c:acik | — | gezegen, uzay, kızıl |
 | `mars-3d` | Mars 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu e:detay h:atmosfer | — | kızıl, kayalık, çöl, gezegen, uzay, 3d, 3 boyutlu, hacimli |
 | `mars-gezgini-3d` | Mars Gezgini 3B | uzay | 220×179 | — | a:ana b:ikincil c:acik d:koyu e:lastik w:detay s:panel t:panel-koyu k:lens r:vurgu | kum (Kum fırtınası) | gezgin, rover, mars aracı, keşif aracı, robot, araç, ay aracı, mars, uzay, 3d, 3 boyutlu, hacimli |
 | `merkur` | Merkür | uzay | 200×200 | — | a:ana b:ikincil d:koyu | — | gezegen, uzay, kayalık |
 | `merkur-3d` | Merkür 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu e:detay | — | kayalık, kraterli, gezegen, uzay, 3d, 3 boyutlu, hacimli |
+| `meteor-cizim` | Meteor (çizim) | uzay | 320×200 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | meteor, göktaşı, çarpma, kaya, alev, uzay, çizim, pastel |
 | `neptun` | Neptün | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu | — | gezegen, uzay, buz devi |
 | `neptun-3d` | Neptün 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu e:detay h:atmosfer | — | buz devi, mavi, fırtınalı, rüzgar, gezegen, uzay, 3d, 3 boyutlu, hacimli |
 | `pluton-3d` | Plüton 3B | uzay | 199×200 | — | a:ana b:ikincil c:acik d:koyu e:detay h:kalp | mavi (Buz çağı) | cüce gezegen, plüton, buzlu, kalp, uzak, kuiper, uzay, 3d, 3 boyutlu, hacimli |
 | `roket-3d` | Roket 3B | uzay | 152×200 | — | a:ana b:ikincil r:vurgu w:acik d:koyu k:detay g:cam f:alev y:alev-acik h:alev-cekirdek | altin (Altın roket) | roket, fırlatma, uçuş, araç, keşif, uzay, 3d, 3 boyutlu, hacimli |
+| `ruzgar-cizim` | Rüzgâr (çizim) | uzay | 300×240 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | rüzgar, esinti, hava olayı, atmosfer, yaprak, çizim, pastel |
 | `saturn` | Satürn | uzay | 400×220 | — | a:ana b:ikincil c:acik r:detay q:detay | — | gezegen, uzay, halka |
 | `saturn-3d` | Satürn 3B | uzay | 400×260 | — | a:ana b:ikincil c:acik g:detay r:halka q:halka-koyu | — | halka, halkalı, gezegen, uzay, 3d, 3 boyutlu, hacimli, gaz devi |
 | `soru-rozeti` | Soru Rozeti | uzay | 200×200 | — | a:ana b:ikincil c:vurgu d:koyu | sari (Sarı rozet) | soru, soru işareti, merak, rozet, düşün, peki, question, uzay, 3d, 3 boyutlu, hacimli |
@@ -559,16 +574,17 @@ Hazır Bézier eğrileri (`"ease": [x1, y1, x2, y2]`): CSS ease `[0.25, 0.1, 0.2
 
 Çizim stilleri (`"style"`): `origami` Origami — Katlanmış kağıt yüzeyleri, menteşe etrafında açılır · `kagit-kesme` Kağıt kesme — Renk tabakaları üst üste, derin gölge, tabaka tabaka belirir · `duz` Düz vektör — Gölgesiz, temiz renkler (minimal / infografik) · `cizim` Çizim / boya — El çizimi mürekkep kontur, pastel boya taraması; önce çizilir sonra boyanır · `neon` Neon — Koyu zemin üstünde parlayan çizgi iskeleti (gece / teknoloji) · `cam` Cam — Yarı saydam buzlu cam, parlak kenar ve yansıma · `mozaik` Mozaik (low-poly) — Her yüzey hafif farklı tonda, kristal / low-poly görünüm · `teknik` Teknik çizim — Mavi pafta, beyaz ince çizgi (mühendislik / şema) · `vitray` Vitray — Işıklı renkli cam, kalın koyu kurşun çerçeve · `kil` Kil — Yumuşak, şişkin hacimli kil / plastilin, yumuşak gölge · `siluet` Gölge oyunu — Tek renk siluet, yüzeyin renginde hale (sinematik / gizem) · `gazete` Gazete baskısı — Tek renk mürekkep tonları ve baskı kayması (retro haber) · `halftone` Halftone / pop-art — Nokta rasterli çizgi roman baskısı · `suluboya` Suluboya — Üst üste yarı saydam, kenarı oynak boya lekeleri · `nakis` Nakış — Kumaş yüzey, dikiş çizgili kenar · `piksel` Piksel (8-bit) — Düşük çözünürlüklü, keskin piksel oyun görünümü
 
-## 10. Ses dosyaları (108)
+## 10. Ses dosyaları (154)
 
-Müzik: `atom-anlatim-1.wav`, `atom-anlatim-2.wav`, `atom-anlatim-3.wav`, `atom-anlatim-4.wav`, `atom-anlatim-5.wav`, `atom-anlatim-6.wav`, `atom-anlatim-7.wav`, `atom-anlatim-8.wav`, `atom-muzik.wav`, `defter-anlatim-1.wav`, `defter-anlatim-2.wav`, `defter-anlatim-3.wav`, `defter-anlatim-4.wav`, `defter-anlatim-5.wav`, `defter-anlatim-6.wav`, `defter-anlatim-7.wav`, `defter-anlatim-8.wav`, `defter-anlatim-9.wav`, `defter-muzik.wav`, `defter-neseli.wav`, `fastpano-anlatim-1.wav`, `fastpano-anlatim-2.wav`, `fastpano-anlatim-3.wav`, `fastpano-anlatim-4.wav`, `fastpano-anlatim-5.wav`, `fastpano-anlatim-6.wav`, `fastpano-muzik.wav`, `fastpano-okul-anlatim-1.wav`, `fastpano-okul-anlatim-2.wav`, `fastpano-okul-anlatim-3.wav`, `fastpano-okul-anlatim-4.wav`, `fastpano-okul-anlatim-5.wav`, `fastpano-okul-anlatim-6.wav`, `fastpano-okul-anlatim-7.wav`, `fastpano-okul-anlatim-8.wav`, `fastpano-okul-muzik.wav`, `gunes-dersi-muzik.wav`, `gunes-dersi-ses-1.wav`, `gunes-dersi-ses-10.wav`, `gunes-dersi-ses-11.wav`, `gunes-dersi-ses-12.wav`, `gunes-dersi-ses-13.wav`, `gunes-dersi-ses-14.wav`, `gunes-dersi-ses-15.wav`, `gunes-dersi-ses-16.wav`, `gunes-dersi-ses-17.wav`, `gunes-dersi-ses-18.wav`, `gunes-dersi-ses-19.wav`, `gunes-dersi-ses-2.wav`, `gunes-dersi-ses-20.wav`, `gunes-dersi-ses-3.wav`, `gunes-dersi-ses-4.wav`, `gunes-dersi-ses-5.wav`, `gunes-dersi-ses-6.wav`, `gunes-dersi-ses-7.wav`, `gunes-dersi-ses-8.wav`, `gunes-dersi-ses-9.wav`, `gunes-muzik.wav`, `gunes-ses-1.wav`, `gunes-ses-10.wav`, `gunes-ses-11.wav`, `gunes-ses-12.wav`, `gunes-ses-13.wav`, `gunes-ses-14.wav`, `gunes-ses-15.wav`, `gunes-ses-2.wav`, `gunes-ses-3.wav`, `gunes-ses-4.wav`, `gunes-ses-5.wav`, `gunes-ses-6.wav`, `gunes-ses-7.wav`, `gunes-ses-8.wav`, `gunes-ses-9.wav`, `gunes-son-1.wav`, `kahve-anlatim-1.wav`, `kahve-anlatim-2.wav`, `kahve-anlatim-3.wav`, `kahve-anlatim-4.wav`, `ritim-house-126.wav`, `ritim-hype-132.wav`, `ritim-lofi-90.wav`, `ritim-pop-120.wav`, `ritim-trap-140.wav`, `telefon-muzik.wav`, `telefon-ses-1.wav`, `telefon-ses-2.wav`, `telefon-ses-3.wav`, `telefon-ses-4.wav`, `telefon-ses-5.wav`, `telefon-ses-6.wav`, `telefon-ses-7.wav`, `telefon-ses-8.wav`, `telefon-ses-9.wav`, `uzay-ambiyans.wav`, `uzay-yarisi-ses-1.wav`, `uzay-yarisi-ses-2.wav`, `uzay-yarisi-ses-3.wav`, `uzay-yarisi-ses-4.wav`, `uzay-yarisi-ses-5.wav`, `uzay-yarisi-ses-6.wav`  
+Müzik: `atom-anlatim-1.wav`, `atom-anlatim-2.wav`, `atom-anlatim-3.wav`, `atom-anlatim-4.wav`, `atom-anlatim-5.wav`, `atom-anlatim-6.wav`, `atom-anlatim-7.wav`, `atom-anlatim-8.wav`, `atom-muzik.wav`, `ay-dersi-muzik.wav`, `ay-dersi-ses-1.wav`, `ay-dersi-ses-10.wav`, `ay-dersi-ses-11.wav`, `ay-dersi-ses-12.wav`, `ay-dersi-ses-13.wav`, `ay-dersi-ses-14.wav`, `ay-dersi-ses-15.wav`, `ay-dersi-ses-16.wav`, `ay-dersi-ses-17.wav`, `ay-dersi-ses-18.wav`, `ay-dersi-ses-19.wav`, `ay-dersi-ses-2.wav`, `ay-dersi-ses-20.wav`, `ay-dersi-ses-21.wav`, `ay-dersi-ses-22.wav`, `ay-dersi-ses-23.wav`, `ay-dersi-ses-24.wav`, `ay-dersi-ses-25.wav`, `ay-dersi-ses-3.wav`, `ay-dersi-ses-4.wav`, `ay-dersi-ses-5.wav`, `ay-dersi-ses-6.wav`, `ay-dersi-ses-7.wav`, `ay-dersi-ses-8.wav`, `ay-dersi-ses-9.wav`, `defter-anlatim-1.wav`, `defter-anlatim-2.wav`, `defter-anlatim-3.wav`, `defter-anlatim-4.wav`, `defter-anlatim-5.wav`, `defter-anlatim-6.wav`, `defter-anlatim-7.wav`, `defter-anlatim-8.wav`, `defter-anlatim-9.wav`, `defter-muzik.wav`, `defter-neseli.wav`, `fastpano-anlatim-1.wav`, `fastpano-anlatim-2.wav`, `fastpano-anlatim-3.wav`, `fastpano-anlatim-4.wav`, `fastpano-anlatim-5.wav`, `fastpano-anlatim-6.wav`, `fastpano-muzik.wav`, `fastpano-okul-anlatim-1.wav`, `fastpano-okul-anlatim-2.wav`, `fastpano-okul-anlatim-3.wav`, `fastpano-okul-anlatim-4.wav`, `fastpano-okul-anlatim-5.wav`, `fastpano-okul-anlatim-6.wav`, `fastpano-okul-anlatim-7.wav`, `fastpano-okul-anlatim-8.wav`, `fastpano-okul-muzik.wav`, `gunes-dersi-kipir-ses-1.wav`, `gunes-dersi-kipir-ses-10.wav`, `gunes-dersi-kipir-ses-11.wav`, `gunes-dersi-kipir-ses-12.wav`, `gunes-dersi-kipir-ses-13.wav`, `gunes-dersi-kipir-ses-14.wav`, `gunes-dersi-kipir-ses-15.wav`, `gunes-dersi-kipir-ses-16.wav`, `gunes-dersi-kipir-ses-17.wav`, `gunes-dersi-kipir-ses-18.wav`, `gunes-dersi-kipir-ses-19.wav`, `gunes-dersi-kipir-ses-2.wav`, `gunes-dersi-kipir-ses-20.wav`, `gunes-dersi-kipir-ses-3.wav`, `gunes-dersi-kipir-ses-4.wav`, `gunes-dersi-kipir-ses-5.wav`, `gunes-dersi-kipir-ses-6.wav`, `gunes-dersi-kipir-ses-7.wav`, `gunes-dersi-kipir-ses-8.wav`, `gunes-dersi-kipir-ses-9.wav`, `gunes-dersi-muzik.wav`, `gunes-dersi-ses-1.wav`, `gunes-dersi-ses-10.wav`, `gunes-dersi-ses-11.wav`, `gunes-dersi-ses-12.wav`, `gunes-dersi-ses-13.wav`, `gunes-dersi-ses-14.wav`, `gunes-dersi-ses-15.wav`, `gunes-dersi-ses-16.wav`, `gunes-dersi-ses-17.wav`, `gunes-dersi-ses-18.wav`, `gunes-dersi-ses-19.wav`, `gunes-dersi-ses-2.wav`, `gunes-dersi-ses-20.wav`, `gunes-dersi-ses-3.wav`, `gunes-dersi-ses-4.wav`, `gunes-dersi-ses-5.wav`, `gunes-dersi-ses-6.wav`, `gunes-dersi-ses-7.wav`, `gunes-dersi-ses-8.wav`, `gunes-dersi-ses-9.wav`, `gunes-muzik.wav`, `gunes-ses-1.wav`, `gunes-ses-10.wav`, `gunes-ses-11.wav`, `gunes-ses-12.wav`, `gunes-ses-13.wav`, `gunes-ses-14.wav`, `gunes-ses-15.wav`, `gunes-ses-2.wav`, `gunes-ses-3.wav`, `gunes-ses-4.wav`, `gunes-ses-5.wav`, `gunes-ses-6.wav`, `gunes-ses-7.wav`, `gunes-ses-8.wav`, `gunes-ses-9.wav`, `gunes-son-1.wav`, `kahve-anlatim-1.wav`, `kahve-anlatim-2.wav`, `kahve-anlatim-3.wav`, `kahve-anlatim-4.wav`, `ritim-house-126.wav`, `ritim-hype-132.wav`, `ritim-lofi-90.wav`, `ritim-pop-120.wav`, `ritim-trap-140.wav`, `telefon-muzik.wav`, `telefon-ses-1.wav`, `telefon-ses-2.wav`, `telefon-ses-3.wav`, `telefon-ses-4.wav`, `telefon-ses-5.wav`, `telefon-ses-6.wav`, `telefon-ses-7.wav`, `telefon-ses-8.wav`, `telefon-ses-9.wav`, `uzay-ambiyans.wav`, `uzay-yarisi-ses-1.wav`, `uzay-yarisi-ses-2.wav`, `uzay-yarisi-ses-3.wav`, `uzay-yarisi-ses-4.wav`, `uzay-yarisi-ses-5.wav`, `uzay-yarisi-ses-6.wav`  
 Efektler (`sfx.auto` kullanır): `sfx-cin.wav`, `sfx-damla.wav`, `sfx-hisirti.wav`, `sfx-kagit-katla.wav`, `sfx-parilti.wav`, `sfx-pop.wav`, `sfx-tik.wav`, `sfx-whoosh.wav`
 
 `uzay-ambiyans.wav`: 120 BPM, ilk vuruş 0.25 sn, 64 sn (sentez, telifsiz).
 
-## 11. Örnek projeler (2)
+## 11. Örnek projeler (3)
 
-- `gunes-dersi` **Güneş Dersi — Gözlü ile Gökyüzündeki Komşumuz** — 1920×1080, 132.08 sn, 168 katman, tema [object Object], stil cizim — üreteç: `scripts/scenes-gunes-dersi.mjs`
+- `ay-dersi` **Ay Dersi — Kıpır ile Gökyüzündeki Komşumuz** — 1920×1080, 172.22 sn, 206 katman, tema [object Object], stil cizim — üreteç: `scripts/scenes-ay-dersi.mjs`
+- `gunes-dersi` **Güneş Dersi — Kıpır ile Gökyüzündeki Komşumuz** — 1920×1080, 126.64 sn, 168 katman, tema [object Object], stil cizim — üreteç: `scripts/scenes-gunes-dersi.mjs`
 - `uzay-yarisi` **Uzay Yarışı** — 1080×1920, 60 sn, 63 katman, tema [object Object], stil cizim
 
 ## 12. Bileşen katmanları (Faz 16) — şema §12
@@ -618,6 +634,7 @@ Ortak alanlar: `x, y, scale, rotation, opacity, fold` (çizilme / görünme iler
 | alan | ad | tür | varsayılan / seçenekler |
 |---|---|---|---|
 | `src` | Dosya | media | — |
+| `sim` | Simülasyon (slug; JSON ile yönetilir) | text | — |
 | `width` | Genişlik | number | — |
 | `height` | Yükseklik | number | — |
 | `fit` | Sığdırma | select | `kapla` · `sigdir` |

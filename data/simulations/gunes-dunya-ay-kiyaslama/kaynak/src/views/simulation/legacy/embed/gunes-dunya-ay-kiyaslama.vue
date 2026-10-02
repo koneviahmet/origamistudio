@@ -7,12 +7,12 @@
       <!-- Simulation container -->
       <div class="flex-1 relative">
         <!-- Simulation canvas -->
-        <div ref="canvasContainer" class="w-full h-full">
+        <div ref="canvasContainer" class="w-full h-full" :style="VIDEO_MOD ? 'position:fixed;inset:0' : ''">
           <canvas ref="canvas" class="w-full h-full"></canvas>
         </div>
 
         <!-- Scale indicator -->
-        <div class="absolute bottom-4 left-4 bg-gray-800 bg-opacity-70 p-2 rounded">
+        <div v-if="!VIDEO_MOD" class="absolute bottom-4 left-4 bg-gray-800 bg-opacity-70 p-2 rounded">
           <div class="flex items-center">
             <span class="text-sm">Ölçek: 1:</span>
             <span class="ml-1 text-sm font-bold">{{ formatScale(currentScale) }}</span>
@@ -22,7 +22,7 @@
 
         
         <!-- Animation Progress -->
-        <div v-if="animationActive" class="absolute bottom-4 right-4 bg-gray-800 bg-opacity-70 p-2 rounded">
+        <div v-if="!VIDEO_MOD && animationActive" class="absolute bottom-4 right-4 bg-gray-800 bg-opacity-70 p-2 rounded">
           <div class="text-sm">
             {{ currentAnimatedBody ? currentAnimatedBody.name : 'Başlatılıyor...' }}
           </div>
@@ -33,7 +33,7 @@
       </div>
 
       <!-- Control panel -->
-      <div class="w-full md:w-80 p-4 bg-gray-800 h-screen overflow-y-auto">
+      <div v-if="!VIDEO_MOD" class="w-full md:w-80 p-4 bg-gray-800 h-screen overflow-y-auto">
         
         <!-- Animation controls -->
         <div class="mb-6 p-3 bg-indigo-900 bg-opacity-40 rounded">
@@ -148,6 +148,7 @@ import { ref, onMounted, onUnmounted, reactive } from 'vue';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
+import { useSimKontrol, VIDEO_MOD } from '../../../../composables/useSimKontrol.js';
 
 // References
 const canvas = ref(null);
@@ -610,18 +611,21 @@ function initSimulation() {
   // Create renderer
   renderer = new THREE.WebGLRenderer({
     canvas: canvas.value,
-    antialias: true
+    antialias: true,
+    preserveDrawingBuffer: VIDEO_MOD
   });
   renderer.setSize(containerWidth, containerHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setPixelRatio(VIDEO_MOD ? 1 : window.devicePixelRatio);
   
-  // Create label renderer
-  labelRenderer = new CSS2DRenderer();
-  labelRenderer.setSize(containerWidth, containerHeight);
-  labelRenderer.domElement.style.position = 'absolute';
-  labelRenderer.domElement.style.top = '0';
-  labelRenderer.domElement.style.pointerEvents = 'none';
-  canvasContainer.value.appendChild(labelRenderer.domElement);
+  // Create label renderer (video modunda etiketler kareye 2B olarak çizilir)
+  if (!VIDEO_MOD) {
+    labelRenderer = new CSS2DRenderer();
+    labelRenderer.setSize(containerWidth, containerHeight);
+    labelRenderer.domElement.style.position = 'absolute';
+    labelRenderer.domElement.style.top = '0';
+    labelRenderer.domElement.style.pointerEvents = 'none';
+    canvasContainer.value.appendChild(labelRenderer.domElement);
+  }
   
   // Create controls
   controls = new OrbitControls(camera, renderer.domElement);
@@ -653,8 +657,9 @@ function initSimulation() {
   // Handle window resize
   window.addEventListener('resize', handleResize);
   
-  // Start animation
-  animate();
+  // Start animation (video modunda kareyi zaman çizelgesi sürer)
+  if (VIDEO_MOD) videoCoz();
+  else animate();
 }
 
 // Cleanup on unmount
@@ -709,7 +714,118 @@ function getSizeRanking(body) {
   const index = allBodies.findIndex(b => b.id === body.id);
   return `${index + 1}/${allBodies.length} (Küçükten büyüğe)`;
 }
+
+/* ───────── Video modu (JSON ile yönetim) ─────────
+ * Parametreler (zaman çizelgesi anahtarları):
+ *   goster    ['moon','earth','sun'] dizisi — sahnede görünen cisimler (varsayılan hepsi; düzen küçükten büyüğe soldan sağa)
+ *   olcek     1..100  ölçek kaydırıcısı (1 = gerçek oran, 100 = en çok büyütülmüş; varsayılan 50)
+ *   ayK / dunyaK / gunesK   0..1  cismin belirme ölçeği (büyüyerek girme animasyonu için)
+ *   etiketler bool   cisim isimleri + "Nx Dünya" (kareye çizilir; varsayılan false)     etiketBoyu  kare yüksekliği oranı (0.03)
+ *   eksenler  bool   koordinat eksenleri
+ *   odak      -1..2  kamera hedefi: -1 = sahne merkezi, 0 = Ay, 1 = Dünya, 2 = Güneş (aradaki sayılar iki cisim arasında kayar)
+ *   mesafe    kamera uzaklığı: odak < 0 ise dünya birimi (varsayılan 20), odak >= 0 ise odaktaki cismin YARIÇAPI × mesafe
+ *   yaw / pitch   kamera açıları rad (varsayılan 0 / 0.15)
+ */
+const videoState = { etiket: false, etiketBoyu: 0.03, k: { moon: 1, earth: 1, sun: 1 }, odak: -1, mesafe: 20, yaw: 0, pitch: 0.15 };
+let videoCoz = () => {};
+const videoHazir = new Promise((r) => { videoCoz = r; });
+const SIRA = ['moon', 'earth', 'sun'];
+const _p = new THREE.Vector3();
+
+function videoKamera() {
+  if (!camera) return;
+  const { odak, mesafe, yaw, pitch } = videoState;
+  let tx = 0, d = mesafe;
+  if (odak >= 0) {
+    const a = Math.min(2, Math.floor(odak));
+    const b = Math.min(2, a + 1);
+    const u = odak - a;
+    const info = (id) => {
+      const m = bodyObjects[id];
+      return m ? { x: m.position.x, r: m.geometry.parameters.radius } : null;
+    };
+    const A = info(SIRA[a]) || info(SIRA[b]);
+    const B = info(SIRA[b]) || A;
+    if (A) {
+      tx = A.x + (B.x - A.x) * u;
+      d = mesafe * (A.r + (B.r - A.r) * u);
+    }
+  }
+  const cp = Math.cos(pitch);
+  camera.position.set(tx + d * cp * Math.sin(yaw), d * Math.sin(pitch), d * cp * Math.cos(yaw));
+  camera.lookAt(tx, 0, 0);
+  camera.near = Math.max(0.0005, d * 0.01);
+  camera.updateProjectionMatrix();
+}
+
+function videoOlcekler() {
+  for (const id of SIRA) {
+    const m = bodyObjects[id];
+    if (m) m.scale.setScalar(Math.max(1e-4, videoState.k[id]));
+  }
+}
+
+useSimKontrol({
+  hazir: videoHazir,
+  canvas: () => canvas.value,
+  adim(dt, ciz) {
+    if (!renderer || !scene || !camera) return;
+    videoOlcekler();
+    videoKamera();
+    if (ciz) renderer.render(scene, camera);
+  },
+  sifirla() {
+    celestialBodies.forEach((b) => { b.visible = true; });
+    scaleSlider.value = 50;
+    showLabels.value = true;
+    showAxes.value = false;
+    Object.assign(videoState, { etiket: false, etiketBoyu: 0.03, k: { moon: 1, earth: 1, sun: 1 }, odak: -1, mesafe: 20, yaw: 0, pitch: 0.15 });
+    updateScale();
+    toggleAxes();
+  },
+  uygula(d) {
+    let yeniden = false;
+    if ('goster' in d) {
+      const set = new Set(d.goster || []);
+      celestialBodies.forEach((b) => { b.visible = set.has(b.id); });
+      yeniden = true;
+    }
+    if ('olcek' in d) { scaleSlider.value = d.olcek; currentScale.value = Math.pow(8, d.olcek / 100); yeniden = true; }
+    if (yeniden) updateSimulation();
+    if ('eksenler' in d) { showAxes.value = !!d.eksenler; toggleAxes(); }
+    if ('etiketler' in d) videoState.etiket = !!d.etiketler;
+    if ('etiketBoyu' in d) videoState.etiketBoyu = d.etiketBoyu;
+    if ('ayK' in d) videoState.k.moon = d.ayK;
+    if ('dunyaK' in d) videoState.k.earth = d.dunyaK;
+    if ('gunesK' in d) videoState.k.sun = d.gunesK;
+    for (const a of ['odak', 'mesafe', 'yaw', 'pitch']) if (a in d) videoState[a] = d[a];
+  },
+  cizim(ctx, w, h) {
+    if (!videoState.etiket || !camera) return;
+    const fs = Math.round(h * videoState.etiketBoyu);
+    ctx.save();
+    ctx.font = `700 ${fs}px "Baloo 2", "Segoe UI", sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (const b of celestialBodies) {
+      const m = bodyObjects[b.id];
+      if (!b.visible || !m || videoState.k[b.id] < 0.05) continue;
+      _p.copy(m.position);
+      _p.y += m.geometry.parameters.radius * videoState.k[b.id] * 1.15;
+      _p.project(camera);
+      if (_p.z > 1) continue;
+      const x = (_p.x * 0.5 + 0.5) * w;
+      const y = (-_p.y * 0.5 + 0.5) * h - fs * 0.9;
+      const txt = b.id === 'earth' ? b.name : `${b.name} (${timesLargerThanEarth(b.diameter)}x Dünya)`;
+      const tw = ctx.measureText(txt).width;
+      ctx.fillStyle = 'rgba(17,24,39,0.78)';
+      ctx.beginPath();
+      ctx.roundRect(x - tw / 2 - fs * 0.5, y - fs * 0.75, tw + fs, fs * 1.5, fs * 0.45);
+      ctx.fill();
+      ctx.fillStyle = b.color;
+      ctx.fillText(txt, x, y + fs * 0.04);
+    }
+    ctx.restore();
+  },
+});
 </script>
-  
- 
- 

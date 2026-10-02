@@ -75,6 +75,33 @@ for (const l of scene.layers) {
   } else if (type === 'arrow') {
     if (l.arrow && !arrows.has(l.arrow)) E(`${lid}: ok stili yok → ${l.arrow}`);
     for (const k of ['from', 'to']) if (typeof l[k] === 'string' && !layerById.has(l[k]) && !scene.layers.some((x) => x.id === l[k])) E(`${lid}: ok ${k} katmanı yok → ${l[k]}`);
+  } else if (type === 'media' && l.sim) {
+    // simülasyon katmanı: JSON ile yönetilen simülasyon, bilinen parametreler, zaman çizelgesi t sırası
+    const simDosya = path.join(ROOT, 'data', 'simulations', String(l.sim), 'sim.json');
+    const sim = readJsonSafe(simDosya);
+    if (!sim) E(`${lid}: simülasyon yok → ${l.sim}`);
+    else if (!sim.jsonKontrol || !sim.kontrol) E(`${lid}: simülasyon JSON ile yönetilmiyor (video modu yok) → ${l.sim}`);
+    else {
+      if (!l.width || !l.height) Wn(`${lid}: sim katmanında width/height verilmeli (varsayılan 960×540)`);
+      const par = sim.kontrol.parametreler || {};
+      let sonT = -1;
+      for (const kf of l.kontrol || []) {
+        if (typeof kf.t !== 'number') E(`${lid}: kontrol anahtarında t yok`);
+        else { if (kf.t < sonT - 1e-6) Wn(`${lid}: kontrol anahtarları t sırasında değil (${kf.t} < ${sonT})`); sonT = kf.t; }
+        if (l.start != null && l.end != null && kf.t > l.end - l.start + 0.05) Wn(`${lid}: kontrol t=${kf.t} katman süresinden (${(l.end - l.start).toFixed(1)}) sonra`);
+        for (const [ad, v] of Object.entries(kf)) {
+          if (ad === 't' || ad === 'ease') continue;
+          const pr = par[ad];
+          if (!pr) { E(`${lid}: ${l.sim} bilinmeyen kontrol parametresi → ${ad}`); continue; }
+          if (pr.tip === 'sayi' && typeof v !== 'number') E(`${lid}: ${ad} sayı olmalı`);
+          if (pr.tip === 'bool' && typeof v !== 'boolean') E(`${lid}: ${ad} bool olmalı`);
+          if (pr.tip === 'metin' && typeof v !== 'string') E(`${lid}: ${ad} metin olmalı`);
+          if (pr.tip === 'dizi' && !Array.isArray(v)) E(`${lid}: ${ad} dizi olmalı`);
+          if (pr.secenekler && pr.tip === 'metin' && !pr.secenekler.includes(v)) E(`${lid}: ${ad}='${v}' geçersiz (${pr.secenekler.join(', ')})`);
+          if (pr.aralik && typeof v === 'number' && (v < pr.aralik[0] - 1e-6 || v > pr.aralik[1] + 1e-6)) Wn(`${lid}: ${ad}=${v} önerilen aralık dışı (${pr.aralik.join('…')})`);
+        }
+      }
+    }
   } else if (type === 'text') {
     if (l.textStyle && !tstyles.has(l.textStyle)) E(`${lid}: metin stili yok → ${l.textStyle}`);
     const fam = fontOf(l);

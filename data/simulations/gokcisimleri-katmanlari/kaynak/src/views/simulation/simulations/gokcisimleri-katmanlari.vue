@@ -1,7 +1,8 @@
 <script setup>
-import { ref, shallowRef, computed, watch } from 'vue'
+import { ref, shallowRef, computed, watch, nextTick } from 'vue'
 import * as THREE from 'three'
 import { useSimulationScene } from '../../../composables/useSimulationScene.js'
+import { useSimKontrol, VIDEO_MOD } from '../../../composables/useSimKontrol.js'
 import {
   BODY_LAYERS,
   BODY_LAYOUT,
@@ -142,11 +143,89 @@ const { canvasRef, ready, context } = useSimulationScene({
   },
 })
 
+let dokuCoz = () => {}
+const dokuHazir = new Promise((r) => { dokuCoz = r })
+
 watch(ready, async (isReady) => {
   if (!isReady || !context.value?.scene) return
   await loadTextures()
   applySurfaceTextures()
+  dokuCoz()
 }, { immediate: true })
+
+/* ───────── Video modu (JSON ile yönetim) ─────────
+ * Parametreler (zaman çizelgesi anahtarları):
+ *   speed     0..2   cisimlerin kendi etrafında dönüş hızı (kesit açıkken dönüş durur)
+ *   cutaway   ''|'sun'|'earth'|'moon'   o cismin iç katman kesitini aç ('' = genel görünüm)
+ *   layer     katman id (Güneş: corona·chromosphere·photosphere·core / Dünya: crust·mantle·outer-core·inner-core / Ay: bkz. layers.js)
+ *   labels    bool   kesitte katman isimleri (kareye çizilir)        labelSize  isim yazı boyu (kare yüksekliği oranı, 0.03)
+ *   yaw / pitch / distance   kamera (varsayılan genel: 0.35 / 0.32 / 13; kesitte cisme göre otomatik) — cutaway değişince yeniden uygulanır
+ */
+const videoEtiket = { size: 0.03 }
+
+useSimKontrol({
+  hazir: dokuHazir,
+  canvas: () => canvasRef.value,
+  sifirla() {
+    setCutaway(null)
+    cameraBeforeCutaway = null
+    selectedLayerId.value = null
+    selectedBody.value = null
+    showLabels.value = false
+    speed.value = props.config.defaultSpeed ?? 0.6
+    for (const mesh of intactMeshes.values()) mesh.rotation.y = 0
+    if (cameraState) {
+      cameraState.yaw = 0.35
+      cameraState.pitch = 0.32
+      cameraState.distance = 13
+      cameraState.target.set(0, 0, 0)
+    }
+    videoEtiket.size = 0.03
+  },
+  uygula(d, tum) {
+    if ('speed' in d) speed.value = d.speed
+    if ('labels' in d) showLabels.value = !!d.labels
+    if ('labelSize' in d) videoEtiket.size = d.labelSize
+    if ('cutaway' in d) setCutaway(d.cutaway || null)
+    if ('layer' in d || 'cutaway' in d) {
+      // cutawayBodyId izleyicisi ilk katmanı seçer; bizim seçimimiz ondan sonra gelmeli
+      nextTick(() => {
+        const kes = cutawayBodyId.value && BODY_LAYERS[cutawayBodyId.value]
+        selectedLayerId.value = kes ? (tum.layer && kes.layers.some((l) => l.id === tum.layer) ? tum.layer : kes.layers[0]?.id) : null
+      })
+    }
+    if (cameraState) {
+      const tazele = 'cutaway' in d
+      if ('yaw' in d || (tazele && tum.yaw !== undefined)) cameraState.yaw = tum.yaw
+      if ('pitch' in d || (tazele && tum.pitch !== undefined)) cameraState.pitch = tum.pitch
+      if ('distance' in d || (tazele && tum.distance !== undefined)) cameraState.distance = tum.distance
+    }
+  },
+  cizim(ctx, w, h) {
+    if (!showLabels.value || !cutawayBodyId.value || !labelPositions.value.length) return
+    const fs = Math.round(h * videoEtiket.size)
+    ctx.save()
+    ctx.font = `700 ${fs}px "Baloo 2", "Segoe UI", sans-serif`
+    ctx.textBaseline = 'middle'
+    for (const l of labelPositions.value) {
+      const x0 = l.x + fs * 0.7
+      const tw = ctx.measureText(l.name).width
+      const pad = fs * 0.45
+      ctx.fillStyle = '#0f172a'
+      ctx.fillRect(x0, l.y - fs * 0.09, fs * 3, fs * 0.18)
+      const bx = x0 + fs * 3 + fs * 0.4
+      ctx.fillStyle = 'rgba(15,23,42,0.9)'
+      ctx.beginPath()
+      ctx.roundRect(bx, l.y - fs * 0.85, tw + pad * 2 + fs * 0.25, fs * 1.7, fs * 0.4)
+      ctx.fill()
+      ctx.fillStyle = l.color
+      ctx.fillRect(bx, l.y - fs * 0.85, fs * 0.25, fs * 1.7)
+      ctx.fillStyle = l.active ? '#fbbf24' : '#e2e8f0'
+      ctx.fillText(l.name, bx + fs * 0.25 + pad, l.y + fs * 0.04)
+    }
+    ctx.restore()
+  },
+})
 
 function loadOptionalTexture(loader, path) {
   return new Promise((resolve) => {
@@ -659,7 +738,7 @@ function openCutawayFromPanel(bodyId) {
 
     <!-- Kesit etiketleri (canvas üzerinde) -->
     <div
-      v-if="showLabels && cutawayBodyId && labelPositions.length"
+      v-if="!VIDEO_MOD && showLabels && cutawayBodyId && labelPositions.length"
       class="katman-scene__labels"
     >
       <button
@@ -681,6 +760,7 @@ function openCutawayFromPanel(bodyId) {
     </div>
 
     <aside
+      v-if="!VIDEO_MOD"
       class="katman-scene__panel"
       :class="{ 'katman-scene__target--pulse': panelPulsing }"
     >

@@ -215,5 +215,10 @@
   "mantar-peri": "fairy firefly pixie wings glow peri ateş böceği",
   "mantar-salyangoz": "snail slow shell salyangoz yavaş kabuk",
   "mantar-yaprak": "big leaf foliage foreground yaprak",
-  "mantar-yer": "moss ground grass forest floor yosun zemin çimen"
+  "mantar-yer": "moss ground grass forest floor yosun zemin çimen",
+  "saat-cizim": "clock watch time hour hands dial 24 hours day timer",
+  "takvim-cizim": "calendar date year day days 365 schedule month planner",
+  "basparmak-cizim": "like thumbs up thumb approve youtube subscribe vote good beğen beğeni başparmak onay youtube",
+  "yorum-balonu-cizim": "comment speech bubble chat message reply youtube yorum yaz yorum balonu mesaj sohbet",
+  "zil-cizim": "bell notification alert subscribe youtube ring zil bildirim abone çan"
 }

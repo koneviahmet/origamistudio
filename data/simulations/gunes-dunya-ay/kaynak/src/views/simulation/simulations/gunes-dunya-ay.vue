@@ -2,6 +2,7 @@
 import { ref, shallowRef, computed, watch } from 'vue'
 import * as THREE from 'three'
 import { useSimulationScene } from '../../../composables/useSimulationScene.js'
+import { useSimKontrol, VIDEO_MOD } from '../../../composables/useSimKontrol.js'
 
 const props = defineProps({
   config: { type: Object, required: true },
@@ -283,6 +284,9 @@ const { canvasRef, ready, context } = useSimulationScene({
   },
 })
 
+let dokuCoz = () => {}
+const dokuHazir = new Promise((r) => { dokuCoz = r })
+
 watch(ready, async (isReady) => {
   if (!isReady) return
   applyOrbitVisibility()
@@ -295,7 +299,101 @@ watch(ready, async (isReady) => {
   } catch {
     // Doku yoksa düz renklerle devam
   }
+  dokuCoz()
 }, { immediate: true })
+
+/* ───────── Video modu (JSON ile yönetim) ─────────
+ * Parametreler (zaman çizelgesi anahtarları):
+ *   speed        0..4   zaman hızı (dolanma + dönme birikir)         camera   'free'|'sun'|'earth'|'moon'
+ *   yaw          rad    serbest kamera yatay açı (varsayılan 0.55)    pitch    rad  -0.15..1.25 (0.42)
+ *   distance     6..45  serbest kamera uzaklığı (20)                  clarity  0.5..4 netlik / aydınlık (1.4)
+ *   orbits       bool   dolanma yörüngeleri                           axes     bool  dönme eksenleri
+ *   shapeSun / shapeEarth / shapeMoon  'sphere'|'cube'|'octahedron'|'dodecahedron'|'icosahedron'
+ *   labels       bool   Güneş / Dünya / Ay isimleri (kareye çizilir)  labelSize  isim yazı boyu (kare yüksekliğinin oranı, 0.034)
+ *   takip        ''|'sun'|'earth'|'moon'  serbest kamera bu cismi izler (hedef = cismin konumu; '' = merkez)
+ * Not: dolanma yönü yukarıdan bakınca saat yönünün tersidir (orijinaldeki ters yön düzeltildi).
+ */
+const VIDEO_ADLAR = { sun: 'Güneş', earth: 'Dünya', moon: 'Ay' }
+const videoEtiket = { on: false, size: 0.034 }
+let videoTakip = null
+const _vp = new THREE.Vector3()
+
+useSimKontrol({
+  hazir: dokuHazir,
+  canvas: () => canvasRef.value,
+  sifirla() {
+    speed.value = props.config.defaultSpeed ?? 1
+    cameraMode.value = 'free'
+    clarity.value = 1.4
+    showOrbits.value = false
+    showSpinAxes.value = false
+    shapeSun.value = shapeEarth.value = shapeMoon.value = 'sphere'
+    videoEtiket.on = false
+    videoEtiket.size = 0.034
+    videoTakip = null
+    if (cameraState) {
+      cameraState.target.set(0, 0, 0)
+      cameraState.yaw = 0.55
+      cameraState.pitch = 0.42
+      cameraState.distance = 20
+    }
+    earthAngle = 0
+    moonAngle = Math.PI
+    if (sunMesh) sunMesh.rotation.y = 0
+    if (earthMesh) {
+      earthMesh.rotation.y = 0
+      const clouds = earthMesh.children.find((c) => c.userData?.isClouds)
+      if (clouds) clouds.rotation.y = 0
+    }
+  },
+  uygula(d, tum) {
+    if ('speed' in d) speed.value = d.speed
+    if ('camera' in d) cameraMode.value = d.camera
+    if ('clarity' in d) clarity.value = d.clarity
+    if ('orbits' in d) showOrbits.value = !!d.orbits
+    if ('axes' in d) showSpinAxes.value = !!d.axes
+    if ('shapeSun' in d) shapeSun.value = d.shapeSun
+    if ('shapeEarth' in d) shapeEarth.value = d.shapeEarth
+    if ('shapeMoon' in d) shapeMoon.value = d.shapeMoon
+    if (cameraState) {
+      if ('yaw' in d) cameraState.yaw = d.yaw
+      if ('pitch' in d) cameraState.pitch = d.pitch
+      if ('distance' in d) cameraState.distance = d.distance
+    }
+    if ('labels' in d) videoEtiket.on = !!d.labels
+    if ('labelSize' in d) videoEtiket.size = d.labelSize
+    if ('takip' in d) {
+      videoTakip = d.takip || null
+      if (!videoTakip && cameraState) cameraState.target.set(0, 0, 0)
+    }
+  },
+  cizim(ctx, w, h) {
+    if (!videoEtiket.on || !activeCamera) return
+    const items = [['sun', sunPivot, sunMesh], ['earth', earthPivot, earthMesh], ['moon', moonPivot, moonMesh]]
+    const fs = Math.round(h * videoEtiket.size)
+    ctx.save()
+    ctx.font = `700 ${fs}px "Baloo 2", "Segoe UI", sans-serif`
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    for (const [id, pivot, mesh] of items) {
+      if (!pivot || !mesh?.visible) continue
+      pivot.getWorldPosition(_vp)
+      _vp.y += BODIES[id].radius * 1.55
+      _vp.project(activeCamera)
+      if (_vp.z > 1) continue
+      const x = (_vp.x * 0.5 + 0.5) * w
+      const y = (-_vp.y * 0.5 + 0.5) * h
+      const tw = ctx.measureText(VIDEO_ADLAR[id]).width
+      ctx.fillStyle = 'rgba(8, 12, 28, 0.72)'
+      ctx.beginPath()
+      ctx.roundRect(x - tw / 2 - fs * 0.5, y - fs * 0.75, tw + fs, fs * 1.5, fs * 0.5)
+      ctx.fill()
+      ctx.fillStyle = '#' + BODIES[id].color.toString(16).padStart(6, '0')
+      ctx.fillText(VIDEO_ADLAR[id], x, y + fs * 0.04)
+    }
+    ctx.restore()
+  },
+})
 
 function loadOptionalTexture(loader, path) {
   return new Promise((resolve) => {
@@ -643,10 +741,11 @@ function animateSystem(delta) {
   moonAngle += delta * BODIES.moon.orbitSpeed * rate
 
   if (earthPivot) {
+    // Yukarıdan (kuzeyden) bakınca saat yönünün TERSİNE dolanır: z işareti eksi
     earthPivot.position.set(
       Math.cos(earthAngle) * BODIES.earth.orbit,
       0,
-      Math.sin(earthAngle) * BODIES.earth.orbit,
+      -Math.sin(earthAngle) * BODIES.earth.orbit,
     )
   }
 
@@ -654,7 +753,7 @@ function animateSystem(delta) {
     moonPivot.position.set(
       Math.cos(moonAngle) * BODIES.moon.orbit,
       0,
-      Math.sin(moonAngle) * BODIES.moon.orbit,
+      -Math.sin(moonAngle) * BODIES.moon.orbit,
     )
   }
 
@@ -731,6 +830,13 @@ function updateCamera(camera) {
   }
 
   if (mode === 'free') {
+    if (videoTakip) {
+      const pv = videoTakip === 'earth' ? earthPivot : videoTakip === 'moon' ? moonPivot : sunPivot
+      if (pv) {
+        pv.updateWorldMatrix(true, false)
+        pv.getWorldPosition(cameraState.target)
+      }
+    }
     const { yaw, pitch, distance, target } = cameraState
     const cosPitch = Math.cos(pitch)
     camera.position.set(
@@ -873,7 +979,7 @@ function onClick(event) {
     />
 
     <aside
-      v-if="showControlsPanel"
+      v-if="showControlsPanel && !VIDEO_MOD"
       class="gda-scene__panel"
       :class="{ 'gda-scene__target--pulse': panelPulsing }"
     >

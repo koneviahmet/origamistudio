@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { karakterBaglam } from './lib/karakter.mjs';
+import { aboneBolumu, aboneMetinleri } from './lib/abone-bolumu.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PROJE_ID = 'ay-dersi';
@@ -39,7 +40,10 @@ function wavSure(file) {
   } catch { /* dosya yok */ }
   return null;
 }
-const SES = SATIR.map((_, i) => `ay-dersi-ses-${i + 1}.wav`);
+// Bitiş: beğen / yorum / abone ol (scripts/abone-satirlar.txt, ses: ay-dersi-abone-N.wav)
+const NA = SATIR.length;
+SATIR.push(...aboneMetinleri(ROOT, fs, path));
+const SES = SATIR.map((_, i) => (i < NA ? `ay-dersi-ses-${i + 1}.wav` : `ay-dersi-abone-${i - NA + 1}.wav`));
 const D = SATIR.map((m, i) => r2(wavSure(path.join(ROOT, 'data', 'audio', SES[i])) ?? m.length / 14 + 0.6));
 
 // ─── Zaman çizelgesi (anlatıma göre) ───────────────────────────────────────
@@ -58,8 +62,10 @@ const tE = gec(1.9);
 say(19, 0.4); say(20, 0.4); say(21, 0.4); say(22, 0.4); say(23, 0);
 const tF = gec(1.6);
 say(24, 0.6); say(25, 0);
-const SON = TT[25].e;
-const SURE = r2(SON + 3.2);
+const tG = gec(3.2, 0.9); // son soru ekranda kalır, sonra "abone ol" bölümü
+say(26, 0.4); say(27, 0.4); say(28, 0);
+const SON = TT[28].e;
+const SURE = r2(SON + 3.6);
 const n = TT;
 
 // ─── Yardımcılar ───────────────────────────────────────────────────────────
@@ -447,6 +453,13 @@ const gF = 'g-f';
   hap('f-yorum', gF, 'düşün ve yorumlara yaz!', 1340, 900, 700, 52, '#fff0a6', a25 + 4.0, null, { h: 110, t: { font: F_EL, weight: 400 }, kutu: { cikis: false } });
 }
 
+// ═══════════════════════════════════════════════════════════════════════════
+// BÖLÜM G — BEĞEN · YORUM YAZ · ABONE OL (Kıpır söyler; kanal: youtube.com/@BayKipir)
+// ═══════════════════════════════════════════════════════════════════════════
+const gG = 'g-g';
+layers.filter((l) => l.group === 'g-f' && l.end == null).forEach((l) => { l.end = r2(tG); }); // F bölümünün açık uçlu katmanları geçişte biter
+const abone = aboneBolumu({ L, M, T, hap, yika, AN, k, r2, tG, a: [n[26], n[27], n[28]], g: gG, renk: { INK, CORAL, BUTTER, MINT, SKY, LILAC, PINK }, fontBaslik: F_BASLIK, fontEl: F_EL });
+
 // ─── Bölüm sekmeleri (sağ üst köşe) ────────────────────────────────────────
 {
   const S = [[0, tB, '1 · Kim bu?', PEACH], [tB, tC, '2 · Işığı kimin?', '#ffe58f'], [tC, tD, '3 · Yüzeyi', SKY], [tD, tE, '4 · Hareketleri', MINT], [tE, tF, '5 · Evreleri', LILAC]];
@@ -500,6 +513,7 @@ const gozlu = K('gozlu', {
     { t: n[24].t, aksiyon: 'tanit', hedef: 'f-kart', duygu: 'mutlu', bak: 'f-kart' },
     { t: n[25].t, aksiyon: 'dusun', duygu: 'dusunceli', bak: 'f-ay2' },
     { t: n[25].t + 5.4, aksiyon: 'el-salla', duygu: 'cok-mutlu', bak: 'ileri' },
+    ...abone.akis,
   ],
   soz: SATIR.map((m, i) => soz(i + 1, m)),
   golge: true,
@@ -540,7 +554,7 @@ const scene = {
   audio,
   sfx: { auto: true, volume: 0.45 },
   sections: [
-    { t: 0, name: 'Kim bu?' }, { t: tB, name: 'Işığı kimin?' }, { t: tC, name: 'Yüzeyi' }, { t: tD, name: 'Hareketleri' }, { t: tE, name: 'Evreleri' }, { t: tF, name: 'Özet ve soru' },
+    { t: 0, name: 'Kim bu?' }, { t: tB, name: 'Işığı kimin?' }, { t: tC, name: 'Yüzeyi' }, { t: tD, name: 'Hareketleri' }, { t: tE, name: 'Evreleri' }, { t: tF, name: 'Özet ve soru' }, { t: tG, name: 'Abone ol' },
   ],
   transitions: [
     { type: 'daire-ac', t: tB, dur: 1.0 },
@@ -548,10 +562,11 @@ const scene = {
     { type: 'sayfa-cevir', t: tD, dur: 1.2 },
     { type: 'mozaik', t: tE, dur: 1.1, color: '#c9b8f5' },
     { type: 'yildiz', t: tF, dur: 1.1, color: '#ffe3a8' },
+    { type: 'dalga', t: tG, dur: 1.1, color: '#ffd1cc', yon: 'sol' },
   ],
   groups: [
     { id: 'g-a', name: '1 · Kim bu?' }, { id: 'g-b', name: '2 · Işığı kimin?', collapsed: true }, { id: 'g-c', name: '3 · Yüzeyi', collapsed: true },
-    { id: 'g-d', name: '4 · Hareketleri', collapsed: true }, { id: 'g-e', name: '5 · Evreleri', collapsed: true }, { id: 'g-f', name: '6 · Özet ve soru', collapsed: true }, { id: 'g-gozlu', name: 'Kıpır' },
+    { id: 'g-d', name: '4 · Hareketleri', collapsed: true }, { id: 'g-e', name: '5 · Evreleri', collapsed: true }, { id: 'g-f', name: '6 · Özet ve soru', collapsed: true }, { id: 'g-g', name: '7 · Abone ol', collapsed: true }, { id: 'g-gozlu', name: 'Kıpır' },
   ],
   layers: JSON.parse(JSON.stringify(layers)),
 };

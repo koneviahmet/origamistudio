@@ -1,6 +1,8 @@
 import { ref, onMounted, onUnmounted, shallowRef } from 'vue'
 import * as THREE from 'three'
 
+const VIDEO = typeof window !== 'undefined' && !!window.__simVideo
+
 /**
  * Simülasyonlar için hafif Three.js sahne yaşam döngüsü.
  * Şehir oyun motorundan bağımsızdır; yalnızca canvas + render döngüsü sağlar.
@@ -16,6 +18,7 @@ export function useSimulationScene(options = {}) {
   let clock = null
   let rafId = null
   let resizeObserver = null
+  let elapsedV = 0
 
   function resize() {
     const canvas = canvasRef.value
@@ -72,7 +75,7 @@ export function useSimulationScene(options = {}) {
         antialias: true,
         alpha: false,
         powerPreference: 'high-performance',
-        preserveDrawingBuffer: options.preserveDrawingBuffer === true,
+        preserveDrawingBuffer: VIDEO || options.preserveDrawingBuffer === true,
       })
     } catch (err) {
       // Bağlam oluşturulamazsa (ör. tablet bağlam limiti) uygulamayı çökertme
@@ -81,7 +84,8 @@ export function useSimulationScene(options = {}) {
       return
     }
     const maxDpr = options.maxPixelRatio ?? 2
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, maxDpr))
+    // Video modu: kare boyutu = tuval boyutu (devicePixelRatio yok)
+    renderer.setPixelRatio(VIDEO ? 1 : Math.min(window.devicePixelRatio, maxDpr))
     renderer.outputColorSpace = THREE.SRGBColorSpace
 
     scene = new THREE.Scene()
@@ -97,6 +101,19 @@ export function useSimulationScene(options = {}) {
     resizeObserver.observe(canvas.parentElement ?? canvas)
 
     ready.value = true
+    if (VIDEO) {
+      // Video modu: kendi rAF döngüsü yok; kareyi Origami Studio zaman çizelgesi adım adım sürer (deterministik)
+      window.__simKontrol?.sahneBagla({
+        canvas,
+        adim(delta, ciz = true) {
+          if (!renderer || !scene || !camera) return
+          elapsedV += delta
+          options.onFrame?.({ renderer, scene, camera, delta, elapsed: elapsedV })
+          if (ciz) renderer.render(scene, camera)
+        },
+      })
+      return
+    }
     animate()
   }
 

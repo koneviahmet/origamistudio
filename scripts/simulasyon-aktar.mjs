@@ -123,7 +123,7 @@ for (const [slug, s] of simler) {
     source: 'github.com/koneviahmet/orman-oyunu',
   };
   // Kullanıcı düzenlemeleri korunur
-  for (const k of ['title', 'category', 'description', 'tags', 'status', 'favorite', 'notes', 'usage', 'subtitle']) {
+  for (const k of ['title', 'category', 'description', 'tags', 'status', 'favorite', 'notes', 'usage', 'subtitle', 'jsonKontrol', 'kontrol']) { // jsonKontrol/kontrol: video modunda JSON ile yönetilen simülasyonlar
     if (eski[k] !== undefined && !(k === 'category' && eski[k] === 'Diğer')) yeni[k] = eski[k];
   }
   fs.writeFileSync(jsonYol, JSON.stringify(yeni, null, 2));

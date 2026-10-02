@@ -31,7 +31,7 @@ function drawWithFonts() {
   draw();
   if (props.scene && props.res) {
     ensureSceneFonts(props.scene, props.res).then(draw);
-    prepareMedia(props.scene, props.t, props.res, { onUpdate: draw });
+    prepareMedia(props.scene, props.t, props.res, { onUpdate: draw, sim: false }); // küçük resimde canlı simülasyon açılmaz
   }
 }
 onMounted(drawWithFonts);

@@ -3,8 +3,17 @@
 import { createApp, h, defineAsyncComponent, markRaw } from 'vue';
 import { createRouter, createMemoryHistory } from 'vue-router';
 import './sim-onizleme.css';
+import { createKontrol } from './sim-kontrol.js';
 
-const slug = new URLSearchParams(location.search).get('slug') || '';
+const qs = new URLSearchParams(location.search);
+const slug = qs.get('slug') || '';
+// Video modu (?video=1): ayar panelleri gizli, kendi animasyon döngüsü yok; kareyi Origami Studio JSON zaman çizelgesiyle sürer.
+// Bayrak, simülasyon modülleri yüklenmeden önce kurulmalı (useSimulationScene / useSimKontrol modül düzeyinde okur).
+if (qs.get('video') === '1') {
+  window.__simVideo = true;
+  window.__simKontrol = createKontrol();
+  document.documentElement.classList.add('sim-video');
+}
 const modules = import.meta.glob('../../data/simulations/*/kaynak/src/views/simulation/**/*.vue');
 
 const Err = (msg) => ({ render: () => h('div', { class: 'sim-onizleme-hata' }, msg) });

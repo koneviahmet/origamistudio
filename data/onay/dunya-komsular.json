@@ -1,0 +1,233 @@
+{
+  "id": "dunya-komsular",
+  "baslik": "Dünya'mız ve Gökyüzündeki Komşularımız (Kıpır ile ders · simülasyonlu)",
+  "olusturma": "2026-10-02T11:53:37.351Z",
+  "ogeler": [
+    {
+      "id": "gunes-cizim",
+      "tur": "nesne",
+      "nerede": "Bölüm 2 (boyut kıyasında Güneş), Bölüm 4 (özet kartı), başlık süsü",
+      "amac": "Güneş'in çizim stilindeki hâli; dönen ışınlarıyla 'Güneş kendi etrafında döner' vurgusu.",
+      "ref": "gunes-cizim",
+      "ad": "Güneş (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "dunya-cizim",
+      "tur": "nesne",
+      "nerede": "Bölüm 3 (Dünya'nın dönmesi ve dolanması), Bölüm 4 (özet kartı)",
+      "amac": "Dünya'nın çizim stilindeki hâli; saat ve takvim simgeleriyle birlikte süre vurgusu.",
+      "ref": "dunya-cizim",
+      "ad": "Dünya (çizim)",
+      "kategori": "uzay",
+      "karar": "duzenle",
+      "gorseller": [
+        "dunya-cizim-muqwreum.png"
+      ],
+      "not": "Referans görsele göre yeniden üretildi: parlak turkuaz okyanus, 3 yeşil kıta + ada, sağ-alt gölge hilali",
+      "duzenlendi": true
+    },
+    {
+      "id": "ay-cizim",
+      "tur": "nesne",
+      "nerede": "Bölüm 2 (boyut kıyası), Bölüm 3 (Ay'ın hareketleri), Bölüm 4 (özet kartı)",
+      "amac": "Ay'ın çizim stilindeki hâli.",
+      "ref": "ay-cizim",
+      "ad": "Ay (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ej-sayfa-yatay-uc",
+      "tur": "nesne",
+      "nerede": "Bölüm 2 (Hangisi daha büyük?) — kıyaslama sayfası",
+      "amac": "Kütüphaneden 'Çizgi roman sayfası (uç) – yatay': üç panel; ilk iki panelde 'Gün. Dünya. Ay' kıyaslama simülasyonları, üçüncüde 'daha büyük yıldızlar var ama uzak' çizimi.",
+      "ref": "ej-sayfa-yatay-uc",
+      "ad": "Çizgi roman sayfası (uc) – yatay",
+      "kategori": "cizgi-roman-sayfalari",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "saat-cizim",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "Bölüm 3 (Dünya'nın kendi etrafında dönmesi: 1 gün = 24 saat)",
+      "amac": "Yeni: çizim stilinde saat; ibresi saat yönünün tersine tam tur atar, '24 saat' yazısıyla birlikte.",
+      "ref": "saat-cizim",
+      "ad": "Saat (çizim)",
+      "kategori": "nesneler",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "takvim-cizim",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "Bölüm 3 (Dünya'nın Güneş etrafında dolanması: 365 gün 6 saat)",
+      "amac": "Yeni: çizim stilinde spiral takvim yaprağı; '365 gün 6 saat' vurgusu.",
+      "ref": "takvim-cizim",
+      "ad": "Takvim (çizim)",
+      "kategori": "nesneler",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "donus-oku-cizim",
+      "tur": "nesne",
+      "nerede": "Bölüm 3 ve 4 ('saat yönünün tersi' dönüş oku)",
+      "amac": "Güneş / Dünya / Ay dönüş yönünü gösteren döner ok.",
+      "ref": "donus-oku-cizim",
+      "ad": "Dönüş oku (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "yorunge-halka-cizim",
+      "tur": "nesne",
+      "nerede": "Bölüm 4 (özet), Bölüm 2 üçüncü panel",
+      "amac": "Vurgu halkası ve dolanma yolu çizimi.",
+      "ref": "yorunge-halka-cizim",
+      "ad": "Yörünge halkası (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "yildiz",
+      "tur": "nesne",
+      "nerede": "Bölüm 2 üçüncü panel ('Güneş'ten büyük yıldızlar çok uzakta')",
+      "amac": "Uzaktaki büyük yıldızlar.",
+      "ref": "yildiz",
+      "ad": "Yıldız",
+      "kategori": "sekiller",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "tik",
+      "tur": "nesne",
+      "nerede": "Bölüm 4 (özet kartı maddeleri)",
+      "amac": "Özet listesi işareti.",
+      "ref": "tik",
+      "ad": "Tik",
+      "kategori": "sekiller",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "bant-cizim",
+      "tur": "nesne",
+      "nerede": "Başlık notları ve özet kartı",
+      "amac": "Defter hissi veren washi bant (Güneş / Ay derslerindeki dille tutarlı).",
+      "ref": "bant-cizim",
+      "ad": "Washi bant (çizim)",
+      "kategori": "nesneler",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-1",
+      "tur": "ses",
+      "ref": "d1-00574",
+      "ad": "Genç öğretmen (Güneş dersindeki ses)",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Genç",
+        "İnce ses",
+        "Enerjik",
+        "Öğretmen"
+      ],
+      "aciklama": "Orta-yüksek tonlu, pürüzsüz, canlı genç kadın sesi; ölçülü tempo. Güneş dersinde de kullanıldı, seri tutarlılığı sağlar.",
+      "nerede": "Tüm video — Kıpır'ın anlatımı",
+      "amac": "Ana anlatıcı adayı (seriyle süreklilik).",
+      "karar": "kullanma",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-2",
+      "tur": "ses",
+      "ref": "d2-00091",
+      "ad": "Sakin erkek anlatıcı (Ay dersindeki ses)",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Orta yaş",
+        "Kalın ses",
+        "Sakin",
+        "Yavaş tempo",
+        "Öğretmen"
+      ],
+      "aciklama": "Kırklı yaşlarda, derin, yavaş ve düşünceli erkek sesi; Ay dersinde de kullanıldı.",
+      "nerede": "Tüm video — alternatif anlatıcı",
+      "amac": "Uzay atmosferli, yavaş tempolu anlatım; seriyle süreklilik.",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-3",
+      "tur": "ses",
+      "ref": "d1-02455",
+      "ad": "Sıcak öğretmen sesi",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Sıcak",
+        "Sakin",
+        "Enerjik",
+        "Öğretmen"
+      ],
+      "aciklama": "Orta-alçak tonlu, güven veren, sıcak ve canlı kadın sesi; orta tempo.",
+      "nerede": "Tüm video — alternatif anlatıcı",
+      "amac": "Daha yumuşak ve güven veren ders havası.",
+      "karar": "kullanma",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-4",
+      "tur": "ses",
+      "ref": "d2-00043",
+      "ad": "Sıcak genç erkek öğretmen",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Sıcak",
+        "Enerjik",
+        "Öğretmen"
+      ],
+      "aciklama": "Derin, hafif genizsi, sıcak, nazik ve canlı genç erkek sesi; orta tempo.",
+      "nerede": "Tüm video — alternatif anlatıcı",
+      "amac": "Samimi, arkadaşça anlatım.",
+      "karar": "kullanma",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-5",
+      "tur": "ses",
+      "ref": "d1-00523",
+      "ad": "Yumuşak kırklı kadın anlatıcı",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Orta yaş",
+        "Kalın ses",
+        "Sakin",
+        "Enerjik",
+        "Yavaş tempo",
+        "Öğretmen"
+      ],
+      "aciklama": "Alçak tonlu, yumuşak, neşeli ve sakin kadın sesi; yavaş tempo.",
+      "nerede": "Tüm video — alternatif anlatıcı",
+      "amac": "Sakin, konsantre dinletiyi destekler; yavaş tempolu simülasyon anlatımına uygun.",
+      "karar": "kullanma",
+      "duzenlendi": false
+    }
+  ],
+  "arsiv": false,
+  "guncelleme": "2026-10-02T11:59:43.607Z",
+  "durum": "tamam"
+}

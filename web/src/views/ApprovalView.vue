@@ -93,9 +93,6 @@ async function notKaydet(x) {
   if (not === (x.not || '')) return;
   try { oturum.value = await api.onayKarar(props.id, x.id, { not }); } catch (e) { toastError(e); }
 }
-async function duzenlendi(x, v) {
-  try { oturum.value = await api.onayKarar(props.id, x.id, { duzenlendi: v }); if (v) ilerle(); } catch (e) { toastError(e); }
-}
 async function geriAl(x) {
   try { oturum.value = await api.onayKarar(props.id, x.id, { karar: null }); } catch (e) { toastError(e); }
 }
@@ -280,11 +277,11 @@ const tarih = (s) => (s ? new Date(s).toLocaleString('tr', { day: '2-digit', mon
 
               <div v-if="cur.karar === 'duzenle'" class="duzen">
                 <template v-if="cur.tur === 'nesne'">
-                  <a class="btn" :href="`/library?ac=${cur.ref}`" target="_blank">Kütüphanede düzenle ↗</a>
-                  <span class="muted sm">Kaydedince önceki modelin üzerine yazılır. Ya da yukarıya ne değişeceğini yaz, Claude uygular.</span>
+                  <span v-if="cur.duzenlendi" class="muted sm">✓ Claude düzenledi ve kütüphanedeki modelin üzerine yazdı.</span>
+                  <span v-else class="muted sm">Yukarıya ne değişeceğini yaz (açıklama + referans görsel); diğer ögeleri de kararlaştır. Claude düzenlemeyi kendisi yapıp kütüphanedeki modelin üzerine yazar — senden ek bir şey beklenmez.</span>
+                  <a class="btn" :href="`/library?ac=${cur.ref}`" target="_blank">Modeli gör ↗</a>
                 </template>
                 <span v-else class="muted sm">Notuna ne istediğini yaz (ör. “daha yavaş / daha genç”); Claude alternatif seçer.</span>
-                <button class="btn" :class="{ primary: !cur.duzenlendi }" @click="duzenlendi(cur, !cur.duzenlendi)">{{ cur.duzenlendi ? '✓ Düzenlendi (geri al)' : 'Düzenledim' }}</button>
               </div>
 
               <div class="gez row">

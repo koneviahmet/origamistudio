@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, ref, toRaw, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { api } from '../api.js';
 import { useLive } from '../live.js';
 import { toast, toastError } from '../toast.js';
@@ -21,8 +21,13 @@ const CAT_LABELS = { hayvanlar: 'Hayvanlar', doga: 'Doğa', gokyuzu: 'Gökyüzü
 const catLabel = (c) => CAT_LABELS[c] || c;
 
 const categories = ref([]);
+const catInfo = ref([]); // [{ name, count, url }] — sunucudan, JSON ayrıştırmadan
 const assets = ref([]);
-const activeCat = ref('');
+// Aktif kategori adresten gelir: /library/<kategori>/<model>
+const activeCat = computed({
+  get: () => route.params.category || '',
+  set: (c) => router.push(c ? `/library/${encodeURIComponent(c)}` : '/library'),
+});
 const search = ref('');
 const hover = ref('');
 const loading = ref(true);
@@ -79,31 +84,49 @@ function mirrorFacet() {
 const previewStyle = ref('origami');
 
 const route = useRoute();
+const router = useRouter();
+let loadSeq = 0;
+// Yalnızca açık kategorinin varlıkları yüklenir ("Tümü" seçiliyse hepsi)
 async function load() {
+  const seq = ++loadSeq;
   try {
-    const d = await api.library();
-    categories.value = d.categories;
-    assets.value = d.assets.sort((a, b) => (a.name || a.id).localeCompare(b.name || b.id, 'tr'));
-    // /library?ac=<id>: Onay sayfasından "Kütüphanede düzenle" (kaydedince aynı varlığın üzerine yazılır)
-    const ac = route.query.ac;
-    if (ac && !draft.value) {
-      const a = assets.value.find((x) => x.id === ac);
-      if (a) openAsset(a);
-    }
+    const info = await api.categories();
+    const cat = route.params.category;
+    const list = cat && info.some((c) => c.name === cat) ? await api.categoryAssets(cat) : (await api.library()).assets;
+    if (seq !== loadSeq) return;
+    catInfo.value = info;
+    categories.value = info.map((c) => c.name);
+    assets.value = list.sort((a, b) => (a.name || a.id).localeCompare(b.name || b.id, 'tr'));
+    await syncRouteAsset();
   } catch (e) {
     toastError(e);
   } finally {
     loading.value = false;
   }
 }
+// /library/<kategori>/<id> (ya da onay sayfasından ?ac=<id>) → varlığı editörde aç
+async function syncRouteAsset() {
+  const cat = route.params.category;
+  const id = route.params.id;
+  if (id && cat) {
+    if (origId.value === id || dirty.value) return;
+    const a = assets.value.find((x) => x.id === id) || (await api.asset(cat, id).catch(() => null));
+    if (a) { draft.value = clone(a); origId.value = a.id; afterOpen(); }
+    return;
+  }
+  const ac = route.query.ac;
+  if (ac && !draft.value) {
+    const a = assets.value.find((x) => x.id === ac) || (await api.library()).assets.find((x) => x.id === ac);
+    if (a) router.replace(`/library/${encodeURIComponent(a.category)}/${encodeURIComponent(a.id)}`);
+  }
+}
 onMounted(() => { load(); loadOllaya(); });
 useLive((e) => e.kind === 'library' && load());
+watch(() => route.params.category, () => { loading.value = true; load(); });
+watch(() => route.params.id, () => syncRouteAsset());
 
-const counts = computed(() => {
-  const m = {};
-  for (const a of assets.value) m[a.category] = (m[a.category] || 0) + 1;
-  return m;
-});
+const counts = computed(() => Object.fromEntries(catInfo.value.map((c) => [c.name, c.count])));
+const totalCount = computed(() => catInfo.value.reduce((n, c) => n + c.count, 0));
 
 const filtered = computed(() => {
   const q = search.value.trim().toLocaleLowerCase('tr');
@@ -154,6 +177,7 @@ function openAsset(a) {
   draft.value = clone(a);
   origId.value = a.id;
   afterOpen();
+  router.replace(`/library/${encodeURIComponent(a.category)}/${encodeURIComponent(a.id)}`);
 }
 
 function newEffect() {
@@ -234,6 +258,7 @@ function close() {
   if (dirty.value && !confirm('Kaydedilmemiş değişiklikler kaybolacak. Kapatılsın mı?')) return;
   draft.value = null;
   dirty.value = false;
+  if (route.params.id) router.replace(activeCat.value ? `/library/${encodeURIComponent(activeCat.value)}` : '/library');
 }
 
 function touch() {
@@ -274,6 +299,7 @@ async function save() {
     origId.value = saved.id;
     dirty.value = false;
     toast(`Kaydedildi: ${saved.name || saved.id}`, 'ok');
+    router.replace(`/library/${encodeURIComponent(saved.category)}/${encodeURIComponent(saved.id)}`);
     await load();
   } catch (e) {
     toastError(e);
@@ -305,6 +331,7 @@ async function remove() {
     await api.deleteAsset(origId.value);
     dirty.value = false;
     draft.value = null;
+    router.replace(activeCat.value ? `/library/${encodeURIComponent(activeCat.value)}` : '/library');
     await load();
     toast('Silindi');
   } catch (e) {
@@ -436,7 +463,7 @@ const facetPointsText = computed({
         <button class="btn sm ghost" title="Kategori ekle" @click="addCategory">＋</button>
       </div>
       <button class="cat" :class="{ active: !activeCat }" @click="activeCat = ''">
-        <span>Tümü</span><span class="dim">{{ assets.length }}</span>
+        <span>Tümü</span><span class="dim">{{ totalCount }}</span>
       </button>
       <div v-for="c in categories" :key="c" class="cat-row">
         <button class="cat" :class="{ active: activeCat === c }" @click="activeCat = c" @dblclick="renameCategory(c)">

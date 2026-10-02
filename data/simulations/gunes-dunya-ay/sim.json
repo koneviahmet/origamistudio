@@ -4,7 +4,9 @@
   "subtitle": "Dönme ve dolanma",
   "category": "Astronomi",
   "description": "Güneş, Dünya ve Ay’ın dönme ile dolanma hareketlerini izleyin; kamerayı değiştirin, yörüngeleri ve şekilleri kontrol edin.",
-  "tags": [],
+  "tags": [
+    "json-yonetimli"
+  ],
   "accent": "#38bdf8",
   "engine": "three",
   "kind": "modern",
@@ -20,5 +22,157 @@
     "src/views/simulation/simulations/gunes-dunya-ay/index.vue"
   ],
   "importedAt": "2026-10-02T10:38:57.252Z",
-  "source": "github.com/koneviahmet/orman-oyunu"
+  "source": "github.com/koneviahmet/orman-oyunu",
+  "jsonKontrol": true,
+  "kontrol": {
+    "surum": 1,
+    "aciklama": "Video katmanında {type:'media', sim:'gunes-dunya-ay', width, height, start, end, kontrol:[{t, ...parametreler, ease?}]}. t = katman başından saniye; sayılar anahtarlar arası ease ile kayar, diğer türler t'de basamaklı değişir; anahtarda olmayan parametre önceki değerini korur.",
+    "parametreler": {
+      "speed": {
+        "tip": "sayi",
+        "aciklama": "Zaman hızı: Dünya/Ay dolanma + dönme hızı birlikte çarpılır (biriken hareket; 0 = durur).",
+        "varsayilan": 0.3,
+        "aralik": [
+          0,
+          4
+        ]
+      },
+      "camera": {
+        "tip": "metin",
+        "aciklama": "Kamera: 'free' serbest yörünge kamerası · 'sun'/'earth'/'moon' o cismin gözünden bakış.",
+        "varsayilan": "free",
+        "secenekler": [
+          "free",
+          "sun",
+          "earth",
+          "moon"
+        ]
+      },
+      "yaw": {
+        "tip": "sayi",
+        "aciklama": "Serbest kamera yatay açı (rad).",
+        "varsayilan": 0.55,
+        "aralik": [
+          -6.3,
+          6.3
+        ]
+      },
+      "pitch": {
+        "tip": "sayi",
+        "aciklama": "Serbest kamera dikey açı (rad).",
+        "varsayilan": 0.42,
+        "aralik": [
+          -0.15,
+          1.25
+        ]
+      },
+      "distance": {
+        "tip": "sayi",
+        "aciklama": "Serbest kamera uzaklığı (takip ile Dünya için ~3.5, Ay için ~1.7 iyi sonuç verir; fareyle 6 altına inilemez ama JSON ile inilebilir).",
+        "varsayilan": 20,
+        "aralik": [
+          0.8,
+          45
+        ]
+      },
+      "clarity": {
+        "tip": "sayi",
+        "aciklama": "Dünya / Ay netlik + aydınlık çarpanı.",
+        "varsayilan": 1.4,
+        "aralik": [
+          0.5,
+          4
+        ]
+      },
+      "orbits": {
+        "tip": "bool",
+        "aciklama": "Dolanma yörüngeleri çizgisi (yalnızca camera=free).",
+        "varsayilan": false
+      },
+      "axes": {
+        "tip": "bool",
+        "aciklama": "Dönme eksenleri çizgisi.",
+        "varsayilan": false
+      },
+      "shapeSun": {
+        "tip": "metin",
+        "aciklama": "Güneş şekli.",
+        "varsayilan": "sphere",
+        "secenekler": [
+          "sphere",
+          "cube",
+          "octahedron",
+          "dodecahedron",
+          "icosahedron"
+        ]
+      },
+      "shapeEarth": {
+        "tip": "metin",
+        "aciklama": "Dünya şekli.",
+        "varsayilan": "sphere",
+        "secenekler": [
+          "sphere",
+          "cube",
+          "octahedron",
+          "dodecahedron",
+          "icosahedron"
+        ]
+      },
+      "shapeMoon": {
+        "tip": "metin",
+        "aciklama": "Ay şekli.",
+        "varsayilan": "sphere",
+        "secenekler": [
+          "sphere",
+          "cube",
+          "octahedron",
+          "dodecahedron",
+          "icosahedron"
+        ]
+      },
+      "labels": {
+        "tip": "bool",
+        "aciklama": "Cisim isimleri (Güneş / Dünya / Ay) kareye çizilir.",
+        "varsayilan": false
+      },
+      "labelSize": {
+        "tip": "sayi",
+        "aciklama": "İsim yazı boyu (kare yüksekliğinin oranı).",
+        "varsayilan": 0.034,
+        "aralik": [
+          0.015,
+          0.08
+        ]
+      },
+      "takip": {
+        "tip": "metin",
+        "aciklama": "Serbest kamera bu cismi izler (hedef = cismin anlık konumu). '' = sahne merkezi (Güneş).",
+        "varsayilan": "",
+        "secenekler": [
+          "",
+          "sun",
+          "earth",
+          "moon"
+        ]
+      }
+    },
+    "ornek": [
+      {
+        "t": 0,
+        "speed": 0.3,
+        "camera": "free",
+        "labels": true
+      },
+      {
+        "t": 6,
+        "speed": 1.2,
+        "distance": 14,
+        "ease": "inOutCubic"
+      },
+      {
+        "t": 10,
+        "camera": "moon"
+      }
+    ]
+  }
 }

@@ -190,8 +190,16 @@ export function createApi(store, events, fonts, tts, muzik, youtube, onay) {
 
   // ---------------------------------------------------------------- library
   r.get('/library', async (_req, res) => {
-    res.json({ categories: await store.listCategories(), assets: await store.listAssets() });
+    res.json({
+      categories: await store.listCategories(),
+      categoryInfo: await store.listCategoryInfo(),
+      assets: await store.listAssets(),
+    });
   });
+  // Kategori / varlık başına adresler: arayüz yalnızca açtığı kategoriyi / modeli yükler
+  r.get('/categories', async (_req, res) => res.json(await store.listCategoryInfo()));
+  r.get('/categories/:name/assets', async (req, res) => res.json(await store.listAssetsIn(req.params.name)));
+  r.get('/library/:category/:id', async (req, res) => res.json(await store.getAssetIn(req.params.category, req.params.id)));
   r.get('/library/:id', async (req, res) => res.json(await store.getAsset(req.params.id)));
   r.post('/library', async (req, res) => res.status(201).json(await store.createAsset(req.body)));
   r.put('/library/:id', async (req, res) => res.json(await store.updateAsset(req.params.id, req.body)));

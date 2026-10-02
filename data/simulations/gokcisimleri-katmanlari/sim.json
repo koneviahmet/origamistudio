@@ -4,7 +4,9 @@
   "subtitle": "İç yapı kesiti",
   "category": "Astronomi",
   "description": "Güneş, Dünya ve Ay’ı inceleyin. Çift tıklayarak resimdeki gibi iç katman kesitini görün.",
-  "tags": [],
+  "tags": [
+    "json-yonetimli"
+  ],
   "accent": "#f59e0b",
   "engine": "three",
   "kind": "modern",
@@ -21,5 +23,82 @@
     "src/views/simulation/simulations/gokcisimleri-katmanlari/layers.js"
   ],
   "importedAt": "2026-10-02T10:38:57.257Z",
-  "source": "github.com/koneviahmet/orman-oyunu"
+  "source": "github.com/koneviahmet/orman-oyunu",
+  "jsonKontrol": true,
+  "kontrol": {
+    "surum": 1,
+    "aciklama": "Video katmanında {type:'media', sim:'gokcisimleri-katmanlari', width, height, start, end, kontrol:[{t, ...parametreler, ease?}]}. t = katman başından saniye; sayılar anahtarlar arası ease ile kayar, diğer türler t'de basamaklı değişir; anahtarda olmayan parametre önceki değerini korur.",
+    "parametreler": {
+      "speed": {
+        "tip": "sayi",
+        "aciklama": "Cisimlerin kendi etrafında dönüş hızı (kesit açıkken dönüş durur).",
+        "varsayilan": 0.6,
+        "aralik": [
+          0,
+          2
+        ]
+      },
+      "cutaway": {
+        "tip": "metin",
+        "aciklama": "Kesiti açılan cisim: '' genel görünüm · 'sun' · 'earth' · 'moon'.",
+        "varsayilan": "",
+        "secenekler": [
+          "",
+          "sun",
+          "earth",
+          "moon"
+        ]
+      },
+      "layer": {
+        "tip": "metin",
+        "aciklama": "Vurgulanan katman id: Güneş corona · chromosphere · photosphere · core; Dünya crust · mantle · outer-core · inner-core; Ay crust · mantle · partial-melt · core."
+      },
+      "labels": {
+        "tip": "bool",
+        "aciklama": "Kesitte katman isimleri kareye çizilir (cutaway açıkken).",
+        "varsayilan": false
+      },
+      "labelSize": {
+        "tip": "sayi",
+        "aciklama": "İsim yazı boyu (kare yüksekliği oranı).",
+        "varsayilan": 0.03,
+        "aralik": [
+          0.015,
+          0.08
+        ]
+      },
+      "yaw": {
+        "tip": "sayi",
+        "aciklama": "Kamera yatay açı (rad). cutaway değişince yeniden uygulanır.",
+        "varsayilan": 0.35
+      },
+      "pitch": {
+        "tip": "sayi",
+        "aciklama": "Kamera dikey açı (rad).",
+        "varsayilan": 0.32
+      },
+      "distance": {
+        "tip": "sayi",
+        "aciklama": "Kamera uzaklığı (genel görünümde 13; kesitte cisme göre otomatik).",
+        "varsayilan": 13
+      }
+    },
+    "ornek": [
+      {
+        "t": 0,
+        "cutaway": "",
+        "speed": 0.6
+      },
+      {
+        "t": 4,
+        "cutaway": "earth",
+        "labels": true,
+        "layer": "crust"
+      },
+      {
+        "t": 8,
+        "layer": "mantle"
+      }
+    ]
+  }
 }

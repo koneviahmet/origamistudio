@@ -1,0 +1,22 @@
+{
+  "id": "dunya-komsular",
+  "baslik": "Dünya'mız ve Gökyüzündeki Komşularımız (Kıpır ile ders · simülasyonlu)",
+  "ogeler": [
+    { "id": "gunes-cizim", "tur": "nesne", "nerede": "Bölüm 2 (boyut kıyasında Güneş), Bölüm 4 (özet kartı), başlık süsü", "amac": "Güneş'in çizim stilindeki hâli; dönen ışınlarıyla 'Güneş kendi etrafında döner' vurgusu." },
+    { "id": "dunya-cizim", "tur": "nesne", "nerede": "Bölüm 3 (Dünya'nın dönmesi ve dolanması), Bölüm 4 (özet kartı)", "amac": "Dünya'nın çizim stilindeki hâli; saat ve takvim simgeleriyle birlikte süre vurgusu." },
+    { "id": "ay-cizim", "tur": "nesne", "nerede": "Bölüm 2 (boyut kıyası), Bölüm 3 (Ay'ın hareketleri), Bölüm 4 (özet kartı)", "amac": "Ay'ın çizim stilindeki hâli." },
+    { "id": "ej-sayfa-yatay-uc", "tur": "nesne", "nerede": "Bölüm 2 (Hangisi daha büyük?) — kıyaslama sayfası", "amac": "Kütüphaneden 'Çizgi roman sayfası (uç) – yatay': üç panel; ilk iki panelde 'Gün. Dünya. Ay' kıyaslama simülasyonları, üçüncüde 'daha büyük yıldızlar var ama uzak' çizimi." },
+    { "id": "saat-cizim", "tur": "nesne", "yeni": true, "nerede": "Bölüm 3 (Dünya'nın kendi etrafında dönmesi: 1 gün = 24 saat)", "amac": "Yeni: çizim stilinde saat; ibresi saat yönünün tersine tam tur atar, '24 saat' yazısıyla birlikte." },
+    { "id": "takvim-cizim", "tur": "nesne", "yeni": true, "nerede": "Bölüm 3 (Dünya'nın Güneş etrafında dolanması: 365 gün 6 saat)", "amac": "Yeni: çizim stilinde spiral takvim yaprağı; '365 gün 6 saat' vurgusu." },
+    { "id": "donus-oku-cizim", "tur": "nesne", "nerede": "Bölüm 3 ve 4 ('saat yönünün tersi' dönüş oku)", "amac": "Güneş / Dünya / Ay dönüş yönünü gösteren döner ok." },
+    { "id": "yorunge-halka-cizim", "tur": "nesne", "nerede": "Bölüm 4 (özet), Bölüm 2 üçüncü panel", "amac": "Vurgu halkası ve dolanma yolu çizimi." },
+    { "id": "yildiz", "tur": "nesne", "nerede": "Bölüm 2 üçüncü panel ('Güneş'ten büyük yıldızlar çok uzakta')", "amac": "Uzaktaki büyük yıldızlar." },
+    { "id": "tik", "tur": "nesne", "nerede": "Bölüm 4 (özet kartı maddeleri)", "amac": "Özet listesi işareti." },
+    { "id": "bant-cizim", "tur": "nesne", "nerede": "Başlık notları ve özet kartı", "amac": "Defter hissi veren washi bant (Güneş / Ay derslerindeki dille tutarlı)." },
+    { "id": "ses-1", "tur": "ses", "ref": "d1-00574", "ad": "Genç öğretmen (Güneş dersindeki ses)", "cinsiyet": "kadın", "etiketler": ["Genç", "İnce ses", "Enerjik", "Öğretmen"], "aciklama": "Orta-yüksek tonlu, pürüzsüz, canlı genç kadın sesi; ölçülü tempo. Güneş dersinde de kullanıldı, seri tutarlılığı sağlar.", "nerede": "Tüm video — Kıpır'ın anlatımı", "amac": "Ana anlatıcı adayı (seriyle süreklilik)." },
+    { "id": "ses-2", "tur": "ses", "ref": "d2-00091", "ad": "Sakin erkek anlatıcı (Ay dersindeki ses)", "cinsiyet": "erkek", "etiketler": ["Orta yaş", "Kalın ses", "Sakin", "Yavaş tempo", "Öğretmen"], "aciklama": "Kırklı yaşlarda, derin, yavaş ve düşünceli erkek sesi; Ay dersinde de kullanıldı.", "nerede": "Tüm video — alternatif anlatıcı", "amac": "Uzay atmosferli, yavaş tempolu anlatım; seriyle süreklilik." },
+    { "id": "ses-3", "tur": "ses", "ref": "d1-02455", "ad": "Sıcak öğretmen sesi", "cinsiyet": "kadın", "etiketler": ["Genç", "Kalın ses", "Sıcak", "Sakin", "Enerjik", "Öğretmen"], "aciklama": "Orta-alçak tonlu, güven veren, sıcak ve canlı kadın sesi; orta tempo.", "nerede": "Tüm video — alternatif anlatıcı", "amac": "Daha yumuşak ve güven veren ders havası." },
+    { "id": "ses-4", "tur": "ses", "ref": "d2-00043", "ad": "Sıcak genç erkek öğretmen", "cinsiyet": "erkek", "etiketler": ["Genç", "Kalın ses", "Sıcak", "Enerjik", "Öğretmen"], "aciklama": "Derin, hafif genizsi, sıcak, nazik ve canlı genç erkek sesi; orta tempo.", "nerede": "Tüm video — alternatif anlatıcı", "amac": "Samimi, arkadaşça anlatım." },
+    { "id": "ses-5", "tur": "ses", "ref": "d1-00523", "ad": "Yumuşak kırklı kadın anlatıcı", "cinsiyet": "kadın", "etiketler": ["Orta yaş", "Kalın ses", "Sakin", "Enerjik", "Yavaş tempo", "Öğretmen"], "aciklama": "Alçak tonlu, yumuşak, neşeli ve sakin kadın sesi; yavaş tempo.", "nerede": "Tüm video — alternatif anlatıcı", "amac": "Sakin, konsantre dinletiyi destekler; yavaş tempolu simülasyon anlatımına uygun." }
+  ]
+}

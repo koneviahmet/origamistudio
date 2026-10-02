@@ -1,0 +1,19 @@
+0 | Merhaba, ben Kıpır! Bugün Dünya'mızı ve gökyüzündeki iki komşumuzu, Güneş'i ve Ay'ı yakından tanıyacağız.
+6 | Önce şunu merak ediyorum: Bu üç gök cisminin içi neye benziyor?
+10 | Güneş, tıpkı Dünya gibi katmanlardan oluşur. Hadi önce Güneş'in içine bakalım!
+14 | En dışta taç küre var. Sonra renk küre, ardından ışık küre geliyor. Tam ortada ise çekirdek yer alıyor. Nükleer füzyonun gerçekleştiği en sıcak bölge orası!
+20 | Şimdi Dünya'mızın içine bakalım. Önce ince bir kabuk, sonra kalın bir manto, sonra dış çekirdek ve en içte iç çekirdek var.
+26 | Ay'ın içi de katmanlı: kabuk, manto, kısmi eriyik bölge ve küçük bir çekirdek.
+30 | Peki sence bu üç gök cisminden hangisi en büyük?
+34 | Ay'ın çapı yaklaşık üç bin dört yüz yetmiş dört kilometre. Dünya'mızın çapı ise yaklaşık on iki bin yedi yüz kırk iki kilometre. Yani Dünya, Ay'dan yaklaşık dört kat büyük.
+42 | Güneş ise tam bir dev! Çapı yaklaşık bir milyon üç yüz doksan iki bin kilometre. Yani Dünya'nın yaklaşık yüz dokuz katı!
+48 | Gökyüzünde Güneş'ten çok daha büyük yıldızlar var. Ama Güneş bize en yakın yıldız olduğu için en büyük görünür.
+54 | Peki bu üç komşu hiç durup dinleniyor mu? Hayır! Hepsi hiç durmadan hareket ediyor.
+60 | Güneş, kendi ekseni etrafında saat yönünün tersine döner.
+64 | Dünya, Güneş'in etrafında saat yönünün tersine dolanır. Bu turu üç yüz altmış beş gün altı saatte tamamlar.
+70 | Aynı zamanda Dünya, kendi etrafında da saat yönünün tersine döner. Bu dönüş tam bir gün, yani yirmi dört saat sürer.
+76 | Ay, kendi ekseni etrafında yirmi yedi gün sekiz saatte döner.
+80 | Ay, Dünya'nın etrafında da yirmi yedi gün sekiz saatte dolanır.
+84 | Ay, Dünya ile birlikte Güneş'in etrafında da dolanır. Ay'ın dönme ve dolanma yönü de saat yönünün tersinedir.
+90 | Hadi özetleyelim: Güneş döner. Dünya ve Ay hem döner hem dolanır. Üçünün yönü de saat yönünün tersi!
+96 | Şimdi sana bir sorum var: Dünya hiç dönmeseydi, gece ile gündüz nasıl olurdu? Düşün ve yorumlara yaz!

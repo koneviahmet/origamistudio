@@ -85,6 +85,7 @@ export const WIDGET_FIELDS = {
   ],
   media: [
     { key: 'src', label: 'Dosya', type: 'media', def: '' },
+    { key: 'sim', label: 'Simülasyon (slug; JSON ile yönetilir)', type: 'text', def: '' },
     { key: 'width', label: 'Genişlik', type: 'number', def: '', step: 10 },
     { key: 'height', label: 'Yükseklik', type: 'number', def: '', step: 10 },
     { key: 'fit', label: 'Sığdırma', type: 'select', options: SEL([['kapla', 'Kapla'], ['sigdir', 'Sığdır']]), def: 'kapla' },
@@ -207,7 +208,7 @@ export function drawMedia(ctx, L, t, st, scene, res, th) {
   ctx.save();
   rr(ctx, -w / 2, -h / 2, w, h, radius);
   ctx.clip();
-  paintMedia(ctx, fr, -w / 2, -h / 2, w, h, L.fit, L.src ? `? ${L.src}` : 'medya seç');
+  paintMedia(ctx, fr, -w / 2, -h / 2, w, h, L.fit, L.sim ? `⚙ ${L.sim}` : L.src ? `? ${L.src}` : 'medya seç');
   ctx.restore();
   if (L.border) {
     ctx.strokeStyle = col(L.borderColor || '#ffffff', th);

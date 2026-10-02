@@ -1,7 +1,7 @@
 <script setup>
 // Simülasyonlar sayfası: orman-oyunu deposundan aktarılan simülasyonlar (data/simulations).
 // Listele / ara / süz, üst veriyi düzenle (başlık, kategori, etiket, durum, not, kullanım amacı), kaynak dosyaları incele, çöpe taşı.
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { onBeforeRouteLeave, useRouter } from 'vue-router';
 import { api } from '../api.js';
 import { toast, toastError } from '../toast.js';
@@ -17,6 +17,7 @@ const q = ref('');
 const cat = ref('');
 const status = ref('');
 const onlyFav = ref(false);
+const onlyJson = ref(false);
 const sel = ref(null); // tam kayıt (kaynaklarla)
 const form = ref(null);
 const dirty = ref(false);
@@ -33,6 +34,7 @@ async function load() {
 }
 onMounted(load);
 
+const jsonCount = computed(() => list.value.filter((s) => s.jsonKontrol).length);
 const cats = computed(() => {
   const m = {};
   for (const s of list.value) m[s.category] = (m[s.category] || 0) + 1;
@@ -45,6 +47,7 @@ const shown = computed(() => {
     if (cat.value && s.category !== cat.value) return false;
     if (status.value && s.status !== status.value) return false;
     if (onlyFav.value && !s.favorite) return false;
+    if (onlyJson.value && !s.jsonKontrol) return false;
     if (!w.length) return true;
     const hay = norm([s.title, s.slug, s.description, s.category, s.notes, s.usage, ...(s.tags || [])].join(' '));
     return w.every((x) => hay.includes(x));
@@ -131,6 +134,47 @@ async function remove() {
 }
 const curSrc = computed(() => sel.value?.sources?.find((x) => x.path === srcOpen.value));
 const short = (p) => p.replace('src/views/simulation/', '');
+// ── JSON ile yönetilen simülasyon: video modu denemesi (gizli panel yok, zaman çizelgesi + kaydırıcı)
+const deneme = ref({ metin: '', t: 0, sure: 12, oynat: false, hata: '', key: 0 });
+const denemeFrame = ref(null);
+let oynatKimlik = 0;
+function denemeKur() {
+  const k = form.value?.kontrol;
+  deneme.value.metin = JSON.stringify(k?.ornek || [], null, 1);
+  deneme.value.t = 0;
+  deneme.value.oynat = false;
+  deneme.value.hata = '';
+  deneme.value.key++;
+}
+watch(() => form.value?.slug, () => { if (form.value?.jsonKontrol) denemeKur(); });
+async function denemeGit(t) {
+  const win = denemeFrame.value?.contentWindow;
+  const k = win?.__simKontrol;
+  if (!k) return;
+  try {
+    const kontrol = JSON.parse(deneme.value.metin || '[]');
+    const imza = deneme.value.metin;
+    if (denemeFrame.value._imza !== imza) { k.kur(kontrol); denemeFrame.value._imza = imza; }
+    deneme.value.hata = '';
+    await k.git(t);
+  } catch (e) { deneme.value.hata = String(e.message || e); }
+}
+function denemeYuklendi() { denemeGit(deneme.value.t); }
+async function denemeOynat() {
+  const d = deneme.value;
+  if (d.oynat) { d.oynat = false; oynatKimlik++; return; }
+  d.oynat = true;
+  const id = ++oynatKimlik;
+  const t0 = performance.now() - d.t * 1000;
+  while (d.oynat && id === oynatKimlik) {
+    const t = (performance.now() - t0) / 1000;
+    if (t > d.sure) { d.oynat = false; break; }
+    d.t = Math.round(t * 100) / 100;
+    await denemeGit(t);
+    await new Promise((r) => requestAnimationFrame(r));
+  }
+}
+onBeforeUnmount(() => { oynatKimlik++; });
 function copySrc() {
   navigator.clipboard?.writeText(curSrc.value?.text || '').then(() => toast('Kopyalandı', 'ok'), toastError);
 }
@@ -150,6 +194,7 @@ function copySrc() {
         <div class="chips">
           <button v-for="(l, k) in STATUS" :key="k" class="chip" :class="{ on: status === k }" @click="status = status === k ? '' : k">{{ l }}</button>
           <button class="chip" :class="{ on: onlyFav }" @click="onlyFav = !onlyFav">★ Favoriler</button>
+          <button class="chip" :class="{ on: onlyJson }" title="Videoda JSON zaman çizelgesiyle yönetilebilen simülasyonlar" @click="onlyJson = !onlyJson">{ } JSON {{ jsonCount }}</button>
         </div>
         <div class="muted small">{{ shown.length }} sonuç</div>
       </div>
@@ -157,7 +202,7 @@ function copySrc() {
       <button v-for="s in shown" :key="s.slug" class="item" :class="{ on: sel?.slug === s.slug }" @click="select(s)">
         <span class="dot" :style="{ background: s.accent || '#888' }"></span>
         <span class="tx">
-          <b>{{ s.title }}</b>
+          <b>{{ s.title }}<span v-if="s.jsonKontrol" class="jb" title="Videoda JSON ile yönetilir">{ } JSON</span></b>
           <span class="muted small">{{ s.category }} · {{ s.kind === 'modern' ? 'Three.js' : 'eski' }} · {{ STATUS[s.status] }}</span>
         </span>
         <span class="star" :class="{ on: s.favorite }" @click="toggleFav(s, $event)">★</span>
@@ -188,6 +233,37 @@ function copySrc() {
             <a class="btn sm" :href="`/sim-onizleme.html?slug=${form.slug}`" target="_blank">↗ Yeni sekme</a>
           </div>
           <iframe :key="form.slug + runKey" class="frame" :src="`/sim-onizleme.html?slug=${form.slug}`" allow="fullscreen"></iframe>
+        </div>
+        <div v-if="form.jsonKontrol && form.kontrol" class="jsn">
+          <div class="row">
+            <b>{ } JSON ile yönetilir</b>
+            <span class="muted small">Videoda <code>{type:'media', sim:'{{ form.slug }}', width, height, kontrol:[…]}</code> katmanıyla; ayar paneli görünmez.</span>
+          </div>
+          <details>
+            <summary>Parametreler ({{ Object.keys(form.kontrol.parametreler).length }})</summary>
+            <table class="ptab">
+              <tr v-for="(p, ad) in form.kontrol.parametreler" :key="ad">
+                <td><code>{{ ad }}</code></td>
+                <td class="muted">{{ p.tip }}</td>
+                <td class="muted">{{ p.aralik ? p.aralik.join('…') : p.secenekler ? p.secenekler.map((x) => x || "''").join(' · ') : '' }}</td>
+                <td class="muted">{{ p.varsayilan === undefined ? '' : JSON.stringify(p.varsayilan) }}</td>
+                <td>{{ p.aciklama }}</td>
+              </tr>
+            </table>
+          </details>
+          <details @toggle="$event.target.open && !deneme.metin && denemeKur()">
+            <summary>Video modu denemesi (zaman çizelgesi)</summary>
+            <div class="den">
+              <iframe :key="form.slug + deneme.key" ref="denemeFrame" class="dframe" :src="`/sim-onizleme.html?slug=${form.slug}&video=1`" @load="denemeYuklendi"></iframe>
+              <div class="row">
+                <button class="btn sm" @click="denemeOynat">{{ deneme.oynat ? '❚❚ Durdur' : '▶ Oynat' }}</button>
+                <input type="range" min="0" :max="deneme.sure" step="0.05" v-model.number="deneme.t" style="flex: 1" @input="denemeGit(deneme.t)" />
+                <span class="muted small">{{ deneme.t.toFixed(2) }} / <input v-model.number="deneme.sure" type="number" min="1" class="input num" /> sn</span>
+              </div>
+              <textarea v-model="deneme.metin" class="input mono" rows="7" spellcheck="false" @change="denemeGit(deneme.t)"></textarea>
+              <div v-if="deneme.hata" class="err small">{{ deneme.hata }}</div>
+            </div>
+          </details>
         </div>
         <div class="grid">
           <label>Başlık<input v-model="form.title" class="input" @input="touch" /></label>
@@ -265,4 +341,14 @@ function copySrc() {
 .empty { display: grid; place-items: center; height: 60%; }
 .pad { padding: 12px; }
 textarea.input { resize: vertical; }
+.jb { margin-left: 6px; padding: 0 6px; font-size: 10px; font-weight: 700; letter-spacing: .04em; border-radius: 999px; background: #1f3b2d; color: #6ee7a8; border: 1px solid #2f6b4a; vertical-align: 1px; }
+.jsn { display: grid; gap: 8px; padding: 10px 12px; border: 1px solid #2f6b4a; border-radius: 10px; background: #14201a; }
+.jsn summary { cursor: pointer; font-size: 13px; }
+.ptab { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 6px; }
+.ptab td { padding: 3px 8px 3px 0; vertical-align: top; border-top: 1px solid var(--line); }
+.den { display: grid; gap: 8px; margin-top: 8px; }
+.dframe { width: 640px; max-width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 8px; background: #050814; }
+.mono { font-family: ui-monospace, Consolas, monospace; font-size: 12px; }
+.num { width: 64px; padding: 2px 6px; }
+.err { color: #f87171; }
 </style>

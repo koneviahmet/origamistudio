@@ -5,10 +5,11 @@
   "category": "Fizik",
   "description": "Bu simülasyon, Güneş, Dünya ve Ay'ın boyutlarını kıyaslama yapmanızı sağlar.",
   "tags": [
+    "ay",
+    "dünya",
     "fizik",
     "güneş",
-    "dünya",
-    "ay",
+    "json-yonetimli",
     "kıyaslama"
   ],
   "accent": "hsl(168, 65%, 52%)",
@@ -24,5 +25,123 @@
     "src/views/simulation/legacy/embed/gunes-dunya-ay-kiyaslama.vue"
   ],
   "importedAt": "2026-10-02T10:38:57.141Z",
-  "source": "github.com/koneviahmet/orman-oyunu"
+  "source": "github.com/koneviahmet/orman-oyunu",
+  "jsonKontrol": true,
+  "kontrol": {
+    "surum": 1,
+    "aciklama": "Video katmanında {type:'media', sim:'gunes-dunya-ay-kiyaslama', width, height, start, end, kontrol:[{t, ...parametreler, ease?}]}. t = katman başından saniye; sayılar anahtarlar arası ease ile kayar, diğer türler t'de basamaklı değişir; anahtarda olmayan parametre önceki değerini korur.",
+    "parametreler": {
+      "goster": {
+        "tip": "dizi",
+        "aciklama": "Görünen cisimler: ['moon','earth','sun'] alt kümesi (soldan sağa küçükten büyüğe dizilir).",
+        "varsayilan": [
+          "moon",
+          "earth",
+          "sun"
+        ]
+      },
+      "olcek": {
+        "tip": "sayi",
+        "aciklama": "Ölçek kaydırıcısı: 1 = gerçek oran, 100 = en çok büyütülmüş.",
+        "varsayilan": 50,
+        "aralik": [
+          1,
+          100
+        ]
+      },
+      "ayK": {
+        "tip": "sayi",
+        "aciklama": "Ay belirme ölçeği (0 = yok, 1 = tam) — büyüyerek girme animasyonu.",
+        "varsayilan": 1,
+        "aralik": [
+          0,
+          1
+        ]
+      },
+      "dunyaK": {
+        "tip": "sayi",
+        "aciklama": "Dünya belirme ölçeği.",
+        "varsayilan": 1,
+        "aralik": [
+          0,
+          1
+        ]
+      },
+      "gunesK": {
+        "tip": "sayi",
+        "aciklama": "Güneş belirme ölçeği.",
+        "varsayilan": 1,
+        "aralik": [
+          0,
+          1
+        ]
+      },
+      "etiketler": {
+        "tip": "bool",
+        "aciklama": "İsim + 'Nx Dünya' etiketleri kareye çizilir.",
+        "varsayilan": false
+      },
+      "etiketBoyu": {
+        "tip": "sayi",
+        "aciklama": "Etiket yazı boyu (kare yüksekliği oranı).",
+        "varsayilan": 0.03,
+        "aralik": [
+          0.015,
+          0.08
+        ]
+      },
+      "eksenler": {
+        "tip": "bool",
+        "aciklama": "Koordinat eksenleri.",
+        "varsayilan": false
+      },
+      "odak": {
+        "tip": "sayi",
+        "aciklama": "Kamera hedefi: -1 sahne merkezi · 0 Ay · 1 Dünya · 2 Güneş (ara değerler iki cisim arasında kayar).",
+        "varsayilan": -1,
+        "aralik": [
+          -1,
+          2
+        ]
+      },
+      "mesafe": {
+        "tip": "sayi",
+        "aciklama": "Kamera uzaklığı: odak < 0 ise dünya birimi; odak >= 0 ise odaktaki cismin YARIÇAPI × mesafe.",
+        "varsayilan": 20
+      },
+      "yaw": {
+        "tip": "sayi",
+        "aciklama": "Kamera yatay açı (rad).",
+        "varsayilan": 0
+      },
+      "pitch": {
+        "tip": "sayi",
+        "aciklama": "Kamera dikey açı (rad).",
+        "varsayilan": 0.15
+      }
+    },
+    "ornek": [
+      {
+        "t": 0,
+        "goster": [
+          "earth"
+        ],
+        "dunyaK": 0
+      },
+      {
+        "t": 1,
+        "dunyaK": 1,
+        "ease": "outBack"
+      },
+      {
+        "t": 3,
+        "goster": [
+          "moon",
+          "earth"
+        ],
+        "ayK": 1,
+        "etiketler": true
+      }
+    ]
+  }
 }

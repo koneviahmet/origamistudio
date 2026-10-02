@@ -86,6 +86,50 @@ export function createStore(dataDir) {
     return entries.filter((e) => e.isDirectory()).map((e) => e.name).sort();
   }
 
+  // Her kategori ve varlığın kendine has adresi (arayüz rotası + API yolu) backend'de üretilir
+  const categoryUrl = (cat) => `/library/${encodeURIComponent(cat)}`;
+  const assetUrl = (cat, id) => `/library/${encodeURIComponent(cat)}/${encodeURIComponent(id)}`;
+  const withUrls = (a, cat, id) => ({
+    ...a, id, category: cat,
+    url: assetUrl(cat, id),
+    apiUrl: `/api${assetUrl(cat, id)}`,
+  });
+
+  // Yalnızca dizin okur (JSON ayrıştırmaz): ucuz kategori özeti
+  async function listCategoryInfo() {
+    const cats = await listCategories();
+    return Promise.all(cats.map(async (name) => {
+      const count = (await fs.readdir(path.join(LIB, name))).filter((f) => f.endsWith('.json')).length;
+      return { name, count, url: categoryUrl(name), apiUrl: `/api/categories/${encodeURIComponent(name)}/assets` };
+    }));
+  }
+
+  async function listAssetsIn(cat) {
+    assertId(cat, 'kategori');
+    const dir = path.join(LIB, cat);
+    if (!(await exists(dir))) throw new HttpError(404, `Kategori yok: ${cat}`);
+    const files = (await fs.readdir(dir)).filter((f) => f.endsWith('.json'));
+    const list = await Promise.all(files.map(async (f) => {
+      try {
+        const a = await readAssetCached(path.join(dir, f));
+        return withUrls(a, cat, f.slice(0, -5));
+      } catch (e) {
+        console.warn('[library]', e.message);
+        return null;
+      }
+    }));
+    return list.filter(Boolean);
+  }
+
+  // Kategori biliniyorsa tüm kategorileri taramadan doğrudan dosyayı okur
+  async function getAssetIn(cat, id) {
+    assertId(cat, 'kategori');
+    assertId(id);
+    const file = path.join(LIB, cat, `${id}.json`);
+    if (!(await exists(file))) throw new HttpError(404, `Varlık bulunamadı: ${cat}/${id}`);
+    return withUrls(await readAssetCached(file), cat, id);
+  }
+
   // Dosya mtime+boyut değişmediyse ayrıştırılmış varlık önbellekten gelir
   const assetCache = new Map();
   async function readAssetCached(file) {
@@ -100,19 +144,8 @@ export function createStore(dataDir) {
 
   async function listAssets() {
     const cats = await listCategories();
-    const perCat = await Promise.all(cats.map(async (cat) => {
-      const files = (await fs.readdir(path.join(LIB, cat))).filter((f) => f.endsWith('.json'));
-      return Promise.all(files.map(async (f) => {
-        try {
-          const a = await readAssetCached(path.join(LIB, cat, f));
-          return { ...a, id: f.slice(0, -5), category: cat };
-        } catch (e) {
-          console.warn('[library]', e.message);
-          return null;
-        }
-      }));
-    }));
-    return perCat.flat().filter(Boolean);
+    const perCat = await Promise.all(cats.map((cat) => listAssetsIn(cat)));
+    return perCat.flat();
   }
 
   async function findAssetFile(id) {
@@ -127,12 +160,11 @@ export function createStore(dataDir) {
   async function getAsset(id) {
     const found = await findAssetFile(id);
     if (!found) throw new HttpError(404, `Varlık bulunamadı: ${id}`);
-    const a = await readJson(found.file);
-    return { ...a, id, category: found.category };
+    return withUrls(await readAssetCached(found.file), found.category, id);
   }
 
   function cleanAsset(asset) {
-    const { id, category, ...rest } = asset;
+    const { id, category, url, apiUrl, ...rest } = asset;
     return rest;
   }
 
@@ -563,7 +595,7 @@ export function createStore(dataDir) {
   return {
     init, saveSnapshot, listAudio, saveAudio, deleteAudio, audioDir: AUDIO,
     listMedia, saveMedia, deleteMedia, mediaDir: MEDIA, saveRender, projectsDir: PROJ, colList, colGet, colCreate, colUpdate, colDelete,
-    listCategories, listAssets, getAsset, createAsset, updateAsset, deleteAsset,
+    listCategories, listCategoryInfo, listAssets, listAssetsIn, getAsset, getAssetIn, createAsset, updateAsset, deleteAsset,
     createCategory, deleteCategory, renameCategory,
     listProjects, getProject, createProject, saveScene, duplicateProject, deleteProject, setArchived,
     readNotes, addNote, updateNote, deleteNote,

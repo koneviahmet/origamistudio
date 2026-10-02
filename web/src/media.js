@@ -6,6 +6,7 @@
 // Video sesi karışıma girmez (yalnızca görüntü).
 import { isLayerActive } from './engine/renderer.js';
 import { mediaKey } from './engine/widgets.js';
+import { simKare, simTemizle } from './sim-kare.js';
 
 const images = new Map(); // src → Promise<{source, w, h}>
 const videos = new Map(); // src → Promise<HTMLVideoElement>
@@ -65,11 +66,13 @@ function seekTo(v, time) {
 }
 
 /** Sahnedeki medya isteklerini topla: [{ key, src, layer }] */
-function requests(scene, t) {
+function requests(scene, t, sim = true) {
   const out = [];
   for (const l of scene.layers || []) {
     if (l.hidden || !isLayerActive(l, t)) continue;
-    if (l.type === 'media' && l.src) out.push({ key: mediaKey(l), src: l.src, layer: l });
+    if (l.type === 'media' && l.sim) {
+      if (sim) out.push({ key: mediaKey(l), sim: l.sim, layer: l }); // simülasyon: JSON zaman çizelgesiyle sürülen canlı kare
+    } else if (l.type === 'media' && l.src) out.push({ key: mediaKey(l), src: l.src, layer: l });
     else if (l.type === 'device' && l.src) out.push({ key: mediaKey(l, '#screen'), src: l.src, layer: l });
   }
   return out;
@@ -77,6 +80,13 @@ function requests(scene, t) {
 
 async function produce(req, t, res) {
   const { key, src, layer } = req;
+  if (req.sim) {
+    const old = res.mediaFrames.get(key);
+    const fr = await simKare(layer, key, t);
+    res.mediaFrames.set(key, fr);
+    old?.source?.close?.();
+    return true;
+  }
   if (!isVideoFile(src)) {
     const img = await loadImage(src);
     if (res.mediaFrames.get(key)?.source !== img.source) res.mediaFrames.set(key, img);
@@ -96,13 +106,14 @@ async function produce(req, t, res) {
   return true;
 }
 
-export async function prepareMedia(scene, t, res, { wait = false, onUpdate } = {}) {
+export async function prepareMedia(scene, t, res, { wait = false, onUpdate, sim = true } = {}) {
   res.mediaFrames ||= new Map();
-  const reqs = requests(scene, t);
+  const reqs = requests(scene, t, sim);
+  simTemizle(new Set(reqs.filter((r) => r.sim).map((r) => r.key)), wait);
   if (!reqs.length) return;
   const jobs = [];
   for (const req of reqs) {
-    const video = isVideoFile(req.src);
+    const video = req.sim ? true : isVideoFile(req.src);
     const q = Math.round(t * 60) / 60;
     if (!wait) {
       if (seeking.get(req.key)) continue;
