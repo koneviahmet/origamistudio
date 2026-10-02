@@ -73,7 +73,7 @@ export function useSimulationScene(options = {}) {
       renderer = new THREE.WebGLRenderer({
         canvas,
         antialias: true,
-        alpha: false,
+        alpha: VIDEO, // video modunda şeffaf arka plan: gök cisimleri defter kâğıdının üstünde durur
         powerPreference: 'high-performance',
         preserveDrawingBuffer: VIDEO || options.preserveDrawingBuffer === true,
       })

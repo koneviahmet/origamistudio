@@ -4,7 +4,9 @@
   "subtitle": "Katmanlar ve güneş lekeleri",
   "category": "Astronomi",
   "description": "Güneş’i yakından inceleyin. Tıklayarak katmanları görün; güneş lekeleriyle dönüş yönünü takip edin.",
-  "tags": [],
+  "tags": [
+    "json-yonetimli"
+  ],
   "accent": "#fbbf24",
   "engine": "three",
   "kind": "modern",
@@ -20,5 +22,78 @@
     "src/views/simulation/simulations/gunes-yapisi/index.vue"
   ],
   "importedAt": "2026-10-02T10:38:57.263Z",
-  "source": "github.com/koneviahmet/orman-oyunu"
+  "source": "github.com/koneviahmet/orman-oyunu",
+  "jsonKontrol": true,
+  "kontrol": {
+    "surum": 1,
+    "aciklama": "Video katmanında {type:'media', sim:'gunes-yapisi', width, height, start, end, kontrol:[{t, ...parametreler, ease?}]}. t = katman başından saniye; sayılar anahtarlar arası ease ile kayar, diğer türler t'de basamaklı değişir; anahtarda olmayan parametre önceki değerini korur.",
+    "parametreler": {
+      "speed": {
+        "tip": "sayi",
+        "aciklama": "Güneş'in kendi ekseni etrafında dönüş hızı (birikir, saat yönünün tersine; kesit açıkken durur).",
+        "varsayilan": 0.3,
+        "aralik": [
+          0,
+          2
+        ]
+      },
+      "cutaway": {
+        "tip": "bool",
+        "aciklama": "Katman kesitini aç / kapat.",
+        "varsayilan": false
+      },
+      "layer": {
+        "tip": "metin",
+        "aciklama": "Vurgulanan katman id (config.js SUN_LAYERS)."
+      },
+      "labels": {
+        "tip": "bool",
+        "aciklama": "Kesitte katman isimleri kareye çizilir.",
+        "varsayilan": false
+      },
+      "labelSize": {
+        "tip": "sayi",
+        "aciklama": "İsim yazı boyu (kare yüksekliği oranı).",
+        "varsayilan": 0.03,
+        "aralik": [
+          0.015,
+          0.08
+        ]
+      },
+      "yaw": {
+        "tip": "sayi",
+        "aciklama": "Kamera yatay açı (rad). cutaway değişince yeniden uygulanır.",
+        "varsayilan": 0.15
+      },
+      "pitch": {
+        "tip": "sayi",
+        "aciklama": "Kamera dikey açı (rad).",
+        "varsayilan": 0.18
+      },
+      "distance": {
+        "tip": "sayi",
+        "aciklama": "Kamera uzaklığı (varsayılan 6.4; kesitte otomatik).",
+        "varsayilan": 6.4,
+        "aralik": [
+          3,
+          14
+        ]
+      },
+      "boya": {
+        "tip": "sayi",
+        "aciklama": "GENEL: boya + mürekkep süzgeci (0 = gerçekçi 3B, 1 = pastel düzlükler + el çizimi kontur). Çizim stilli videolarda ~0.85.",
+        "varsayilan": 0,
+        "aralik": [
+          0,
+          1
+        ]
+      }
+    },
+    "ornek": [
+      {
+        "t": 0,
+        "boya": 0.85
+      }
+    ]
+  }
 }

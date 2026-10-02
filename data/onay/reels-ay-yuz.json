@@ -1,0 +1,192 @@
+{
+  "id": "reels-ay-yuz",
+  "baslik": "Reels 2 · Ay'ın hep aynı yüzünü neden görürüz? (Ay dersine yönlendirir)",
+  "olusturma": "2026-10-02T19:39:19.554Z",
+  "ogeler": [
+    {
+      "id": "ay-cizim",
+      "tur": "nesne",
+      "nerede": "Tüm video",
+      "amac": "Ay; dönerken hep aynı yüz bize bakar (bir yüze yüz işareti).",
+      "ref": "ay-cizim",
+      "ad": "Ay (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "dunya-cizim",
+      "tur": "nesne",
+      "nerede": "Dolanma gösterimi",
+      "amac": "Dünya; Ay onun etrafında dolanır.",
+      "ref": "dunya-cizim",
+      "ad": "Dünya (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "yorunge-halka-cizim",
+      "tur": "nesne",
+      "nerede": "Dolanma yörüngesi",
+      "amac": "Ay yolu.",
+      "ref": "yorunge-halka-cizim",
+      "ad": "Yörünge halkası (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "donus-oku-cizim",
+      "tur": "nesne",
+      "nerede": "Dönme ve dolanma süreleri eşit vurgusu",
+      "amac": "Saat yönünün tersi dönüş oku.",
+      "ref": "donus-oku-cizim",
+      "ad": "Dönüş oku (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "krater-cizim",
+      "tur": "nesne",
+      "nerede": "Görünen yüz işareti",
+      "amac": "Hep bize bakan yüzü işaretleyen krater.",
+      "ref": "krater-cizim",
+      "ad": "Krater (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "youtube-logo",
+      "tur": "nesne",
+      "nerede": "Son 5 sn — yönlendirme kartı",
+      "amac": "Kanal logosu; videonun tamamı YouTube kanalında vurgusu.",
+      "ref": "youtube-logo",
+      "ad": "YouTube logosu",
+      "kategori": "marka",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "oynat-dugmesi-cizim",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "Son 5 sn — yönlendirme kartı",
+      "amac": "Yeni: çizim stilinde kırmızı oynat düğmesi; \"videonun tamamını izle\" çağrısı, nabız atar.",
+      "ref": "oynat-dugmesi-cizim",
+      "ad": "Oynat düğmesi (çizim)",
+      "kategori": "iletisim",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ok-el-cizimi",
+      "tur": "nesne",
+      "nerede": "Son kart",
+      "amac": "Oynat düğmesini işaret eden çizim ok.",
+      "ref": "ok-el-cizimi",
+      "ad": "El çizimi ok",
+      "kategori": "oklar",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-1",
+      "tur": "ses",
+      "ref": "d2-00091",
+      "ad": "Sakin erkek anlatıcı (Ay/Dünya dersindeki ses)",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Orta yaş",
+        "Kalın ses",
+        "Sakin",
+        "Yavaş tempo",
+        "Öğretmen"
+      ],
+      "aciklama": "Kırklı yaşlarda, derin, yavaş ve düşünceli erkek sesi; uzun videolarda da kullanıldı.",
+      "nerede": "Tüm reels — Kıpır anlatımı",
+      "amac": "Ana anlatıcı; reels ile uzun video aynı sesi taşıyınca kanal tanınır.",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-2",
+      "tur": "ses",
+      "ref": "d2-00043",
+      "ad": "Sıcak genç erkek öğretmen",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Sıcak",
+        "Enerjik",
+        "Öğretmen"
+      ],
+      "aciklama": "Derin, hafif genizsi, sıcak, nazik ve canlı genç erkek sesi; orta tempo.",
+      "nerede": "Tüm reels — alternatif anlatıcı",
+      "amac": "Reels için daha enerjik, samimi anlatım.",
+      "karar": "kullanma",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-3",
+      "tur": "ses",
+      "ref": "d1-00574",
+      "ad": "Genç öğretmen (kadın)",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Genç",
+        "İnce ses",
+        "Enerjik",
+        "Öğretmen"
+      ],
+      "aciklama": "Orta-yüksek tonlu, pürüzsüz, canlı genç kadın sesi.",
+      "nerede": "Tüm reels — alternatif anlatıcı",
+      "amac": "Canlı, dikkat çekici ton.",
+      "karar": "kullanma",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-4",
+      "tur": "ses",
+      "ref": "d1-02455",
+      "ad": "Sıcak öğretmen sesi (kadın)",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Sıcak",
+        "Sakin",
+        "Enerjik",
+        "Öğretmen"
+      ],
+      "aciklama": "Orta-alçak tonlu, güven veren, sıcak ve canlı kadın sesi.",
+      "nerede": "Tüm reels — alternatif anlatıcı",
+      "amac": "Güven veren, yumuşak ton.",
+      "karar": "kullanma",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-5",
+      "tur": "ses",
+      "ref": "d1-02552",
+      "ad": "Anlatıcı (otuzlu erkek)",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Anlatıcı",
+        "Kalın ses",
+        "Sıcak"
+      ],
+      "aciklama": "Otuzlu yaşlarda derin, sıcak, kendinden emin anlatıcı sesi.",
+      "nerede": "Tüm reels — alternatif anlatıcı",
+      "amac": "Belgesel havasında, dikkat çekici anlatım.",
+      "karar": "kullanma",
+      "duzenlendi": false
+    }
+  ],
+  "arsiv": false,
+  "guncelleme": "2026-10-02T19:40:49.783Z",
+  "durum": "tamam"
+}

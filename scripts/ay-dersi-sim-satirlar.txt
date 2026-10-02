@@ -1,0 +1,6 @@
+0 | Şimdi simülasyonda da bakalım: Güneş ışığı, Ay'ın hep bir yarısını aydınlatır.
+6 | Ay'ın parlak görünmesi, Güneş'ten gelen ışığı yansıtmasından gelir.
+12 | Simülasyonda izle: Ay, Dünya'nın etrafında bir tur atarken, kendi etrafında da tam bir tur atıyor.
+18 | Kırmızı nokta Ay'ın bize bakan yüzünü gösteriyor. Hep aynı yönde kalıyor! İşte bu yüzden Ay'ın hep aynı yüzünü görürüz.
+24 | Şimdi bütün evreleri simülasyonda birlikte izleyelim. Ay, Dünya'nın etrafında ilerledikçe, Güneş'in aydınlattığı yüz bize farklı açılardan görünür.
+32 | Bir de Dünya'dan bakalım: yeni Ay, hilal, ilk dördün, dolunay... Gökyüzünde gördüğümüz evreler, bu yolculuğun farklı anlarıdır.

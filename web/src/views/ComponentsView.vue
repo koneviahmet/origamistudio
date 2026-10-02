@@ -1,7 +1,8 @@
 <script setup>
 // Bileşenler sayfası: grafik / cihaz / görsel / ses dalgası ön ayarlarını (data/components) oluştur, düzenle, önizle, sil.
 // Kayıtlı bileşenler Stüdyo → ＋ Bileşen menüsünde görünür.
-import { computed, onMounted, ref, shallowRef } from 'vue';
+import { computed, onMounted, ref, shallowRef, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import { api } from '../api.js';
 import { resources, loadResources, reloadResources } from '../resources.js';
 import { newWidgetLayer, componentProps } from '../sceneOps.js';
@@ -41,9 +42,27 @@ const showNew = ref(false);
 onMounted(async () => {
   await loadResources();
   await reloadResources('components');
-  const first = res.value.components[0];
+  const first = res.value.components.find((c) => c.id === route.params.id) || res.value.components[0];
   if (first) select(first);
 });
+
+// Her bileşenin kendi adresi var: /bilesenler/<id> (geri/ileri düğmeleri de çalışır)
+const route = useRoute();
+const router = useRouter();
+watch(() => route.params.id, (id) => {
+  if (!id || id === selId.value) return;
+  const c = res.value.components.find((x) => x.id === id);
+  if (!c) return;
+  if (!guard()) {
+    router.replace(selId.value ? `/bilesenler/${selId.value}` : '/bilesenler');
+    return;
+  }
+  select(c);
+});
+function syncUrl(id) {
+  const want = id ? `/bilesenler/${id}` : '/bilesenler';
+  if (route.path !== want) router.push(want);
+}
 
 // Etiket süzgeci: facet içinde VEYA, facetler arasında VE. Sorgu varsa eşleşme puanına göre sıralanır.
 const filters = ref({});
@@ -119,6 +138,7 @@ function open(w, id) {
   selId.value = id;
   dirty.value = false;
   preview.value = buildScene(w.type, w.layer);
+  syncUrl(id);
 }
 function select(c) {
   if (c.id !== selId.value && !guard()) return;
@@ -203,6 +223,7 @@ async function save() {
       for (let i = 2; taken.has(id); i++) id = `${slug(doc.name)}-${i}`;
       await api.colCreate('components', { id, ...doc });
       selId.value = id;
+      syncUrl(id);
     }
     await reloadResources('components');
     dirty.value = false;

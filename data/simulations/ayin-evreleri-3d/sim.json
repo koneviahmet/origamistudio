@@ -4,7 +4,9 @@
   "subtitle": "Ay yörüngesi ve evreler",
   "category": "Diğer",
   "description": "Ay'ın Dünya etrafındaki hareketini izleyin; Yeni Ay'dan Dolunay'a kadar 8 evreyi 3 boyutlu keşfedin.",
-  "tags": [],
+  "tags": [
+    "json-yonetimli"
+  ],
   "accent": "#818cf8",
   "engine": "three",
   "kind": "modern",
@@ -22,5 +24,107 @@
     "src/views/simulation/legacy/embed/ayin-evreleri-3d.vue"
   ],
   "importedAt": "2026-10-02T10:38:57.069Z",
-  "source": "github.com/koneviahmet/orman-oyunu"
+  "source": "github.com/koneviahmet/orman-oyunu",
+  "jsonKontrol": true,
+  "kontrol": {
+    "surum": 1,
+    "aciklama": "Video katmanında {type:'media', sim:'ayin-evreleri-3d', width, height, start, end, kontrol:[{t, ...parametreler, ease?}]}. t = katman başından saniye; sayılar anahtarlar arası ease ile kayar, diğer türler t'de basamaklı değişir; anahtarda olmayan parametre önceki değerini korur.",
+    "parametreler": {
+      "ay": {
+        "tip": "sayi",
+        "aciklama": "Ay'ın Dünya çevresindeki yörünge açısı (rad, SAYISAL → ease ile akıcı kayar): Yeni Ay=3.14 · İlk dördün=4.71 · Dolunay=6.28 · Son dördün=7.85 · yeniden Yeni Ay=9.42.",
+        "varsayilan": 3.14,
+        "aralik": [
+          0,
+          12.6
+        ]
+      },
+      "yorunge": {
+        "tip": "sayi",
+        "aciklama": "Dünya'nın Güneş çevresindeki açısı (rad).",
+        "varsayilan": 0,
+        "aralik": [
+          0,
+          6.3
+        ]
+      },
+      "takipAy": {
+        "tip": "bool",
+        "aciklama": "Kamera Dünya'dan Ay'a bakar (Dünya'dan görünen evre).",
+        "varsayilan": false
+      },
+      "kamera": {
+        "tip": "metin",
+        "aciklama": "Hazır kamera açısı.",
+        "varsayilan": "iso",
+        "secenekler": [
+          "iso",
+          "top",
+          "side",
+          "front"
+        ]
+      },
+      "yaw": {
+        "tip": "sayi",
+        "aciklama": "Serbest kamera yatay açı (rad).",
+        "varsayilan": 0.55
+      },
+      "pitch": {
+        "tip": "sayi",
+        "aciklama": "Serbest kamera dikey açı (rad).",
+        "varsayilan": 0.42,
+        "aralik": [
+          0.08,
+          1.57
+        ]
+      },
+      "distance": {
+        "tip": "sayi",
+        "aciklama": "Serbest kamera uzaklığı.",
+        "varsayilan": 17,
+        "aralik": [
+          5,
+          40
+        ]
+      },
+      "evreAdi": {
+        "tip": "bool",
+        "aciklama": "Köşede o anki evrenin adı (kareye çizilir).",
+        "varsayilan": false
+      },
+      "evreBoyu": {
+        "tip": "sayi",
+        "aciklama": "Evre adı yazı boyu (kare yüksekliği oranı).",
+        "varsayilan": 0.05,
+        "aralik": [
+          0.03,
+          0.09
+        ]
+      },
+      "boya": {
+        "tip": "sayi",
+        "aciklama": "GENEL: boya + mürekkep süzgeci (0 = gerçekçi 3B, 1 = pastel düzlükler + el çizimi kontur). Çizim stilli videolarda ~0.85.",
+        "varsayilan": 0,
+        "aralik": [
+          0,
+          1
+        ]
+      },
+      "isik": {
+        "tip": "sayi",
+        "aciklama": "Tüm ışıkların çarpanı (boya süzgeciyle ~1.6 daha okunaklı).",
+        "varsayilan": 1,
+        "aralik": [
+          0.3,
+          4
+        ]
+      }
+    },
+    "ornek": [
+      {
+        "t": 0,
+        "boya": 0.85
+      }
+    ]
+  }
 }

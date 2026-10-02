@@ -4,6 +4,7 @@ import { onBeforeRouteLeave, useRouter } from 'vue-router';
 import { api } from '../api.js';
 import { resources, loadResources } from '../resources.js';
 import { ensureSceneFonts } from '../fonts.js';
+import { simOnYukle, simBirak } from '../sim-kare.js';
 import { AudioPlayer, loadAudio } from '../audio.js';
 import { useLive } from '../live.js';
 import { toast, toastError } from '../toast.js';
@@ -137,9 +138,18 @@ async function load() {
     dirty.value = false;
     await nextTick();
     fit();
+    onYukle();
   } catch (e) {
     loadError.value = e.message;
   }
+}
+// Projedeki tüm simülasyonlar arka planda önceden yüklenir: oynatırken yüklenme ekranı görünmez
+const simDurum = ref('');
+async function onYukle() {
+  const s = scene.value && toRaw(scene.value);
+  if (!s || !(s.layers || []).some((l) => l.type === 'media' && l.sim)) return;
+  await simOnYukle(s, (b, t) => { simDurum.value = b < t ? `Simülasyonlar hazırlanıyor… ${b}/${t}` : ''; });
+  requestRender();
 }
 
 useLive(async (evt) => {
@@ -1147,6 +1157,7 @@ onMounted(async () => {
   await load();
 });
 onBeforeUnmount(() => {
+  simBirak();
   cancelAnimationFrame(raf);
   player.stop();
   window.removeEventListener('keydown', onKey);
@@ -1174,6 +1185,7 @@ const fmt = (t) => {
         <strong>{{ scene?.name || '…' }}</strong>
         <span v-if="dirty" class="edit-only chip warn">kaydedilmedi</span>
         <span v-else-if="scene" class="edit-only chip ok">kaydedildi</span>
+        <span v-if="simDurum" class="chip" title="Videodaki simülasyonlar önceden yükleniyor; oynatırken yüklenme görünmez">{{ simDurum }}</span>
         <span v-if="scene" class="edit-only dim small">{{ outW }}×{{ outH }} · {{ scene.fps }}fps · {{ scene.duration }}s</span>
         <select v-if="scene?.formats?.length" v-model="activeFormat" class="edit-only input fmt-sel" title="Önizleme / düzenleme formatı — formattayken sürüklemek yalnızca o formatı düzeltir">
           <option :value="null">Ana ({{ scene.width }}×{{ scene.height }})</option>

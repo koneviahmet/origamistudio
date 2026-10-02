@@ -88,7 +88,8 @@ const labelPositions = shallowRef([])
 const { canvasRef, ready, context } = useSimulationScene({
   maxPixelRatio: props.embedded ? 1.5 : 2,
   onInit({ renderer, scene, camera }) {
-    renderer.setClearColor(0x02040a)
+    if (VIDEO_MOD) renderer.setClearColor(0x000000, 0)
+    else renderer.setClearColor(0x02040a)
     renderer.localClippingEnabled = false
     activeCamera = camera
 
@@ -111,7 +112,7 @@ const { canvasRef, ready, context } = useSimulationScene({
     fill.position.set(-8, 4, -6)
     scene.add(ambient, key, fill)
 
-    addStarfield(scene)
+    if (!VIDEO_MOD) addStarfield(scene)
     createBodies(scene)
   },
 
@@ -211,16 +212,19 @@ useSimKontrol({
       const x0 = l.x + fs * 0.7
       const tw = ctx.measureText(l.name).width
       const pad = fs * 0.45
-      ctx.fillStyle = '#0f172a'
-      ctx.fillRect(x0, l.y - fs * 0.09, fs * 3, fs * 0.18)
+      ctx.fillStyle = '#3d3a73'
+      ctx.fillRect(x0, l.y - fs * 0.07, fs * 3, fs * 0.14)
       const bx = x0 + fs * 3 + fs * 0.4
-      ctx.fillStyle = 'rgba(15,23,42,0.9)'
+      ctx.fillStyle = l.active ? '#fff0a6' : 'rgba(255,250,238,0.95)'
+      ctx.strokeStyle = l.active ? '#ff7f6e' : '#3d3a73'
+      ctx.lineWidth = Math.max(2, fs * 0.1)
       ctx.beginPath()
       ctx.roundRect(bx, l.y - fs * 0.85, tw + pad * 2 + fs * 0.25, fs * 1.7, fs * 0.4)
       ctx.fill()
+      ctx.stroke()
       ctx.fillStyle = l.color
-      ctx.fillRect(bx, l.y - fs * 0.85, fs * 0.25, fs * 1.7)
-      ctx.fillStyle = l.active ? '#fbbf24' : '#e2e8f0'
+      ctx.fillRect(bx + fs * 0.12, l.y - fs * 0.6, fs * 0.22, fs * 1.2)
+      ctx.fillStyle = '#3d3a73'
       ctx.fillText(l.name, bx + fs * 0.25 + pad, l.y + fs * 0.04)
     }
     ctx.restore()

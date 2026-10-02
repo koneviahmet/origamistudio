@@ -107,7 +107,11 @@
       "mesafe": {
         "tip": "sayi",
         "aciklama": "Kamera uzaklığı: odak < 0 ise dünya birimi; odak >= 0 ise odaktaki cismin YARIÇAPI × mesafe.",
-        "varsayilan": 20
+        "varsayilan": 20,
+        "aralik": [
+          0.3,
+          2000
+        ]
       },
       "yaw": {
         "tip": "sayi",
@@ -118,6 +122,29 @@
         "tip": "sayi",
         "aciklama": "Kamera dikey açı (rad).",
         "varsayilan": 0.15
+      },
+      "etiketKisa": {
+        "tip": "bool",
+        "aciklama": "Etiketlerde yalnız isim (\"Nx Dünya\" eki olmadan).",
+        "varsayilan": false
+      },
+      "isik": {
+        "tip": "sayi",
+        "aciklama": "Ortam ışığı şiddeti (cisimler daha parlak/okunaklı olur).",
+        "varsayilan": 0.5,
+        "aralik": [
+          0.2,
+          2
+        ]
+      },
+      "boya": {
+        "tip": "sayi",
+        "aciklama": "GENEL: boya + mürekkep süzgeci (0 = gerçekçi 3B, 1 = pastel düzlükler + el çizimi kontur). Videonun çizim stiline uydurmak için ~0.8.",
+        "varsayilan": 0,
+        "aralik": [
+          0,
+          1
+        ]
       }
     },
     "ornek": [

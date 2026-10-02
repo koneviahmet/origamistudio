@@ -1,0 +1,131 @@
+{
+  "id": "yapay-zeka-zaman-cizelgesi",
+  "baslik": "Yapay Zekânın Zaman Çizelgesi (reels · neon zaman çarkı)",
+  "ogeler": [
+    {
+      "id": "yorum-balonu-cizim",
+      "tur": "nesne",
+      "nerede": "1950 Turing testi — \"Makineler düşünebilir mi?\"",
+      "amac": "Sohbet balonu; makine ile insanı ayırt etme sorusu."
+    },
+    {
+      "id": "yapay-beyin",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1956 Dartmouth — \"yapay zekâ\" terimi",
+      "amac": "Devre desenli yapay beyin."
+    },
+    {
+      "id": "satranc-sah",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1997 Deep Blue — Kasparov yenilir",
+      "amac": "Satranç şahı."
+    },
+    {
+      "id": "modern-telefon",
+      "tur": "nesne",
+      "nerede": "2011 Siri — cebimizdeki asistan",
+      "amac": "Ses asistanı telefon."
+    },
+    {
+      "id": "go-tahtasi",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "2016 AlphaGo — Lee Sedol yenilir",
+      "amac": "Taşlı Go tahtası."
+    },
+    {
+      "id": "robot-kafa",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "2022 ChatGPT — üretken yapay zekâ (kapak + final)",
+      "amac": "Sohbet eden robot kafası."
+    },
+    {
+      "id": "ses-1",
+      "tur": "ses",
+      "ref": "d1-02447",
+      "ad": "Tempolu genç kadın anlatıcı",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Enerjik",
+        "Ciddi",
+        "Hızlı tempo",
+        "Anlatıcı"
+      ],
+      "aciklama": "Orta-alçak, berrak, hafif kısık genç kadın sesi; hızlı ve net tempo.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Ana anlatıcı adayı: tempolu, net genç kadın."
+    },
+    {
+      "id": "ses-2",
+      "tur": "ses",
+      "ref": "d1-01583",
+      "ad": "Hızlı genç erkek anlatıcı",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Sıcak",
+        "Enerjik",
+        "Hızlı tempo",
+        "Anlatıcı"
+      ],
+      "aciklama": "Alçak, kadife tonlu, kendinden emin ve canlı genç erkek; hızlı tempo, reels temposuna uygun.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: hızlı genç erkek."
+    },
+    {
+      "id": "ses-3",
+      "tur": "ses",
+      "ref": "d1-02810",
+      "ad": "Ciddi genç erkek anlatıcı",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Sıcak",
+        "Sakin",
+        "Ciddi",
+        "Anlatıcı"
+      ],
+      "aciklama": "Derin, yumuşak ama otoriter genç erkek sesi; orta tempo.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: ciddi, teknoloji haberi havası."
+    },
+    {
+      "id": "ses-4",
+      "tur": "ses",
+      "ref": "d2-00658",
+      "ad": "Profesyonel olgun kadın",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Olgun",
+        "Kalın ses",
+        "Enerjik",
+        "Anlatıcı"
+      ],
+      "aciklama": "Altmışlı yaşlarda, orta-alçak, hafif kısık, profesyonel ve enerjik kadın anlatıcı.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: profesyonel olgun kadın."
+    },
+    {
+      "id": "ses-5",
+      "tur": "ses",
+      "ref": "d1-01997",
+      "ad": "Parlak genç erkek",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Genç",
+        "İnce ses",
+        "Enerjik"
+      ],
+      "aciklama": "Pürüzsüz, yüksek tonlu, enerjik ve nazik genç erkek sesi.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: parlak, genç erkek."
+    }
+  ]
+}

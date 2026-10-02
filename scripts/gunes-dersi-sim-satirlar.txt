@@ -1,0 +1,6 @@
+0 | Hadi Güneş'in içine yakından bakalım! En dışta taç küre var. Sonra renk küre, ardından ışık küre geliyor.
+8 | Tam ortada ise çekirdek yer alıyor. Orası Güneş'in en sıcak bölgesi!
+14 | Şimdi simülasyonda Güneş ile Dünya arasındaki yola bakalım. Dünya, Güneş'in etrafında dolanır. Aramızda yaklaşık yüz elli milyon kilometre var.
+22 | Bu kadar uzak olsa da Güneş, bize en yakın yıldız olduğu için bu kadar büyük ve parlak görünür.
+28 | Şimdi lekeleri simülasyonda izleyelim. Güneş döndükçe üç leke de hep aynı yöne kayıyor.
+34 | Bu da Güneş'in kendi etrafında, saat yönünün tersine döndüğünü gösterir.

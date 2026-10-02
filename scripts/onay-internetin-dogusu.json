@@ -1,0 +1,130 @@
+{
+  "id": "internetin-dogusu",
+  "baslik": "İnternetin Doğuşu (reels · synthwave retro zaman tüneli)",
+  "ogeler": [
+    {
+      "id": "sunucu",
+      "tur": "nesne",
+      "nerede": "1969 ARPANET — ilk mesaj \"LO\"",
+      "amac": "Ağdaki ilk bilgisayar düğümü."
+    },
+    {
+      "id": "eposta-zarf",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1971 İlk e-posta — @ işareti",
+      "amac": "Zarf + @ rozeti."
+    },
+    {
+      "id": "ag-dugumleri",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1983 TCP/IP — ağların ağı (internetin doğum günü)",
+      "amac": "Birbirine bağlanan düğümler."
+    },
+    {
+      "id": "kisisel-bilgisayar",
+      "tur": "nesne",
+      "nerede": "1991 World Wide Web — ilk web sitesi",
+      "amac": "CRT kişisel bilgisayar."
+    },
+    {
+      "id": "kalp",
+      "tur": "nesne",
+      "nerede": "2004 Sosyal ağların yükselişi",
+      "amac": "Beğeni kalbi."
+    },
+    {
+      "id": "modern-telefon",
+      "tur": "nesne",
+      "nerede": "2007 İnternet cebimize girdi (kapak + final)",
+      "amac": "Akıllı telefon."
+    },
+    {
+      "id": "ses-1",
+      "tur": "ses",
+      "ref": "d1-00410",
+      "ad": "Yavaş tempolu genç erkek",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Enerjik",
+        "Yavaş tempo",
+        "Anlatıcı"
+      ],
+      "aciklama": "Alçak, güçlü ve yumuşak genç erkek sesi; yavaş ve kendinden emin anlatım.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Ana anlatıcı adayı: yavaş, kendinden emin retro-belgesel erkek."
+    },
+    {
+      "id": "ses-2",
+      "tur": "ses",
+      "ref": "d1-01583",
+      "ad": "Hızlı genç erkek anlatıcı",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Sıcak",
+        "Enerjik",
+        "Hızlı tempo",
+        "Anlatıcı"
+      ],
+      "aciklama": "Alçak, kadife tonlu, kendinden emin ve canlı genç erkek; hızlı tempo, reels temposuna uygun.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: hızlı genç erkek."
+    },
+    {
+      "id": "ses-3",
+      "tur": "ses",
+      "ref": "d1-02447",
+      "ad": "Tempolu genç kadın anlatıcı",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Enerjik",
+        "Ciddi",
+        "Hızlı tempo",
+        "Anlatıcı"
+      ],
+      "aciklama": "Orta-alçak, berrak, hafif kısık genç kadın sesi; hızlı ve net tempo.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: tempolu genç kadın."
+    },
+    {
+      "id": "ses-4",
+      "tur": "ses",
+      "ref": "d1-02508",
+      "ad": "Sıcak belgesel erkek sesi",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Orta yaş",
+        "Kalın ses",
+        "Sıcak",
+        "Sakin",
+        "Anlatıcı"
+      ],
+      "aciklama": "Otuzlu yaşlarda, alçak tonlu, tok ve güven veren erkek anlatıcı; orta tempo.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: sıcak belgesel erkek sesi."
+    },
+    {
+      "id": "ses-5",
+      "tur": "ses",
+      "ref": "d2-00751",
+      "ad": "Sıcak genç kadın",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Genç",
+        "Sıcak",
+        "Sakin",
+        "Enerjik"
+      ],
+      "aciklama": "Orta tonlu, sıcak, güven veren enerjik genç kadın sesi; orta tempo.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: samimi genç kadın."
+    }
+  ]
+}

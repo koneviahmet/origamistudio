@@ -1,0 +1,134 @@
+{
+  "id": "tisort-yolculugu",
+  "baslik": "Bir Tişörtün Yolculuğu (reels · metro hattı zaman tüneli)",
+  "ogeler": [
+    {
+      "id": "pamuk",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1. durak — Pamuk tarlası",
+      "amac": "Hasat edilen pamuk kozası."
+    },
+    {
+      "id": "makara",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "2. durak — İplikhane",
+      "amac": "Eğrilen iplik makarası."
+    },
+    {
+      "id": "kumas-rulo",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "3. durak — Dokuma ve boya",
+      "amac": "Dokunan, boyanan kumaş topu."
+    },
+    {
+      "id": "dikis-makinesi",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "4. durak — Dikim atölyesi",
+      "amac": "Kesilen kumaşı tişört yapan dikiş makinesi."
+    },
+    {
+      "id": "konteyner-gemisi",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "5. durak — Denizaşırı yolculuk",
+      "amac": "Binlerce kilometre taşıyan konteyner gemisi."
+    },
+    {
+      "id": "tisort",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "6. durak — Mağaza ve dolabın (kapak + final)",
+      "amac": "Yolun sonundaki tişört; varyant: beyaz."
+    },
+    {
+      "id": "ses-1",
+      "tur": "ses",
+      "ref": "d1-00924",
+      "ad": "Kadife enerjik kadın anlatıcı",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Orta yaş",
+        "Kalın ses",
+        "Sıcak",
+        "Enerjik",
+        "Anlatıcı"
+      ],
+      "aciklama": "Otuzlu yaşlarda, alçak ve kadife tonlu, profesyonel ve enerjik kadın anlatıcı.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Ana anlatıcı adayı: enerjik ve kadife kadın sesi."
+    },
+    {
+      "id": "ses-2",
+      "tur": "ses",
+      "ref": "d1-01583",
+      "ad": "Hızlı genç erkek anlatıcı",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Sıcak",
+        "Enerjik",
+        "Hızlı tempo",
+        "Anlatıcı"
+      ],
+      "aciklama": "Alçak, kadife tonlu, kendinden emin ve canlı genç erkek; hızlı tempo, reels temposuna uygun.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: hızlı, reels temposunda genç erkek."
+    },
+    {
+      "id": "ses-3",
+      "tur": "ses",
+      "ref": "d2-00751",
+      "ad": "Sıcak genç kadın",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Genç",
+        "Sıcak",
+        "Sakin",
+        "Enerjik"
+      ],
+      "aciklama": "Orta tonlu, sıcak, güven veren enerjik genç kadın sesi; orta tempo.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: samimi, genç kadın."
+    },
+    {
+      "id": "ses-4",
+      "tur": "ses",
+      "ref": "d1-02447",
+      "ad": "Tempolu genç kadın anlatıcı",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Enerjik",
+        "Ciddi",
+        "Hızlı tempo",
+        "Anlatıcı"
+      ],
+      "aciklama": "Orta-alçak, berrak, hafif kısık genç kadın sesi; hızlı ve net tempo.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: net ve tempolu kadın anlatıcı."
+    },
+    {
+      "id": "ses-5",
+      "tur": "ses",
+      "ref": "d1-02508",
+      "ad": "Sıcak belgesel erkek sesi",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Orta yaş",
+        "Kalın ses",
+        "Sıcak",
+        "Sakin",
+        "Anlatıcı"
+      ],
+      "aciklama": "Otuzlu yaşlarda, alçak tonlu, tok ve güven veren erkek anlatıcı; orta tempo.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: sakin belgesel erkek sesi."
+    }
+  ]
+}

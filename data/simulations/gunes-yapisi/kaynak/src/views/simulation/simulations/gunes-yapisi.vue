@@ -2,6 +2,7 @@
 import { ref, computed, watch } from 'vue'
 import * as THREE from 'three'
 import { useSimulationScene } from '../../../composables/useSimulationScene.js'
+import { useSimKontrol, VIDEO_MOD } from '../../../composables/useSimKontrol.js'
 import Icon from '../../../components/shell/Icon.vue'
 import {
   SUN_RADIUS,
@@ -106,7 +107,8 @@ const { canvasRef, ready, context } = useSimulationScene({
   maxPixelRatio: props.embedded ? 1.5 : 2,
   preserveDrawingBuffer: true,
   onInit({ renderer, scene, camera }) {
-    renderer.setClearColor(0x02040a)
+    if (VIDEO_MOD) renderer.setClearColor(0x000000, 0)
+    else renderer.setClearColor(0x02040a)
     activeCamera = camera
 
     // Yakınlaştırılmış Güneş görünümü
@@ -129,7 +131,7 @@ const { canvasRef, ready, context } = useSimulationScene({
     fill.position.set(-5, 2, -3)
     scene.add(ambient, key, fill)
 
-    addStarfield(scene)
+    if (!VIDEO_MOD) addStarfield(scene)
     buildSun(scene)
   },
 
@@ -158,6 +160,77 @@ const { canvasRef, ready, context } = useSimulationScene({
 })
 
 watch(ready, () => {}, { immediate: true })
+
+/* ───────── Video modu (JSON ile yönetim) ─────────
+ * Parametreler (zaman çizelgesi anahtarları):
+ *   speed     0..2   Güneş'in kendi ekseni etrafında dönüş hızı (birikir; saat yönünün tersine; kesit açıkken durur)
+ *   cutaway   bool   katman kesitini aç / kapat                      layer  vurgulanan katman id (bkz. config.js SUN_LAYERS)
+ *   labels    bool   kesitte katman isimleri (kareye çizilir)        labelSize  isim yazı boyu (kare yüksekliği oranı, 0.03)
+ *   yaw / pitch / distance  kamera (varsayılan 0.15 / 0.18 / 6.4; kesitte otomatik) — cutaway değişince yeniden uygulanır
+ */
+const videoEtiket = { size: 0.03 }
+
+useSimKontrol({
+  canvas: () => canvasRef.value,
+  sifirla() {
+    if (cutawayOpen.value) closeCutaway()
+    cameraBeforeCutaway = null
+    if (intactMesh) intactMesh.rotation.y = 0
+    selectedLayerId.value = null
+    showLabels.value = false
+    speed.value = props.config.defaultSpeed ?? 0.3
+    if (cameraState) {
+      cameraState.yaw = 0.15
+      cameraState.pitch = 0.18
+      cameraState.distance = 6.4
+      cameraState.target.set(0, 0, 0)
+    }
+    videoEtiket.size = 0.03
+  },
+  uygula(d, tum) {
+    if ('speed' in d) speed.value = d.speed
+    if ('labels' in d) showLabels.value = !!d.labels
+    if ('labelSize' in d) videoEtiket.size = d.labelSize
+    if ('cutaway' in d) {
+      if (d.cutaway && !cutawayOpen.value) openCutaway()
+      else if (!d.cutaway && cutawayOpen.value) closeCutaway()
+    }
+    if ('layer' in d) selectedLayerId.value = d.layer || null
+    if (cameraState) {
+      const tazele = 'cutaway' in d
+      if ('yaw' in d || (tazele && tum.yaw !== undefined)) cameraState.yaw = tum.yaw
+      if ('pitch' in d || (tazele && tum.pitch !== undefined)) cameraState.pitch = tum.pitch
+      if ('distance' in d || (tazele && tum.distance !== undefined)) cameraState.distance = tum.distance
+    }
+  },
+  cizim(ctx, w, h) {
+    if (!showLabels.value || !cutawayOpen.value || !labelPositions.value.length) return
+    const fs = Math.round(h * videoEtiket.size)
+    ctx.save()
+    ctx.font = `700 ${fs}px "Baloo 2", "Segoe UI", sans-serif`
+    ctx.textBaseline = 'middle'
+    for (const l of labelPositions.value) {
+      const x0 = l.x + fs * 0.7
+      const tw = ctx.measureText(l.name).width
+      const pad = fs * 0.45
+      ctx.fillStyle = '#3d3a73'
+      ctx.fillRect(x0, l.y - fs * 0.07, fs * 3, fs * 0.14)
+      const bx = x0 + fs * 3 + fs * 0.4
+      ctx.fillStyle = l.active ? '#fff0a6' : 'rgba(255,250,238,0.95)'
+      ctx.strokeStyle = l.active ? '#ff7f6e' : '#3d3a73'
+      ctx.lineWidth = Math.max(2, fs * 0.1)
+      ctx.beginPath()
+      ctx.roundRect(bx, l.y - fs * 0.85, tw + pad * 2 + fs * 0.25, fs * 1.7, fs * 0.4)
+      ctx.fill()
+      ctx.stroke()
+      ctx.fillStyle = l.color
+      ctx.fillRect(bx + fs * 0.12, l.y - fs * 0.6, fs * 0.22, fs * 1.2)
+      ctx.fillStyle = '#3d3a73'
+      ctx.fillText(l.name, bx + fs * 0.25 + pad, l.y + fs * 0.04)
+    }
+    ctx.restore()
+  },
+})
 
 function addStarfield(scene) {
   const count = 1200
@@ -660,7 +733,7 @@ function clearPhotos() {
     />
 
     <div
-      v-if="showLabels && cutawayOpen && labelPositions.length"
+      v-if="!VIDEO_MOD && showLabels && cutawayOpen && labelPositions.length"
       class="gy-scene__labels"
     >
       <button
@@ -714,6 +787,7 @@ function clearPhotos() {
 
     <!-- Alt orta: kamera butonu -->
     <button
+      v-if="!VIDEO_MOD"
       type="button"
       class="gy-scene__camera-btn"
       :disabled="capturing"
@@ -783,7 +857,7 @@ function clearPhotos() {
     </div>
 
     <aside
-      v-if="showControlsPanel"
+      v-if="showControlsPanel && !VIDEO_MOD"
       class="gy-scene__panel"
       :class="{ 'gy-scene__target--pulse': panelPulsing }"
     >

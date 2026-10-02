@@ -2,6 +2,7 @@
 import { ref, computed, watch } from 'vue'
 import * as THREE from 'three'
 import { useSimulationScene } from '../../../composables/useSimulationScene.js'
+import { useSimKontrol, VIDEO_MOD } from '../../../composables/useSimKontrol.js'
 import { useScoreStore } from '../../../stores/scoreStore.js'
 import {
   MOON_PHASES,
@@ -48,6 +49,11 @@ const playPulsing = computed(() => props.guideFocus === 'play')
 
 // ── Three.js referansları ──
 let sceneRoot = null
+let videoLights = []
+let videoIsik = 1
+function applyIsik() {
+  for (const { l, base } of videoLights) l.intensity = base * videoIsik
+}
 let sunMesh = null
 let earthMesh = null
 let moonMesh = null
@@ -207,6 +213,8 @@ async function buildCelestialBodies(parent) {
   const fillLight = new THREE.DirectionalLight(0x8899cc, 0.55)
   fillLight.position.set(-18, 6, -12)
   parent.add(fillLight)
+  videoLights = [sunLight, ambient, hemi, fillLight].map((l) => ({ l, base: l.intensity }))
+  applyIsik()
 
   const earthMaterial = earthMap
     ? new THREE.MeshStandardMaterial({
@@ -332,6 +340,7 @@ function reportPhaseChange(phaseIndex) {
 }
 
 function animateSimulation(delta) {
+  if (VIDEO_MOD) return // video modunda açılar zaman çizelgesinden (ay / yorunge) gelir
   if (!isPlaying.value || !earthOrbit || !moonOrbit) return
 
   earthAngle += delta * 0.08 * speed.value
@@ -419,11 +428,17 @@ watch(trackMoon, (tracking) => {
   }
 })
 
+let dokuCoz = () => {}
+const dokuHazir = new Promise((r) => { dokuCoz = r })
+
 const { canvasRef } = useSimulationScene({
   maxPixelRatio: props.embedded ? 1.5 : 2,
   onInit({ scene, camera, renderer }) {
-    renderer.setClearColor(0x02040a)
-    scene.fog = new THREE.FogExp2(0x02040a, 0.002)
+    if (VIDEO_MOD) renderer.setClearColor(0x000000, 0)
+    else {
+      renderer.setClearColor(0x02040a)
+      scene.fog = new THREE.FogExp2(0x02040a, 0.002)
+    }
     activeCamera = camera
 
     cameraState = {
@@ -436,10 +451,11 @@ const { canvasRef } = useSimulationScene({
 
     sceneRoot = new THREE.Group()
     scene.add(sceneRoot)
-    addStarfield(sceneRoot)
+    if (!VIDEO_MOD) addStarfield(sceneRoot)
 
-    buildCelestialBodies(sceneRoot).catch((err) => {
+    buildCelestialBodies(sceneRoot).then(() => dokuCoz()).catch((err) => {
       bootError.value = err?.message ?? 'Gök cisimleri oluşturulamadı.'
+      dokuCoz()
     })
   },
   onFrame({ delta }) {
@@ -455,6 +471,78 @@ const { canvasRef } = useSimulationScene({
     moonOrbit = null
     activeCamera = null
     cameraState = null
+  },
+})
+
+/* ───────── Video modu (JSON ile yönetim) ─────────
+ * Parametreler (zaman çizelgesi anahtarları):
+ *   ay        rad    Ay'ın Dünya çevresindeki yörünge açısı (SAYISAL, ease ile kayar): Yeni Ay = 3.14 · İlk dördün = 4.71 ·
+ *                    Dolunay = 6.28 · Son dördün = 7.85 · yeniden Yeni Ay = 9.42 (saat yönünün tersine artar)
+ *   yorunge   rad    Dünya'nın Güneş çevresindeki açısı (varsayılan 0)
+ *   takipAy   bool   kamera Dünya'dan Ay'a bakar (Dünya'dan görünen evre!)
+ *   kamera    'iso'|'top'|'side'|'front'   hazır kamera açıları (takipAy kapalıyken)
+ *   yaw / pitch / distance   serbest kamera (varsayılan 0.55 / 0.42 / 17)
+ *   isik      0.3..4 tüm ışıkların çarpanı (1 varsayılan; boya süzgeciyle ~1.6 daha okunaklı)
+ *   evreAdi   bool   köşede o anki evrenin adı (kareye çizilir)        evreBoyu  yazı boyu (kare yüksekliği oranı, 0.05)
+ */
+const videoEtiket = { on: false, size: 0.05 }
+
+useSimKontrol({
+  hazir: dokuHazir,
+  canvas: () => canvasRef.value,
+  sifirla() {
+    isPlaying.value = false
+    trackMoon.value = false
+    earthAngle = 0
+    moonAngle = Math.PI
+    if (earthOrbit) earthOrbit.rotation.y = 0
+    if (moonOrbit) moonOrbit.rotation.y = moonAngle
+    setCameraPreset('iso')
+    videoEtiket.on = false
+    videoEtiket.size = 0.05
+    videoIsik = 1
+    applyIsik()
+  },
+  uygula(d, tum) {
+    if ('yorunge' in d) {
+      earthAngle = d.yorunge
+      if (earthOrbit) earthOrbit.rotation.y = earthAngle
+    }
+    if ('ay' in d) {
+      moonAngle = d.ay
+      if (moonOrbit) moonOrbit.rotation.y = moonAngle
+    }
+    if ('kamera' in d) setCameraPreset(d.kamera)
+    if ('takipAy' in d || 'kamera' in d) trackMoon.value = !!tum.takipAy
+    if (cameraState) {
+      if ('yaw' in d) cameraState.yaw = d.yaw
+      if ('pitch' in d) cameraState.pitch = d.pitch
+      if ('distance' in d) cameraState.distance = d.distance
+    }
+    if ('isik' in d) { videoIsik = d.isik; applyIsik() }
+    if ('evreAdi' in d) videoEtiket.on = !!d.evreAdi
+    if ('evreBoyu' in d) videoEtiket.size = d.evreBoyu
+  },
+  cizim(ctx, w, h) {
+    if (!videoEtiket.on) return
+    const ph = MOON_PHASES[computePhaseIndex()]
+    const fs = Math.round(h * videoEtiket.size)
+    ctx.save()
+    ctx.font = `700 ${fs}px "Baloo 2", "Segoe UI", sans-serif`
+    ctx.textBaseline = 'middle'
+    const txt = `${ph.emoji}  ${ph.name}`
+    const tw = ctx.measureText(txt).width
+    const x = fs * 0.6, y = h * 0.5 // sol ortada: üst başlık hapıyla çakışmaz
+    ctx.fillStyle = 'rgba(255, 250, 238, 0.95)'
+    ctx.strokeStyle = '#3d3a73'
+    ctx.lineWidth = Math.max(2, fs * 0.1)
+    ctx.beginPath()
+    ctx.roundRect(x, y - fs * 0.8, tw + fs, fs * 1.6, fs * 0.5)
+    ctx.fill()
+    ctx.stroke()
+    ctx.fillStyle = '#3d3a73'
+    ctx.fillText(txt, x + fs * 0.5, y + fs * 0.04)
+    ctx.restore()
   },
 })
 
@@ -507,6 +595,7 @@ function onWheel(event) {
     />
 
     <div
+      v-if="!VIDEO_MOD"
       class="ay-evre-scene__phase-badge"
       aria-live="polite"
     >
@@ -515,6 +604,7 @@ function onWheel(event) {
     </div>
 
     <aside
+      v-if="!VIDEO_MOD"
       class="ay-evre-scene__panel"
       :class="{ 'ay-evre-scene__target--pulse': panelPulsing }"
     >

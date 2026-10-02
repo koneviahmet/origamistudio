@@ -1,0 +1,135 @@
+{
+  "id": "havacilik-ilk-66-yil",
+  "baslik": "Havacılığın İlk 66 Yılı (reels · yükseliş merdiveni zaman tüneli)",
+  "ogeler": [
+    {
+      "id": "wright-flyer",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1903 Wright kardeşler — 12 saniyelik ilk uçuş",
+      "amac": "Çift kanatlı Wright Flyer."
+    },
+    {
+      "id": "tek-kanat-ucak",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1909 Blériot — Manş'ı geçer",
+      "amac": "Tek kanatlı erken uçak."
+    },
+    {
+      "id": "tek-kanat-ucak-spirit",
+      "tur": "nesne",
+      "ref": "tek-kanat-ucak",
+      "nerede": "1927 Lindbergh — Atlantik'i aşar",
+      "amac": "Aynı model, gümüş varyant (spirit)."
+    },
+    {
+      "id": "jet-ucagi",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1939 İlk jet uçağı",
+      "amac": "Ok kanatlı jet."
+    },
+    {
+      "id": "bell-x1",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1947 Yeager — ses duvarı aşılır",
+      "amac": "Turuncu roket uçak."
+    },
+    {
+      "id": "astronot-3d",
+      "tur": "nesne",
+      "nerede": "1969 Ay'a iniş — 66. yıl (kapak + final)",
+      "amac": "Apollo 11 astronotu."
+    },
+    {
+      "id": "ses-1",
+      "tur": "ses",
+      "ref": "d1-02810",
+      "ad": "Ciddi genç erkek anlatıcı",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Sıcak",
+        "Sakin",
+        "Ciddi",
+        "Anlatıcı"
+      ],
+      "aciklama": "Derin, yumuşak ama otoriter genç erkek sesi; orta tempo.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Ana anlatıcı adayı: ciddi, genç belgesel sesi."
+    },
+    {
+      "id": "ses-2",
+      "tur": "ses",
+      "ref": "d1-01818",
+      "ad": "Kalın sesli olgun anlatıcı",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Olgun",
+        "Kalın ses",
+        "Enerjik",
+        "Ciddi",
+        "Yavaş tempo",
+        "Anlatıcı"
+      ],
+      "aciklama": "Elli yaşlarında, alçak, hafif kısık, ciddi ve canlı erkek anlatıcı; yavaş tempo, destansı hava.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: destansı, yavaş olgun erkek."
+    },
+    {
+      "id": "ses-3",
+      "tur": "ses",
+      "ref": "d1-02722",
+      "ad": "Güven veren anlatıcı kadın",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Orta yaş",
+        "İnce ses",
+        "Sıcak",
+        "Sakin",
+        "Enerjik",
+        "Anlatıcı"
+      ],
+      "aciklama": "Otuzlu yaşlarda, yüksek tonlu, yumuşak ve enerjik kadın sesi; orta tempo, belgesel anlatıcı havası.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: sıcak, güven veren kadın."
+    },
+    {
+      "id": "ses-4",
+      "tur": "ses",
+      "ref": "d1-01583",
+      "ad": "Hızlı genç erkek anlatıcı",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Sıcak",
+        "Enerjik",
+        "Hızlı tempo",
+        "Anlatıcı"
+      ],
+      "aciklama": "Alçak, kadife tonlu, kendinden emin ve canlı genç erkek; hızlı tempo, reels temposuna uygun.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: hızlı genç erkek."
+    },
+    {
+      "id": "ses-5",
+      "tur": "ses",
+      "ref": "d2-00658",
+      "ad": "Profesyonel olgun kadın",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Olgun",
+        "Kalın ses",
+        "Enerjik",
+        "Anlatıcı"
+      ],
+      "aciklama": "Altmışlı yaşlarda, orta-alçak, hafif kısık, profesyonel ve enerjik kadın anlatıcı.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: profesyonel olgun kadın."
+    }
+  ]
+}

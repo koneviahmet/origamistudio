@@ -220,8 +220,11 @@ watch(
 const { canvasRef, ready, context } = useSimulationScene({
   maxPixelRatio: props.embedded ? 1.5 : 2,
   onInit({ renderer, scene, camera }) {
-    renderer.setClearColor(0x02040a)
-    scene.fog = new THREE.FogExp2(0x02040a, 0.006)
+    if (VIDEO_MOD) renderer.setClearColor(0x000000, 0)
+    else {
+      renderer.setClearColor(0x02040a)
+      scene.fog = new THREE.FogExp2(0x02040a, 0.006)
+    }
     activeCamera = camera
 
     camera.position.set(0, 10, 18)
@@ -246,7 +249,7 @@ const { canvasRef, ready, context } = useSimulationScene({
     fillLight = fill
     scene.add(ambient, sunLight, fill)
 
-    addStarfield(scene)
+    if (!VIDEO_MOD) addStarfield(scene)
     buildSystem(scene)
     applyClarity()
   },
@@ -302,20 +305,42 @@ watch(ready, async (isReady) => {
   dokuCoz()
 }, { immediate: true })
 
+/** Video: Ay'ın Dünya'ya bakan yüzünü gösteren küçük işaret (yerel +x ekseni Dünya'ya döner) */
+function syncAyIsaret() {
+  if (!moonMesh) return
+  let mk = moonMesh.children.find((c) => c.userData?.isAyIsaret)
+  if (videoAyIsaret && !mk) {
+    mk = new THREE.Mesh(new THREE.SphereGeometry(0.075, 20, 20), new THREE.MeshBasicMaterial({ color: 0xff3b30 }))
+    mk.position.set(BODIES.moon.radius * 1.0, 0, 0)
+    mk.userData.isAyIsaret = true
+    moonMesh.add(mk)
+  } else if (!videoAyIsaret && mk) {
+    moonMesh.remove(mk)
+    mk.geometry.dispose()
+    mk.material.dispose()
+  }
+}
+
 /* ───────── Video modu (JSON ile yönetim) ─────────
  * Parametreler (zaman çizelgesi anahtarları):
+ *   ayIsaret     bool   Ay'ın Dünya'ya bakan yüzünde kırmızı nokta (hep aynı yüz anlatımı)
+ *   olcum        metin  Güneş ile Dünya arasına çift uçlu ölçü oku + bu yazı (ör. '≈ 150 milyon km'); '' = yok
  *   speed        0..4   zaman hızı (dolanma + dönme birikir)         camera   'free'|'sun'|'earth'|'moon'
  *   yaw          rad    serbest kamera yatay açı (varsayılan 0.55)    pitch    rad  -0.15..1.25 (0.42)
  *   distance     6..45  serbest kamera uzaklığı (20)                  clarity  0.5..4 netlik / aydınlık (1.4)
  *   orbits       bool   dolanma yörüngeleri                           axes     bool  dönme eksenleri
  *   shapeSun / shapeEarth / shapeMoon  'sphere'|'cube'|'octahedron'|'dodecahedron'|'icosahedron'
  *   labels       bool   Güneş / Dünya / Ay isimleri (kareye çizilir)  labelSize  isim yazı boyu (kare yüksekliğinin oranı, 0.034)
+ *   isik         0.3..4  tüm ışıkların çarpanı (1 = varsayılan; çizim stilinde 1.8–2.5 daha parlak, okunaklı)
  *   takip        ''|'sun'|'earth'|'moon'  serbest kamera bu cismi izler (hedef = cismin konumu; '' = merkez)
  * Not: dolanma yönü yukarıdan bakınca saat yönünün tersidir (orijinaldeki ters yön düzeltildi).
  */
 const VIDEO_ADLAR = { sun: 'Güneş', earth: 'Dünya', moon: 'Ay' }
 const videoEtiket = { on: false, size: 0.034 }
 let videoTakip = null
+let videoIsik = 1
+let videoAyIsaret = false
+let videoOlcum = ''
 const _vp = new THREE.Vector3()
 
 useSimKontrol({
@@ -331,6 +356,9 @@ useSimKontrol({
     videoEtiket.on = false
     videoEtiket.size = 0.034
     videoTakip = null
+    videoIsik = 1
+    videoAyIsaret = false
+    videoOlcum = ''
     if (cameraState) {
       cameraState.target.set(0, 0, 0)
       cameraState.yaw = 0.55
@@ -350,6 +378,7 @@ useSimKontrol({
     if ('speed' in d) speed.value = d.speed
     if ('camera' in d) cameraMode.value = d.camera
     if ('clarity' in d) clarity.value = d.clarity
+    if ('isik' in d) { videoIsik = d.isik; applyClarity() }
     if ('orbits' in d) showOrbits.value = !!d.orbits
     if ('axes' in d) showSpinAxes.value = !!d.axes
     if ('shapeSun' in d) shapeSun.value = d.shapeSun
@@ -362,12 +391,48 @@ useSimKontrol({
     }
     if ('labels' in d) videoEtiket.on = !!d.labels
     if ('labelSize' in d) videoEtiket.size = d.labelSize
+    if ('ayIsaret' in d) videoAyIsaret = !!d.ayIsaret
+    if ('olcum' in d) videoOlcum = d.olcum || ''
     if ('takip' in d) {
       videoTakip = d.takip || null
       if (!videoTakip && cameraState) cameraState.target.set(0, 0, 0)
     }
   },
   cizim(ctx, w, h) {
+    if (videoOlcum && activeCamera && sunPivot && earthPivot) {
+      const a = _vp.clone(), b = new THREE.Vector3()
+      sunPivot.getWorldPosition(a)
+      earthPivot.getWorldPosition(b)
+      a.project(activeCamera)
+      b.project(activeCamera)
+      const ax = (a.x * 0.5 + 0.5) * w, ay = (-a.y * 0.5 + 0.5) * h
+      const bx = (b.x * 0.5 + 0.5) * w, by = (-b.y * 0.5 + 0.5) * h
+      const ang = Math.atan2(by - ay, bx - ax)
+      const fs = Math.round(h * 0.036)
+      ctx.save()
+      ctx.strokeStyle = '#ff7f6e'
+      ctx.fillStyle = '#ff7f6e'
+      ctx.lineWidth = Math.max(3, fs * 0.16)
+      ctx.lineCap = 'round'
+      ctx.setLineDash([fs * 0.5, fs * 0.35])
+      ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(bx, by); ctx.stroke()
+      ctx.setLineDash([])
+      for (const [px, py, dir] of [[ax, ay, ang + Math.PI], [bx, by, ang]]) {
+        ctx.beginPath()
+        ctx.moveTo(px, py)
+        ctx.lineTo(px - Math.cos(dir - 0.4) * fs * 0.9, py - Math.sin(dir - 0.4) * fs * 0.9)
+        ctx.lineTo(px - Math.cos(dir + 0.4) * fs * 0.9, py - Math.sin(dir + 0.4) * fs * 0.9)
+        ctx.closePath(); ctx.fill()
+      }
+      ctx.font = `700 ${fs}px "Baloo 2", "Segoe UI", sans-serif`
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
+      const mx = (ax + bx) / 2, my = (ay + by) / 2 - fs * 1.3
+      const tw = ctx.measureText(videoOlcum).width
+      ctx.fillStyle = 'rgba(255,250,238,0.96)'; ctx.strokeStyle = '#ff7f6e'; ctx.lineWidth = Math.max(2, fs * 0.1)
+      ctx.beginPath(); ctx.roundRect(mx - tw / 2 - fs * 0.5, my - fs * 0.75, tw + fs, fs * 1.5, fs * 0.5); ctx.fill(); ctx.stroke()
+      ctx.fillStyle = '#3d3a73'; ctx.fillText(videoOlcum, mx, my + fs * 0.04)
+      ctx.restore()
+    }
     if (!videoEtiket.on || !activeCamera) return
     const items = [['sun', sunPivot, sunMesh], ['earth', earthPivot, earthMesh], ['moon', moonPivot, moonMesh]]
     const fs = Math.round(h * videoEtiket.size)
@@ -384,11 +449,16 @@ useSimKontrol({
       const x = (_vp.x * 0.5 + 0.5) * w
       const y = (-_vp.y * 0.5 + 0.5) * h
       const tw = ctx.measureText(VIDEO_ADLAR[id]).width
-      ctx.fillStyle = 'rgba(8, 12, 28, 0.72)'
+      // defter etiketi: krem hap + mürekkep yazı + cismin renginde çizgi
+      const renk = '#' + BODIES[id].color.toString(16).padStart(6, '0')
+      ctx.fillStyle = 'rgba(255, 250, 238, 0.94)'
+      ctx.strokeStyle = renk
+      ctx.lineWidth = Math.max(2, fs * 0.12)
       ctx.beginPath()
       ctx.roundRect(x - tw / 2 - fs * 0.5, y - fs * 0.75, tw + fs, fs * 1.5, fs * 0.5)
       ctx.fill()
-      ctx.fillStyle = '#' + BODIES[id].color.toString(16).padStart(6, '0')
+      ctx.stroke()
+      ctx.fillStyle = '#3d3a73'
       ctx.fillText(VIDEO_ADLAR[id], x, y + fs * 0.04)
     }
     ctx.restore()
@@ -666,9 +736,9 @@ function rebuildBodyMesh(bodyId, shapeId) {
 function applyClarity() {
   const t = Math.max(0.4, Math.min(4, clarity.value))
 
-  if (ambientLight) ambientLight.intensity = 0.3 + t * 0.4
-  if (fillLight) fillLight.intensity = 0.15 + t * 0.45
-  if (sunLight) sunLight.intensity = 2.2 + t * 1.1
+  if (ambientLight) ambientLight.intensity = (0.3 + t * 0.4) * videoIsik
+  if (fillLight) fillLight.intensity = (0.15 + t * 0.45) * videoIsik
+  if (sunLight) sunLight.intensity = (2.2 + t * 1.1) * videoIsik
 
   for (const mesh of [earthMesh, moonMesh]) {
     if (!mesh?.material || mesh.material.isMeshBasicMaterial) continue
@@ -736,6 +806,7 @@ function applyAxisVisibility() {
 
 function animateSystem(delta) {
   const rate = speed.value
+  if (VIDEO_MOD) syncAyIsaret()
 
   earthAngle += delta * BODIES.earth.orbitSpeed * rate
   moonAngle += delta * BODIES.moon.orbitSpeed * rate

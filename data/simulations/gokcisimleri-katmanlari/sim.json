@@ -81,6 +81,15 @@
         "tip": "sayi",
         "aciklama": "Kamera uzaklığı (genel görünümde 13; kesitte cisme göre otomatik).",
         "varsayilan": 13
+      },
+      "boya": {
+        "tip": "sayi",
+        "aciklama": "GENEL: boya + mürekkep süzgeci (0 = gerçekçi 3B, 1 = pastel düzlükler + el çizimi kontur). Videonun çizim stiline uydurmak için ~0.8.",
+        "varsayilan": 0,
+        "aralik": [
+          0,
+          1
+        ]
       }
     },
     "ornek": [

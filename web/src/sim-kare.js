@@ -19,7 +19,7 @@ function kur(slug, w, h) {
 }
 
 /** Sim katmanı için t anındaki kareyi üret → { source: ImageBitmap, w, h } */
-export async function simKare(layer, key, t) {
+function ensure(layer, key) {
   const slug = layer.sim;
   const w = Math.max(64, Math.round((layer.width || 960) * (layer.kalite || 1)));
   const h = Math.max(64, Math.round((layer.height || 540) * (layer.kalite || 1)));
@@ -34,19 +34,68 @@ export async function simKare(layer, key, t) {
     entries.set(key, e);
   }
   e.son = Date.now();
-  const run = async () => {
-    const win = await e.ready;
-    const k = win.__simKontrol;
-    if (!k) throw new Error(`Simülasyon video modunu desteklemiyor: ${slug}`);
-    const imza = JSON.stringify(layer.kontrol || []);
-    if (e.imza !== imza) {
-      k.kur(layer.kontrol || []);
-      e.imza = imza;
+  return e;
+}
+
+/** Aynı iframe'e gelen git/kare istekleri sırayla çalışır (ön yükleme ile oynatma yarışmasın) */
+function sirala(e, fn) {
+  const p = (e.kuyruk || Promise.resolve()).then(fn, fn);
+  e.kuyruk = p.catch(() => {});
+  return p;
+}
+
+/** Iframe hazır + zaman çizelgesi kurulu mu → { win, k } */
+async function hazirla(e, layer) {
+  const win = await e.ready;
+  const k = win.__simKontrol;
+  if (!k) throw new Error(`Simülasyon video modunu desteklemiyor: ${layer.sim}`);
+  const imza = JSON.stringify(layer.kontrol || []);
+  if (e.imza !== imza) {
+    k.kur(layer.kontrol || []);
+    e.imza = imza;
+  }
+  return { win, k };
+}
+
+/**
+ * Sahnedeki TÜM simülasyonları önceden yükler (iframe + doku + shader derleme + ilk kare) ve kalıcı tutar;
+ * oynatırken yüklenme anı görünmez. onIlerleme(biten, toplam).
+ */
+export async function simOnYukle(scene, onIlerleme) {
+  const list = (scene.layers || []).filter((l) => l.type === 'media' && l.sim);
+  let biten = 0;
+  onIlerleme?.(0, list.length);
+  await Promise.all(list.map(async (l) => {
+    try {
+      const e = ensure(l, l.id);
+      e.kalici = true;
+      const { k } = await hazirla(e, l);
+      await sirala(e, () => k.git(0)); // ilk kareyi çiz: dokular GPU'ya yüklenir, shader'lar derlenir
+    } catch (err) {
+      console.warn('[sim ön yükleme]', err);
     }
-    await k.git(Math.max(0, t - (layer.start ?? 0)));
-    const canvas = k.kare();
-    const source = await win.createImageBitmap(canvas);
-    return { source, w: canvas.width, h: canvas.height };
+    onIlerleme?.(++biten, list.length);
+  }));
+}
+
+/** Ön yüklenen tüm simülasyonları bırak (sayfadan çıkarken) */
+export function simBirak() {
+  for (const e of entries.values()) e.iframe.remove();
+  entries.clear();
+}
+
+/** Sim katmanı için t anındaki kareyi üret → { source: ImageBitmap, w, h } */
+export async function simKare(layer, key, t) {
+  const slug = layer.sim;
+  const e = ensure(layer, key);
+  const run = async () => {
+    const { win, k } = await hazirla(e, layer);
+    return sirala(e, async () => {
+      await k.git(Math.max(0, t - (layer.start ?? 0)));
+      const canvas = k.kare();
+      const source = await win.createImageBitmap(canvas);
+      return { source, w: canvas.width, h: canvas.height };
+    });
   };
   return Promise.race([run(), new Promise((_, rej) => setTimeout(() => rej(new Error(`Simülasyon zaman aşımı: ${slug}`)), TIMEOUT))]);
 }
@@ -55,7 +104,7 @@ export async function simKare(layer, key, t) {
 export function simTemizle(aktif, hepsi = false) {
   const now = Date.now();
   for (const [key, e] of entries) {
-    if (aktif.has(key)) continue;
+    if (aktif.has(key) || e.kalici) continue;
     if (hepsi || now - e.son > 4000) {
       e.iframe.remove();
       entries.delete(key);

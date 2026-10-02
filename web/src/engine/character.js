@@ -729,14 +729,26 @@ export function drawCharacter(ctx, layer, t, st, scene, res, th, lookup) {
   // ---- konuşma balonu: katman uzayında ama ölçeksiz (sahne pikseli), yön çevirmesinden bağımsız
   const bub = speeches.filter((e) => t >= (e.t || 0) - 0.001 && t <= (e.t || 0) + speechDur(e));
   const bubble = bub[bub.length - 1];
-  if (bubble) {
+  if (bubble && !(layer.balon && layer.balon.gizle)) { // balon.gizle: balon çizilmez (ağız yine konuşur; altyazıyı üreteç ayrı katmanla verir)
     const b = { ...C.balon, ...layer.balon };
-    const fsz = b.boyut ?? clamp(Math.min(W, H) * 0.047, 26, 66);
-    const maxW = b.genislik ?? Math.min(W * 0.46, 640);
+    const baseFsz = b.boyut ?? clamp(Math.min(W, H) * 0.047, 26, 66);
     const text = String(bubble.metin);
     ctx.save();
     ctx.scale(1 / (st.scale * st.scaleX || 1), 1 / (st.scale * st.scaleY || 1));
-    const L = bubbleLayout(ctx, text, bubble.tur, fsz, maxW, b.font, b.agirlik || 700);
+    // uzun metin: balon genişler, yazı kontrollü küçülür (kafanın üstündeki boşluğa sığana dek)
+    const nChars = [...text].length;
+    const longK = clamp((nChars - 40) / 120, 0, 1);
+    const maxW = b.genislik ?? Math.min(W * (0.46 + 0.2 * longK), 640 + 260 * longK);
+    const availH = Math.max(120, (headC[1] - o.bas[1] * 1.12) * boy * P.sq * Sc + oy - H * 0.04);
+    let fsz = baseFsz;
+    let L = bubbleLayout(ctx, text, bubble.tur, fsz, maxW, b.font, b.agirlik || 700);
+    if (b.boyut == null) {
+      const minF = baseFsz * 0.62;
+      while (L.h > availH * 0.9 && fsz > minF) {
+        fsz = Math.max(minF, fsz * 0.93);
+        L = bubbleLayout(ctx, text, bubble.tur, fsz, maxW, b.font, b.agirlik || 700);
+      }
+    }
     const age = t - (bubble.t || 0);
     const total = [...text].length;
     const shown = Math.min(total, Math.ceil(total * clamp01(age / Math.max(0.2, speechType(bubble)))));

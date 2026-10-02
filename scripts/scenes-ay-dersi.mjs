@@ -9,6 +9,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { karakterBaglam } from './lib/karakter.mjs';
 import { aboneBolumu, aboneMetinleri } from './lib/abone-bolumu.mjs';
+import { simKit } from './lib/sim-kit.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PROJE_ID = 'ay-dersi';
@@ -43,7 +44,10 @@ function wavSure(file) {
 // Bitiş: beğen / yorum / abone ol (scripts/abone-satirlar.txt, ses: ay-dersi-abone-N.wav)
 const NA = SATIR.length;
 SATIR.push(...aboneMetinleri(ROOT, fs, path));
-const SES = SATIR.map((_, i) => (i < NA ? `ay-dersi-ses-${i + 1}.wav` : `ay-dersi-abone-${i - NA + 1}.wav`));
+// Ek: simülasyon bölümleri (JSON ile yönetilen simülasyonlar) — satırlar abone satırlarından SONRA numaralanır (29-34), mevcut ses dosyaları değişmez
+const NS = SATIR.length;
+SATIR.push(...fs.readFileSync(path.join(ROOT, 'scripts', 'ay-dersi-sim-satirlar.txt'), 'utf8').split(/\r?\n/).filter((x) => x.trim()).map((x) => x.replace(/^[\d.]+\s*\|\s*/, '')));
+const SES = SATIR.map((_, i) => (i < NA ? `ay-dersi-ses-${i + 1}.wav` : i < NS ? `ay-dersi-abone-${i - NA + 1}.wav` : `ay-dersi-sim-${i - NS + 1}.wav`));
 const D = SATIR.map((m, i) => r2(wavSure(path.join(ROOT, 'data', 'audio', SES[i])) ?? m.length / 14 + 0.6));
 
 // ─── Zaman çizelgesi (anlatıma göre) ───────────────────────────────────────
@@ -54,12 +58,20 @@ const gec = (bekle, ac = 0.8) => { const tb = r2(cur - 0.4 + bekle); cur = tb + 
 say(1, 0.3); say(2, 2.4); say(3, 0.3); say(4, 0);
 const tB = gec(1.9);
 say(5, 2.0); say(6, 0);
+const tS1 = gec(1.4); // + simülasyon: ışık
+say(29, 0.5); say(30, 0);
 const tC = gec(1.8);
 say(7, 1.4); say(8, 2.0); say(9, 0.4); say(10, 0.4); say(11, 0.4); say(12, 0);
 const tD = gec(1.9);
-say(13, 1.6); say(14, 0.4); say(15, 0.4); say(16, 0.5); say(17, 0.4); say(18, 0);
+say(13, 1.6); say(14, 0.4); say(15, 0.4); say(16, 0.5); say(17, 0);
+const tS2 = gec(1.4); // + simülasyon: hep aynı yüz (n17'den sonra, n18 sorusundan önce)
+say(31, 0.5); say(32, 0);
+const tD2 = gec(1.3);
+say(18, 0);
 const tE = gec(1.9);
 say(19, 0.4); say(20, 0.4); say(21, 0.4); say(22, 0.4); say(23, 0);
+const tS3 = gec(1.4); // + simülasyon: evreler
+say(33, 0.5); say(34, 0);
 const tF = gec(1.6);
 say(24, 0.6); say(25, 0);
 const tG = gec(3.2, 0.9); // son soru ekranda kalır, sonra "abone ol" bölümü
@@ -460,6 +472,59 @@ const gG = 'g-g';
 layers.filter((l) => l.group === 'g-f' && l.end == null).forEach((l) => { l.end = r2(tG); }); // F bölümünün açık uçlu katmanları geçişte biter
 const abone = aboneBolumu({ L, M, T, hap, yika, AN, k, r2, tG, a: [n[26], n[27], n[28]], g: gG, renk: { INK, CORAL, BUTTER, MINT, SKY, LILAC, PINK }, fontBaslik: F_BASLIK, fontEl: F_EL });
 
+// ═══════════════════════════════════════════════════════════════════════════
+// SİMÜLASYON BÖLÜMLERİ — JSON ile yönetilen simülasyonlar (şema §16). Mevcut bölümlerin sonuna eklenir, bölümler korunur.
+//   S1 ışık (B'den sonra) · S2 hep aynı yüz (D'den sonra) · S3 evreler (E'den sonra)
+// ═══════════════════════════════════════════════════════════════════════════
+const S = simKit({ L, M, T, hap, AN, k, r2, BUTTER, CORAL, HILITE, F_BASLIK }, {});
+const klip = (g, t) => layers.filter((l) => l.group === g && (l.start ?? 0) < t && (l.end == null || l.end > t)).forEach((l) => { l.end = r2(t); }); // önceki bölüm simülasyon başlayınca biter
+klip('g-b', tS1); klip('g-d', tS2); klip('g-e', tS3);
+yika('d2-yika', 'g-d', '#d3d7f8', 1340, 540, 1500, tD2, tE, { op: 0.9 }); // n18 sorusu için arka plan (D bölümü simülasyondan sonra devam eder)
+yika('d2-yika2', 'g-d', '#ffd6e6', 1500, 380, 800, tD2 + 0.3, tE, { op: 0.85, rot: 30 });
+{ // S1 — Işık: Güneş hep Ay'ın bir yarısını aydınlatır
+  const g = 'g-s1', t0 = tS1, t1 = tC, a29 = n[29], a30 = n[30];
+  yika('s1-yika', g, '#ffeebd', 1340, 540, 1500, t0, t1, { op: 0.9 });
+  yika('s1-yika2', g, '#cfe4fb', 1560, 860, 760, t0 + 0.3, t1, { op: 0.85, rot: 40 });
+  const z = S.zc(t0 + 0.2);
+  z.set(t0 + 0.2, { camera: 'free', takip: 'moon', labels: true, orbits: false, axes: false, speed: 0, pitch: 0.2, yaw: -1.4, distance: 1.6, clarity: 1.6, isik: 2.4 });
+  z.git(t0 + 2.2, (t1 - t0) - 3.4, { yaw: 1.7 }, 'inOutSine');
+  S.SIM('s1-sim', g, 'gunes-dunya-ay', t0 + 0.2, t1, z);
+  S.BASLIK('s1-b', g, 'SİMÜLASYON · IŞIK VE AY', t0 + 0.6, t1, '#ffe58f');
+  OK('s1-ok', g, [S.CX - 560, S.CY - 160], [S.CX - 175, S.CY - 20], t0 + 1.2, { stil: 'ok-kavis', color: '#ffb300', width: 10, bend: -0.2, label: 'Güneş ışığı', labelOffset: -42, labelColor: '#e69500', dur: 1.0, end: a29.t + a29.d + 1.5 });
+  S.ALT('s1-a1', g, "Güneş ışığı Ay'ın hep bir yarısını aydınlatır", a29.t, a30.t - 0.1, '#ffe58f');
+  S.ALT('s1-a2', g, 'Ay ışık üretmez: Güneş ışığını yansıtır', a30.t, t1 - 0.1, '#ffe0d6');
+  ETIKET('s1-e', g, 'aydınlık yüz', S.CX + 400, S.CY - 280, [S.CX + 70, S.CY - 90], t0 + 3.4, a30.t - 0.2, CORAL, { size: 42, dx: -90, dy: 20, bend: 0.25 });
+}
+{ // S2 — Hep aynı yüz: kırmızı nokta Ay'ın Dünya'ya bakan yüzünü izler
+  const g = 'g-s2', t0 = tS2, t1 = tD2, a31 = n[31], a32 = n[32];
+  yika('s2-yika', g, '#d3d7f8', 1340, 540, 1500, t0, t1, { op: 0.9 });
+  yika('s2-yika2', g, '#ffe9b8', 1580, 860, 760, t0 + 0.3, t1, { op: 0.85, rot: 50 });
+  const z = S.zc(t0 + 0.2);
+  z.set(t0 + 0.2, { camera: 'free', takip: 'earth', labels: true, orbits: true, axes: true, ayIsaret: true, speed: 0.32, pitch: 1.1, yaw: 0, distance: 3.9, clarity: 1.6, isik: 2.4 });
+  z.git(a32.t, 3.0, { pitch: 0.75, distance: 3.4 }, 'inOutSine');
+  S.SIM('s2-sim', g, 'gunes-dunya-ay', t0 + 0.2, t1, z);
+  S.BASLIK('s2-b', g, 'SİMÜLASYON · HEP AYNI YÜZ', t0 + 0.6, t1, '#c6f1e0');
+  S.ALT('s2-a1', g, "Ay: Dünya'nın etrafında 1 tur = kendi etrafında 1 tur", a31.t, a32.t - 0.1, '#c6f1e0', 36);
+  S.ALT('s2-a2', g, 'Kırmızı nokta hep Dünya\'ya bakıyor → hep aynı yüz', a32.t, t1 - 0.1, '#ffe0d6', 36);
+  const ok = M('s2-ok', g, 'donus-oku-cizim', S.CX - 500, 345, 140, t0 + 1.4, t1, { pal: { a: CORAL }, dur: 0.8, cd: 0.4, cikis: 'kuculerek-cik' });
+  ok.rotation = [k(t0 + 1.4, 0), k(t1, -300, 'linear')];
+  hap('s2-nokta', g, 'KIRMIZI NOKTA', S.CX - 500, 470, 330, 28, '#ffe0d6', a31.t + 1.0, t1 - 0.2, { h: 64, t: { font: F_BASLIK, weight: 900 } });
+}
+{ // S3 — Evreler: yukarıdan ve Dünya'dan bakış (ayin-evreleri-3d)
+  const g = 'g-s3', t0 = tS3, t1 = tF, a33 = n[33], a34 = n[34];
+  yika('s3-yika', g, '#d3d7f8', 1340, 540, 1500, t0, t1, { op: 0.9 });
+  yika('s3-yika2', g, '#ffe9b8', 1580, 860, 760, t0 + 0.3, t1, { op: 0.85, rot: 50 });
+  const z = S.zc(t0 + 0.2);
+  z.set(t0 + 0.2, { kamera: 'top', takipAy: false, evreAdi: true, ay: 3.1416, yorunge: 0, distance: 17, evreBoyu: 0.055, isik: 1.7 });
+  z.git(a33.t + 0.4, a33.d - 0.6, { ay: 9.4248 }, 'linear'); // Yeni Ay → ... → Yeni Ay (yukarıdan)
+  z.set(a34.t - 0.1, { takipAy: true, ay: 3.1416 });
+  z.git(a34.t + 0.4, a34.d - 0.6, { ay: 9.4248 }, 'linear'); // aynı tur, Dünya'dan bakış
+  S.SIM('s3-sim', g, 'ayin-evreleri-3d', t0 + 0.2, t1, z);
+  S.BASLIK('s3-b', g, "SİMÜLASYON · AY'IN EVRELERİ", t0 + 0.6, t1, '#e6defb');
+  S.ALT('s3-a1', g, 'Yukarıdan bakış: Güneş yarıyı aydınlatır', a33.t, a34.t - 0.1, '#e6defb', 38);
+  S.ALT('s3-a2', g, "Dünya'dan bakış: gördüğümüz evreler", a34.t, t1 - 0.1, '#fff0a6', 38);
+}
+
 // ─── Bölüm sekmeleri (sağ üst köşe) ────────────────────────────────────────
 {
   const S = [[0, tB, '1 · Kim bu?', PEACH], [tB, tC, '2 · Işığı kimin?', '#ffe58f'], [tC, tD, '3 · Yüzeyi', SKY], [tD, tE, '4 · Hareketleri', MINT], [tE, tF, '5 · Evreleri', LILAC]];
@@ -467,7 +532,10 @@ const abone = aboneBolumu({ L, M, T, hap, yika, AN, k, r2, tG, a: [n[26], n[27],
     const t = a + (i === 0 ? 0.6 : 0.8);
     hap(`tab${i}`, `g-${'abcde'[i]}`, ad, 1680, 62, 420, 34, renk, t, b, { h: 70, kutu: { style: 'cizim' } });
   });
+  [[tS1, tC, 'g-s1'], [tS2, tD2, 'g-s2'], [tS3, tF, 'g-s3']].forEach(([a, b, g], i) => hap(`tab-s${i}`, g, '▶ Simülasyon', 1680, 62, 420, 34, '#d4f0e4', a + 0.8, b, { h: 70, kutu: { style: 'cizim' } }));
 }
+
+klip('g-b', tS1); klip('g-d', tS2); klip('g-e', tS3); // sekmeler de simülasyon bölümü başlayınca biter
 
 // ─── GÖZLÜ — anlatıcı (en üstte) ───────────────────────────────────────────
 const soz = (i, metin, extra = {}) => ({ t: n[i].t, sure: n[i].d, metin: metin ?? SATIR[i - 1], ...extra });
@@ -513,6 +581,12 @@ const gozlu = K('gozlu', {
     { t: n[24].t, aksiyon: 'tanit', hedef: 'f-kart', duygu: 'mutlu', bak: 'f-kart' },
     { t: n[25].t, aksiyon: 'dusun', duygu: 'dusunceli', bak: 'f-ay2' },
     { t: n[25].t + 5.4, aksiyon: 'el-salla', duygu: 'cok-mutlu', bak: 'ileri' },
+    { t: n[29].t, aksiyon: 'tanit', hedef: 's1-sim', duygu: 'mutlu', bak: 's1-sim' },
+    { t: n[30].t, aksiyon: 'anlat', duygu: 'mutlu', bak: 's1-sim' },
+    { t: n[31].t, aksiyon: 'isaret', hedef: 's2-sim', duygu: 'mutlu', bak: 's2-sim' },
+    { t: n[32].t, aksiyon: 'sevin', duygu: 'cok-mutlu', sure: 1.4 },
+    { t: n[33].t, aksiyon: 'tanit', hedef: 's3-sim', duygu: 'mutlu', bak: 's3-sim' },
+    { t: n[34].t, aksiyon: 'anlat', duygu: 'mutlu', bak: 's3-sim' },
     ...abone.akis,
   ],
   soz: SATIR.map((m, i) => soz(i + 1, m)),
@@ -554,7 +628,7 @@ const scene = {
   audio,
   sfx: { auto: true, volume: 0.45 },
   sections: [
-    { t: 0, name: 'Kim bu?' }, { t: tB, name: 'Işığı kimin?' }, { t: tC, name: 'Yüzeyi' }, { t: tD, name: 'Hareketleri' }, { t: tE, name: 'Evreleri' }, { t: tF, name: 'Özet ve soru' }, { t: tG, name: 'Abone ol' },
+    { t: 0, name: 'Kim bu?' }, { t: tB, name: 'Işığı kimin?' }, { t: tC, name: 'Yüzeyi' }, { t: tD, name: 'Hareketleri' }, { t: tE, name: 'Evreleri' }, { t: tF, name: 'Özet ve soru' }, { t: tG, name: 'Abone ol' }, { t: tS1, name: 'Simülasyon: ışık' }, { t: tS2, name: 'Simülasyon: hep aynı yüz' }, { t: tS3, name: 'Simülasyon: evreler' },
   ],
   transitions: [
     { type: 'daire-ac', t: tB, dur: 1.0 },
@@ -563,10 +637,14 @@ const scene = {
     { type: 'mozaik', t: tE, dur: 1.1, color: '#c9b8f5' },
     { type: 'yildiz', t: tF, dur: 1.1, color: '#ffe3a8' },
     { type: 'dalga', t: tG, dur: 1.1, color: '#ffd1cc', yon: 'sol' },
+    { type: 'kepenk', t: tS1, dur: 1.0, color: '#ffe3a8' },
+    { type: 'elmas', t: tS2, dur: 1.0, color: '#c9b8f5' },
+    { type: 'daire-ac', t: tD2, dur: 0.9 },
+    { type: 'capraz', t: tS3, dur: 1.0, color: '#bfd3f0' },
   ],
   groups: [
     { id: 'g-a', name: '1 · Kim bu?' }, { id: 'g-b', name: '2 · Işığı kimin?', collapsed: true }, { id: 'g-c', name: '3 · Yüzeyi', collapsed: true },
-    { id: 'g-d', name: '4 · Hareketleri', collapsed: true }, { id: 'g-e', name: '5 · Evreleri', collapsed: true }, { id: 'g-f', name: '6 · Özet ve soru', collapsed: true }, { id: 'g-g', name: '7 · Abone ol', collapsed: true }, { id: 'g-gozlu', name: 'Kıpır' },
+    { id: 'g-d', name: '4 · Hareketleri', collapsed: true }, { id: 'g-e', name: '5 · Evreleri', collapsed: true }, { id: 'g-f', name: '6 · Özet ve soru', collapsed: true }, { id: 'g-g', name: '7 · Abone ol', collapsed: true }, { id: 'g-s1', name: '2b · Simülasyon: ışık', collapsed: true }, { id: 'g-s2', name: '4b · Simülasyon: hep aynı yüz', collapsed: true }, { id: 'g-s3', name: '5b · Simülasyon: evreler', collapsed: true }, { id: 'g-gozlu', name: 'Kıpır' },
   ],
   layers: JSON.parse(JSON.stringify(layers)),
 };

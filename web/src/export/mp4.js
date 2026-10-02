@@ -5,6 +5,7 @@ import { Muxer, ArrayBufferTarget } from 'mp4-muxer';
 import { renderFrame } from '../engine/renderer.js';
 import { makeCanvas } from '../engine/texture.js';
 import { prepareMedia } from '../media.js';
+import { simOnYukle } from '../sim-kare.js';
 
 const even = (n) => Math.max(2, Math.round(n / 2) * 2);
 
@@ -101,6 +102,7 @@ export async function exportMp4(scene, lib, opts = {}) {
   if (!picked) throw new Error(`Bu çözünürlükte (${width}×${height}) uygun video kodlayıcı bulunamadı.`);
 
   if (document.fonts?.ready) await document.fonts.ready;
+  await simOnYukle(scene); // simülasyonları önceden hazırla (ilk karelerde bekleme olmasın)
 
   // Ses (varsa): opts.audioBuffer — sahnenin önceden karıştırılmış sesi
   const ab = opts.audioBuffer || null;

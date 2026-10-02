@@ -2,7 +2,7 @@
 // Şablonlar: reels odaklı, vuruşa oturan hazır video iskeletleri.
 // Galeri (üzerine gelince oynar) → büyük önizleme (ses açılabilir) → içerik / görünüm / paylaşım formu → projeye dönüştür.
 import { computed, nextTick, onMounted, ref, shallowRef, watch } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { api } from '../api.js';
 import { resources, loadResources } from '../resources.js';
 import { STYLES } from '../engine/styles.js';
@@ -14,6 +14,7 @@ import ContentPanel from '../components/studio/ContentPanel.vue';
 import PublishPanel from '../components/studio/PublishPanel.vue';
 
 const router = useRouter();
+const route = useRoute();
 const res = resources;
 const templates = ref([]);
 const meta = ref({ muzikler: [], paletler: [], fontlar: [], sahneler: [] });
@@ -127,6 +128,28 @@ const musicInfo = computed(() => {
   return meta.value.muzikler.find((x) => x.id === m || x.file === m);
 });
 
+// Her şablonun kendi adresi: /sablonlar/<id>  ·  kullanıcı şablonları: /sablonlar/benim/<id>
+function applyRoute(first = false) {
+  const { p1, p2 } = route.params;
+  const wantUser = p1 === 'benim';
+  const id = wantUser ? p2 : p1;
+  if (id && id === tplId.value && wantUser === isUser.value) return;
+  if (id) {
+    const l = wantUser ? userTpls.value : templates.value;
+    if (l.some((x) => x.id === id)) {
+      if (wantUser !== isUser.value) group.value = wantUser ? 'benim' : 'hazir';
+      return pick(id);
+    }
+  }
+  if (first && templates.value.length) pick(templates.value[0].id);
+}
+watch(() => route.fullPath, () => templates.value.length && applyRoute());
+watch(tplId, (id) => {
+  if (!id) return;
+  const path = isUser.value ? `/sablonlar/benim/${id}` : `/sablonlar/${id}`;
+  if (route.path !== path && route.path.startsWith('/sablonlar')) router.replace(path);
+});
+
 onMounted(async () => {
   try {
     const [l, mt] = await Promise.all([api.templates(), api.templateMeta().catch(() => ({ muzikler: [], paletler: [], fontlar: [] })), loadResources()]);
@@ -134,7 +157,7 @@ onMounted(async () => {
     meta.value = mt;
     userTpls.value = await api.userTemplates();
     tmeta.value = await api.templateMetaAll().catch(() => ({}));
-    if (l.length) pick(l[0].id);
+    applyRoute(true);
     // Galeri küçük resimleri: her şablonun örneğinden sahne üret (sırayla, arayüzü kilitlemeden)
     const out = {};
     await Promise.all(l.map(async (t) => {

@@ -1,0 +1,168 @@
+{
+  "id": "hucre-kesfi",
+  "baslik": "Hücrenin Keşfi (reels · mavi pafta zaman tüneli)",
+  "olusturma": "2026-10-02T20:14:28.716Z",
+  "ogeler": [
+    {
+      "id": "mikroskop",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1665 Hooke durağı (kapak nesnesi)",
+      "amac": "Hooke'un mikroskobu; mavi pafta temasında teknik çizim gibi durur.",
+      "ref": "mikroskop",
+      "ad": "Mikroskop",
+      "kategori": "biyoloji",
+      "karar": null
+    },
+    {
+      "id": "hucre-petek",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1665 Hooke — mantar dilimindeki odacıklar",
+      "amac": "\"Cell\" kelimesinin doğduğu petek görünümü.",
+      "ref": "hucre-petek",
+      "ad": "Hücre Peteği (mantar dilimi)",
+      "kategori": "biyoloji",
+      "karar": null
+    },
+    {
+      "id": "bakteri",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1674 Leeuwenhoek — \"minik canlılar\"",
+      "amac": "Tek mercekli mikroskopla görülen ilk mikroplar.",
+      "ref": "bakteri",
+      "ad": "Bakteri (kırbaçlı)",
+      "kategori": "biyoloji",
+      "karar": null
+    },
+    {
+      "id": "hucre",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1839 Schleiden & Schwann — hücre kuramı",
+      "amac": "Çekirdekli temel hücre; \"tüm canlılar hücreden oluşur\".",
+      "ref": "hucre",
+      "ad": "Hücre (çekirdekli)",
+      "kategori": "biyoloji",
+      "karar": null
+    },
+    {
+      "id": "hucre-bolunme",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1855 Virchow — \"her hücre hücreden doğar\"",
+      "amac": "Boğumlanan, bölünen hücre.",
+      "ref": "hucre-bolunme",
+      "ad": "Hücre Bölünmesi",
+      "kategori": "biyoloji",
+      "karar": null
+    },
+    {
+      "id": "dna",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "1953 Watson & Crick — DNA çift sarmalı",
+      "amac": "Çift sarmal; hücrenin yazılı hafızası.",
+      "ref": "dna",
+      "ad": "DNA Çift Sarmal",
+      "kategori": "biyoloji",
+      "karar": null
+    },
+    {
+      "id": "ses-1",
+      "tur": "ses",
+      "ref": "d1-02722",
+      "ad": "Güven veren anlatıcı kadın",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Orta yaş",
+        "İnce ses",
+        "Sıcak",
+        "Sakin",
+        "Enerjik",
+        "Anlatıcı"
+      ],
+      "aciklama": "Otuzlu yaşlarda, yüksek tonlu, yumuşak ve enerjik kadın sesi; orta tempo, belgesel anlatıcı havası.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Ana anlatıcı adayı: sıcak ve güven veren belgesel tonu.",
+      "karar": null
+    },
+    {
+      "id": "ses-2",
+      "tur": "ses",
+      "ref": "d1-02508",
+      "ad": "Sıcak belgesel erkek sesi",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Orta yaş",
+        "Kalın ses",
+        "Sıcak",
+        "Sakin",
+        "Anlatıcı"
+      ],
+      "aciklama": "Otuzlu yaşlarda, alçak tonlu, tok ve güven veren erkek anlatıcı; orta tempo.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: tok erkek belgesel sesi.",
+      "karar": null
+    },
+    {
+      "id": "ses-3",
+      "tur": "ses",
+      "ref": "d1-02810",
+      "ad": "Ciddi genç erkek anlatıcı",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Sıcak",
+        "Sakin",
+        "Ciddi",
+        "Anlatıcı"
+      ],
+      "aciklama": "Derin, yumuşak ama otoriter genç erkek sesi; orta tempo.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: ciddi, bilim programı havası.",
+      "karar": null
+    },
+    {
+      "id": "ses-4",
+      "tur": "ses",
+      "ref": "d2-00751",
+      "ad": "Sıcak genç kadın",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Genç",
+        "Sıcak",
+        "Sakin",
+        "Enerjik"
+      ],
+      "aciklama": "Orta tonlu, sıcak, güven veren enerjik genç kadın sesi; orta tempo.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: samimi, genç ve enerjik.",
+      "karar": null
+    },
+    {
+      "id": "ses-5",
+      "tur": "ses",
+      "ref": "d1-01818",
+      "ad": "Kalın sesli olgun anlatıcı",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Olgun",
+        "Kalın ses",
+        "Enerjik",
+        "Ciddi",
+        "Yavaş tempo",
+        "Anlatıcı"
+      ],
+      "aciklama": "Elli yaşlarında, alçak, hafif kısık, ciddi ve canlı erkek anlatıcı; yavaş tempo, destansı hava.",
+      "nerede": "Tüm video anlatımı",
+      "amac": "Alternatif: yavaş ve destansı, DNA bölümünde etkili.",
+      "karar": null
+    }
+  ],
+  "arsiv": false,
+  "guncelleme": "2026-10-02T20:14:28.717Z",
+  "durum": "bekliyor"
+}

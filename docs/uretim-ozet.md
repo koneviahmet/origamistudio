@@ -4,7 +4,8 @@ Bu dosya **ilham değil, yetenek listesidir**: neler mümkün, hangi alan ne yap
 Ayrıntı: [schema.md](schema.md) · envanter (model/efekt/tema adları): [katalog.md](katalog.md) · reçeteler: [prompt-rehberi.md](prompt-rehberi.md) §4–§8.
 
 ## Akış
-`scripts/scenes-<id>.mjs` (üreteç, bkz. scripts/sablon-sahne.mjs iskeleti) → `data/projects/<id>/scene.json` → `npm run dogrula -- <id>` → kare render (§5) → `npm run render -- <id>`.
+**Render yasağı:** Claude MP4 render etmez (`npm run render` dahil); kullanıcı arayüzden (Dışa aktar) alır. Claude yalnızca `dogrula` + kare kontrolü yapar.
+`scripts/scenes-<id>.mjs` (üreteç, bkz. scripts/sablon-sahne.mjs iskeleti) → `data/projects/<id>/scene.json` → `npm run dogrula -- <id>` → kare kontrolü (§5). **MP4 render yok (kullanıcı arayüzden yapar).**
 Eksik model: `scripts/seed-<konu>.mjs` ile `data/library/<kategori>/<id>.json` yaz (facet stili, aşağıda). Sonra `npm run katalog`.
 
 ## Sahne

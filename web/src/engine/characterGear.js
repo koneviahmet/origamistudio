@@ -505,12 +505,23 @@ const OUT = easings.outBack;
 export function bubbleLayout(ctx, text, tur, fsz, maxW, font, weight) {
   ctx.font = `${weight} ${fsz}px ${fontCss(font)}`;
   const pad = fsz * 0.62;
-  const lines = wrapLines(ctx, text, maxW - pad * 2);
+  let lines = wrapLines(ctx, text, maxW - pad * 2);
+  if (lines.length > 1) {
+    // dengeli kırma: satır sayısını koruyarak en dar genişliği bul (uzun-kısa satır farkı azalır)
+    let lo = pad * 2;
+    let hi = maxW - pad * 2;
+    for (let i = 0; i < 12; i++) {
+      const mid = (lo + hi) / 2;
+      if (wrapLines(ctx, text, mid).length <= lines.length) hi = mid;
+      else lo = mid;
+    }
+    lines = wrapLines(ctx, text, hi);
+  }
   let tw = 0;
   for (const l of lines) tw = Math.max(tw, ctx.measureText(l).width);
   const lh = fsz * 1.2;
   const w = Math.max(fsz * 2.2, tw + pad * 2);
-  const h = Math.max(fsz * 1.7, lines.length * lh + pad * 1.5);
+  const h = Math.max(fsz * 1.7, lines.length * lh + pad * 1.4);
   return { lines, w, h, lh, pad, tw };
 }
 

@@ -161,6 +161,7 @@ let renderer = null;
 let labelRenderer = null;
 let controls = null;
 let axesHelper = null;
+let ambientLight = null;
 let bodyObjects = {};
 let labelObjects = {};
 
@@ -595,7 +596,7 @@ function animate() {
 function initSimulation() {
   // Create scene
   scene = new THREE.Scene();
-  scene.background = new THREE.Color('#111827'); // bg-gray-900
+  if (!VIDEO_MOD) scene.background = new THREE.Color('#111827'); // bg-gray-900 (video modunda şeffaf)
   
   // Create camera
   const containerWidth = canvasContainer.value.clientWidth;
@@ -612,8 +613,10 @@ function initSimulation() {
   renderer = new THREE.WebGLRenderer({
     canvas: canvas.value,
     antialias: true,
+    alpha: VIDEO_MOD,
     preserveDrawingBuffer: VIDEO_MOD
   });
+  if (VIDEO_MOD) renderer.setClearColor(0x000000, 0);
   renderer.setSize(containerWidth, containerHeight);
   renderer.setPixelRatio(VIDEO_MOD ? 1 : window.devicePixelRatio);
   
@@ -633,7 +636,7 @@ function initSimulation() {
   controls.dampingFactor = 0.05;
   
   // Create lighting
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+  ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
   scene.add(ambientLight);
   
   const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -645,8 +648,8 @@ function initSimulation() {
   axesHelper.visible = showAxes.value;
   scene.add(axesHelper);
   
-  // Create room
-  createRoom();
+  // Create room (video modunda yok: şeffaf zemin)
+  if (!VIDEO_MOD) createRoom();
   
   // Setup initial bodies
   updateScale();
@@ -721,12 +724,13 @@ function getSizeRanking(body) {
  *   olcek     1..100  ölçek kaydırıcısı (1 = gerçek oran, 100 = en çok büyütülmüş; varsayılan 50)
  *   ayK / dunyaK / gunesK   0..1  cismin belirme ölçeği (büyüyerek girme animasyonu için)
  *   etiketler bool   cisim isimleri + "Nx Dünya" (kareye çizilir; varsayılan false)     etiketBoyu  kare yüksekliği oranı (0.03)
+ *   etiketKisa bool  yalnız isim (Nx Dünya eki yok)       isik  ortam ışığı şiddeti (0.5 varsayılan; 1.0–1.4 daha parlak)
  *   eksenler  bool   koordinat eksenleri
  *   odak      -1..2  kamera hedefi: -1 = sahne merkezi, 0 = Ay, 1 = Dünya, 2 = Güneş (aradaki sayılar iki cisim arasında kayar)
  *   mesafe    kamera uzaklığı: odak < 0 ise dünya birimi (varsayılan 20), odak >= 0 ise odaktaki cismin YARIÇAPI × mesafe
  *   yaw / pitch   kamera açıları rad (varsayılan 0 / 0.15)
  */
-const videoState = { etiket: false, etiketBoyu: 0.03, k: { moon: 1, earth: 1, sun: 1 }, odak: -1, mesafe: 20, yaw: 0, pitch: 0.15 };
+const videoState = { etiket: false, etiketKisa: false, isik: 0.5, etiketBoyu: 0.03, k: { moon: 1, earth: 1, sun: 1 }, odak: -1, mesafe: 20, yaw: 0, pitch: 0.15 };
 let videoCoz = () => {};
 const videoHazir = new Promise((r) => { videoCoz = r; });
 const SIRA = ['moon', 'earth', 'sun'];
@@ -779,7 +783,7 @@ useSimKontrol({
     scaleSlider.value = 50;
     showLabels.value = true;
     showAxes.value = false;
-    Object.assign(videoState, { etiket: false, etiketBoyu: 0.03, k: { moon: 1, earth: 1, sun: 1 }, odak: -1, mesafe: 20, yaw: 0, pitch: 0.15 });
+    Object.assign(videoState, { etiket: false, etiketKisa: false, isik: 0.5, etiketBoyu: 0.03, k: { moon: 1, earth: 1, sun: 1 }, odak: -1, mesafe: 20, yaw: 0, pitch: 0.15 });
     updateScale();
     toggleAxes();
   },
@@ -795,6 +799,8 @@ useSimKontrol({
     if ('eksenler' in d) { showAxes.value = !!d.eksenler; toggleAxes(); }
     if ('etiketler' in d) videoState.etiket = !!d.etiketler;
     if ('etiketBoyu' in d) videoState.etiketBoyu = d.etiketBoyu;
+    if ('etiketKisa' in d) videoState.etiketKisa = !!d.etiketKisa;
+    if ('isik' in d) { videoState.isik = d.isik; if (ambientLight) ambientLight.intensity = d.isik; }
     if ('ayK' in d) videoState.k.moon = d.ayK;
     if ('dunyaK' in d) videoState.k.earth = d.dunyaK;
     if ('gunesK' in d) videoState.k.sun = d.gunesK;
@@ -816,13 +822,16 @@ useSimKontrol({
       if (_p.z > 1) continue;
       const x = (_p.x * 0.5 + 0.5) * w;
       const y = (-_p.y * 0.5 + 0.5) * h - fs * 0.9;
-      const txt = b.id === 'earth' ? b.name : `${b.name} (${timesLargerThanEarth(b.diameter)}x Dünya)`;
+      const txt = b.id === 'earth' || videoState.etiketKisa ? b.name : `${b.name} (${timesLargerThanEarth(b.diameter)}x Dünya)`;
       const tw = ctx.measureText(txt).width;
-      ctx.fillStyle = 'rgba(17,24,39,0.78)';
+      ctx.fillStyle = 'rgba(255,250,238,0.95)';
+      ctx.strokeStyle = b.color;
+      ctx.lineWidth = Math.max(2, fs * 0.12);
       ctx.beginPath();
       ctx.roundRect(x - tw / 2 - fs * 0.5, y - fs * 0.75, tw + fs, fs * 1.5, fs * 0.45);
       ctx.fill();
-      ctx.fillStyle = b.color;
+      ctx.stroke();
+      ctx.fillStyle = '#3d3a73';
       ctx.fillText(txt, x, y + fs * 0.04);
     }
     ctx.restore();

@@ -9,6 +9,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { karakterBaglam } from './lib/karakter.mjs';
 import { aboneBolumu, aboneMetinleri } from './lib/abone-bolumu.mjs';
+import { simKit } from './lib/sim-kit.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PROJE_ID = 'gunes-dersi';
@@ -64,7 +65,10 @@ function wavSure(file) {
 // Bitiş: beğen / yorum / abone ol (scripts/abone-satirlar.txt, ses: gunes-dersi-abone-N.wav)
 const NA = SATIR.length;
 SATIR.push(...aboneMetinleri(ROOT, fs, path));
-const SES = SATIR.map((_, i) => (i < NA ? `gunes-dersi-kipir-ses-${i + 1}.wav` : `gunes-dersi-abone-${i - NA + 1}.wav`));
+// Ek: simülasyon bölümleri (JSON ile yönetilen simülasyonlar) — satırlar abone satırlarından SONRA numaralanır (24-29), mevcut ses dosyaları değişmez
+const NS = SATIR.length;
+SATIR.push(...fs.readFileSync(path.join(ROOT, 'scripts', 'gunes-dersi-sim-satirlar.txt'), 'utf8').split(/\r?\n/).filter((x) => x.trim()).map((x) => x.replace(/^[\d.]+\s*\|\s*/, '')));
+const SES = SATIR.map((_, i) => (i < NA ? `gunes-dersi-kipir-ses-${i + 1}.wav` : i < NS ? `gunes-dersi-abone-${i - NA + 1}.wav` : `gunes-dersi-sim-${i - NS + 1}.wav`));
 const D = SATIR.map((m, i) => r2(wavSure(path.join(ROOT, 'data', 'audio', SES[i])) ?? m.length / 14 + 0.6));
 
 // ─── Zaman çizelgesi (anlatıma göre) ───────────────────────────────────────
@@ -76,10 +80,16 @@ const gec = (bekle, ac = 0.8) => { const tb = r2(cur - 0.4 + bekle); cur = tb + 
 say(1, 0.3); say(2, 2.4); say(3, 0.3); say(4, 0);
 const tB = gec(1.9);
 say(5, 1.7); say(6, 0.45); say(7, 0);
+const tS1 = gec(1.4); // + simülasyon: Güneş'in katmanları
+say(24, 0.5); say(25, 0);
 const tC = gec(1.6);
 say(8, 2.2); say(9, 0.35); say(10, 0);
+const tS2 = gec(1.4); // + simülasyon: Güneş ile Dünya arası
+say(26, 0.5); say(27, 0);
 const tD = gec(2.0);
 say(11, 0.4); say(12, 0.4); say(13, 0.5); say(14, 2.5); say(15, 0);
+const tS3 = gec(1.4); // + simülasyon: lekeler ve dönüş
+say(28, 0.5); say(29, 0);
 const tE = gec(1.7);
 say(16, 0.4); say(17, 0.4); say(18, 0);
 const tF = gec(1.4);
@@ -478,6 +488,65 @@ const gG = 'g-g';
 layers.filter((l) => l.group === 'g-f' && l.end == null).forEach((l) => { l.end = r2(tG); }); // F bölümünün açık uçlu katmanları geçişte biter
 const abone = aboneBolumu({ L, M, T, hap, yika, AN, k, r2, tG, a: [n[21], n[22], n[23]], g: gG, renk: { INK, CORAL, BUTTER, MINT, SKY, LILAC, PINK }, fontBaslik: F_BASLIK, fontEl: F_EL });
 
+// ═══════════════════════════════════════════════════════════════════════════
+// SİMÜLASYON BÖLÜMLERİ — JSON ile yönetilen simülasyonlar (şema §16). Mevcut bölümlerin sonuna eklenir, bölümler korunur.
+//   S1 katmanlar (B'den sonra) · S2 Güneş-Dünya uzaklığı (C'den sonra) · S3 lekeler ve dönüş (D'den sonra)
+// ═══════════════════════════════════════════════════════════════════════════
+const S = simKit({ L, M, T, hap, AN, k, r2, BUTTER, CORAL, HILITE, F_BASLIK }, {});
+const klip = (g, t) => layers.filter((l) => l.group === g && (l.start ?? 0) < t && (l.end == null || l.end > t)).forEach((l) => { l.end = r2(t); });
+const ETIKET = (id, g, text, x, y, hedef, t, t1, renk, o = {}) => {
+  T(`${id}-t`, g, text, x, y, o.size || 46, t, t1, { font: F_EL, weight: 400, color: renk, anim: 'harf-belir', cikis: 'kuculerek-cik' });
+  OK(`${id}-o`, g, [x + (o.dx || 0), y + (o.dy || -40)], hedef, t + 0.2, { stil: 'ok-el-cizimi', color: renk, width: 5, bend: o.bend ?? 0.3, end: t1, dur: 0.7 });
+};
+{ // S1 — Güneş'in katmanları (gokcisimleri-katmanlari)
+  const g = 'g-s1', t0 = tS1, t1 = tC, a24 = n[24], a25 = n[25];
+  yika('s1-yika', g, '#ffe9b8', 1340, 540, 1500, t0, t1, { op: 0.9 });
+  yika('s1-yika2', g, '#cfe4fb', 1560, 860, 760, t0 + 0.3, t1, { op: 0.85, rot: 40 });
+  const ac = a24.t + a24.d * 0.34; // "Güneş'in içine bakalım" → kesit açılır
+  const kat = [['corona', 'Taç küre: en dış, çok sıcak seyrek gazlar', a24.t + a24.d * 0.4], ['chromosphere', 'Renk küre: kırmızımsı ince katman', a24.t + a24.d * 0.62],
+    ['photosphere', "Işık küre: Güneş'in görünen yüzeyi", a24.t + a24.d * 0.8], ['core', 'Çekirdek: füzyonun olduğu en sıcak bölge', a25.t + 0.1]];
+  const z = S.zc(t0 + 0.2);
+  z.set(t0 + 0.2, { speed: 0.7, cutaway: '', labels: false });
+  z.set(ac, { cutaway: 'sun', labels: true, layer: 'corona', distance: 6.2, labelSize: 0.036 });
+  kat.forEach(([lid, metin, ta], i) => {
+    const tb = i === kat.length - 1 ? t1 : kat[i + 1][2];
+    z.set(ta, { layer: lid });
+    S.ALT(`s1-c${i}`, g, metin, ta, tb - 0.05, '#ffe58f', 38);
+  });
+  S.SIM('s1-sim', g, 'gokcisimleri-katmanlari', t0 + 0.2, t1, z);
+  S.BASLIK('s1-b', g, "SİMÜLASYON · GÜNEŞ'İN KATMANLARI", t0 + 0.6, t1, '#ffe58f');
+  M('s1-halka', g, 'yorunge-halka-cizim', S.CX, S.CY + 10, 700, t0 + 0.6, t1, { pal: { a: '#ff9b8a' }, dur: 1.4, cikis: false, idle: 3 });
+  ETIKET('s1-e', g, 'iç yapıyı gör!', S.CX - 420, S.CY - 300, [S.CX - 190, S.CY - 110], ac + 0.4, a25.t - 0.2, CORAL, { size: 42, dx: 120, dy: 20, bend: -0.25 });
+}
+{ // S2 — Güneş ile Dünya arasındaki yol (gunes-dunya-ay, ölçü oku)
+  const g = 'g-s2', t0 = tS2, t1 = tD, a26 = n[26], a27 = n[27];
+  yika('s2-yika', g, '#d6e2f7', 1340, 540, 1500, t0, t1, { op: 0.9 });
+  yika('s2-yika2', g, '#ffdbe8', 1560, 860, 760, t0 + 0.3, t1, { op: 0.85, rot: 20 });
+  const z = S.zc(t0 + 0.2);
+  z.set(t0 + 0.2, { camera: 'free', takip: '', labels: true, orbits: true, axes: false, speed: 0, pitch: 1.0, yaw: 0, distance: 14.5, clarity: 1.6, isik: 2.4, olcum: '' });
+  z.set(a26.t + a26.d * 0.55, { olcum: '≈ 150 milyon km' });
+  z.git(a27.t, 3.0, { speed: 0.45 }, 'inOutSine');
+  S.SIM('s2-sim', g, 'gunes-dunya-ay', t0 + 0.2, t1, z);
+  S.BASLIK('s2-b', g, 'SİMÜLASYON · GÜNEŞ ↔ DÜNYA', t0 + 0.6, t1, '#cfe9ff');
+  S.ALT('s2-a1', g, "Güneş ile Dünya arası ≈ 150.000.000 km", a26.t, a27.t - 0.1, '#cfe9ff', 38);
+  S.ALT('s2-a2', g, 'Güneş bize en yakın yıldız → büyük ve parlak görünür', a27.t, t1 - 0.1, '#fff0a6', 36);
+}
+{ // S3 — Lekeler ve dönüş (gunes-yapisi)
+  const g = 'g-s3', t0 = tS3, t1 = tE, a28 = n[28], a29 = n[29];
+  yika('s3-yika', g, '#d3d7f8', 1340, 540, 1500, t0, t1, { op: 0.9 });
+  yika('s3-yika2', g, '#ffe9b8', 1580, 860, 760, t0 + 0.3, t1, { op: 0.85, rot: 50 });
+  const z = S.zc(t0 + 0.2);
+  z.set(t0 + 0.2, { speed: 0.3, cutaway: false, labels: false, yaw: 0.0, pitch: 0.12, distance: 6.4 });
+  z.git(a29.t, 3.0, { speed: 0.42 }, 'inOutSine');
+  S.SIM('s3-sim', g, 'gunes-yapisi', t0 + 0.2, t1, z);
+  S.BASLIK('s3-b', g, 'SİMÜLASYON · LEKELER KAYIYOR', t0 + 0.6, t1, '#e6defb');
+  S.ALT('s3-a1', g, 'Üç leke hep aynı yöne kayıyor', a28.t, a29.t - 0.1, '#e6defb', 38);
+  S.ALT('s3-a2', g, 'Güneş kendi etrafında saat yönünün tersine dönüyor', a29.t, t1 - 0.1, '#ffe0d6', 36);
+  const ok = M('s3-ok', g, 'donus-oku-cizim', S.CX - 500, 345, 150, t0 + 1.4, t1, { pal: { a: CORAL }, dur: 0.8, cd: 0.4, cikis: 'kuculerek-cik' });
+  ok.rotation = [k(t0 + 1.4, 0), k(t1, -300, 'linear')];
+  ETIKET('s3-e', g, 'güneş lekeleri', S.CX - 340, S.CY - 270, [S.CX - 15, S.CY - 15], t0 + 1.4, a29.t - 0.2, '#6b4fc9', { size: 42, dx: 100, dy: 25, bend: -0.25 });
+}
+
 // ─── Bölüm sekmeleri (sağ üst köşe) ────────────────────────────────────────
 {
   const S = [[0, tB, '1 · Kim bu?', PEACH], [tB, tC, '2 · Neyden yapılmış?', MINT], [tC, tD, '3 · Ne kadar uzak?', SKY], [tD, tE, '4 · Güneş lekeleri', LILAC], [tE, tF, '5 · Dikkat!', '#ffcab8']];
@@ -485,7 +554,9 @@ const abone = aboneBolumu({ L, M, T, hap, yika, AN, k, r2, tG, a: [n[21], n[22],
     const t = a + (i === 0 ? 0.6 : 0.8);
     hap(`tab${i}`, `g-${'abcde'[i]}`, ad, 1680, 62, 420, 34, renk, t, b, { h: 70, kutu: { style: 'cizim' } });
   });
+  [[tS1, tC, 'g-s1'], [tS2, tD, 'g-s2'], [tS3, tE, 'g-s3']].forEach(([a, b, g], i) => hap(`tab-s${i}`, g, '▶ Simülasyon', 1680, 62, 420, 34, '#d4f0e4', a + 0.8, b, { h: 70, kutu: { style: 'cizim' } }));
 }
+klip('g-b', tS1); klip('g-c', tS2); klip('g-d', tS3); // önceki bölümler (sekmeleriyle) simülasyon başlayınca biter
 
 // ─── GÖZLÜ — anlatıcı (en üstte) ───────────────────────────────────────────
 const soz = (i, metin, extra = {}) => ({ t: n[i].t, sure: n[i].d, metin: metin ?? SATIR[i - 1], ...extra });
@@ -528,6 +599,12 @@ const gozlu = K('gozlu', {
     { t: n[19].t, aksiyon: 'tanit', hedef: 'f-kart', duygu: 'mutlu', bak: 'f-kart' },
     { t: n[20].t, aksiyon: 'dusun', duygu: 'dusunceli', bak: 'f-gunes2' },
     { t: n[20].t + 4.8, aksiyon: 'el-salla', duygu: 'cok-mutlu', bak: 'ileri' },
+    { t: n[24].t, aksiyon: 'tanit', hedef: 's1-sim', duygu: 'mutlu', bak: 's1-sim' },
+    { t: n[25].t, aksiyon: 'anlat', duygu: 'mutlu', bak: 's1-sim' },
+    { t: n[26].t, aksiyon: 'isaret', hedef: 's2-sim', duygu: 'mutlu', bak: 's2-sim' },
+    { t: n[27].t, aksiyon: 'anlat', duygu: 'mutlu', bak: 's2-sim' },
+    { t: n[28].t, aksiyon: 'tanit', hedef: 's3-sim', duygu: 'mutlu', bak: 's3-sim' },
+    { t: n[29].t, aksiyon: 'sevin', duygu: 'cok-mutlu', sure: 1.4 },
     ...abone.akis,
   ],
   soz: SATIR.map((m, i) => soz(i + 1, m)),
@@ -569,7 +646,7 @@ const scene = {
   audio,
   sfx: { auto: true, volume: 0.45 },
   sections: [
-    { t: 0, name: 'Kim bu?' }, { t: tB, name: 'Neyden yapılmış?' }, { t: tC, name: 'Ne kadar uzak?' }, { t: tD, name: 'Güneş lekeleri' }, { t: tE, name: 'Dikkat!' }, { t: tF, name: 'Özet ve soru' }, { t: tG, name: 'Abone ol' },
+    { t: 0, name: 'Kim bu?' }, { t: tB, name: 'Neyden yapılmış?' }, { t: tC, name: 'Ne kadar uzak?' }, { t: tD, name: 'Güneş lekeleri' }, { t: tE, name: 'Dikkat!' }, { t: tF, name: 'Özet ve soru' }, { t: tG, name: 'Abone ol' }, { t: tS1, name: 'Simülasyon: katmanlar' }, { t: tS2, name: 'Simülasyon: uzaklık' }, { t: tS3, name: 'Simülasyon: lekeler' },
   ],
   transitions: [
     { type: 'benek', t: tB, dur: 1.2, color: '#ffe3a8' },
@@ -578,10 +655,13 @@ const scene = {
     { type: 'kepenk', t: tE, dur: 1.0, color: '#ff9d8a' },
     { type: 'yildiz', t: tF, dur: 1.1, color: '#c9b8f5' },
     { type: 'dalga', t: tG, dur: 1.1, color: '#ffd1cc', yon: 'sol' },
+    { type: 'jaluzi', t: tS1, dur: 1.0, color: '#ffe3a8' },
+    { type: 'elmas', t: tS2, dur: 1.0, color: '#bfd3f0' },
+    { type: 'capraz', t: tS3, dur: 1.0, color: '#c9b8f5' },
   ],
   groups: [
     { id: 'g-a', name: '1 · Kim bu?' }, { id: 'g-b', name: '2 · Neyden yapılmış?', collapsed: true }, { id: 'g-c', name: '3 · Ne kadar uzak?', collapsed: true },
-    { id: 'g-d', name: '4 · Güneş lekeleri', collapsed: true }, { id: 'g-e', name: '5 · Dikkat!', collapsed: true }, { id: 'g-f', name: '6 · Özet ve soru', collapsed: true }, { id: 'g-g', name: '7 · Abone ol', collapsed: true }, { id: 'g-gozlu', name: 'Kıpır' },
+    { id: 'g-d', name: '4 · Güneş lekeleri', collapsed: true }, { id: 'g-e', name: '5 · Dikkat!', collapsed: true }, { id: 'g-f', name: '6 · Özet ve soru', collapsed: true }, { id: 'g-g', name: '7 · Abone ol', collapsed: true }, { id: 'g-s1', name: '2b · Simülasyon: katmanlar', collapsed: true }, { id: 'g-s2', name: '3b · Simülasyon: uzaklık', collapsed: true }, { id: 'g-s3', name: '4b · Simülasyon: lekeler', collapsed: true }, { id: 'g-gozlu', name: 'Kıpır' },
   ],
   layers: JSON.parse(JSON.stringify(layers)),
 };

@@ -154,6 +154,34 @@
           "earth",
           "moon"
         ]
+      },
+      "boya": {
+        "tip": "sayi",
+        "aciklama": "GENEL: boya + mürekkep süzgeci (0 = gerçekçi 3B, 1 = pastel düzlükler + el çizimi kontur). Videonun çizim stiline uydurmak için ~0.8.",
+        "varsayilan": 0,
+        "aralik": [
+          0,
+          1
+        ]
+      },
+      "isik": {
+        "tip": "sayi",
+        "aciklama": "Tüm ışıkların çarpanı (Dünya / Ay yüzeyleri daha parlak görünür; boya süzgeciyle ~2).",
+        "varsayilan": 1,
+        "aralik": [
+          0.3,
+          4
+        ]
+      },
+      "ayIsaret": {
+        "tip": "bool",
+        "aciklama": "Ay'ın Dünya'ya bakan yüzünde kırmızı nokta (hep aynı yüz anlatımı).",
+        "varsayilan": false
+      },
+      "olcum": {
+        "tip": "metin",
+        "aciklama": "Güneş ile Dünya arasına çift uçlu kesik ölçü oku ve bu yazı çizilir (ör. '≈ 150 milyon km'); '' = yok.",
+        "varsayilan": ""
       }
     },
     "ornek": [

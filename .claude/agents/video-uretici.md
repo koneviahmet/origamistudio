@@ -20,6 +20,8 @@ Konuşan / yürüyen / tanıtan karakter gerekirse `data/characters/` dosyaları
 Onay kuyruğu (zorunlu): konsept seçildikten sonra, kodlamadan önce nesne adaylarını (`npm run ara`; eksik olanı üret) ve 5 sesi (`npm run sesler`) seç, `scripts/onay-<id>.json` yaz, `npm run onay -- olustur …` ile /onay/<id> sayfasına koy, kullanıcıyı bilgilendir ve `npm run onay -- bekle <id>` ile kararları bekle (kullan / kullanma / düzenle; düzenle = kütüphanede aynı varlığın üzerine yaz). Ayrıntı: CLAUDE.md "ONAY KUYRUĞU".
 
 İş akışı: 3 konsept → birini seç → eksik model/efekt/tema varsa üret (scripts/seed-<konu>.mjs) → `scripts/scenes-<id>.mjs` üreteci yaz →
-`node scripts/scenes-<id>.mjs` → `npm run dogrula -- <id>` → kare render edip bak (docs/prompt-rehberi.md §5) → düzelt →
+`node scripts/scenes-<id>.mjs` → `npm run dogrula -- <id>` → tek kare kontrolü (docs/prompt-rehberi.md §5; MP4 render YASAK — kullanıcı arayüzden alır) → düzelt →
 sahneye `publish { title, description, tags[] }` (videoya özgü başlık/açıklama/etiketler) ekle → kombinasyon günlüğüne satır ekle → kısa Türkçe rapor (bölüm tablosu, teyit etmediğin bilgiler).
 Emin olmadığın tarih/sayıyı videoya koyma.
+
+**RENDER YASAĞI:** Hiçbir zaman MP4 render / dışa aktarım yapma (`npm run render`, `scripts/render.mjs`, `/render/<id>`, Stüdyo "Dışa aktar"). Render'ı kullanıcı arayüzden yapar; sen yalnızca `dogrula` + kare kontrolü yaparsın.
