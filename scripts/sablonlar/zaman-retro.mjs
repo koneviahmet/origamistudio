@@ -149,15 +149,16 @@ export default {
         });
       }
       // terminal bilgi satırları
-      pl.bilgi.forEach((ln, j) => {
-        yazi(`bilgi-${st}${'ab'[j]}`, `> ${ln}`, tV + 0.6 + j * 1.1, t1 - 0.2, {
-          grup: g, y: H * (0.765 + j * 0.055), size: 44, maxW: W * 0.92, sar: 40, font: MONO, weight: 700, renk: CYAN, align: 'center', kutu: 'rgba(8,0,32,0.72)', kutuAlfa: 1, radius: 8, pad: [10, 22], reveal: [0.05, 0.9], lh: 1.1,
+      const bY = Z.yigin(pl.bilgi.map((ln) => `> ${ln}`), { size: 44, maxW: W * 0.88, lh: 1.1, gap: 44, font: MONO, minOran: 0.92 });
+      bY.items.forEach((it, j) => {
+        yazi(`bilgi-${st}${'ab'[j]}`, it.ln, tV + 0.6 + j * 1.1, t1 - 0.2, {
+          grup: g, y: H * 0.742 + it.yOff, size: it.size, maxW: W * 0.88, sar: it.sar, font: MONO, weight: 700, renk: CYAN, align: 'center', kutu: 'rgba(8,0,32,0.72)', kutuAlfa: 1, radius: 8, pad: [10, 22], reveal: [0.05, 0.9], lh: 1.1,
         });
       });
       (s.notlar || []).slice(0, 2).forEach((nt, j) => {
         const tn = tV + 1.8 + j * 0.5;
         yazi(`not-${st}${'ab'[j]}`, `#${nt}`, tn, t1 - 0.5, {
-          grup: g, x: W * (j % 2 ? 0.84 : 0.16), y: H * 0.545, size: 38, sabit: true, font: MONO, weight: 700, kutu: PEMBE, renk: '#10001f', radius: 6, pad: [6, 16], rot: j % 2 ? 4 : -4, anims: [{ preset: 'zipla-gir', t: R2(tn), dur: 0.4 }],
+          grup: g, x: W * (j % 2 ? 0.74 : 0.17), y: H * 0.545, size: 38, sabit: true, font: MONO, weight: 700, kutu: PEMBE, renk: '#10001f', radius: 6, pad: [6, 16], rot: j % 2 ? 4 : -4, anims: [{ preset: 'zipla-gir', t: R2(tn), dur: 0.4 }],
         });
       });
       Z.ses(pl, tA);

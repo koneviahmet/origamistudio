@@ -56,11 +56,40 @@ export function zamanKur(brief, sablonId, d, o = {}) {
   const tKapak = c.vurus(kapakBeats);
 
   /** Metin katmanı (el yazısı / modern, sığdırmalı). o: grup, x, y, size, sabit, maxW, sar, reveal, renk, kutu, rot, anims, lh, weight, align, font, upper, harf, stroke, opacity, depth */
-  const yazi = (id, text, t0, t1, oo = {}) => {
+  const fit = (text, oo = {}) => {
     const f = oo.font || font;
     const upper = !!oo.upper;
     const metin = oo.sar ? sarMetin(text, oo.sar) : String(text);
-    const size = oo.sabit ? oo.size : sigdirFont(metin, f, oo.maxW ?? W * 0.9, oo.size ?? 80, upper);
+    // Sığdırma: sabit puntolu metin de ölçülü genişlikle küçülür (ekran dışına taşmasın); kutulu metinde iç boşluk düşülür
+    const ax = oo.x ?? W / 2;
+    const al = oo.align || 'center';
+    const bos = oo.kutu ? 2 * (Array.isArray(oo.pad) ? oo.pad[1] : 28) : 0;
+    const avail = (oo.maxW ?? (ax >= 0 && ax <= W ? (al === 'left' ? W - ax - 44 : al === 'right' ? ax - 44 : Math.min(2 * Math.min(ax, W - ax) - 40, W * 0.9)) : W * 0.9)) - bos;
+    const size = sigdirFont(metin, f, avail, oo.size ?? 80, upper, oo.harf ?? 0, oo.weight ?? 700);
+    return { f, upper, metin, size, satir: metin.split(String.fromCharCode(10)).length };
+  };
+  /**
+   * Bilgi satırı yığını: her satır önce tek satıra sığdırılır (punto ≥ minOran·size), olmazsa 2 satıra bölünür;
+   * ölçülen yüksekliklerle alt alta dizilir (üst üste binmez). o: { size, maxW, lh, gap, minOran, font, upper, harf, kutu }
+   * Dönüş: { items: [{ ln, sar, size, yOff }], toplam } — yOff = bloğun üstünden satır merkezine uzaklık (px).
+   */
+  const yigin = (lines, o = {}) => {
+    const lh = o.lh ?? 1.12;
+    const items = lines.map((ln) => {
+      let v = fit(ln, { ...o, sar: undefined });
+      let sar;
+      if (v.size < o.size * (o.minOran ?? 0.8)) {
+        sar = Math.ceil(String(ln).length / 2) + 3;
+        v = fit(ln, { ...o, sar });
+      }
+      return { ln, sar, size: v.size, h: v.size * lh * v.satir };
+    });
+    let cur = 0;
+    for (const it of items) { it.yOff = cur + it.h / 2; cur += it.h + (o.gap ?? it.size * 0.35); }
+    return { items, toplam: items.length ? cur - (o.gap ?? items[items.length - 1].size * 0.35) : 0 };
+  };
+  const yazi = (id, text, t0, t1, oo = {}) => {
+    const { f, upper, metin, size } = fit(text, oo);
     const rev = oo.reveal;
     return c.L({
       id, ...(oo.grup ? { group: oo.grup } : {}), type: 'text', text: metin, font: f, weight: oo.weight ?? 700, color: oo.renk || '$baslik',
@@ -115,14 +144,33 @@ export function zamanKur(brief, sablonId, d, o = {}) {
       });
     }
     const A = (extra) => [...extra, ...cik];
-    if (brief.kanca) yazi('kanca', brief.kanca, 0, tKapak, { grup: g, x: W / 2 + dx, y: H * (kw.yK ?? 0.29) + dy, size: kw.kancaSize ?? 84, renk: kw.kancaRenk || renk, reveal: [0.15, 0.9], anims: A([]), upper: kw.upper, harf: kw.upper ? 6 : undefined });
+    // Dikey yığın: kanca → başlık → alt başlık, ölçülü yüksekliklerle (başlık 3 satıra inse bile üst üste binmez)
+    const kOpt = { size: kw.kancaSize ?? 84, upper: kw.upper, harf: kw.upper ? 6 : undefined, maxW: W * 0.9 };
+    const bOpt = { size: kw.baslikSize ?? 190, sar: kw.sar ?? 12, upper: kw.upper, weight: kw.weight ?? 800 };
+    const aOpt = { size: kw.altSize ?? 88, kutu: true, pad: [8, 28], maxW: W * 0.9 };
+    const fK = brief.kanca ? fit(brief.kanca, kOpt) : null;
+    const fB = fit(brief.baslik || brief.ad, bOpt);
+    const fA = brief.altBaslik ? fit(brief.altBaslik, aOpt) : null;
+    const hK = fK ? fK.size * 1.1 : 0;
+    const hB = fB.size * fB.satir * (kw.lh ?? 1);
+    const hA = fA ? fA.size * 1.1 + 24 : 0;
+    const GAPK = 34;
+    let top = H * (kw.yK ?? 0.29) - hK / 2;
+    let tot = hK + (fK ? GAPK : 0) + hB + (fA ? GAPK + 14 : 0) + hA;
+    const limit = brief.kapakNesne ? H * (kw.yN ?? 0.8) - m * (kw.nesnePx ?? 0.5) * 0.8 : H * 0.85;
+    if (top + tot > limit) top = Math.max(90, top - (top + tot - limit));
+    const yKc = top + hK / 2;
+    const yBc = top + hK + (fK ? GAPK : 0) + hB / 2;
+    const yAc = top + hK + (fK ? GAPK : 0) + hB + GAPK + 14 + hA / 2;
+
+    if (brief.kanca) yazi('kanca', brief.kanca, 0, tKapak, { grup: g, x: W / 2 + dx, y: yKc + dy, size: kw.kancaSize ?? 84, maxW: W * 0.9, renk: kw.kancaRenk || renk, reveal: [0.15, 0.9], anims: A([]), upper: kw.upper, harf: kw.upper ? 6 : undefined });
     yazi('baslik', brief.baslik || brief.ad, 0, tKapak, {
-      grup: g, x: W / 2 + dx, y: H * (kw.yB ?? 0.4) + dy, size: kw.baslikSize ?? 190, sar: kw.sar ?? 12, renk, reveal: [0.9, 1.5], lh: kw.lh ?? 1, weight: kw.weight ?? 800, upper: kw.upper, golge: kw.golge,
+      grup: g, x: W / 2 + dx, y: yBc + dy, size: kw.baslikSize ?? 190, sar: kw.sar ?? 12, renk, reveal: [0.9, 1.5], lh: kw.lh ?? 1, weight: kw.weight ?? 800, upper: kw.upper, golge: kw.golge,
       anims: [{ preset: 'nefes', t: 2.4, genlik: 0.015, periyot: p * 4 }, { preset: 'kuculerek-cik', t: R2(tKapak - 0.55), dur: 0.5 }],
     });
     if (brief.altBaslik) {
       yazi('alt-baslik', brief.altBaslik, 0, tKapak, {
-        grup: g, x: W / 2 + dx, y: H * (kw.yA ?? 0.53) + dy, size: kw.altSize ?? 88, reveal: [2.0, 1.0], kutu: kw.altKutu ?? hi(0), rot: -2, renk: kw.altRenk || (koyu ? '#1b2228' : '#2d3561'),
+        grup: g, x: W / 2 + dx, y: yAc + dy, size: kw.altSize ?? 88, maxW: W * 0.9, pad: [8, 28], reveal: [2.0, 1.0], kutu: kw.altKutu ?? hi(0), rot: -2, renk: kw.altRenk || (koyu ? '#1b2228' : '#2d3561'),
         anims: A([{ preset: 'zipla-gir', t: 2.0, dur: 0.5 }]),
       });
     }
@@ -136,21 +184,43 @@ export function zamanKur(brief, sablonId, d, o = {}) {
     const dy = kw.dy ?? 0;
     const renk = kw.renk || '$baslik';
     const t0 = kw.t0 ?? tK;
-    const [y1, y2, y3, y4] = kw.upper ? [0.165, 0.29, 0.43, 0.55] : [0.2, 0.3, 0.42, 0.545];
-    c.bolum(t0, 'Kapanış');
-    if (brief.son1) yazi('son-1', brief.son1, t0, null, { grup: g, x: W / 2 + dx, y: H * y1 + dy, size: kw.upper ? 110 : 130, renk, reveal: [0.3, 0.7], upper: kw.upper });
+    // Dikey yığın: blok yükseklikleri ölçülür, sırayla dizilir (üst üste binmez); sığmazsa son2 küçülür
+    const u1 = kw.upper ? 110 : 130;
+    let s2 = kw.upper ? 190 : 200;
+    let sq = 92;
+    const bloklar = () => {
+      const o1 = brief.son1 ? fit(brief.son1, { size: u1, upper: kw.upper }) : null;
+      const o2 = fit(brief.son2 || `${brief.ad}!`, { size: s2, sar: 14, maxW: W * 0.8, upper: kw.upper });
+      const o3 = brief.soru ? fit(brief.soru, { size: sq, sar: 16, kutu: true }) : null;
+      const o4 = brief.cta ? fit(brief.cta, { size: 72 }) : null;
+      return [[o1, o1 && o1.size * 1.05], [o2, o2.size * o2.satir], [o3, o3 && o3.size * 1.05 * o3.satir + 46 + 40], [o4, o4 && o4.size * 1.05]].filter((q) => q[0]);
+    };
+    const ust = H * (kw.upper ? 0.12 : 0.14);
+    const alt = H * 0.6;
+    const GAP = 44;
+    let bl = bloklar();
+    while (bl.reduce((x, q) => x + q[1], 0) + GAP * (bl.length - 1) > alt - ust && (s2 > 90 || sq > 60)) { s2 = Math.max(90, Math.round(s2 * 0.92)); sq = Math.max(60, Math.round(sq * 0.94)); bl = bloklar(); }
+    let cur = ust;
+    const yy = {};
+    bl.forEach(([o, h], i) => { yy[o.metin] = cur + h / 2; cur += h + GAP; });
+    const yTakip = (cur - GAP) / H + 0.075; // takip bloğu yığının hemen altında (CTA ile çakışmaz)
+    const Y = (txt) => yy[txt] + dy;
+    const o1 = brief.son1 ? fit(brief.son1, { size: u1, upper: kw.upper }) : null;
+    if (o1) yazi('son-1', brief.son1, t0, null, { grup: g, x: W / 2 + dx, y: Y(o1.metin), size: u1, renk, reveal: [0.3, 0.7], upper: kw.upper });
+    const o2 = fit(brief.son2 || `${brief.ad}!`, { size: s2, sar: 14, maxW: W * 0.8, upper: kw.upper });
     yazi('son-2', brief.son2 || `${brief.ad}!`, t0, null, {
-      grup: g, x: W / 2 + dx, y: H * y2 + dy, size: kw.upper ? 190 : 200, sar: 14, maxW: W * 0.8, renk, reveal: [1.0, 1.2], lh: 1, weight: 800, upper: kw.upper, golge: kw.golge,
+      grup: g, x: W / 2 + dx, y: Y(o2.metin), size: s2, sar: 14, maxW: W * 0.8, renk, reveal: [1.0, 1.2], lh: 1, weight: 800, upper: kw.upper, golge: kw.golge,
       anims: [{ preset: 'nefes', t: R2(t0 + 2.4), genlik: 0.02, periyot: p * 3 }],
     });
     if (brief.soru) {
+      const o3 = fit(brief.soru, { size: sq, sar: 16, kutu: true });
       yazi('son-soru', brief.soru, t0, null, {
-        grup: g, x: W / 2 + dx, y: H * y3 + dy, size: 92, sar: 16, kutu: kw.soruKutu ?? hi(1), renk: kw.soruRenk || (koyu ? '#1b2228' : '#2d3561'), rot: -3, reveal: [2.8, 0.01],
+        grup: g, x: W / 2 + dx, y: Y(o3.metin), size: sq, sar: 16, kutu: kw.soruKutu ?? hi(1), renk: kw.soruRenk || (koyu ? '#1b2228' : '#2d3561'), rot: -3, reveal: [2.8, 0.01],
         anims: [{ preset: 'zipla-gir', t: R2(t0 + 2.8), dur: 0.7 }, { preset: 'sallan', t: R2(t0 + 3.6), aci: 3, periyot: 2 }],
       });
     }
-    if (brief.cta) yazi('son-cta', brief.cta, t0, null, { grup: g, x: W / 2 + dx, y: H * y4 + dy, size: 72, renk: kw.ctaRenk || renk, reveal: [4.0, 1.2], opacity: 0.9 });
-    if (brief.takip !== false) c.takip(t0 + 3.2, tEnd, { grup: g, y: 0.64 + dy / H });
+    if (brief.cta) { const o4 = fit(brief.cta, { size: 72 }); yazi('son-cta', brief.cta, t0, null, { grup: g, x: W / 2 + dx, y: Y(o4.metin), size: 72, renk: kw.ctaRenk || renk, reveal: [4.0, 1.2], opacity: 0.9 }); }
+    if (brief.takip !== false) c.takip(t0 + 3.2, tEnd, { grup: g, y: yTakip + dy / H });
     c.L({ id: 'kapanis-konfeti', group: g, type: 'particles', particle: 'yildiz-tozu', mode: 'surekli', start: R2(t0), end: R2(tEnd), count: 45, prewarm: true, area: [60 + dx, 300 + dy, W - 60 + dx, Math.round(H * 0.65) + dy] });
     c.L({ id: 'kapanis-patlama', group: g, type: 'particles', particle: 'konfeti', mode: 'patlama', x: Math.round(W / 2 + dx), y: Math.round(H * 0.4 + dy), start: R2(t0 + 2.8), end: R2(tEnd) });
     return g;
@@ -187,7 +257,7 @@ export function zamanKur(brief, sablonId, d, o = {}) {
     return sc;
   };
 
-  return { c, W, H, k, m, p, font, bol, n, koyu, hi, planlar, bK, tK, tEnd, tKapak, kapSure, yazi, cizGir, cizim, ses, kapak, kapanis, bitir, suzBg, isik, anlatim, audio };
+  return { c, W, H, k, m, p, font, bol, n, koyu, hi, planlar, bK, tK, tEnd, tKapak, kapSure, yazi, cizGir, cizim, ses, kapak, kapanis, bitir, suzBg, isik, anlatim, audio, fit, yigin };
 }
 
 /** Yıl metni sayı mı? (sayaç şablonu için) */

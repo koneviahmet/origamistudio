@@ -70,12 +70,22 @@ const FONT_K = {
   Montserrat: 0.78, 'Playfair Display': 0.6, 'Abril Fatface': 0.64, Fraunces: 0.6, Lora: 0.56, 'JetBrains Mono': 0.62, Righteous: 0.66, Raleway: 0.66, Manrope: 0.66, Poppins: 0.72, 'Space Mono': 0.62, 'Baloo 2': 0.62, Lexend: 0.68, Urbanist: 0.62, 'DM Serif Display': 0.6,
 };
 export const FONTLAR = Object.keys(FONT_K).sort((a, b) => a.localeCompare(b));
-export const sigdirFont = (text, font, maxW, taban, upper = true) => {
-  const k = (FONT_K[font] ?? 0.62) * (upper ? 1.04 : 0.78);
-  // rakamlar ve % geniş, noktalama / i-l dar
-  const agirlik = (l) => [...l].reduce((sum, ch) => sum + (/[0-9MW]/.test(ch) ? 1.2 : ch === '%' ? 1.9 : /[.,:;'!|ilI ]/.test(ch) ? 0.5 : 1), 0);
-  const en = Math.max(1, ...String(text).split(/\n/).map(agirlik));
-  return Math.round(Math.min(taban, maxW / (en * k)));
+// Ölçülü genişlik tablosu (tarayıcıda canvas measureText, 700 ağırlık, 100px): [küçük harf, BÜYÜK harf, rakam] ortalama ileri-genişlik / em.
+const FONT_W = {"Caveat":[0.337,0.461,0.449],"Patrick Hand":[0.358,0.42,0.422],"Kalam":[0.442,0.537,0.511],"Mali":[0.508,0.621,0.585],"Quicksand":[0.48,0.56,0.549],"Pacifico":[0.42,0.703,0.518],"Dancing Script":[0.368,0.556,0.54],"Comfortaa":[0.518,0.616,0.573],"Anton":[0.399,0.412,0.478],"Bebas Neue":[0.34,0.34,0.4],"Archivo Black":[0.545,0.668,0.667],"Bungee":[0.635,0.635,0.668],"Oswald":[0.408,0.475,0.503],"Russo One":[0.507,0.605,0.602],"Rubik":[0.489,0.579,0.636],"Sora":[0.509,0.616,0.642],"Outfit":[0.452,0.569,0.557],"Montserrat":[0.522,0.628,0.609],"Playfair Display":[0.464,0.587,0.516],"Abril Fatface":[0.462,0.572,0.571],"Fraunces":[0.501,0.641,0.619],"Lora":[0.479,0.597,0.541],"JetBrains Mono":[0.6,0.6,0.6],"Righteous":[0.459,0.555,0.57],"Raleway":[0.473,0.57,0.572],"Manrope":[0.47,0.556,0.586],"Poppins":[0.512,0.569,0.597],"Space Mono":[0.612,0.612,0.612],"Baloo 2":[0.443,0.517,0.528],"Lexend":[0.512,0.636,0.594],"Urbanist":[0.444,0.542,0.536],"DM Serif Display":[0.443,0.524,0.504],"Nunito":[0.46,0.584,0.6],"M PLUS Rounded 1c":[0.486,0.565,0.64],"Courgette":[0.444,0.529,0.527]};
+/** Metin genişliği (px) — ölçülü tablo + harf aralığı (letterSpacing: engine'deki gibi size/100 çarpanlı) */
+export const metinGenisligi = (text, font, size, upper = false, harf = 0, weight = 700) => {
+  const [kl, ku, kd] = FONT_W[font] || [0.55, 0.66, 0.62];
+  const en = Math.max(0, ...String(text).split('\n').map((l) => {
+    const L = upper ? l.toLocaleUpperCase('tr') : l;
+    return [...L].reduce((sum, ch) => sum + (/[0-9]/.test(ch) ? kd : upper || ch !== ch.toLocaleLowerCase('tr') ? ku : kl) + harf / 100, 0);
+  }));
+  // güvenlik payı: tablo ortalama harf dağılımına göre; geniş harfli metinler ve ağır ağırlık için
+  return en * size * 1.07 * (weight >= 800 ? 1.06 : 1);
+};
+/** maxW'a sığan en büyük punto (en çok `taban`) */
+export const sigdirFont = (text, font, maxW, taban, upper = true, harf = 0, weight = 700) => {
+  const w1 = metinGenisligi(text, font, 1, upper, harf, weight);
+  return Math.max(8, Math.round(Math.min(taban, maxW / Math.max(w1, 0.01))));
 };
 
 /** Metni en çok `maks` karakterlik satırlara böler */

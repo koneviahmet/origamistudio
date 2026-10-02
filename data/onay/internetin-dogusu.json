@@ -11,7 +11,8 @@
       "ref": "sunucu",
       "ad": "Sunucu Rafı",
       "kategori": "bilgisayar",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "eposta-zarf",
@@ -22,7 +23,8 @@
       "ref": "eposta-zarf",
       "ad": "E-posta Zarfı (@)",
       "kategori": "internet",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "ag-dugumleri",
@@ -33,7 +35,8 @@
       "ref": "ag-dugumleri",
       "ad": "Ağ Düğümleri",
       "kategori": "internet",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "kisisel-bilgisayar",
@@ -43,7 +46,8 @@
       "ref": "kisisel-bilgisayar",
       "ad": "Kişisel Bilgisayar (CRT)",
       "kategori": "bilgisayar",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "kalp",
@@ -53,7 +57,8 @@
       "ref": "kalp",
       "ad": "Kalp",
       "kategori": "sekiller",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "modern-telefon",
@@ -63,7 +68,8 @@
       "ref": "modern-telefon",
       "ad": "Modern Akıllı Telefon",
       "kategori": "iletisim",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "ses-1",
@@ -81,7 +87,8 @@
       "aciklama": "Alçak, güçlü ve yumuşak genç erkek sesi; yavaş ve kendinden emin anlatım.",
       "nerede": "Tüm video anlatımı",
       "amac": "Ana anlatıcı adayı: yavaş, kendinden emin retro-belgesel erkek.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     },
     {
       "id": "ses-2",
@@ -100,7 +107,8 @@
       "aciklama": "Alçak, kadife tonlu, kendinden emin ve canlı genç erkek; hızlı tempo, reels temposuna uygun.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: hızlı genç erkek.",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "ses-3",
@@ -119,7 +127,8 @@
       "aciklama": "Orta-alçak, berrak, hafif kısık genç kadın sesi; hızlı ve net tempo.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: tempolu genç kadın.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     },
     {
       "id": "ses-4",
@@ -137,7 +146,8 @@
       "aciklama": "Otuzlu yaşlarda, alçak tonlu, tok ve güven veren erkek anlatıcı; orta tempo.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: sıcak belgesel erkek sesi.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     },
     {
       "id": "ses-5",
@@ -154,10 +164,11 @@
       "aciklama": "Orta tonlu, sıcak, güven veren enerjik genç kadın sesi; orta tempo.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: samimi genç kadın.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     }
   ],
   "arsiv": false,
-  "guncelleme": "2026-10-02T20:14:30.606Z",
-  "durum": "bekliyor"
+  "guncelleme": "2026-10-02T20:19:54.646Z",
+  "durum": "tamam"
 }

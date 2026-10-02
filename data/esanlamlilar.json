@@ -235,7 +235,7 @@
   "konteyner-gemisi": "container ship cargo freight shipping export ihracat taşıma kargo lojistik",
   "tisort": "t-shirt tee shirt clothing apparel garment kıyafet giysi",
   "yapay-beyin": "ai brain neural network artificial intelligence machine learning beyin sinir ağı",
-  "satranc-sah": "chess king deep blue kasparov board game satranç taş",
+  "satranc-sah": "chess knight horse piece deep blue kasparov board game satranç at taş",
   "go-tahtasi": "go game alphago baduk board stone tahta taş",
   "robot-kafa": "robot head chatbot assistant ai chatgpt bot yapay zekâ asistan",
   "eposta-zarf": "email mail envelope message letter at sign @ posta mektup",
@@ -243,5 +243,6 @@
   "wright-flyer": "wright flyer biplane first flight airplane aviation uçak çift kanat havacılık",
   "tek-kanat-ucak": "monoplane bleriot lindbergh spirit of st louis aircraft plane tek kanat uçak",
   "jet-ucagi": "jet plane turbine aircraft airplane jet motoru uçak",
-  "bell-x1": "bell x-1 rocket plane yeager sound barrier supersonic ses duvarı"
+  "bell-x1": "bell x-1 rocket plane yeager sound barrier supersonic ses duvarı",
+  "spirit-of-st-louis": "spirit of st louis lindbergh atlantic monoplane silver aircraft new york paris gümüş uçak atlantik"
 }

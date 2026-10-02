@@ -12,7 +12,9 @@
       "ref": "mikroskop",
       "ad": "Mikroskop",
       "kategori": "biyoloji",
-      "karar": null
+      "karar": "duzenle",
+      "not": "3B düşük çokgen model olarak yeniden yaptım",
+      "duzenlendi": true
     },
     {
       "id": "hucre-petek",
@@ -23,7 +25,9 @@
       "ref": "hucre-petek",
       "ad": "Hücre Peteği (mantar dilimi)",
       "kategori": "biyoloji",
-      "karar": null
+      "karar": "duzenle",
+      "not": "3B düşük çokgen model olarak yeniden yaptım",
+      "duzenlendi": true
     },
     {
       "id": "bakteri",
@@ -34,7 +38,9 @@
       "ref": "bakteri",
       "ad": "Bakteri (kırbaçlı)",
       "kategori": "biyoloji",
-      "karar": null
+      "karar": "duzenle",
+      "not": "3B düşük çokgen model olarak yeniden yaptım",
+      "duzenlendi": true
     },
     {
       "id": "hucre",
@@ -45,7 +51,8 @@
       "ref": "hucre",
       "ad": "Hücre (çekirdekli)",
       "kategori": "biyoloji",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "hucre-bolunme",
@@ -56,7 +63,9 @@
       "ref": "hucre-bolunme",
       "ad": "Hücre Bölünmesi",
       "kategori": "biyoloji",
-      "karar": null
+      "karar": "duzenle",
+      "not": "3B düşük çokgen model olarak yeniden yaptım",
+      "duzenlendi": true
     },
     {
       "id": "dna",
@@ -67,7 +76,8 @@
       "ref": "dna",
       "ad": "DNA Çift Sarmal",
       "kategori": "biyoloji",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "ses-1",
@@ -86,7 +96,8 @@
       "aciklama": "Otuzlu yaşlarda, yüksek tonlu, yumuşak ve enerjik kadın sesi; orta tempo, belgesel anlatıcı havası.",
       "nerede": "Tüm video anlatımı",
       "amac": "Ana anlatıcı adayı: sıcak ve güven veren belgesel tonu.",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "ses-2",
@@ -104,7 +115,8 @@
       "aciklama": "Otuzlu yaşlarda, alçak tonlu, tok ve güven veren erkek anlatıcı; orta tempo.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: tok erkek belgesel sesi.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     },
     {
       "id": "ses-3",
@@ -123,7 +135,8 @@
       "aciklama": "Derin, yumuşak ama otoriter genç erkek sesi; orta tempo.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: ciddi, bilim programı havası.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     },
     {
       "id": "ses-4",
@@ -140,7 +153,8 @@
       "aciklama": "Orta tonlu, sıcak, güven veren enerjik genç kadın sesi; orta tempo.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: samimi, genç ve enerjik.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     },
     {
       "id": "ses-5",
@@ -159,10 +173,11 @@
       "aciklama": "Elli yaşlarında, alçak, hafif kısık, ciddi ve canlı erkek anlatıcı; yavaş tempo, destansı hava.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: yavaş ve destansı, DNA bölümünde etkili.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     }
   ],
   "arsiv": false,
-  "guncelleme": "2026-10-02T20:14:28.717Z",
-  "durum": "bekliyor"
+  "guncelleme": "2026-10-02T20:29:41.083Z",
+  "durum": "tamam"
 }

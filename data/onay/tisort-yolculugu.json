@@ -12,7 +12,8 @@
       "ref": "pamuk",
       "ad": "Pamuk Kozası",
       "kategori": "tekstil",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "makara",
@@ -23,7 +24,8 @@
       "ref": "makara",
       "ad": "İplik Makarası",
       "kategori": "tekstil",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "kumas-rulo",
@@ -34,7 +36,9 @@
       "ref": "kumas-rulo",
       "ad": "Kumaş Topu",
       "kategori": "tekstil",
-      "karar": null
+      "karar": "duzenle",
+      "not": "3B düşük çokgen model olarak yeniden yaptım",
+      "duzenlendi": true
     },
     {
       "id": "dikis-makinesi",
@@ -45,7 +49,8 @@
       "ref": "dikis-makinesi",
       "ad": "Dikiş Makinesi",
       "kategori": "tekstil",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "konteyner-gemisi",
@@ -56,7 +61,8 @@
       "ref": "konteyner-gemisi",
       "ad": "Konteyner Gemisi",
       "kategori": "tekstil",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "tisort",
@@ -67,7 +73,9 @@
       "ref": "tisort",
       "ad": "Tişört",
       "kategori": "tekstil",
-      "karar": null
+      "karar": "duzenle",
+      "not": "3B düşük çokgen model olarak yeniden yaptım",
+      "duzenlendi": true
     },
     {
       "id": "ses-1",
@@ -85,7 +93,8 @@
       "aciklama": "Otuzlu yaşlarda, alçak ve kadife tonlu, profesyonel ve enerjik kadın anlatıcı.",
       "nerede": "Tüm video anlatımı",
       "amac": "Ana anlatıcı adayı: enerjik ve kadife kadın sesi.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     },
     {
       "id": "ses-2",
@@ -104,7 +113,8 @@
       "aciklama": "Alçak, kadife tonlu, kendinden emin ve canlı genç erkek; hızlı tempo, reels temposuna uygun.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: hızlı, reels temposunda genç erkek.",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "ses-3",
@@ -121,7 +131,8 @@
       "aciklama": "Orta tonlu, sıcak, güven veren enerjik genç kadın sesi; orta tempo.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: samimi, genç kadın.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     },
     {
       "id": "ses-4",
@@ -140,7 +151,8 @@
       "aciklama": "Orta-alçak, berrak, hafif kısık genç kadın sesi; hızlı ve net tempo.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: net ve tempolu kadın anlatıcı.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     },
     {
       "id": "ses-5",
@@ -158,10 +170,11 @@
       "aciklama": "Otuzlu yaşlarda, alçak tonlu, tok ve güven veren erkek anlatıcı; orta tempo.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: sakin belgesel erkek sesi.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     }
   ],
   "arsiv": false,
-  "guncelleme": "2026-10-02T20:14:29.349Z",
-  "durum": "bekliyor"
+  "guncelleme": "2026-10-02T20:29:42.374Z",
+  "durum": "tamam"
 }

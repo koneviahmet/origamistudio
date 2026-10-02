@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Origami Studio → YouTube & Facebook",
+  "short_name": "Origami Yayın",
+  "version": "1.0.0",
+  "description": "Origami Studio projelerini ara, önizle; MP4'ü YouTube Studio ve Meta Business Suite'e yükle, başlık / açıklama / etiketleri otomatik doldur. Yayınla'ya sen basarsın.",
+  "minimum_chrome_version": "114",
+  "permissions": ["storage", "sidePanel"],
+  "host_permissions": [
+    "http://localhost/*",
+    "http://127.0.0.1/*",
+    "https://studio.youtube.com/*",
+    "https://business.facebook.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "side_panel": { "default_path": "panel/panel.html" },
+  "action": { "default_title": "Origami Studio videoları" },
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "content_scripts": [
+    {
+      "matches": ["https://studio.youtube.com/*"],
+      "js": ["lib/ortak.js", "content/youtube.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://business.facebook.com/*"],
+      "js": ["content/facebook-main.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://business.facebook.com/*"],
+      "js": ["lib/ortak.js", "content/facebook.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

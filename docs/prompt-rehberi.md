@@ -449,3 +449,7 @@ Karakter boyu `OLCEK` (0.85) ile küçültülür, içerik ana öğedir. Çizim s
 - **Dikkat**: balon metni ≤ 90 karakter, ≥ 1.6 sn; aynı anda tek balon; `tanit`/`isaret` için hedef katmanın id'si olmalı; `dx` ile yürütürken `sure` ver (bitince bekleme pozuna döner); aksiyon adlarını uydurma (`--aksiyonlar`);
   Türkçe balon fontu Baloo 2 (varsayılan). Kareyi §5 yöntemiyle kontrol et: karakterler çerçeve dışında / üst üste mi?
 - **Yeni karakter**: Karakterler sayfası (ölçü, renk, şekil, aksesuar, varyant) ya da `data/characters/<id>.json` (şema §15). Eklenince `etiketler` ve `kullanim` doldur (arama bunlara bakar).
+
+### 5.1 Metin yerleşimi denetimi (taşma / üst üste binme)
+Şablon ya da elle üretilen sahnede metin taşıyor / çakışıyor mu? `scripts/lib/metin-denetim.browser.js` dosyasını Stüdyo açıkken tarayıcıda çalıştır, sonra `await __metin('<id>')` (gerçek `renderFrame` ile 0.5 sn aralıkla `fillText` yakalar; TASMA / KENAR / UST / YAKIN listesi) ve `__grid(id, [sn…])` ile kare ızgarası al.
+Şablon yan etkileri: `sigdirFont` artık **ölçülü** font tablosuyla (reels.mjs `FONT_W`) çalışır; `zaman-ortak.mjs` içinde `yazi()` sabit puntolu metni de sığdırır, `Z.yigin()` bilgi satırlarını ölçerek alt alta dizer (tek satıra sığmazsa 2 satıra böler), `kapak()` / `kapanis()` blokları dikey yığında dizer (üst üste binmez).

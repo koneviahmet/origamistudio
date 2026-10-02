@@ -167,7 +167,7 @@ export default {
         anims: [{ preset: 'zipla-gir', t: R2(tA + 0.35), dur: 0.7 }, { preset: 'suzul', t: R2(tA + 1.2), genlik: 8, periyot: 3.4 }],
       });
       if (s.balon) {
-        yazi(`balon-${st}`, s.balon, tA + 1.2, null, { grup: g, x: sol ? W * 0.76 : W * 0.24, y: ky - 330, size: 56, maxW: W * 0.32, sar: 10, kutu: INK, radius: 28, pad: [8, 24], rot: sol ? 5 : -5, renk: '#ffffff', weight: 800, anims: [{ preset: 'zipla-gir', t: R2(tA + 1.2), dur: 0.5 }, { preset: 'sallan', t: R2(tA + 1.8), aci: 3, periyot: 1.8 }] });
+        yazi(`balon-${st}`, s.balon, tA + 1.2, null, { grup: g, x: sol ? W * 0.76 : W * 0.24, y: ky - 245, size: 56, maxW: W * 0.32, sar: 10, kutu: INK, radius: 28, pad: [8, 24], rot: sol ? 5 : -5, renk: '#ffffff', weight: 800, anims: [{ preset: 'zipla-gir', t: R2(tA + 1.2), dur: 0.5 }, { preset: 'sallan', t: R2(tA + 1.8), aci: 3, periyot: 1.8 }] });
       }
       (s.notlar || []).slice(0, 2).forEach((nt, j) => {
         yazi(`not-${st}${'ab'[j]}`, `#${nt}`, tA + 2.2 + j * 0.4, null, { grup: g, x: kx + (j % 2 ? 190 : -190), y: ky + 320, size: 34, sabit: true, font: MONO, renk: INK, weight: 700, kutu: acc, kutuAlfa: 0.35, radius: 999, pad: [6, 18], anims: [{ preset: 'zipla-gir', t: R2(tA + 2.2 + j * 0.4), dur: 0.4 }] });
@@ -177,8 +177,9 @@ export default {
       const py = Yw(0.775);
       yuvarlak(`panel-${st}`, g, W / 2, py, W * 0.9, H * 0.2, 44, INK, tA + 0.8);
       yazi(`ad-${st}`, s.ad, tA + 1.0, null, { grup: g, x: 100, y: py - H * 0.067, size: 44, sabit: true, align: 'left', renk: acc, weight: 800, upper: true, harf: 5, reveal: [0.05, 0.6] });
-      pl.bilgi.forEach((ln, j) => {
-        yazi(`bilgi-${st}${'ab'[j]}`, ln, tA + 1.4 + j * 1.1, null, { grup: g, x: 100, y: py - H * 0.012 + j * H * 0.046, size: 50, maxW: W * 0.84, sar: 34, align: 'left', renk: '#ffffff', weight: 600, reveal: [0.05, 0.9] });
+      const bY = Z.yigin(pl.bilgi, { size: 50, maxW: W * 0.84, lh: 1.08, gap: 22, minOran: 0.92 });
+      bY.items.forEach((it, j) => {
+        yazi(`bilgi-${st}${'ab'[j]}`, it.ln, tA + 1.4 + j * 1.1, null, { grup: g, x: 100, y: py - H * 0.052 + it.yOff, size: it.size, maxW: W * 0.84, sar: it.sar, align: 'left', renk: '#ffffff', weight: 600, lh: 1.08, reveal: [0.05, 0.9] });
       });
       const nxt = planlar[i + 1] ? planlar[i + 1].s.ad : null;
       if (nxt) yazi(`sonraki-${st}`, `Sonraki durak › ${nxt}`, tA + 2.6, null, { grup: g, x: W - 100, y: py + H * 0.092, size: 30, sabit: true, align: 'right', font: MONO, renk: '#b9b6ad', weight: 700, harf: 1, reveal: [0.05, 0.9] });

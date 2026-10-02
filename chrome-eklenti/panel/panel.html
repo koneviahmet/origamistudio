@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Origami Studio videoları</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <header>
+    <div class="ust">
+      <h1>🦢 Origami Yayın</h1>
+      <span id="durum" class="durum" title="Sunucu bağlantısı">●</span>
+      <label class="anahtar" title="Eklentiyi aç / kapat (kapalıyken gönderme ve sayfalarda otomatik doldurma çalışmaz)">
+        <input id="aktif" type="checkbox" checked><span></span>
+      </label>
+      <button id="ayarBtn" class="ikon" title="Ayarlar">⚙</button>
+      <button id="yenileBtn" class="ikon" title="Listeyi yenile">⟳</button>
+    </div>
+    <p id="kapali" class="kapali" hidden>Eklenti kapalı: YouTube / Facebook'a gönderme ve sayfalarda otomatik doldurma durdu. Arama ve önizleme çalışır. Açmak için sağ üstteki anahtarı kullan.</p>
+    <section id="ayar" hidden>
+      <label>Sunucu adresi
+        <input id="sunucu" type="url" placeholder="http://localhost:5180">
+      </label>
+      <label>YouTube görünürlüğü (Yayınla'dan önce seçili gelir)
+        <select id="gorunurluk">
+          <option value="PUBLIC">Herkese açık</option>
+          <option value="UNLISTED">Liste dışı</option>
+          <option value="PRIVATE">Gizli</option>
+        </select>
+      </label>
+      <button id="ayarKaydet" class="birincil">Kaydet</button>
+    </section>
+  </header>
+
+  <!-- Liste görünümü -->
+  <main id="liste">
+    <div class="arama">
+      <input id="ara" type="search" placeholder="Ara: başlık, açıklama, etiket…" autocomplete="off">
+    </div>
+    <div class="suzgec">
+      <select id="mp4Suzgec">
+        <option value="hepsi">Tümü</option>
+        <option value="var">MP4 hazır</option>
+        <option value="yok">MP4 yok</option>
+      </select>
+      <label class="onay"><input id="arsiv" type="checkbox"> Arşivlenenler</label>
+      <span id="sayi" class="sayi"></span>
+    </div>
+    <div id="kartlar"></div>
+    <p id="bos" class="bos" hidden></p>
+  </main>
+
+  <!-- Ayrıntı görünümü -->
+  <main id="ayrinti" hidden>
+    <button id="geri" class="geri">← Listeye dön</button>
+    <h2 id="aBaslik"></h2>
+    <p id="aMeta" class="meta"></p>
+
+    <div class="onizleme">
+      <video id="video" controls preload="metadata" playsinline></video>
+      <div id="videoYok" class="video-yok" hidden>Bu proje için henüz MP4 yok.</div>
+    </div>
+    <div class="satir">
+      <select id="mp4Sec"></select>
+      <button id="uretBtn">MP4 üret</button>
+    </div>
+    <div id="uretDurum" class="uret" hidden><div class="bar"><i></i></div><span></span></div>
+
+    <fieldset>
+      <legend>YouTube</legend>
+      <label>Başlık <small id="ytSay"></small>
+        <input id="ytBaslik" type="text" maxlength="100">
+      </label>
+      <label>Açıklama
+        <textarea id="ytAciklama" rows="6"></textarea>
+      </label>
+      <label>Etiketler (virgülle)
+        <input id="ytEtiket" type="text">
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Facebook Reels</legend>
+      <label>Açıklama (başlık + metin + #etiketler)
+        <textarea id="fbAciklama" rows="7"></textarea>
+      </label>
+    </fieldset>
+
+    <p class="not">Gönder'e basınca ilgili site açılır, video seçilir, alanlar doldurulur. <b>Yayınla'ya sen basarsın.</b> İkisine birden gönderirken önce birini yayınla, sonra diğerini gönder (sekme arka planda kalırsa doldurma durabilir).</p>
+
+    <div class="eylem">
+      <button id="ytBtn" class="yt">▶ YouTube'a gönder</button>
+      <button id="fbBtn" class="fb">f Facebook'a gönder</button>
+    </div>
+    <div id="iptalSatir" class="iptal-satir" hidden>
+      <button id="ytIptal" class="iptal" hidden>✕ YouTube gönderimini iptal et</button>
+      <button id="fbIptal" class="iptal" hidden>✕ Facebook gönderimini iptal et</button>
+    </div>
+    <div class="alt-eylem">
+      <button id="sifirlaBtn" class="metin">Metinleri sıfırla</button>
+    </div>
+    <p id="sonuc" class="sonuc" hidden></p>
+  </main>
+
+  <script src="panel.js" type="module"></script>
+</body>
+</html>

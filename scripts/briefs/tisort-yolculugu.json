@@ -1,0 +1,136 @@
+{
+  "sablon": "zaman-metro",
+  "id": "tisort-yolculugu",
+  "ad": "Bir Tişörtün Yolculuğu",
+  "format": "reels",
+  "palet": "metro",
+  "muzik": "pop-120",
+  "font": "Outfit",
+  "stil": "duz",
+  "kanca": "ÜZERİNDEKİ TİŞÖRT",
+  "baslik": "Bir Tişörtün Yolculuğu",
+  "altBaslik": "tarladan dolabına 6 durak",
+  "kapakNesne": "tisort",
+  "bolumler": [
+    {
+      "yil": "Tarla",
+      "ad": "Pamuk tarlası",
+      "nesne": "pamuk",
+      "balon": "Hasat zamanı!",
+      "bilgi": [
+        "Pamuk kozaları elle ya da makineyle toplanır",
+        "Bir tişört için yaklaşık 2.700 litre su gerekir"
+      ],
+      "notlar": [
+        "pamuk",
+        "hasat"
+      ],
+      "anlatim": "Birinci durak: pamuk tarlası. Kozalar toplanıyor. Tek bir tişört için yaklaşık iki bin yedi yüz litre su harcanıyor.",
+      "ses": "tisort-yolculugu-ses-1.wav"
+    },
+    {
+      "yil": "İplikhane",
+      "ad": "İplik",
+      "nesne": "makara",
+      "balon": "Büküyoruz!",
+      "bilgi": [
+        "Lifler taranır ve burularak ipliğe dönüşür",
+        "İnce iplik kilometrelerce uzar"
+      ],
+      "notlar": [
+        "tarama",
+        "bobin"
+      ],
+      "anlatim": "İkinci durak: iplikhane. Pamuk lifleri taranıyor, bükülüyor ve kilometrelerce iplik oluyor.",
+      "ses": "tisort-yolculugu-ses-2.wav"
+    },
+    {
+      "yil": "Dokuma",
+      "ad": "Kumaş ve boya",
+      "nesne": "kumas-rulo",
+      "balon": "Renk renk!",
+      "bilgi": [
+        "İplikler örülerek kumaş olur",
+        "Kumaş boyanır ve yıkanır"
+      ],
+      "notlar": [
+        "örgü",
+        "boya"
+      ],
+      "anlatim": "Üçüncü durak: dokuma ve boya. İplikler kumaşa dönüşüyor, kumaş da rengini alıyor.",
+      "ses": "tisort-yolculugu-ses-3.wav"
+    },
+    {
+      "yil": "Atölye",
+      "ad": "Dikim atölyesi",
+      "nesne": "dikis-makinesi",
+      "balon": "Tık tık tık!",
+      "bilgi": [
+        "Kumaş kalıba göre kesilir",
+        "Parçalar makinelerde birleşir"
+      ],
+      "notlar": [
+        "kalıp",
+        "dikiş"
+      ],
+      "anlatim": "Dördüncü durak: dikim atölyesi. Kumaş kesiliyor, parçalar dikiş makinelerinde birleşip tişört oluyor.",
+      "ses": "tisort-yolculugu-ses-4.wav"
+    },
+    {
+      "yil": "Liman",
+      "ad": "Denizaşırı yol",
+      "nesne": "konteyner-gemisi",
+      "balon": "Yola çıkıyoruz!",
+      "bilgi": [
+        "Tişörtler konteynerlere yüklenir",
+        "Gemi haftalarca denizde yol alabilir"
+      ],
+      "notlar": [
+        "konteyner",
+        "liman"
+      ],
+      "anlatim": "Beşinci durak: liman. Tişörtler konteynerlere yükleniyor ve gemi, haftalarca sürebilen yolculuğuna çıkıyor.",
+      "ses": "tisort-yolculugu-ses-5.wav"
+    },
+    {
+      "yil": "Dolap",
+      "ad": "Mağaza ve dolabın",
+      "nesne": "tisort",
+      "varyant": [
+        "beyaz"
+      ],
+      "balon": "Geldim!",
+      "bilgi": [
+        "Rafa dizilir, sonra senin dolabına gelir",
+        "Uzun kullanmak, çevreye en büyük iyiliktir"
+      ],
+      "notlar": [
+        "mağaza",
+        "dolap"
+      ],
+      "anlatim": "Son durak: mağaza ve senin dolabın. Yolculuk burada bitmiyor. Onu uzun süre giymek, çevreye en büyük iyilik.",
+      "ses": "tisort-yolculugu-ses-6.wav"
+    }
+  ],
+  "soru": "Dolabındaki en eski tişört hangisi?",
+  "cta": "Yorumlara yaz!",
+  "son1": "Her tişörtün",
+  "son2": "bir hikâyesi var!",
+  "yayin": {
+    "baslik": "Bir tişörtün yolculuğu: tarladan dolabına",
+    "aciklama": "Pamuk tarlasından iplikhaneye, dokumadan dikim atölyesine, limandan mağazaya bir tişörtün 6 duraklık yolculuğu. Dolabındaki en eski tişört hangisi? Yorumlara yaz!",
+    "etiketler": [
+      "tişört",
+      "pamuk",
+      "tekstil",
+      "moda",
+      "üretim",
+      "sürdürülebilirlik",
+      "nasıl yapılır",
+      "bilgi",
+      "reels",
+      "shorts",
+      "eğitim"
+    ]
+  }
+}

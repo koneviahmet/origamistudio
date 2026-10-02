@@ -11,7 +11,8 @@
       "ref": "yorum-balonu-cizim",
       "ad": "Yorum balonu (çizim)",
       "kategori": "iletisim",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "yapay-beyin",
@@ -22,7 +23,9 @@
       "ref": "yapay-beyin",
       "ad": "Yapay Beyin (devre)",
       "kategori": "yapay-zeka",
-      "karar": null
+      "karar": "duzenle",
+      "not": "3B düşük çokgen model olarak yeniden yaptım",
+      "duzenlendi": true
     },
     {
       "id": "satranc-sah",
@@ -33,7 +36,9 @@
       "ref": "satranc-sah",
       "ad": "Satranç Şahı",
       "kategori": "yapay-zeka",
-      "karar": null
+      "karar": "duzenle",
+      "not": "Haçlı şah kalktı; 3B satranç atına dönüştü (id aynı)",
+      "duzenlendi": true
     },
     {
       "id": "modern-telefon",
@@ -43,7 +48,8 @@
       "ref": "modern-telefon",
       "ad": "Modern Akıllı Telefon",
       "kategori": "iletisim",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "go-tahtasi",
@@ -54,7 +60,8 @@
       "ref": "go-tahtasi",
       "ad": "Go Tahtası",
       "kategori": "yapay-zeka",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "robot-kafa",
@@ -65,7 +72,8 @@
       "ref": "robot-kafa",
       "ad": "Robot Kafası (sohbet botu)",
       "kategori": "yapay-zeka",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "ses-1",
@@ -84,7 +92,8 @@
       "aciklama": "Orta-alçak, berrak, hafif kısık genç kadın sesi; hızlı ve net tempo.",
       "nerede": "Tüm video anlatımı",
       "amac": "Ana anlatıcı adayı: tempolu, net genç kadın.",
-      "karar": null
+      "karar": "kullan",
+      "duzenlendi": false
     },
     {
       "id": "ses-2",
@@ -103,7 +112,8 @@
       "aciklama": "Alçak, kadife tonlu, kendinden emin ve canlı genç erkek; hızlı tempo, reels temposuna uygun.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: hızlı genç erkek.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     },
     {
       "id": "ses-3",
@@ -122,7 +132,8 @@
       "aciklama": "Derin, yumuşak ama otoriter genç erkek sesi; orta tempo.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: ciddi, teknoloji haberi havası.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     },
     {
       "id": "ses-4",
@@ -139,7 +150,8 @@
       "aciklama": "Altmışlı yaşlarda, orta-alçak, hafif kısık, profesyonel ve enerjik kadın anlatıcı.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: profesyonel olgun kadın.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     },
     {
       "id": "ses-5",
@@ -155,10 +167,11 @@
       "aciklama": "Pürüzsüz, yüksek tonlu, enerjik ve nazik genç erkek sesi.",
       "nerede": "Tüm video anlatımı",
       "amac": "Alternatif: parlak, genç erkek.",
-      "karar": null
+      "karar": "kullanma",
+      "duzenlendi": false
     }
   ],
   "arsiv": false,
-  "guncelleme": "2026-10-02T20:14:29.975Z",
-  "durum": "bekliyor"
+  "guncelleme": "2026-10-02T20:29:43.601Z",
+  "durum": "tamam"
 }

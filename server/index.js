@@ -38,7 +38,7 @@ store.baselineHistory().catch((e) => console.warn('[history]', e.message));
 const app = express();
 const server = http.createServer(app);
 app.use(express.json({ limit: '25mb' }));
-app.use('/api', createApi(store, events, fonts, tts, muzik, youtube, onay));
+app.use('/api', createApi(store, events, fonts, tts, muzik, youtube, onay, PORT));
 app.use('/font-files', express.static(fonts.dir, { maxAge: '30d', immutable: true }));
 app.use('/audio-files', express.static(store.audioDir));
 app.use('/media-files', express.static(store.mediaDir));

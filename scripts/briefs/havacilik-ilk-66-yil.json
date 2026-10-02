@@ -1,0 +1,134 @@
+{
+  "sablon": "zaman-merdiven",
+  "id": "havacilik-ilk-66-yil",
+  "ad": "Havacılığın İlk 66 Yılı",
+  "format": "reels",
+  "palet": "yukselis",
+  "muzik": "pop-120",
+  "font": "Lexend",
+  "stil": "duz",
+  "kanca": "66 YILDA",
+  "baslik": "Havacılığın İlk 66 Yılı",
+  "altBaslik": "12 saniyeden Ay'a",
+  "kapakNesne": "wright-flyer",
+  "bolumler": [
+    {
+      "yil": "1903",
+      "ad": "Wright Flyer",
+      "nesne": "wright-flyer",
+      "balon": "12 saniye!",
+      "bilgi": [
+        "Wright kardeşler motorlu uçakla havalanır",
+        "İlk uçuş yalnızca 12 saniye sürer"
+      ],
+      "notlar": [
+        "Wright",
+        "ilk uçuş"
+      ],
+      "anlatim": "Bin dokuz yüz üç. Wright kardeşler motorlu bir uçakla havalandı. İlk uçuş sadece on iki saniye sürdü.",
+      "ses": "havacilik-ilk-66-yil-ses-1.wav"
+    },
+    {
+      "yil": "1909",
+      "ad": "Manş geçişi",
+      "nesne": "tek-kanat-ucak",
+      "balon": "Manş'ı geçtim!",
+      "bilgi": [
+        "Louis Blériot Manş Denizi'ni uçakla geçer",
+        "Uçuş yarım saatten uzun sürer"
+      ],
+      "notlar": [
+        "Blériot",
+        "Manş"
+      ],
+      "anlatim": "Bin dokuz yüz dokuz. Louis Blériot, uçakla Manş Denizi'ni geçti. Denizlerin ötesine uçmak artık mümkündü.",
+      "ses": "havacilik-ilk-66-yil-ses-2.wav"
+    },
+    {
+      "yil": "1927",
+      "ad": "Atlantik",
+      "nesne": "spirit-of-st-louis",
+      "balon": "Tek başıma!",
+      "bilgi": [
+        "Lindbergh New York'tan Paris'e uçar",
+        "Atlantik'i tek başına, aralıksız geçer"
+      ],
+      "notlar": [
+        "Lindbergh",
+        "Atlantik"
+      ],
+      "anlatim": "Bin dokuz yüz yirmi yedi. Charles Lindbergh, New York'tan Paris'e tek başına ve aralıksız uçtu. Atlantik aşıldı.",
+      "ses": "havacilik-ilk-66-yil-ses-3.wav"
+    },
+    {
+      "yil": "1939",
+      "ad": "İlk jet",
+      "nesne": "jet-ucagi",
+      "balon": "Pervanesiz!",
+      "bilgi": [
+        "Heinkel He 178 ilk jet uçağı olarak uçar",
+        "Pervane yerine türbin itiş sağlar"
+      ],
+      "notlar": [
+        "jet",
+        "türbin"
+      ],
+      "anlatim": "Bin dokuz yüz otuz dokuz. İlk jet motorlu uçak havalandı. Pervane yerine bir türbin, uçağı ileri itiyordu.",
+      "ses": "havacilik-ilk-66-yil-ses-4.wav"
+    },
+    {
+      "yil": "1947",
+      "ad": "Ses duvarı",
+      "nesne": "bell-x1",
+      "balon": "Ses duvarı!",
+      "bilgi": [
+        "Chuck Yeager ses hızını aşan ilk pilot olur",
+        "Bell X-1 roket motorlu bir uçaktır"
+      ],
+      "notlar": [
+        "Yeager",
+        "X-1"
+      ],
+      "anlatim": "Bin dokuz yüz kırk yedi. Pilot Chuck Yeager, Bell X bir uçağıyla ses hızını aştı.",
+      "ses": "havacilik-ilk-66-yil-ses-5.wav"
+    },
+    {
+      "yil": "1969",
+      "ad": "Ay'a iniş",
+      "nesne": "astronot-3d",
+      "balon": "66. yıl!",
+      "bilgi": [
+        "Apollo 11 insanı Ay'a indirir",
+        "Wright'tan bu yana yalnızca 66 yıl geçmiştir"
+      ],
+      "notlar": [
+        "Apollo 11",
+        "Ay"
+      ],
+      "anlatim": "Bin dokuz yüz altmış dokuz. Apollo on bir ile insan Ay'a ayak bastı. İlk uçuştan sadece altmış altı yıl sonra.",
+      "ses": "havacilik-ilk-66-yil-ses-6.wav"
+    }
+  ],
+  "soru": "Sıradaki 66 yılda ne olacak?",
+  "cta": "Tahminini yorumlara yaz!",
+  "son1": "66 yılda",
+  "son2": "Ay'a ulaştık!",
+  "yayin": {
+    "baslik": "Havacılığın ilk 66 yılı: Wright'tan Ay'a",
+    "aciklama": "12 saniyelik ilk uçuştan Ay'a iniş yapan Apollo 11'e: havacılığın ilk 66 yılında 6 dönüm noktası. Sence sıradaki 66 yılda ne olacak? Yorumlara yaz!",
+    "etiketler": [
+      "havacılık",
+      "uçak",
+      "wright kardeşler",
+      "lindbergh",
+      "jet",
+      "ses duvarı",
+      "apollo 11",
+      "tarih",
+      "zaman çizelgesi",
+      "reels",
+      "shorts",
+      "eğitim"
+    ]
+  }
+}

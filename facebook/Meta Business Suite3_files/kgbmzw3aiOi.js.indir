@@ -1,0 +1,8 @@
+;/*FB_PKG_DELIM*/
+
+__d("BizOnboardingModalBackFalcoEvent",["FalcoLoggerInternal","getFalcoLogPolicy_DO_NOT_USE"],(function(t,n,r,o,a,i,l){"use strict";var e=r("getFalcoLogPolicy_DO_NOT_USE")("2186"),s=o("FalcoLoggerInternal").create("biz_onboarding_modal_back",e),u=s;l.default=u}),98);
+__d("BizOnboardingModalDismissFalcoEvent",["FalcoLoggerInternal","getFalcoLogPolicy_DO_NOT_USE"],(function(t,n,r,o,a,i,l){"use strict";var e=r("getFalcoLogPolicy_DO_NOT_USE")("2188"),s=o("FalcoLoggerInternal").create("biz_onboarding_modal_dismiss",e),u=s;l.default=u}),98);
+__d("BizOnboardingModalDoneFalcoEvent",["FalcoLoggerInternal","getFalcoLogPolicy_DO_NOT_USE"],(function(t,n,r,o,a,i,l){"use strict";var e=r("getFalcoLogPolicy_DO_NOT_USE")("2189"),s=o("FalcoLoggerInternal").create("biz_onboarding_modal_done",e),u=s;l.default=u}),98);
+__d("BizOnboardingModalImpressionFalcoEvent",["FalcoLoggerInternal","getFalcoLogPolicy_DO_NOT_USE"],(function(t,n,r,o,a,i,l){"use strict";var e=r("getFalcoLogPolicy_DO_NOT_USE")("2190"),s=o("FalcoLoggerInternal").create("biz_onboarding_modal_impression",e),u=s;l.default=u}),98);
+__d("BizOnboardingModalInsufficientPermissionsFailureFalcoEvent",["FalcoLoggerInternal","getFalcoLogPolicy_DO_NOT_USE"],(function(t,n,r,o,a,i,l){"use strict";var e=r("getFalcoLogPolicy_DO_NOT_USE")("2364"),s=o("FalcoLoggerInternal").create("biz_onboarding_modal_insufficient_permissions_failure",e),u=s;l.default=u}),98);
+__d("BizOnboardingModalNextFalcoEvent",["FalcoLoggerInternal","getFalcoLogPolicy_DO_NOT_USE"],(function(t,n,r,o,a,i,l){"use strict";var e=r("getFalcoLogPolicy_DO_NOT_USE")("2191"),s=o("FalcoLoggerInternal").create("biz_onboarding_modal_next",e),u=s;l.default=u}),98);

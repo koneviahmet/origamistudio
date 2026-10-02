@@ -1,0 +1,4 @@
+;/*FB_PKG_DELIM*/
+
+__d("CampaignPlannerV2PlanDetailsPageQuery_facebookRelayOperation",[],(function(t,n,r,o,a,i){a.exports="29030005096636923"}),null);
+__d("useAdsFetaStatus",["AdsFetaStatusData"],(function(t,n,r,o,a,i,l){"use strict";function e(){return r("AdsFetaStatusData").is_feta_account}l.default=e}),98);

@@ -91,6 +91,7 @@ export default {
       const t0 = pl.t0;
       const t1 = pl.t1;
       const acc = hi(i + 1);
+      const tE = R2(t1 + 0.4); // basamak sahnesi kameradan çıkarken yazı/nesne de çekilir (soldaki kesik artıklar kalmasın)
       const renk = yr(st);
       const g = c.grup(`g-${st}`, `${s.yil || st} · ${s.ad}`, true);
       c.bolum(t0, `${s.yil ? s.yil + ' · ' : ''}${s.ad}`);
@@ -114,41 +115,42 @@ export default {
       });
 
       // yıl + ad (gökyüzü)
-      yazi(`yil-${st}`, s.yil || String(st), tA, null, {
+      yazi(`yil-${st}`, s.yil || String(st), tA, tE, {
         grup: g, x: X(W / 2), y: Y(H * 0.125), size: 200, maxW: W * 0.88, renk, weight: 800, reveal: [0.05, 0.55], golge: parlaklik(renk) > 148,
         anims: [{ preset: 'zipla-gir', t: R2(tA), dur: 0.6 }],
       });
-      yazi(`ad-${st}`, s.ad, tA + 0.3, null, {
+      yazi(`ad-${st}`, s.ad, tA + 0.3, tE, {
         grup: g, x: X(W / 2), y: Y(H * 0.215), size: 80, maxW: W * 0.86, kutu: acc, kutuAlfa: 1, radius: 999, pad: [8, 34], renk: '#1b1d4a', weight: 700, anims: [{ preset: 'zipla-gir', t: R2(tA + 0.3), dur: 0.5 }],
       });
 
       // nesne: basamağın tepesinde
       const asset = nesneSec(s.nesne);
       const [aw, ah] = varlikBoyut(asset);
-      c.sekil(`golge-${st}`, 'daire', X(W / 2), Y(yerY) + 12, m * 0.46, { t0: tA + 0.1, renk: '#000000', opacity: 0.3, sx: 1, sy: 0.13, grup: g, sure: 0.5 });
+      c.sekil(`golge-${st}`, 'daire', X(W / 2), Y(yerY) + 12, m * 0.46, { t0: tA + 0.1, t1: tE, renk: '#000000', opacity: 0.3, sx: 1, sy: 0.13, grup: g, sure: 0.5 });
       c.L({
-        id: `nesne-${st}`, group: g, asset, ...(s.varyant ? { variant: s.varyant } : {}), x: Math.round(X(W / 2)), y: Math.round(Y(yerY)), anchor: [0.5, 1], scale: R2((m * 0.44) / Math.max(aw, ah)), start: R2(tA),
+        id: `nesne-${st}`, group: g, asset, ...(s.varyant ? { variant: s.varyant } : {}), x: Math.round(X(W / 2)), y: Math.round(Y(yerY)), anchor: [0.5, 1], scale: R2((m * 0.44) / Math.max(aw, ah)), start: R2(tA), end: tE,
         anims: [{ preset: 'zipla-gir', t: R2(tA + 0.05), dur: 0.7 }, { preset: 'suzul', t: R2(tA + 1), genlik: 9, periyot: 3.2 }],
       });
       if (s.balon) {
-        yazi(`balon-${st}`, s.balon, tA + 1.4, null, {
+        yazi(`balon-${st}`, s.balon, tA + 1.4, tE, {
           grup: g, x: X(W * 0.76), y: Y(H * 0.44), size: 60, maxW: W * 0.3, kutu: '#ffffff', radius: 28, pad: [8, 26], rot: 5, renk: '#1b1d4a',
           anims: [{ preset: 'zipla-gir', t: R2(tA + 1.4), dur: 0.5 }, { preset: 'sallan', t: R2(tA + 2), aci: 4, periyot: 1.6 }],
         });
       }
       // bilgi satırları: basamağın yüzünde
-      pl.bilgi.forEach((ln, j) => {
-        yazi(`bilgi-${st}${'ab'[j]}`, ln, tA + 1.2 + j * 1.15, null, {
-          grup: g, x: X(W / 2), y: Y(H * (0.805 + j * 0.095)), size: 58, maxW: SW * 0.88, sar: 24, renk: ACIK, weight: 600, lh: 1.08, reveal: [0.1, 0.9],
+      const bY = Z.yigin(pl.bilgi, { size: 54, maxW: SW * 0.88, lh: 1.08, gap: 26, minOran: 0.82 });
+      bY.items.forEach((it, j) => {
+        yazi(`bilgi-${st}${'ab'[j]}`, it.ln, tA + 1.2 + j * 1.15, tE, {
+          grup: g, x: X(W / 2), y: Y(H * 0.775) + it.yOff, size: it.size, maxW: SW * 0.88, sar: it.sar, renk: ACIK, weight: 600, lh: 1.08, reveal: [0.1, 0.9],
         });
       });
       (s.notlar || []).slice(0, 2).forEach((nt, j) => {
         const tn = tA + 2.4 + j * 0.6;
-        yazi(`not-${st}${'ab'[j]}`, nt, tn, null, {
+        yazi(`not-${st}${'ab'[j]}`, nt, tn, tE, {
           grup: g, x: X(W * (j % 2 ? 0.8 : 0.2)), y: Y(H * 0.58), size: 46, maxW: W * 0.28, sar: 12, kutu: acc, renk: '#1b1d4a', weight: 700, rot: j % 2 ? 4 : -4, anims: [{ preset: 'zipla-gir', t: R2(tn), dur: 0.45 }],
         });
         c.L({
-          id: `not-ok-${st}${'ab'[j]}`, group: g, type: 'arrow', arrow: 'ok-kavis', from: `not-${st}${'ab'[j]}`, to: `nesne-${st}`, start: R2(tn + 0.3),
+          id: `not-ok-${st}${'ab'[j]}`, group: g, type: 'arrow', arrow: 'ok-kavis', from: `not-${st}${'ab'[j]}`, to: `nesne-${st}`, start: R2(tn + 0.3), end: tE,
           fold: [k(tn + 0.3, 0), k(tn + 1.1, 1, 'inOutSine')], palette: { a: renk },
         });
       });

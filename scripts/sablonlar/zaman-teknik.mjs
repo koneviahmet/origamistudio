@@ -125,9 +125,9 @@ export default {
       // numaralı notlar (balon dahil)
       const NOT = [...(s.notlar || []).slice(0, 2)];
       if (s.balon) NOT.unshift(s.balon);
-      NOT.slice(0, 3).forEach((nt, j) => {
+      NOT.slice(0, 2).forEach((nt, j) => {
         const tn = tA + 2.2 + j * 0.45;
-        const lx = j % 2 ? W * 0.84 : W * 0.17;
+        const lx = j % 2 ? W * 0.74 : W * 0.2;
         const ly = cy - m * (0.27 - 0.1 * Math.floor(j / 2));
         yazi(`not-${st}-${j}`, `${j + 1}`, tn, t1, { grup: g, x: lx - (j % 2 ? 0 : 0), y: ly - 62, size: 30, sabit: true, font: MONO, renk: '#0b2a5c', weight: 700, kutu: acc, kutuAlfa: 1, radius: 999, pad: [2, 12], anims: [{ preset: 'zipla-gir', t: R2(tn), dur: 0.35 }] });
         yazi(`not-t-${st}-${j}`, nt, tn + 0.15, t1, { grup: g, x: lx, y: ly, size: 42, maxW: W * 0.28, sar: 10, font: MONO, renk: BEYAZ, weight: 700, reveal: [0.05, 0.6], lh: 1.1 });
@@ -142,8 +142,9 @@ export default {
       cizgi(`kutu-l-${st}`, g, MX, by, MX, by + bh, BEYAZ, 3, 0.9, tA + 1.2, t1, [tA + 1.2, 0.5]);
       cizgi(`kutu-r-${st}`, g, W - MX, by, W - MX, by + bh, BEYAZ, 3, 0.9, tA + 1.3, t1, [tA + 1.3, 0.5]);
       yazi(`kutu-b-${st}`, 'NOTLAR', tA + 1.5, t1, { grup: g, x: MX + 24, y: by + 36, size: 30, sabit: true, align: 'left', font: MONO, renk: acc, weight: 700, harf: 6, reveal: [0.05, 0.5] });
-      pl.bilgi.forEach((ln, j) => {
-        yazi(`bilgi-${st}${'ab'[j]}`, `${j + 1}.  ${ln}`, tA + 1.9 + j * 1.1, t1, { grup: g, x: MX + 24, y: by + 100 + j * 78, size: 50, maxW: GEN - 50, align: 'left', font: MONO, renk: BEYAZ, weight: 700, reveal: [0.05, 1.0] });
+      const bY = Z.yigin(pl.bilgi.map((ln, j) => `${j + 1}.  ${ln}`), { size: 46, maxW: GEN - 60, lh: 1.08, gap: 20, font: MONO, minOran: 0.9 });
+      bY.items.forEach((it, j) => {
+        yazi(`bilgi-${st}${'ab'[j]}`, it.ln, tA + 1.9 + j * 1.1, t1, { grup: g, x: MX + 24, y: by + 74 + it.yOff, size: it.size, maxW: GEN - 60, sar: it.sar, align: 'left', font: MONO, renk: BEYAZ, weight: 700, lh: 1.08, reveal: [0.05, 1.0] });
       });
 
       // damga

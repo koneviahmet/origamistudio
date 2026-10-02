@@ -1,0 +1,118 @@
+{
+  "sablon": "zaman-teknik",
+  "id": "hucre-kesfi",
+  "ad": "Hücrenin Keşfi",
+  "format": "reels",
+  "palet": "pafta",
+  "muzik": "lofi-90",
+  "font": "Oswald",
+  "stil": "teknik",
+  "kanca": "GÖRÜNMEZ DÜNYA",
+  "baslik": "Hücrenin Keşfi",
+  "altBaslik": "mantar diliminden DNA'ya",
+  "kapakNesne": "mikroskop",
+  "bolumler": [
+    {
+      "yil": "1665",
+      "ad": "Mantar dilimi",
+      "nesne": "hucre-petek",
+      "balon": "Hücre!",
+      "bilgi": [
+        "Hooke mantarı mikroskopla inceler",
+        "Odacıklara 'cell' (hücre) adını verir"
+      ],
+      "notlar": [
+        "mikroskop",
+        "Micrographia"
+      ],
+      "anlatim": "Bin altı yüz altmış beş. Robert Hooke bir mantar dilimine mikroskopla baktı ve petek gibi odacıklar gördü. Onlara hücre adını verdi.",
+      "ses": "hucre-kesfi-ses-1.wav"
+    },
+    {
+      "yil": "1674",
+      "ad": "Minik canlılar",
+      "nesne": "bakteri",
+      "balon": "Canlı!",
+      "bilgi": [
+        "Leeuwenhoek kendi yaptığı mikroskopla bakar",
+        "Bir damla suda kıpır kıpır canlılar görür"
+      ],
+      "notlar": [
+        "tek mercek",
+        "göl suyu"
+      ],
+      "anlatim": "Bin altı yüz yetmiş dört. Hollandalı Leeuwenhoek kendi yaptığı mikroskopla bir damla suya baktı ve kıpır kıpır minik canlılar gördü.",
+      "ses": "hucre-kesfi-ses-2.wav"
+    },
+    {
+      "yil": "1839",
+      "ad": "Hücre kuramı",
+      "nesne": "hucre",
+      "balon": "Hepsi hücre!",
+      "bilgi": [
+        "Schleiden ve Schwann: bitki ve hayvan hücreden oluşur",
+        "Hücre, canlının yapı taşı sayılır"
+      ],
+      "notlar": [
+        "Schleiden",
+        "Schwann"
+      ],
+      "anlatim": "Bin sekiz yüz otuz dokuz. Schleiden ve Schwann, bitki ve hayvanların hücrelerden oluştuğunu söyledi. Hücre kuramı doğdu.",
+      "ses": "hucre-kesfi-ses-3.wav"
+    },
+    {
+      "yil": "1855",
+      "ad": "Hücre bölünmesi",
+      "nesne": "hucre-bolunme",
+      "balon": "Böl ve çoğal!",
+      "bilgi": [
+        "Virchow: her hücre başka bir hücreden doğar",
+        "Canlılar bölünerek büyür ve yenilenir"
+      ],
+      "notlar": [
+        "Virchow",
+        "bölünme"
+      ],
+      "anlatim": "Bin sekiz yüz elli beş. Rudolf Virchow şunu söyledi: her hücre, başka bir hücreden doğar.",
+      "ses": "hucre-kesfi-ses-4.wav"
+    },
+    {
+      "yil": "1953",
+      "ad": "DNA sarmalı",
+      "nesne": "dna",
+      "balon": "Şifre!",
+      "bilgi": [
+        "Watson ve Crick DNA'nın çift sarmalını açıklar",
+        "Rosalind Franklin'in X-ışını görüntüsü yol gösterir"
+      ],
+      "notlar": [
+        "çift sarmal",
+        "Franklin"
+      ],
+      "anlatim": "Bin dokuz yüz elli üç. Watson ve Crick DNA'nın çift sarmal yapısını açıkladı. Rosalind Franklin'in X-ışını görüntüsü bu keşfe yol gösterdi.",
+      "ses": "hucre-kesfi-ses-5.wav"
+    }
+  ],
+  "soru": "Sence sıradaki keşif ne olacak?",
+  "cta": "Tahminini yorumlara yaz!",
+  "son1": "Küçücük hücre,",
+  "son2": "koca hayat!",
+  "yayin": {
+    "baslik": "Hücrenin keşfi: mantar diliminden DNA'ya",
+    "aciklama": "Hooke'un mantar diliminden Leeuwenhoek'in minik canlılarına, hücre kuramından DNA'nın çift sarmalına hücrenin keşif hikâyesi. Sence sıradaki keşif ne olacak? Yorumlara yaz!",
+    "etiketler": [
+      "hücre",
+      "hücre kuramı",
+      "hooke",
+      "leeuwenhoek",
+      "dna",
+      "biyoloji",
+      "bilim tarihi",
+      "mikroskop",
+      "bilim",
+      "reels",
+      "shorts",
+      "eğitim"
+    ]
+  }
+}

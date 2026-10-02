@@ -118,9 +118,10 @@ export default {
       });
       yazi(`ad-${st}`, s.ad, t0 + 0.6, t1, { grup: g, y: H * 0.69, size: 84, maxW: W * 0.86, renk: ACIK, weight: 600, upper: true, harf: 8, reveal: [0.1, 0.7], anims: [{ preset: 'sol', t: R2(t1 - 0.45), dur: 0.4 }] });
       c.sekil(`cizgi-${st}`, 'kare', cx, H * 0.722, 200, { t0: t0 + 0.8, t1, renk: acc, giris: 'yok', grup: g, sx: [k(t0 + 0.8, 0), k(t0 + 1.4, (W * 0.5) / 200, 'outCubic')], sy: 0.016 });
-      pl.bilgi.forEach((ln, j) => {
-        yazi(`bilgi-${st}${'ab'[j]}`, ln, t0 + 1.4 + j * 1.1, t1, {
-          grup: g, y: H * (0.752 + j * 0.058), size: 56, maxW: W * 0.92, sar: 38, renk: ACIK, weight: 500, lh: 1.08, reveal: [0.1, 0.9], anims: [{ preset: 'sol', t: R2(t1 - 0.45), dur: 0.4 }],
+      const bY = Z.yigin(pl.bilgi, { size: 54, maxW: W * 0.88, lh: 1.08, gap: 26, minOran: 0.82 });
+      bY.items.forEach((it, j) => {
+        yazi(`bilgi-${st}${'ab'[j]}`, it.ln, t0 + 1.4 + j * 1.1, t1, {
+          grup: g, y: H * 0.742 + it.yOff, size: it.size, maxW: W * 0.88, sar: it.sar, renk: ACIK, weight: 500, lh: 1.08, reveal: [0.1, 0.9], anims: [{ preset: 'sol', t: R2(t1 - 0.45), dur: 0.4 }],
         });
       });
       (s.notlar || []).slice(0, 2).forEach((nt, j) => {

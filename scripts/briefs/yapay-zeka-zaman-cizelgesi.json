@@ -1,0 +1,136 @@
+{
+  "sablon": "zaman-cark",
+  "id": "yapay-zeka-zaman-cizelgesi",
+  "ad": "Yapay Zekânın Zaman Çizelgesi",
+  "format": "reels",
+  "palet": "neon",
+  "muzik": "house-126",
+  "font": "Sora",
+  "stil": "duz",
+  "kanca": "MAKİNELER DÜŞÜNEBİLİR Mİ?",
+  "baslik": "Yapay Zekânın Zaman Çizelgesi",
+  "altBaslik": "Turing'den ChatGPT'ye",
+  "kapakNesne": "robot-kafa",
+  "bolumler": [
+    {
+      "yil": "1950",
+      "ad": "Turing testi",
+      "nesne": "yorum-balonu-cizim",
+      "balon": "Düşünebilir mi?",
+      "bilgi": [
+        "Alan Turing: 'Makineler düşünebilir mi?'",
+        "Sohbetle makineyi insandan ayırma testini önerir"
+      ],
+      "notlar": [
+        "Turing",
+        "sohbet testi"
+      ],
+      "anlatim": "Bin dokuz yüz elli. Alan Turing sordu: makineler düşünebilir mi? Bunu ölçmek için bir sohbet testi önerdi.",
+      "ses": "yapay-zeka-zaman-cizelgesi-ses-1.wav"
+    },
+    {
+      "yil": "1956",
+      "ad": "Dartmouth",
+      "nesne": "yapay-beyin",
+      "balon": "Yeni alan!",
+      "bilgi": [
+        "Dartmouth atölyesinde 'yapay zekâ' terimi kullanılır",
+        "Yeni bir bilim alanı doğar"
+      ],
+      "notlar": [
+        "Dartmouth",
+        "terim"
+      ],
+      "anlatim": "Bin dokuz yüz elli altı. Dartmouth atölyesinde araştırmacılar bir araya geldi ve yapay zekâ terimi doğdu.",
+      "ses": "yapay-zeka-zaman-cizelgesi-ses-2.wav"
+    },
+    {
+      "yil": "1997",
+      "ad": "Deep Blue",
+      "nesne": "satranc-sah",
+      "varyant": [
+        "beyaz"
+      ],
+      "balon": "Şah mat!",
+      "bilgi": [
+        "IBM Deep Blue, şampiyon Kasparov'u yener",
+        "Bir bilgisayar ilk kez böyle bir maçı kazanır"
+      ],
+      "notlar": [
+        "IBM",
+        "satranç"
+      ],
+      "anlatim": "Bin dokuz yüz doksan yedi. IBM'in Deep Blue bilgisayarı, dünya şampiyonu Kasparov'u bir maçta yendi.",
+      "ses": "yapay-zeka-zaman-cizelgesi-ses-3.wav"
+    },
+    {
+      "yil": "2011",
+      "ad": "Siri",
+      "nesne": "modern-telefon",
+      "balon": "Merhaba!",
+      "bilgi": [
+        "Siri telefonlara gelir",
+        "Sesle konuşan asistan cebe girer"
+      ],
+      "notlar": [
+        "asistan",
+        "ses"
+      ],
+      "anlatim": "İki bin on bir. Siri telefonlara geldi ve milyonlarca insan, asistanla sesle konuşmaya başladı.",
+      "ses": "yapay-zeka-zaman-cizelgesi-ses-4.wav"
+    },
+    {
+      "yil": "2016",
+      "ad": "AlphaGo",
+      "nesne": "go-tahtasi",
+      "balon": "Sezgi!",
+      "bilgi": [
+        "AlphaGo, Go ustası Lee Sedol'u yener",
+        "Herkesi şaşırtan hamleler oynar"
+      ],
+      "notlar": [
+        "Go",
+        "Lee Sedol"
+      ],
+      "anlatim": "İki bin on altı. AlphaGo, Go ustası Lee Sedol karşısında kazandı ve herkesi şaşırtan hamleler oynadı.",
+      "ses": "yapay-zeka-zaman-cizelgesi-ses-5.wav"
+    },
+    {
+      "yil": "2022",
+      "ad": "ChatGPT",
+      "nesne": "robot-kafa",
+      "balon": "Sor bana!",
+      "bilgi": [
+        "ChatGPT yayımlanır",
+        "Yapay zekâyla sohbet herkesin elinde"
+      ],
+      "notlar": [
+        "sohbet",
+        "üretken"
+      ],
+      "anlatim": "İki bin yirmi iki. ChatGPT yayımlandı ve yapay zekâyla sohbet etmek, herkesin gündelik hayatına girdi.",
+      "ses": "yapay-zeka-zaman-cizelgesi-ses-6.wav"
+    }
+  ],
+  "soru": "Sıradaki dönüm noktası ne olacak?",
+  "cta": "Tahminini yorumlara yaz!",
+  "son1": "Yapay zekâ",
+  "son2": "daha yeni başlıyor!",
+  "yayin": {
+    "baslik": "Yapay zekânın zaman çizelgesi: Turing'den ChatGPT'ye",
+    "aciklama": "Turing testinden Deep Blue'ya, AlphaGo'dan ChatGPT'ye yapay zekânın 6 dönüm noktası. Sence sıradaki ne olacak? Tahminini yorumlara yaz!",
+    "etiketler": [
+      "yapay zekâ",
+      "chatgpt",
+      "turing",
+      "deep blue",
+      "alphago",
+      "teknoloji",
+      "bilim tarihi",
+      "zaman çizelgesi",
+      "reels",
+      "shorts",
+      "eğitim"
+    ]
+  }
+}

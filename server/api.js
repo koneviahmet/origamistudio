@@ -7,11 +7,15 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createSimulations, simulationRoutes } from './simulations.js';
+import { createEklenti } from './eklenti.js';
 
-export function createApi(store, events, fonts, tts, muzik, youtube, onay) {
+export function createApi(store, events, fonts, tts, muzik, youtube, onay, port) {
   const r = express.Router();
 
   r.get('/events', events.handler);
+
+  // Chrome eklentisi (chrome-eklenti/) yardımcıları: proje listesi, yayın metinleri, MP4 üretim işi
+  createEklenti(store, events, port).routes(r);
 
   // ------------------------------------------------- simülasyonlar (orman-oyunu'ndan aktarılan; arayüz: /simulasyonlar)
   simulationRoutes(r, createSimulations(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'data')));

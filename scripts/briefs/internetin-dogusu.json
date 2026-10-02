@@ -1,0 +1,133 @@
+{
+  "sablon": "zaman-retro",
+  "id": "internetin-dogusu",
+  "ad": "İnternetin Doğuşu",
+  "format": "reels",
+  "palet": "retro",
+  "muzik": "house-126",
+  "font": "Righteous",
+  "stil": "duz",
+  "kanca": "BAĞLANTI KURULUYOR…",
+  "baslik": "İnternetin Doğuşu",
+  "altBaslik": "1969'dan cebimize",
+  "kapakNesne": "ag-dugumleri",
+  "bolumler": [
+    {
+      "yil": "1969",
+      "ad": "ARPANET",
+      "nesne": "sunucu",
+      "balon": "LO!",
+      "bilgi": [
+        "İlk mesaj iki üniversite bilgisayarı arasında gider",
+        "'LOGIN' yazılırken sistem çöker: yalnızca LO ulaşır"
+      ],
+      "notlar": [
+        "ARPANET",
+        "ilk mesaj"
+      ],
+      "anlatim": "Bin dokuz yüz altmış dokuz. İki üniversite bilgisayarı arasında ilk mesaj gönderildi. Login yazılacaktı ama sistem çöktü ve yalnızca L ile O gitti.",
+      "ses": "internetin-dogusu-ses-1.wav"
+    },
+    {
+      "yil": "1971",
+      "ad": "İlk e-posta",
+      "nesne": "eposta-zarf",
+      "balon": "At işareti!",
+      "bilgi": [
+        "Ray Tomlinson ilk ağ e-postasını gönderir",
+        "Kullanıcı adını bilgisayardan @ ile ayırır"
+      ],
+      "notlar": [
+        "@",
+        "Tomlinson"
+      ],
+      "anlatim": "Bin dokuz yüz yetmiş bir. Ray Tomlinson ilk e-postayı gönderdi ve kullanıcıyla bilgisayarı ayırmak için at işaretini seçti.",
+      "ses": "internetin-dogusu-ses-2.wav"
+    },
+    {
+      "yil": "1983",
+      "ad": "TCP/IP",
+      "nesne": "ag-dugumleri",
+      "balon": "Ortak dil!",
+      "bilgi": [
+        "ARPANET TCP/IP protokolüne geçer",
+        "Ağlar ortak dil konuşur: internet doğar"
+      ],
+      "notlar": [
+        "TCP/IP",
+        "ağlar ağı"
+      ],
+      "anlatim": "Bin dokuz yüz seksen üç. Ağlar, TCP IP adlı ortak dile geçti. Ağların ağı, yani internet doğdu.",
+      "ses": "internetin-dogusu-ses-3.wav"
+    },
+    {
+      "yil": "1991",
+      "ad": "World Wide Web",
+      "nesne": "kisisel-bilgisayar",
+      "balon": "İlk site!",
+      "bilgi": [
+        "Tim Berners-Lee web'i halka açar",
+        "İlk web sitesi yayına girer"
+      ],
+      "notlar": [
+        "WWW",
+        "tarayıcı"
+      ],
+      "anlatim": "Bin dokuz yüz doksan bir. Tim Berners-Lee, web'i herkesin kullanımına açtı. İlk web sitesi yayındaydı.",
+      "ses": "internetin-dogusu-ses-4.wav"
+    },
+    {
+      "yil": "2004",
+      "ad": "Sosyal ağlar",
+      "nesne": "kalp",
+      "balon": "Beğen!",
+      "bilgi": [
+        "Sosyal ağlar milyonları birbirine bağlar",
+        "Paylaşmak ve beğenmek alışkanlık olur"
+      ],
+      "notlar": [
+        "paylaş",
+        "beğeni"
+      ],
+      "anlatim": "İki bin dört. Sosyal ağlar yükselişe geçti. İnsanlar artık internette yalnızca okumuyor, paylaşıyor ve beğeniyordu.",
+      "ses": "internetin-dogusu-ses-5.wav"
+    },
+    {
+      "yil": "2007",
+      "ad": "Akıllı telefon",
+      "nesne": "modern-telefon",
+      "balon": "Cebimde!",
+      "bilgi": [
+        "İlk iPhone tanıtılır",
+        "İnternet her an cebimizde"
+      ],
+      "notlar": [
+        "iPhone",
+        "mobil"
+      ],
+      "anlatim": "İki bin yedi. İlk iPhone tanıtıldı. Akıllı telefonlarla internet, cebimize girdi.",
+      "ses": "internetin-dogusu-ses-6.wav"
+    }
+  ],
+  "soru": "İlk girdiğin web sitesi neydi?",
+  "cta": "Yorumlara yaz!",
+  "son1": "Bağlantı",
+  "son2": "hiç kopmasın!",
+  "yayin": {
+    "baslik": "İnternetin doğuşu: 1969'dan cebimize",
+    "aciklama": "ARPANET'in ilk mesajından e-postaya, web'den akıllı telefona internetin 6 dönüm noktası. İlk girdiğin web sitesi neydi? Yorumlara yaz!",
+    "etiketler": [
+      "internet",
+      "arpanet",
+      "e-posta",
+      "web",
+      "tcp/ip",
+      "teknoloji tarihi",
+      "retro",
+      "zaman çizelgesi",
+      "reels",
+      "shorts",
+      "eğitim"
+    ]
+  }
+}

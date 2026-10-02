@@ -366,7 +366,10 @@ add('havacilik', (() => {
 })());
 
 // ─────────────────────────────────────────────────────────── yaz
+// Aşağıdakiler seed-zaman-tuneli-3d.mjs ile 3B olarak yeniden yazıldı; üzerine yazma.
+const ATLA = new Set(['mikroskop', 'hucre-petek', 'bakteri', 'hucre-bolunme', 'kumas-rulo', 'tisort', 'yapay-beyin', 'satranc-sah', 'wright-flyer', 'tek-kanat-ucak', 'jet-ucagi', 'bell-x1']);
 for (const { kategori, ...a } of out) {
+  if (ATLA.has(a.id)) continue;
   const dir = path.join(LIB, kategori);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, `${a.id}.json`), JSON.stringify(a, null, 2) + '\n');
