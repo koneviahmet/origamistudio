@@ -1,0 +1,28 @@
+{
+  "slug": "gunes-dunya-ay-kiyaslama",
+  "title": "Güneş, Dünya ve Ay'ın Kıyaslama",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, Güneş, Dünya ve Ay'ın boyutlarını kıyaslama yapmanızı sağlar.",
+  "tags": [
+    "fizik",
+    "güneş",
+    "dünya",
+    "ay",
+    "kıyaslama"
+  ],
+  "accent": "hsl(168, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/gunes-dunya-ay-kiyaslama.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/gunes-dunya-ay-kiyaslama.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.141Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

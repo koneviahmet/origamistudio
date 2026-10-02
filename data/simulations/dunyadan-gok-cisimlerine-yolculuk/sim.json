@@ -1,0 +1,28 @@
+{
+  "slug": "dunyadan-gok-cisimlerine-yolculuk",
+  "title": "Dünya'dan Gök Cisimlerine Yolculuk",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, Dünya'dan çıkan bir roketin güneş sistemindeki gök cisimlerine yolculuk sürelerini gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "güneş",
+    "dünya",
+    "ay",
+    "kıyaslama"
+  ],
+  "accent": "hsl(162, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/dunyadan-gok-cisimlerine-yolculuk.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/dunyadan-gok-cisimlerine-yolculuk.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.090Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

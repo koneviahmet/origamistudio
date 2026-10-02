@@ -1,0 +1,34 @@
+{
+  "slug": "mevsimlerin-olusumu",
+  "title": "Mevsimlerin Oluşumu",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, mevsimlerin oluşumu ve etkilerini interaktif bir şekilde gözlemlemenizi sağlar. Mevsimlerin oluşumunda eksen eğikliğinin etkisi gözlemlenebilirsiniz. ",
+  "tags": [
+    "fizik",
+    "fen bilimleri",
+    "mevsim",
+    "mevsim oluşumu",
+    "mevsim etkileri",
+    "mevsim simülasyonu",
+    "sıcaklık",
+    "basınç",
+    "hava",
+    "hava akımı",
+    "hava akımı simülasyonu"
+  ],
+  "accent": "hsl(274, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/mevsimlerin-olusumu.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/mevsimlerin-olusumu.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.188Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

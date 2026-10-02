@@ -1,0 +1,2430 @@
+{
+  "frames" : {
+    "kullan1_01.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1190,
+        "y" : 1190
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_02.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1058,
+        "y" : 1190
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_03.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 926,
+        "y" : 1190
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_04.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 794,
+        "y" : 1190
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_05.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 662,
+        "y" : 1190
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_06.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 530,
+        "y" : 1190
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_07.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 398,
+        "y" : 1190
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_08.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 266,
+        "y" : 1190
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_09.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 134,
+        "y" : 1190
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_10.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 2,
+        "y" : 1190
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_100.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 2,
+        "y" : 2
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_11.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1190,
+        "y" : 1058
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "tags" : [
+        "kullan1"
+      ],
+      "trimmed" : false
+    },
+    "kullan1_12.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1058,
+        "y" : 1058
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_13.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 926,
+        "y" : 1058
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_14.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 794,
+        "y" : 1058
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_15.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 662,
+        "y" : 1058
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_16.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 530,
+        "y" : 1058
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_17.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 398,
+        "y" : 1058
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_18.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 266,
+        "y" : 1058
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_19.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 134,
+        "y" : 1058
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_20.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 2,
+        "y" : 1058
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_21.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1190,
+        "y" : 926
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_22.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1058,
+        "y" : 926
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_23.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 926,
+        "y" : 926
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_24.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 794,
+        "y" : 926
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_25.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 662,
+        "y" : 926
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_26.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 530,
+        "y" : 926
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_27.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 398,
+        "y" : 926
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_28.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 266,
+        "y" : 926
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_29.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 134,
+        "y" : 926
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_30.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 2,
+        "y" : 926
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_31.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1190,
+        "y" : 794
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_32.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1058,
+        "y" : 794
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_33.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 926,
+        "y" : 794
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_34.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 794,
+        "y" : 794
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_35.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 662,
+        "y" : 794
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_36.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 530,
+        "y" : 794
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_37.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 398,
+        "y" : 794
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_38.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 266,
+        "y" : 794
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_39.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 134,
+        "y" : 794
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_40.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 2,
+        "y" : 794
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_41.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1190,
+        "y" : 662
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_42.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1058,
+        "y" : 662
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_43.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 926,
+        "y" : 662
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_44.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 794,
+        "y" : 662
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_45.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 662,
+        "y" : 662
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_46.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 530,
+        "y" : 662
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_47.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 398,
+        "y" : 662
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_48.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 266,
+        "y" : 662
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_49.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 134,
+        "y" : 662
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_50.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 2,
+        "y" : 662
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "tags" : [
+        "optical equipment",
+        "structure",
+        "telescope",
+        "tripod"
+      ],
+      "trimmed" : false
+    },
+    "kullan1_51.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1190,
+        "y" : 530
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_52.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1058,
+        "y" : 530
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_53.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 926,
+        "y" : 530
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_54.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 794,
+        "y" : 530
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_55.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 662,
+        "y" : 530
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_56.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 530,
+        "y" : 530
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_57.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 398,
+        "y" : 530
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_58.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 266,
+        "y" : 530
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_59.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 134,
+        "y" : 530
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_60.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 2,
+        "y" : 530
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_61.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1190,
+        "y" : 398
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_62.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1058,
+        "y" : 398
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_63.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 926,
+        "y" : 398
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_64.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 794,
+        "y" : 398
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_65.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 662,
+        "y" : 398
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_66.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 530,
+        "y" : 398
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_67.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 398,
+        "y" : 398
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_68.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 266,
+        "y" : 398
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_69.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 134,
+        "y" : 398
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_70.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 2,
+        "y" : 398
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_71.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1190,
+        "y" : 266
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_72.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1058,
+        "y" : 266
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_73.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 926,
+        "y" : 266
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_74.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 794,
+        "y" : 266
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_75.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 662,
+        "y" : 266
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_76.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 530,
+        "y" : 266
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_77.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 398,
+        "y" : 266
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_78.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 266,
+        "y" : 266
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_79.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 134,
+        "y" : 266
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_80.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 2,
+        "y" : 266
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_81.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1190,
+        "y" : 134
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_82.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1058,
+        "y" : 134
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_83.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 926,
+        "y" : 134
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_84.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 794,
+        "y" : 134
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_85.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 662,
+        "y" : 134
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_86.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 530,
+        "y" : 134
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_87.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 398,
+        "y" : 134
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "tags" : [
+        "art",
+        "illustrations",
+        "people",
+        "skeleton"
+      ],
+      "trimmed" : false
+    },
+    "kullan1_88.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 266,
+        "y" : 134
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_89.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 134,
+        "y" : 134
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_90.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 2,
+        "y" : 134
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_91.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1190,
+        "y" : 2
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_92.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 1058,
+        "y" : 2
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_93.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 926,
+        "y" : 2
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_94.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 794,
+        "y" : 2
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_95.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 662,
+        "y" : 2
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_96.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 530,
+        "y" : 2
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_97.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 398,
+        "y" : 2
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_98.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 266,
+        "y" : 2
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    },
+    "kullan1_99.png" : {
+      "frame" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 134,
+        "y" : 2
+      },
+      "pivot" : {
+        "x" : 0.5,
+        "y" : 0.5
+      },
+      "rotated" : false,
+      "sourceSize" : {
+        "h" : 128,
+        "w" : 128
+      },
+      "spriteSourceSize" : {
+        "h" : 128,
+        "w" : 128,
+        "x" : 0,
+        "y" : 0
+      },
+      "trimmed" : false
+    }
+  },
+  "meta" : {
+    "app" : "SpriteSheet Creator",
+    "format" : "RGBA8888",
+    "image" : "İsimsiz.png",
+    "scale" : "1",
+    "size" : {
+      "h" : 1320,
+      "w" : 1320
+    },
+    "version" : "2.0.0"
+  }
+}

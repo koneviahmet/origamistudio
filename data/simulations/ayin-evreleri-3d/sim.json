@@ -1,0 +1,26 @@
+{
+  "slug": "ayin-evreleri-3d",
+  "title": "Ay'ın Evreleri 3D",
+  "subtitle": "Ay yörüngesi ve evreler",
+  "category": "Diğer",
+  "description": "Ay'ın Dünya etrafındaki hareketini izleyin; Yeni Ay'dan Dolunay'a kadar 8 evreyi 3 boyutlu keşfedin.",
+  "tags": [],
+  "accent": "#818cf8",
+  "engine": "three",
+  "kind": "modern",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/simulations/ayin-evreleri-3d/index.vue",
+  "files": [
+    "src/views/simulation/simulations/ayin-evreleri-3d.vue",
+    "src/views/simulation/simulations/ayin-evreleri-3d/config.js",
+    "src/views/simulation/simulations/ayin-evreleri-3d/constants.js",
+    "src/views/simulation/simulations/ayin-evreleri-3d/index.vue",
+    "src/views/simulation/legacy/embed/ayin-evreleri-3d.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.069Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

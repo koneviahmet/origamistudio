@@ -4,6 +4,7 @@
 import { computed, ref } from 'vue';
 import { toast } from '../../toast.js';
 import YoutubeUpload from './YoutubeUpload.vue';
+import ShareFile from './ShareFile.vue';
 
 const props = defineProps({
   scene: { type: Object, required: true },
@@ -68,6 +69,8 @@ const PLATFORMS = {
   instagram: { ad: 'Instagram', descMax: 2200, hashMax: 30 },
   tiktok: { ad: 'TikTok', descMax: 2200, hashMax: 8 },
 };
+// Her platformda açıklamanın en altına otomatik eklenir (sunucuda YouTube yüklemesine de eklenir)
+const VOICE_CREDIT = 'Ses Veri Seti: Alania Synthetic Speech TR (CC BY 4.0) - https://huggingface.co/datasets/cloud0day3/alania-synthetic-speech-tr';
 const hash = (list) => list.map((t) => `#${t}`).join(' ');
 
 // Platforma göre hazır çıktılar
@@ -80,23 +83,23 @@ const outputs = computed(() => {
     const tagStr = tg.join(', ');
     return [
       { key: 'Başlık', text: t, max: 100 },
-      { key: 'Açıklama', text: [d, tg.length ? hash(tg.slice(0, 3)) : ''].filter(Boolean).join('\n\n'), max: 5000, hint: 'İlk 3 etiket açıklama sonuna #etiket olarak eklenir (YouTube başlığın üstünde gösterir).' },
+      { key: 'Açıklama', text: [d, tg.length ? hash(tg.slice(0, 3)) : '', VOICE_CREDIT].filter(Boolean).join('\n\n'), max: 5000, hint: 'İlk 3 etiket açıklama sonuna #etiket olarak eklenir (YouTube başlığın üstünde gösterir).' },
       { key: 'Etiketler', text: tagStr, max: 500, hint: 'Studio → Daha fazla göster → Etiketler alanına virgülle ayrılmış yapıştır.' },
     ];
   }
   if (platform.value === 'instagram') {
-    const cap = [t, d, tg.length ? hash(tg.slice(0, 30)) : ''].filter(Boolean).join('\n\n');
+    const cap = [t, d, VOICE_CREDIT, tg.length ? hash(tg.slice(0, 30)) : ''].filter(Boolean).join('\n\n');
     return [{ key: 'Alt yazı (caption)', text: cap, max: 2200, hint: tg.length > 30 ? 'Instagram en fazla 30 etiketi kabul eder; ilk 30 alındı.' : '' }];
   }
   const cap = [t, d].filter(Boolean).join(' — ');
   const max = 2200;
-  const room = Math.max(0, max - cap.length - 1);
+  const room = Math.max(0, max - cap.length - VOICE_CREDIT.length - 4);
   let hs = '';
   for (const x of tg.slice(0, 8)) {
     if ((hs + ` #${x}`).length > room) break;
     hs += ` #${x}`;
   }
-  return [{ key: 'Açıklama', text: (cap + hs).trim(), max, hint: 'TikTok için az ama isabetli etiket (en çok 8) önerilir.' }];
+  return [{ key: 'Açıklama', text: `${cap + hs}\n\n${VOICE_CREDIT}`.trim(), max, hint: 'TikTok için az ama isabetli etiket (en çok 8) önerilir.' }];
 });
 
 const meta = computed(() => PLATFORMS[platform.value]);
@@ -120,6 +123,7 @@ const empty = computed(() => !pub.value.title && !pub.value.description && !tags
 <template>
   <div class="pp" @keydown.stop>
     <YoutubeUpload v-if="projectId" :project-id="projectId" :scene="scene" />
+    <ShareFile v-if="projectId" :project-id="projectId" :title="pub.title" :text="outputs[outputs.length > 1 ? 1 : 0]?.text" />
     <p v-if="empty" class="dim small">
       Bu videonun paylaşım bilgisi henüz boş. Aşağıyı doldur; ya da yapay zekadan yeni proje isterken otomatik dolar.
     </p>

@@ -1,0 +1,29 @@
+{
+  "slug": "duz-ayna-yansima-kurallari-2d",
+  "title": "Düz Ayna Yansıma Kuralları",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, düz ayna yansıma kurallarını interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "optik",
+    "ışık",
+    "yansıma",
+    "düz ayna",
+    "yansıma kuralları"
+  ],
+  "accent": "hsl(203, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/reflectionRules/Index.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/reflectionRules/Index.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.096Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

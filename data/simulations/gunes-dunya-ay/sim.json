@@ -1,0 +1,24 @@
+{
+  "slug": "gunes-dunya-ay",
+  "title": "Güneş, Dünya ve Ay",
+  "subtitle": "Dönme ve dolanma",
+  "category": "Astronomi",
+  "description": "Güneş, Dünya ve Ay’ın dönme ile dolanma hareketlerini izleyin; kamerayı değiştirin, yörüngeleri ve şekilleri kontrol edin.",
+  "tags": [],
+  "accent": "#38bdf8",
+  "engine": "three",
+  "kind": "modern",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/simulations/gunes-dunya-ay/index.vue",
+  "files": [
+    "src/views/simulation/simulations/gunes-dunya-ay.vue",
+    "src/views/simulation/simulations/gunes-dunya-ay/config.js",
+    "src/views/simulation/simulations/gunes-dunya-ay/index.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.252Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

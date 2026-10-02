@@ -56,14 +56,70 @@ const LABELS = {
   cta: 'Çağrı (kapanış)', istatistikler: 'İstatistikler', ozellikler: 'Özellikler', cihaz: 'Cihaz', rozet: 'Rozet', fiyat: 'Fiyat', fiyatAlt: 'Fiyat altı', link: 'Bağlantı',
   ustBaslik: 'Üst başlık', altBaslik2: 'Alt başlık', sonuc: 'Sonuç', kisiA: '1. kişi', kisiB: '2. kişi', mesajlar: 'Mesajlar (kim: a | b)', tepkiler: 'Tepkiler (emoji|sayı)',
   bolumler: 'Bölümler (dönemler)', kanca: 'Kanca (küçük üst cümle)', altBaslik: 'Alt başlık', suslemeler: 'Kapak süsleri (nesne id)', kapakNesne: 'Kapak nesnesi', soru: 'Kapanış sorusu', son1: 'Kapanış 1. satır', son2: 'Kapanış 2. satır', murekkep: 'Yazı rengi (hex)',
+  hikaye: 'Hikâye (bölümler / replikler: anlatım, altyazı, …)', son: 'Hikâyenin sonu / ders', kahraman: 'Kahraman (kütüphane hayvanı)', karakterA: '1. karakter', karakterB: '2. karakter', adA: '1. karakter adı', adB: '2. karakter adı', renk: 'Kahraman rengi (hex)',
+  sunucu: 'Sunucu karakteri (karakter id)', varyantSunucu: 'Sunucu varyantı', yarismaci: 'Yarışmacı karakteri', varyantYarismaci: 'Yarışmacı varyantı',
+  supheci: 'Şüpheci karakter', varyantSupheci: 'Şüpheci varyantı', musteri: 'Müşteri karakteri', varyantMusteri: 'Müşteri varyantı',
+  karakter: 'Karakter (id)', varyant: 'Karakter varyantı', varyantA: '1. karakter varyantı', varyantB: '2. karakter varyantı',
+  selamA: '1. karakterin selamı', selamB: '2. karakterin selamı', selamSunucu: 'Sunucunun selamı', selamYarismaci: 'Yarışmacının selamı', selamSupheci: 'Şüphecinin selamı', selamMusteri: 'Müşterinin selamı',
+  bilgiler: 'Bilgiler (soru, cevap, büyük rakam / kelime)', sorular: 'Sorular (şıklar, doğru şık no, tahmin)', iddialar: 'İddialar (gerçek: true | false)', ipuclari: 'İpuçları (başlık, metin, nesne)',
+  sorun: 'Sorun cümlesi', sonucCumle: 'Sonuç cümlesi', teklif: 'Teklif metni', rakam: 'Büyük rakam (sayi, birim, etiket)',
+  zincir: 'Zincir (başlık, metin)', duygular: 'Duygular (duygu id, ad, ipucu, renk)', haberler: 'Haberler (manşet, rakam / grafik, söz)', oyuncular: 'Oyuncular (id, ad, varyant, ekler)', replikler: 'Replikler (kim, metin, duygu, twist)', mekan: 'Mekân', kanal: 'Kanal adı', ekler: 'Aksesuarlar (id listesi)', selam: 'Açılış cümlesi', cevap: 'Cevap cümlesi',
   dalga: 'Alt ses dalgası', ozet: 'Özet başlığı', slogan: 'Slogan', vuruslarPerKelime: 'Kelime başına vuruş', zeminNo: 'Zemin rengi sırası',
 };
+
+// Favori + etiket (data/template-meta.json; anahtar = "hazir:<id>" | "benim:<id>")
+const tmeta = ref({});
+const onlyFav = ref(false);
+const tagFilter = ref('');
+const newTag = ref('');
+const keyOf = (t, g = group.value) => `${g}:${t.id}`;
+const metaOf = (t) => tmeta.value[keyOf(t)] || { fav: false, etiketler: [] };
+const allTags = computed(() => {
+  const n = {};
+  for (const [k, v] of Object.entries(tmeta.value)) if (k.startsWith(group.value + ':')) for (const e of v.etiketler || []) n[e] = (n[e] || 0) + 1;
+  return Object.entries(n).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'tr'));
+});
+const favCount = computed(() => list.value.filter((t) => metaOf(t).fav).length);
+async function saveMeta(t, patch) {
+  const key = keyOf(t);
+  const old = tmeta.value[key];
+  tmeta.value = { ...tmeta.value, [key]: { fav: false, etiketler: [], ...old, ...patch } };
+  try {
+    const out = await api.setTemplateMeta(key, patch);
+    const n = { ...tmeta.value };
+    if (!out.fav && !out.etiketler.length) delete n[key];
+    else n[key] = out;
+    tmeta.value = n;
+  } catch (e) {
+    const n = { ...tmeta.value };
+    if (old) n[key] = old;
+    else delete n[key];
+    tmeta.value = n;
+    toastError(e);
+  }
+}
+const toggleFav = (t) => saveMeta(t, { fav: !metaOf(t).fav });
+function addTag() {
+  const t = current.value;
+  const v = newTag.value.replace(/^#/, '').trim().toLocaleLowerCase('tr');
+  newTag.value = '';
+  if (!t || !v) return;
+  saveMeta(t, { etiketler: [...metaOf(t).etiketler, v] });
+}
+const removeTag = (t, e) => saveMeta(t, { etiketler: metaOf(t).etiketler.filter((x) => x !== e) });
 
 const themes = computed(() => [...res.value.themes.values()]);
 const list = computed(() => (isUser.value ? userTpls.value : templates.value));
 const filtered = computed(() => {
   const s = q.value.trim().toLocaleLowerCase('tr');
-  return list.value.filter((t) => !s || `${t.ad} ${t.aciklama} ${t.id} ${t.etiket || ''}`.toLocaleLowerCase('tr').includes(s));
+  return list.value
+    .filter((t) => {
+      const m = metaOf(t);
+      if (onlyFav.value && !m.fav) return false;
+      if (tagFilter.value && !m.etiketler.includes(tagFilter.value)) return false;
+      return !s || `${t.ad} ${t.aciklama} ${t.id} ${t.etiket || ''} ${m.etiketler.join(' ')}`.toLocaleLowerCase('tr').includes(s);
+    })
+    .sort((a, b) => Number(metaOf(b).fav) - Number(metaOf(a).fav));
 });
 const current = computed(() => list.value.find((t) => t.id === tplId.value));
 const musicInfo = computed(() => {
@@ -77,6 +133,7 @@ onMounted(async () => {
     templates.value = l;
     meta.value = mt;
     userTpls.value = await api.userTemplates();
+    tmeta.value = await api.templateMetaAll().catch(() => ({}));
     if (l.length) pick(l[0].id);
     // Galeri küçük resimleri: her şablonun örneğinden sahne üret (sırayla, arayüzü kilitlemeden)
     const out = {};
@@ -95,6 +152,7 @@ onMounted(async () => {
 function setGroup(g) {
   if (group.value === g) return;
   group.value = g;
+  tagFilter.value = '';
   tab.value = 'form';
   const l = g === 'benim' ? userTpls.value : templates.value;
   if (l.length) pick(l[0].id);
@@ -257,15 +315,22 @@ const fmtDur = (s) => `${Math.round(s.duration)} sn`;
           <button :class="{ on: !isUser }" @click="setGroup('hazir')">Hazır <span class="n">{{ templates.length }}</span></button>
           <button :class="{ on: isUser }" @click="setGroup('benim')">Benim <span class="n">{{ userTpls.length }}</span></button>
         </div>
-        <input v-model="q" class="input" placeholder="Şablon ara…" />
+        <input v-model="q" class="input" placeholder="Şablon ara (ad, açıklama, etiket)…" />
+        <div class="chips">
+          <button class="chip fav" :class="{ on: onlyFav }" @click="onlyFav = !onlyFav">★ Favoriler <span class="n">{{ favCount }}</span></button>
+          <button v-for="[e, c] in allTags" :key="e" class="chip" :class="{ on: tagFilter === e }" @click="tagFilter = tagFilter === e ? '' : e">#{{ e }} <span class="n">{{ c }}</span></button>
+        </div>
       </div>
       <div class="cards">
-        <button
+        <div
           v-for="t in filtered"
           :key="t.id"
           class="card"
+          role="button"
+          tabindex="0"
           :class="{ on: tplId === t.id }"
           @click="pick(t.id)"
+          @keydown.enter="pick(t.id)"
           @mouseenter="hot = t.id"
           @mouseleave="hot = ''"
         >
@@ -273,13 +338,15 @@ const fmtDur = (s) => `${Math.round(s.duration)} sn`;
             <AnimPreview v-if="thumbScene(t)" :scene="thumbScene(t)" :res="res" :t="posterT(thumbScene(t))" :active="hot === t.id" :loop="thumbScene(t).duration" :px="340" />
             <div v-else class="ph" />
             <span v-if="thumbScene(t)" class="dur">{{ fmtDur(thumbScene(t)) }}</span>
+            <button class="star" :class="{ on: metaOf(t).fav }" :title="metaOf(t).fav ? 'Favoriden çıkar' : 'Favorilere ekle'" @click.stop="toggleFav(t)">{{ metaOf(t).fav ? '★' : '☆' }}</button>
           </div>
           <div class="info">
             <strong>{{ t.ad }}</strong>
             <span v-if="t.etiket" class="tag">{{ t.etiket }}</span>
             <span class="desc">{{ t.aciklama }}</span>
+            <span v-if="metaOf(t).etiketler.length" class="utags"><i v-for="e in metaOf(t).etiketler" :key="e" @click.stop="tagFilter = e">#{{ e }}</i></span>
           </div>
-        </button>
+        </div>
         <p v-if="!filtered.length" class="dim small pad">{{ isUser ? 'Henüz şablon yok. Projeler sayfasında bir projenin ☆ Şablon düğmesine bas.' : 'Eşleşen şablon yok.' }}</p>
       </div>
     </aside>
@@ -298,6 +365,12 @@ const fmtDur = (s) => `${Math.round(s.duration)} sn`;
           </div>
         </div>
         <span v-if="busy" class="dim small">güncelleniyor…</span>
+        <button v-if="current" class="btn favbtn" :class="{ on: metaOf(current).fav }" @click="toggleFav(current)">{{ metaOf(current).fav ? '★ Favori' : '☆ Favorile' }}</button>
+      </div>
+      <div v-if="current" class="tagrow">
+        <span v-for="e in metaOf(current).etiketler" :key="e" class="utag">#{{ e }}<button title="Etiketi kaldır" @click="removeTag(current, e)">×</button></span>
+        <input v-model="newTag" class="input tagin" list="tpl-tags" placeholder="+ etiket ekle" maxlength="30" @keydown.enter.prevent="addTag" @change="addTag" />
+        <datalist id="tpl-tags"><option v-for="[e] in allTags" :key="e" :value="e" /></datalist>
       </div>
       <div class="stage">
         <ScenePlayer v-if="scene" ref="player" :scene="scene" :res="res" :max-side="700" />
@@ -473,6 +546,23 @@ const fmtDur = (s) => `${Math.round(s.duration)} sn`;
 .info strong { font-size: 13px; line-height: 1.2; }
 .tag { font-size: 10.5px; color: var(--accent-2); font-weight: 600; }
 .desc { font-size: 11px; color: var(--text-3); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.35; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 5px; max-height: 76px; overflow: auto; }
+.chip { border: 1px solid var(--line); background: var(--panel); color: var(--text-2); font: inherit; font-size: 11.5px; padding: 2px 9px; border-radius: 999px; cursor: pointer; }
+.chip.on { border-color: var(--accent); color: var(--text); background: color-mix(in srgb, var(--accent) 16%, var(--panel)); }
+.chip.fav.on { color: #ffd166; }
+.star { position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; border-radius: 50%; border: 0; background: rgba(0, 0, 0, .55); color: #eee; font-size: 16px; line-height: 1; cursor: pointer; }
+.star:hover { background: rgba(0, 0, 0, .8); }
+.star.on { color: #ffd166; }
+.utags { display: flex; flex-wrap: wrap; gap: 3px 6px; }
+.utags i { font-style: normal; font-size: 10.5px; color: var(--text-2); cursor: pointer; }
+.utags i:hover { color: var(--accent-2); }
+.favbtn.on { color: #ffd166; border-color: #ffd166; }
+.tagrow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.utag { display: inline-flex; align-items: center; gap: 4px; font-size: 11.5px; padding: 2px 4px 2px 9px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line); color: var(--text-2); }
+.utag button { border: 0; background: transparent; color: var(--text-3); cursor: pointer; font-size: 14px; line-height: 1; padding: 0 4px; }
+.utag button:hover { color: #ff8a8a; }
+.tagin { width: 130px; padding: 3px 9px; font-size: 12px; }
 
 /* önizleme */
 .preview { padding: 16px 20px; overflow: auto; display: flex; flex-direction: column; gap: 10px; min-width: 0; background: radial-gradient(900px 500px at 50% 0%, rgba(234, 122, 59, .08), transparent 70%); }

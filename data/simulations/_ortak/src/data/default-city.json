@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Yeni Şehir",
+    "author": "",
+    "createdAt": "2026-06-21T12:00:00.000Z",
+    "updatedAt": "2026-06-21T12:00:00.000Z"
+  },
+  "settings": {
+    "gridUnit": 1,
+    "width": 48,
+    "depth": 48,
+    "playAreaShape": "rectangle",
+    "offshoreDepth": 4,
+    "ground": { "pack": "fantasy-town", "asset": "road" },
+    "sky": { "preset": "day" },
+    "birdCount": 8,
+    "crossSpeciesFlee": true
+  },
+  "player": {
+    "characterId": "character-a",
+    "spawn": { "x": 0, "y": 0, "z": 0 }
+  },
+  "layers": {
+    "roads": [],
+    "buildings": [],
+    "props": [],
+    "terrain": [],
+    "offshore": []
+  },
+  "usedModels": {}
+}

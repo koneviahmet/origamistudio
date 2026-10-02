@@ -1,0 +1,34 @@
+{
+  "slug": "ruzgarin-olusumu",
+  "title": "Rüzgarın Oluşumu",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, rüzgarın oluşumu ve etkilerini interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "fen bilimleri",
+    "rüzgar",
+    "rüzgar oluşumu",
+    "rüzgar etkileri",
+    "rüzgar simülasyonu",
+    "sıcaklık",
+    "basınç",
+    "hava",
+    "hava akımı",
+    "hava akımı simülasyonu"
+  ],
+  "accent": "hsl(123, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/ruzgarin-olusumu.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/ruzgarin-olusumu.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.213Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

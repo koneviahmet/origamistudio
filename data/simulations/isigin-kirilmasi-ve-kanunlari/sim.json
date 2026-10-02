@@ -1,0 +1,31 @@
+{
+  "slug": "isigin-kirilmasi-ve-kanunlari",
+  "title": "Işığın Kirilması ve Kanunları",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, ışığın kırılması ve kanunlarını interaktif bir şekilde gözlemlemenizi sağlar. Işık bir ortamdan başka bir ortama geçerken kırılır veya tam yansır. Bu similasyonda kırılma açısını değiştirerek kırılma açısının değişimi gözlemlenebilir.",
+  "tags": [
+    "fizik",
+    "optik",
+    "ışık",
+    "fen bilimleri",
+    "ışık kırılması",
+    "yansıma açısı",
+    "kırılma açısı",
+    "ışık kırılması simülasyonu"
+  ],
+  "accent": "hsl(75, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/isigin-kirilmasi-ve-kanunlari.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/isigin-kirilmasi-ve-kanunlari.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.164Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

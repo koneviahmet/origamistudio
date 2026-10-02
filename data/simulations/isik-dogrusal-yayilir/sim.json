@@ -1,0 +1,27 @@
+{
+  "slug": "isik-dogrusal-yayilir",
+  "title": "Işığın Doğrusal Yayılması",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, ışığın doğrusal yayılma özelliğini interaktif bir şekilde gözlemlemenizi sağlar. Nokta ışık kaynağı veya lazer ışını kullanarak ışığın engeller üzerindeki davranışını inceleyebilirsiniz.",
+  "tags": [
+    "fizik",
+    "optik",
+    "ışık",
+    "yayılma"
+  ],
+  "accent": "hsl(296, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/isik-dogrusal-yayilir.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/isik-dogrusal-yayilir.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.170Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

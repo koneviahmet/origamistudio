@@ -17,6 +17,8 @@ Hazır bileşen gerekirse `data/components/` dosyalarını okuma: `npm run biles
 
 Konuşan / yürüyen / tanıtan karakter gerekirse `data/characters/` dosyalarını okuma: `npm run karakter -- "<sorgu>"` (+ `--detay <id>`, `--aksiyonlar`, `--duygular`) ile seç; üreteçte `import { karakterBaglam, diyalog } from './lib/karakter.mjs'` → `const K = karakterBaglam({ W, H }); L(K('copadam', { id, konum, boy, varyant, start, akis, soz }))`; iki karakter için `diyalog({a, b}, [{kim, metin, duygu, sure}], { t0 })`. Hareket / duygu kataloğu tüm karakterlerde ortaktır. Ayrıntı: docs/schema.md §15, docs/prompt-rehberi.md §11.
 
+Onay kuyruğu (zorunlu): konsept seçildikten sonra, kodlamadan önce nesne adaylarını (`npm run ara`; eksik olanı üret) ve 5 sesi (`npm run sesler`) seç, `scripts/onay-<id>.json` yaz, `npm run onay -- olustur …` ile /onay/<id> sayfasına koy, kullanıcıyı bilgilendir ve `npm run onay -- bekle <id>` ile kararları bekle (kullan / kullanma / düzenle; düzenle = kütüphanede aynı varlığın üzerine yaz). Ayrıntı: CLAUDE.md "ONAY KUYRUĞU".
+
 İş akışı: 3 konsept → birini seç → eksik model/efekt/tema varsa üret (scripts/seed-<konu>.mjs) → `scripts/scenes-<id>.mjs` üreteci yaz →
 `node scripts/scenes-<id>.mjs` → `npm run dogrula -- <id>` → kare render edip bak (docs/prompt-rehberi.md §5) → düzelt →
 sahneye `publish { title, description, tags[] }` (videoya özgü başlık/açıklama/etiketler) ekle → kombinasyon günlüğüne satır ekle → kısa Türkçe rapor (bölüm tablosu, teyit etmediğin bilgiler).

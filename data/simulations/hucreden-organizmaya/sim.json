@@ -1,0 +1,29 @@
+{
+  "slug": "hucreden-organizmaya",
+  "title": "Hücreden Organizmaya Biyolojik Organizasyon",
+  "subtitle": "biyoloji",
+  "category": "Biyoloji",
+  "description": "Bu simülasyon, canlılardaki organizasyon basamaklarını (hücre, doku, organ, sistem ve organizma) interaktif olarak gözlemlemenizi sağlar.",
+  "tags": [
+    "biyoloji",
+    "hücre",
+    "doku",
+    "organ",
+    "sistem",
+    "organizma"
+  ],
+  "accent": "hsl(133, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/hucreden-organizmaya.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/hucreden-organizmaya.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.159Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

@@ -86,21 +86,33 @@ export function createStore(dataDir) {
     return entries.filter((e) => e.isDirectory()).map((e) => e.name).sort();
   }
 
+  // Dosya mtime+boyut değişmediyse ayrıştırılmış varlık önbellekten gelir
+  const assetCache = new Map();
+  async function readAssetCached(file) {
+    const st = await fs.stat(file);
+    const key = `${st.mtimeMs}:${st.size}`;
+    const hit = assetCache.get(file);
+    if (hit && hit.key === key) return hit.a;
+    const a = await readJson(file);
+    assetCache.set(file, { key, a });
+    return a;
+  }
+
   async function listAssets() {
     const cats = await listCategories();
-    const assets = [];
-    for (const cat of cats) {
+    const perCat = await Promise.all(cats.map(async (cat) => {
       const files = (await fs.readdir(path.join(LIB, cat))).filter((f) => f.endsWith('.json'));
-      for (const f of files) {
+      return Promise.all(files.map(async (f) => {
         try {
-          const a = await readJson(path.join(LIB, cat, f));
-          assets.push({ ...a, id: f.slice(0, -5), category: cat });
+          const a = await readAssetCached(path.join(LIB, cat, f));
+          return { ...a, id: f.slice(0, -5), category: cat };
         } catch (e) {
           console.warn('[library]', e.message);
+          return null;
         }
-      }
-    }
-    return assets;
+      }));
+    }));
+    return perCat.flat().filter(Boolean);
   }
 
   async function findAssetFile(id) {
@@ -185,32 +197,54 @@ export function createStore(dataDir) {
     return (await exists(f)) ? readJson(f) : [];
   }
 
-  async function listProjects() {
-    const entries = await fs.readdir(PROJ, { withFileTypes: true });
-    const out = [];
-    for (const e of entries) {
-      if (!e.isDirectory()) continue;
-      const f = path.join(PROJ, e.name, 'scene.json');
-      if (!(await exists(f))) continue;
-      try {
-        const scene = await readJson(f);
-        const stat = await fs.stat(f);
-        const notes = await readNotes(e.name);
-        out.push({
-          id: e.name,
-          name: scene.name || e.name,
+  // Arşiv bayrağı scene.json'a dokunmaz: data/projects/<id>/meta.json
+  const metaFile = (id) => path.join(PROJ, assertId(id), 'meta.json');
+  async function readMeta(id) {
+    try { return await readJson(metaFile(id)); } catch { return {}; }
+  }
+  async function setArchived(id, archived) {
+    if (!(await exists(sceneFile(id)))) throw new HttpError(404, `Proje bulunamadı: ${id}`);
+    const meta = await readMeta(id);
+    if (archived) { meta.archived = true; meta.archivedAt = new Date().toISOString(); }
+    else { delete meta.archived; delete meta.archivedAt; }
+    await writeJson(metaFile(id), meta);
+    return { id, archived: !!archived };
+  }
+
+  // scene.json mtime+boyut aynıysa özet önbellekten gelir (büyük sahneleri her listelemede ayrıştırma)
+  const summaryCache = new Map();
+  async function projectSummary(name) {
+    const f = path.join(PROJ, name, 'scene.json');
+    let stat;
+    try { stat = await fs.stat(f); } catch { return null; }
+    const [notes, meta] = await Promise.all([readNotes(name), readMeta(name)]);
+    const key = `${stat.mtimeMs}:${stat.size}`;
+    let base = summaryCache.get(name);
+    if (!base || base.key !== key) {
+      const scene = await readJson(f);
+      base = {
+        key,
+        v: {
+          id: name,
+          name: scene.name || name,
           width: scene.width,
           height: scene.height,
           fps: scene.fps,
           duration: scene.duration,
           layers: scene.layers?.length || 0,
-          openNotes: notes.filter((n) => n.status !== 'done').length,
           updatedAt: stat.mtime.toISOString(),
-        });
-      } catch (err) {
-        console.warn('[projects]', err.message);
-      }
+        },
+      };
+      summaryCache.set(name, base);
     }
+    return { ...base.v, openNotes: notes.filter((n) => n.status !== 'done').length, archived: !!meta.archived };
+  }
+
+  async function listProjects() {
+    const entries = await fs.readdir(PROJ, { withFileTypes: true });
+    const out = (await Promise.all(entries.filter((e) => e.isDirectory()).map((e) =>
+      projectSummary(e.name).catch((err) => { console.warn('[projects]', err.message); return null; })
+    ))).filter(Boolean);
     return out.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
   }
 
@@ -531,7 +565,7 @@ export function createStore(dataDir) {
     listMedia, saveMedia, deleteMedia, mediaDir: MEDIA, saveRender, projectsDir: PROJ, colList, colGet, colCreate, colUpdate, colDelete,
     listCategories, listAssets, getAsset, createAsset, updateAsset, deleteAsset,
     createCategory, deleteCategory, renameCategory,
-    listProjects, getProject, createProject, saveScene, duplicateProject, deleteProject,
+    listProjects, getProject, createProject, saveScene, duplicateProject, deleteProject, setArchived,
     readNotes, addNote, updateNote, deleteNote,
     snapshotScene, listHistory, getHistory, restoreHistory, baselineHistory,
   };

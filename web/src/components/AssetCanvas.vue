@@ -4,6 +4,7 @@
 import { onBeforeUnmount, onMounted, ref, toRaw, watch } from 'vue';
 import { hitFacet, assetPalette } from '../engine/origami.js';
 import { drawStyled } from '../engine/styles.js';
+import { useSeen } from '../visible.js';
 
 const props = defineProps({
   asset: { type: Object, required: true },
@@ -22,6 +23,7 @@ const emit = defineEmits(['pick']);
 
 const wrap = ref(null);
 const canvas = ref(null);
+const seen = useSeen(wrap);
 let raf = 0;
 let t0 = 0;
 let ro;
@@ -31,7 +33,7 @@ function draw(fold) {
   const c = canvas.value;
   const w = wrap.value?.clientWidth || 0;
   const h = wrap.value?.clientHeight || 0;
-  if (!c || !w || !h) return;
+  if (!c || !w || !h || !seen.value) return;
   const dpr = window.devicePixelRatio || 1;
   if (c.width !== Math.round(w * dpr) || c.height !== Math.round(h * dpr)) {
     c.width = Math.round(w * dpr);
@@ -99,6 +101,7 @@ onBeforeUnmount(() => {
   cancelAnimationFrame(raf);
   ro?.disconnect();
 });
+watch(seen, (v) => v && start());
 watch(() => [props.animate, props.order, props.spread, props.drawStyle], start);
 watch(() => props.variant, () => !props.animate && draw(props.fold));
 watch(() => [props.fold, props.highlight], () => !props.animate && draw(props.fold));

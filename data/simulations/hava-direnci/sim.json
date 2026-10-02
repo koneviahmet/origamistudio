@@ -1,0 +1,28 @@
+{
+  "slug": "hava-direnci",
+  "title": "Hava Direnci",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, hava direncini interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "fen bilimleri",
+    "hava",
+    "hava direnci",
+    "hava direnci simülasyonu"
+  ],
+  "accent": "hsl(245, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/hava-direnci.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/hava-direnci.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.151Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

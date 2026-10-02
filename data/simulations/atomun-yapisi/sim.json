@@ -1,0 +1,31 @@
+{
+  "slug": "atomun-yapisi",
+  "title": "Atomun Yapısı",
+  "subtitle": "kimya",
+  "category": "Kimya",
+  "description": "Bu simülasyon, atomun yapısını interaktif bir şekilde gözlemleyebilisiniz.",
+  "tags": [
+    "kimya",
+    "fen bilimleri",
+    "atom",
+    "atom yapısı",
+    "katman modeli",
+    "elektron",
+    "proton",
+    "nötron"
+  ],
+  "accent": "hsl(206, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/atomun-yapisi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/atomun-yapisi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.056Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

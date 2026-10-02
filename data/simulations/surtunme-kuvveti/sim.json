@@ -1,0 +1,31 @@
+{
+  "slug": "surtunme-kuvveti",
+  "title": "Sürtünme Kuvveti",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, Eğik düzlem kullanarak sürtünme kuvvetini interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "hareket",
+    "enerji",
+    "fen bilimleri",
+    "potansiyel enerji",
+    "kinetik enerji",
+    "sürtünme",
+    "eğik düzlem"
+  ],
+  "accent": "hsl(216, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/surtunme-kuvveti.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/surtunme-kuvveti.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.235Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

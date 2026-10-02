@@ -1,0 +1,29 @@
+{
+  "slug": "nasil-renkli-goruruz",
+  "title": "Nasıl Renkli Görürüz?",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, renklerin nasıl oluştuğunu ve görüldüğünü interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "optik",
+    "ışık",
+    "fen bilimleri",
+    "renk",
+    "renkli görünüm"
+  ],
+  "accent": "hsl(130, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/nasil-renkli-goruruz.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/nasil-renkli-goruruz.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.196Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

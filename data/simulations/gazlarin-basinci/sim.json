@@ -1,0 +1,29 @@
+{
+  "slug": "gazlarin-basinci",
+  "title": "Gazların Basıncı",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, gazların bulundukları kaba yaptığı basıncı interaktif bir şekilde gözlemleyebilisiniz.",
+  "tags": [
+    "fizik",
+    "fen bilimleri",
+    "gaz",
+    "basınç",
+    "hacim",
+    "sıcaklık"
+  ],
+  "accent": "hsl(12, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/gazlarin-basinci.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/gazlarin-basinci.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.126Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

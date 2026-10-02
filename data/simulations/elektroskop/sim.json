@@ -1,0 +1,27 @@
+{
+  "slug": "elektroskop",
+  "title": "Elektroskop",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, elektroskopun çalışma prensibini interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "elektroskop",
+    "elektroskop simülasyonu"
+  ],
+  "accent": "hsl(77, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/elektroskop2d/Index.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/elektroskop2d/Elektroskop.vue",
+    "src/views/simulation/legacy/embed/elektroskop2d/Index.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.105Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

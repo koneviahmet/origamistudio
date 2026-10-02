@@ -5,11 +5,16 @@ import { notlariUygula } from '../scripts/ai-notlar.mjs';
 import { ayarOku, ayarYaz, ollayaDurum } from '../scripts/kutuphane-ara.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createSimulations, simulationRoutes } from './simulations.js';
 
-export function createApi(store, events, fonts, tts, muzik, youtube) {
+export function createApi(store, events, fonts, tts, muzik, youtube, onay) {
   const r = express.Router();
 
   r.get('/events', events.handler);
+
+  // ------------------------------------------------- simülasyonlar (orman-oyunu'ndan aktarılan; arayüz: /simulasyonlar)
+  simulationRoutes(r, createSimulations(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'data')));
 
   // ------------------------------------------------- temalar / metin stilleri
   r.get('/col/:col', async (req, res) => res.json(await store.colList(req.params.col)));
@@ -29,6 +34,19 @@ export function createApi(store, events, fonts, tts, muzik, youtube) {
     ayarYaz({ ollaya: { aktif: !!req.body?.aktif } });
     res.json(await ollayaBilgi());
   });
+
+  // ------------------------------------------------------- onay kuyruğu
+  // Video üretiminde kullanılacak nesne/ses adaylarının kullanıcı onayı (data/onay/<oturum>.json). Arayüz: /onay
+  r.get('/onay', async (_req, res) => res.json(await onay.liste()));
+  r.post('/onay', async (req, res) => res.status(201).json(await onay.olustur(req.body)));
+  r.get('/onay/:id', async (req, res) => res.json(await onay.oku(req.params.id)));
+  r.patch('/onay/:id/ogeler/:oge', async (req, res) => res.json(await onay.karar(req.params.id, req.params.oge, req.body || {})));
+  r.post('/onay/:id/toplu', async (req, res) => res.json(await onay.topluKarar(req.params.id, req.body || {})));
+  r.post('/onay/:id/ogeler/:oge/gorsel', express.raw({ type: () => true, limit: '15mb' }), async (req, res) =>
+    res.status(201).json(await onay.gorselEkle(req.params.id, req.params.oge, req.body, req.headers['content-type'])));
+  r.delete('/onay/:id/ogeler/:oge/gorsel/:ad', async (req, res) => res.json(await onay.gorselSil(req.params.id, req.params.oge, req.params.ad)));
+  r.get('/onay/:id/gorsel/:ad', (req, res) => res.sendFile(onay.gorselYol(req.params.id, req.params.ad)));
+  r.post('/onay/:id/arsiv', async (req, res) => res.json(await onay.arsivle(req.params.id, req.body?.arsiv !== false)));
 
   // -------------------------------------------------------------- şablonlar
   // Brief → sahne: scripts/sablonlar/ üreteçleri (CLI: node scripts/uret.mjs)
@@ -70,6 +88,30 @@ export function createApi(store, events, fonts, tts, muzik, youtube) {
     if (!facetler || typeof facetler !== 'object') throw new HttpError(400, 'facetler nesnesi gerekli');
     await fs.writeFile(TAXF, JSON.stringify({ _not: 'Özel etiket değerleri (varsayılan sözlüğün üstüne biner). Varsayılanlar: web/src/componentTags.js', facetler }, null, 2) + '\n');
     res.json({ facetler });
+  });
+
+  // ------------------------------------------- şablon favori / etiketleri
+  // data/template-meta.json = { "<hazir|benim>:<id>": { fav: bool, etiketler: [str] } }
+  const TMETA = path.join(store.projectsDir, '..', 'template-meta.json');
+  const readTmeta = async () => {
+    try {
+      return JSON.parse(await fs.readFile(TMETA, 'utf8'));
+    } catch {
+      return {};
+    }
+  };
+  r.get('/template-meta', async (_req, res) => res.json(await readTmeta()));
+  r.put('/template-meta', async (req, res) => {
+    const { key, fav, etiketler } = req.body || {};
+    if (typeof key !== 'string' || !/^(hazir|benim):[\w.-]+$/.test(key)) throw new HttpError(400, 'geçersiz anahtar');
+    const all = await readTmeta();
+    const cur = all[key] || {};
+    if (typeof fav === 'boolean') cur.fav = fav;
+    if (Array.isArray(etiketler)) cur.etiketler = [...new Set(etiketler.map((x) => String(x).replace(/^#/, '').trim().toLocaleLowerCase('tr')).filter(Boolean))].slice(0, 20);
+    if (!cur.fav && !(cur.etiketler || []).length) delete all[key];
+    else all[key] = { fav: !!cur.fav, etiketler: cur.etiketler || [] };
+    await fs.writeFile(TMETA, JSON.stringify(all, null, 2) + '\n');
+    res.json(all[key] || { fav: false, etiketler: [] });
   });
 
   // ------------------------------------------- kullanıcı şablonları (projeden)
@@ -178,6 +220,8 @@ export function createApi(store, events, fonts, tts, muzik, youtube) {
   r.put('/projects/:id', async (req, res) => res.json(await store.saveScene(req.params.id, req.body)));
   r.post('/projects/:id/duplicate', async (req, res) =>
     res.status(201).json(await store.duplicateProject(req.params.id, req.body?.name)));
+  r.post('/projects/:id/archive', async (req, res) =>
+    res.json(await store.setArchived(req.params.id, req.body?.archived !== false)));
   r.delete('/projects/:id', async (req, res) => {
     await store.deleteProject(req.params.id);
     res.status(204).end();
@@ -313,6 +357,14 @@ export function createApi(store, events, fonts, tts, muzik, youtube) {
     const j = youtube.job(req.params.id);
     if (!j) throw new HttpError(404, 'Yükleme işi bulunamadı');
     res.json(j);
+  });
+  // Render MP4'ünü indir / telefona aktar (Range destekli)
+  r.get('/projects/:id/renders/:name', (req, res, next) => {
+    assertId(req.params.id);
+    const name = path.basename(req.params.name);
+    if (!/\.mp4$/i.test(name)) throw new HttpError(400, 'Yalnızca .mp4');
+    const full = path.join(store.projectsDir, req.params.id, 'renders', name);
+    res.download(full, name, (err) => err && !res.headersSent && next(new HttpError(404, 'Render bulunamadı')));
   });
   r.get('/projects/:id/renders', async (req, res) => res.json(await youtube.listRenders(req.params.id)));
   r.post('/projects/:id/youtube-upload', async (req, res) => res.status(202).json(await youtube.upload(req.params.id, req.body || {})));

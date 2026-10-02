@@ -7,6 +7,7 @@ import RenderBox from './design/RenderBox.vue';
 const props = defineProps({
   item: { type: Object, required: true },
   animate: { type: Boolean, default: false },
+  deep: { type: Boolean, default: false },
   mode: { type: String, default: 'surekli' },
   dark: { type: Boolean, default: true },
 });
@@ -43,5 +44,5 @@ const scene = computed(() => ({
 </script>
 
 <template>
-  <RenderBox :scene="scene" :res="res" :animate="animate" :loop="4" :t="2.2" />
+  <RenderBox :deep="deep" :scene="scene" :res="res" :animate="animate" :loop="4" :t="2.2" />
 </template>

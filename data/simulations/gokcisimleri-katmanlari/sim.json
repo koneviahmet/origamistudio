@@ -1,0 +1,25 @@
+{
+  "slug": "gokcisimleri-katmanlari",
+  "title": "Gök Cisimlerinin Katmanları",
+  "subtitle": "İç yapı kesiti",
+  "category": "Astronomi",
+  "description": "Güneş, Dünya ve Ay’ı inceleyin. Çift tıklayarak resimdeki gibi iç katman kesitini görün.",
+  "tags": [],
+  "accent": "#f59e0b",
+  "engine": "three",
+  "kind": "modern",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/simulations/gokcisimleri-katmanlari/index.vue",
+  "files": [
+    "src/views/simulation/simulations/gokcisimleri-katmanlari.vue",
+    "src/views/simulation/simulations/gokcisimleri-katmanlari/config.js",
+    "src/views/simulation/simulations/gokcisimleri-katmanlari/index.vue",
+    "src/views/simulation/simulations/gokcisimleri-katmanlari/layers.js"
+  ],
+  "importedAt": "2026-10-02T10:38:57.257Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

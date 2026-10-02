@@ -1,0 +1,25 @@
+0 | Merhaba, ben Kıpır! Bu gece gökyüzüne baktın mı? Dünya'nın en yakın komşusu seni bekliyor.
+5 | Sence o bir yıldız mı, yoksa başka bir şey mi?
+8 | Cevap: uydu! Ay, Dünya'ya en yakın gök cismidir. Üstelik Dünya'nın tek doğal uydusu.
+12 | Tıpkı Dünya gibi, Ay da küreseldir.
+16 | Geceleri gökyüzünde en parlak görünen gök cismi Ay. Peki Ay, kendi ışığını mı üretiyor?
+20 | Hayır! Ay bir ışık kaynağı değildir. Güneş'ten aldığı ışığı yansıtır.
+24 | Ay bize büyük görünür ama aslında küçük bir komşu. Çapı, Dünya'nın çapının yaklaşık dörtte biri kadar.
+28 | Peki Ay'da hiç rüzgâr eser mi, yağmur yağar mı?
+32 | Hayır! Ay'ın atmosferi yok denecek kadar azdır. Bu yüzden orada rüzgâr, yağmur gibi hava olayları yaşanmaz.
+36 | Atmosfer bu kadar ince olunca, uzaydan gelen meteorlar Ay'a çarpar. Bu çarpmalar, krater denilen çukurlar açar.
+40 | Atmosfer az olduğu için gece ile gündüz arasındaki sıcaklık farkı çok fazladır. Kayaçlar bu yüzden hızla toza dönüşür.
+44 | Ay'ın yüzeyinde kayalıklar, vadiler ve dağlık bölgeler de vardır.
+48 | Ay hiç durmaz! Üç çeşit hareketi vardır. Tahmin edebilir misin?
+52 | Birincisi: Ay, kendi ekseni etrafında döner. Bir turu yaklaşık yirmi yedi gün sekiz saat sürer.
+56 | İkincisi: Ay, Dünya'nın etrafında dolanır. Bu da yirmi yedi gün sekiz saat sürer.
+60 | Üçüncüsü: Ay, Dünya ile birlikte Güneş'in etrafında dolanır. Bu yolculuk üç yüz altmış beş gün altı saat sürer.
+64 | Dönme ve dolanma yönü saat yönünün tersidir ve süreleri eşit olduğu için Ay'ın hep aynı yüzünü görürüz. Görünmeyen tarafına Ay'ın karanlık yüzü denir.
+70 | Peki Ay hep aynı yüzünü gösteriyorsa, neden her gece farklı şekilde görünüyor?
+74 | Çünkü Ay, Dünya'nın etrafında dolanırken konumu sürekli değişir. Güneş ışığı onu farklı açılardan aydınlatır. Bu duruma Ay'ın evreleri denir.
+80 | Ay'ın sekiz evresi vardır: dört ana, dört ara evre. Ana evreler arasında yaklaşık bir hafta geçer.
+84 | Yeni Ay'da Ay, Dünya ile Güneş'in arasındadır; aydınlık yüzü bize bakmadığı için görünmez. Sonra ince bir hilal belirir.
+88 | İlk dördünde Ay'ın yarısı aydınlıktır. Sonra şişer ve dolunayda tamamen aydınlık, en büyük ve en parlak hâlini alır.
+92 | Ardından küçülmeye başlar: şişkin Ay, son dördün, tekrar hilal ve yeniden yeni Ay.
+96 | Hadi özetleyelim: Ay, Dünya'nın tek doğal uydusu; ışığını Güneş'ten alıp yansıtan, kraterlerle dolu bir komşu.
+100 | Şimdi sana bir sorum var: Ay hiç olmasaydı, geceler nasıl görünürdü? Düşün ve yorumlara yaz!

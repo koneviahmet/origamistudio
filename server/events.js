@@ -26,6 +26,7 @@ export function createEvents(dataDir) {
     if (parts[0] === 'themes' || parts[0] === 'textstyles' || parts[0] === 'components' || parts[0] === 'characters') return { kind: 'design', col: parts[0] };
     if (parts[0] === 'bilesen-etiketleri.json') return { kind: 'design', col: 'components' };
     if (parts[0] === 'fonts' && parts[1] === 'fonts.json') return { kind: 'fonts' };
+    if (parts[0] === 'onay') return { kind: 'onay', id: (parts[1] || '').replace(/\.json$/, '') };
     if (parts[0] === 'audio') return { kind: 'audio' };
     if (parts[0] === 'media') return { kind: 'media' };
     if (parts[0] === 'projects' && parts[1]) {

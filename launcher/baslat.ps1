@@ -1,9 +1,13 @@
 ﻿# Origami Studio başlatıcı (Windows)
 #  - Sunucu zaten çalışıyorsa yalnızca Chrome'u açar
-#  - Çalışmıyorsa: gerekirse bağımlılıkları kurar ve arayüzü derler, sunucuyu arka planda
-#    (penceresiz) üretim modunda başlatır, hazır olunca Chrome'da açar
-# Kullanım: masaüstü kısayolu (baslat.vbs üzerinden) ya da  powershell -File launcher\baslat.ps1 [-NoBrowser]
-param([switch]$NoBrowser)
+#  - Çalışmıyorsa: gerekirse bağımlılıkları kurar, sunucuyu arka planda (penceresiz) başlatır,
+#    hazır olunca Chrome'da açar
+#  - Varsayılan: DİNAMİK mod (Vite geliştirme sunucusu; kod değişince arayüz anında güncellenir).
+#    -Prod ile eski davranış: arayüzü derleyip statik (build edilmiş) olarak sunar.
+#  - cloudflared kuruluysa telefon için geçici HTTPS tüneli açar; adres panoya kopyalanır ve
+#    launcher\logs\tunel-url.txt dosyasına yazılır. -NoTunnel ile tünel açılmaz.
+# Kullanım: masaüstü kısayolu (baslat.vbs üzerinden) ya da  powershell -File launcher\baslat.ps1 [-NoBrowser] [-Prod] [-NoTunnel]
+param([switch]$NoBrowser, [switch]$Prod, [switch]$NoTunnel)
 
 $ErrorActionPreference = 'Stop'
 $Root = Split-Path -Parent $PSScriptRoot
@@ -14,6 +18,8 @@ New-Item -ItemType Directory -Force -Path $LogDir | Out-Null
 $Log = Join-Path $LogDir 'sunucu.log'
 $ErrLog = Join-Path $LogDir 'sunucu-hata.log'
 $BuildLog = Join-Path $LogDir 'derleme.log'
+$TunnelLog = Join-Path $LogDir 'tunel.log'
+$TunnelUrlFile = Join-Path $LogDir 'tunel-url.txt'
 
 function Test-Server {
   try {
@@ -64,8 +70,8 @@ if (-not (Test-Server)) {
 
   # Arayüz derlemesi eksik ya da kaynak kod daha yeniyse yeniden derle
   $dist = Join-Path $Root 'web\dist\index.html'
-  $needBuild = -not (Test-Path $dist)
-  if (-not $needBuild) {
+  $needBuild = $Prod -and -not (Test-Path $dist)
+  if ($Prod -and -not $needBuild) {
     $built = (Get-Item $dist).LastWriteTime
     $newer = Get-ChildItem (Join-Path $Root 'web') -Recurse -File |
       Where-Object { $_.FullName -notlike '*\web\dist\*' -and $_.LastWriteTime -gt $built } |
@@ -79,7 +85,8 @@ if (-not (Test-Server)) {
   }
 
   # Sunucuyu penceresiz başlat (bu betik kapansa da çalışmaya devam eder)
-  Start-Process -FilePath $node -ArgumentList @('server/index.js', '--prod') -WorkingDirectory $Root `
+  $serverArgs = if ($Prod) { @('server/index.js', '--prod') } else { @('server/index.js') }
+  Start-Process -FilePath $node -ArgumentList $serverArgs -WorkingDirectory $Root `
     -WindowStyle Hidden -RedirectStandardOutput $Log -RedirectStandardError $ErrLog | Out-Null
 
   $ok = $false
@@ -97,4 +104,43 @@ if (-not $NoBrowser) {
   $chrome = Find-Chrome
   if ($chrome) { Start-Process -FilePath $chrome -ArgumentList @('--new-window', $Url) }
   else { Start-Process $Url }  # Chrome yoksa varsayılan tarayıcı
+}
+
+# ---------------------------------------------------------------- telefon için HTTPS tüneli
+function Find-Cloudflared {
+  $c = Get-Command cloudflared -ErrorAction SilentlyContinue
+  if ($c) { return $c.Source }
+  foreach ($p in @("$env:LOCALAPPDATA\Microsoft\WinGet\Links\cloudflared.exe", "$env:ProgramFiles\cloudflared\cloudflared.exe", "${env:ProgramFiles(x86)}\cloudflared\cloudflared.exe")) {
+    if ($p -and (Test-Path $p)) { return $p }
+  }
+  return $null
+}
+
+function Read-TunnelUrl {
+  if (-not (Test-Path $TunnelLog)) { return $null }
+  $m = Select-String -Path $TunnelLog -Pattern 'https://[a-z0-9-]+\.trycloudflare\.com' -ErrorAction SilentlyContinue | Select-Object -First 1
+  if ($m) { return $m.Matches[0].Value }
+  return $null
+}
+
+if (-not $NoTunnel) {
+  $cf = Find-Cloudflared
+  if ($cf) {
+    $running = Get-CimInstance Win32_Process -Filter "Name='cloudflared.exe'" -ErrorAction SilentlyContinue |
+      Where-Object { $_.CommandLine -match [regex]::Escape("localhost:$Port") }
+    $url = $null
+    if ($running) { $url = Read-TunnelUrl }
+    else {
+      Remove-Item $TunnelLog -ErrorAction SilentlyContinue
+      Start-Process -FilePath $cf -ArgumentList @('tunnel', '--url', "http://localhost:$Port") -WindowStyle Hidden `
+        -RedirectStandardError $TunnelLog -RedirectStandardOutput (Join-Path $LogDir 'tunel-out.log') | Out-Null
+      for ($i = 0; $i -lt 40 -and -not $url; $i++) { Start-Sleep -Milliseconds 500; $url = Read-TunnelUrl }
+    }
+    if ($url) {
+      Set-Content -Path $TunnelUrlFile -Value $url -Encoding utf8
+      Set-Clipboard -Value $url
+      Add-Type -AssemblyName PresentationFramework
+      [System.Windows.MessageBox]::Show("Telefon adresi (panoya kopyalandı):`n`n$url`n`nAdresi bilen herkes Studio'ya erişebilir; işin bitince Durdur kısayolunu kullan.", 'Origami Studio', 'OK', 'Information') | Out-Null
+    }
+  }
 }

@@ -27,7 +27,7 @@ const fontMap = new Map(fonts.map((f) => [f.family, f]));
 const audioDir = path.join(ROOT, 'data', 'audio');
 const BAD_FONTS = new Set(['Fredoka', 'Lilita One', 'Satisfy', 'Titan One']);
 const TEXT_ANIMS = new Set(['harf-katla', 'harf-zipla', 'harf-dus', 'harf-don', 'harf-belir', 'kelime-zipla', 'satir-kay', 'dalga', 'titresim', 'harf-katla-cik', 'harf-dagil']);
-const TRANS = new Set(['katlama', 'perde', 'iris', 'yirtik', 'sayfa-cevir', 'kaydir', 'yakinlas']);
+const TRANS = new Set(['katlama', 'perde', 'iris', 'yirtik', 'sayfa-cevir', 'kaydir', 'yakinlas', 'jaluzi', 'mozaik', 'benek', 'capraz', 'seritler', 'elmas', 'dalga', 'yildiz', 'kepenk', 'saat', 'solma', 'uzaklas', 'kapi', 'dilim', 'pikselle', 'daire-ac', 'silme', 'dusen', 'don-kucul', 'cevir-dikey', 'ucgen', 'petek', 'satirlar', 'pencere', 'barlar', 'ceyrek', 'testere', 'x-kapan', 'yelpaze', 'kalp', 'merdiven', 'parcalan', 'yatay-dilim', 'rulo', 'dikey-cevir', 'kose-cekil', 'saat-ac', 'dalgalan', 'tv-kapan', 'kapak']);
 const STYLES = new Set(['origami', 'kagit-kesme', 'duz', 'cizim', 'neon', 'cam', 'mozaik', 'teknik', 'vitray', 'kil', 'siluet', 'gazete', 'halftone', 'suluboya', 'nakis', 'piksel']);
 
 const err = [];

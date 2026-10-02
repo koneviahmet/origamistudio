@@ -1,0 +1,31 @@
+{
+  "slug": "ses-madde-etkilesimi",
+  "title": "Ses Madde Etkileşimi",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, sesin madde ile etkileşimini interaktif bir şekilde gözlemlemenizi sağlar. Katı, sıvı ve gaz maddelerin seslere olan tepkilerini inceleyebilirsiniz.",
+  "tags": [
+    "fizik",
+    "ses",
+    "madde",
+    "fen bilimleri",
+    "sesin yayılması",
+    "katı",
+    "sıvı",
+    "gaz"
+  ],
+  "accent": "hsl(184, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/ses-madde-etkilesimi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/ses-madde-etkilesimi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.219Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

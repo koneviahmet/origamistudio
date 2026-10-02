@@ -11,6 +11,22 @@ async function req(method, url, body) {
 }
 
 export const api = {
+  simulations: () => req('GET', '/simulations'),
+  simulation: (slug, kaynak = false) => req('GET', `/simulations/${slug}${kaynak ? '?kaynak=1' : ''}`),
+  updateSimulation: (slug, patch) => req('PATCH', `/simulations/${slug}`, patch),
+  deleteSimulation: (slug) => req('DELETE', `/simulations/${slug}`),
+  onayListe: () => req('GET', '/onay'),
+  onay: (id) => req('GET', `/onay/${id}`),
+  onayKarar: (id, oge, body) => req('PATCH', `/onay/${id}/ogeler/${oge}`, body),
+  onayToplu: (id, body) => req('POST', `/onay/${id}/toplu`, body),
+  onayGorselEkle: async (id, oge, blob) => {
+    const res = await fetch(`/api/onay/${id}/ogeler/${oge}/gorsel`, { method: 'POST', headers: { 'Content-Type': blob.type || 'image/png' }, body: blob });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || res.statusText);
+    return data;
+  },
+  onayGorselSil: (id, oge, ad) => req('DELETE', `/onay/${id}/ogeler/${oge}/gorsel/${encodeURIComponent(ad)}`),
+  onayArsiv: (id, arsiv) => req('POST', `/onay/${id}/arsiv`, { arsiv }),
   ytStatus: () => req('GET', '/youtube/status'),
   ytConfig: (cfg) => req('PUT', '/youtube/config', cfg),
   ytAuth: () => req('GET', '/youtube/auth'),
@@ -39,6 +55,7 @@ export const api = {
   createProject: (scene) => req('POST', '/projects', scene),
   saveScene: (id, scene) => req('PUT', `/projects/${id}`, scene),
   duplicateProject: (id, name) => req('POST', `/projects/${id}/duplicate`, { name }),
+  archiveProject: (id, archived = true) => req('POST', `/projects/${id}/archive`, { archived }),
   deleteProject: (id) => req('DELETE', `/projects/${id}`),
 
   saveSnapshot: async (id, name, blob) => {
@@ -70,6 +87,8 @@ export const api = {
   templateMeta: () => req('GET', '/templates/meta'),
   componentTags: () => req('GET', '/component-tags'),
   saveComponentTags: (facetler) => req('PUT', '/component-tags', { facetler }),
+  templateMetaAll: () => req('GET', '/template-meta'),
+  setTemplateMeta: (key, patch) => req('PUT', '/template-meta', { key, ...patch }),
   userTemplates: () => req('GET', '/user-templates'),
   saveAsTemplate: (projectId, ad, aciklama) => req('POST', '/user-templates', { projectId, ad, aciklama }),
   updateUserTemplate: (id, patch) => req('PATCH', `/user-templates/${id}`, patch),

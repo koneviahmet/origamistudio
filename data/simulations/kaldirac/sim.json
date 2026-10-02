@@ -1,0 +1,32 @@
+{
+  "slug": "kaldirac",
+  "title": "Kaldıraç",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, Basit makinalardan olan kaldıraçda kuvvet kolu, yük kolu ve destek noktasını interaktif bir şekilde değiştirerek kuvvet kazancını veya kaybını gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "kuvvet",
+    "enerji",
+    "fen bilimleri",
+    "basit makine",
+    "kaldıraç",
+    "kuvvet kolu",
+    "yük kolu",
+    "destek noktası"
+  ],
+  "accent": "hsl(121, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/kaldirac.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/kaldirac.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.175Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

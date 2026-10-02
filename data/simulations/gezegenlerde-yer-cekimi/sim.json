@@ -1,0 +1,30 @@
+{
+  "slug": "gezegenlerde-yer-cekimi",
+  "title": "Gezegenlerde Yer Çekimi",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, gezegenlerdeki yer çekimi kuvvetini interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "gezegen",
+    "yer çekimi",
+    "fen bilimleri",
+    "ağırlık",
+    "kütle",
+    "yer çekimi kuvveti"
+  ],
+  "accent": "hsl(325, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/gezegenlerde-yer-cekimi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/gezegenlerde-yer-cekimi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.131Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

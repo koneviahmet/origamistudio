@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onMounted, ref, toRaw, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import { api } from '../api.js';
 import { useLive } from '../live.js';
 import { toast, toastError } from '../toast.js';
@@ -77,11 +78,18 @@ function mirrorFacet() {
 }
 const previewStyle = ref('origami');
 
+const route = useRoute();
 async function load() {
   try {
     const d = await api.library();
     categories.value = d.categories;
     assets.value = d.assets.sort((a, b) => (a.name || a.id).localeCompare(b.name || b.id, 'tr'));
+    // /library?ac=<id>: Onay sayfasından "Kütüphanede düzenle" (kaydedince aynı varlığın üzerine yazılır)
+    const ac = route.query.ac;
+    if (ac && !draft.value) {
+      const a = assets.value.find((x) => x.id === ac);
+      if (a) openAsset(a);
+    }
   } catch (e) {
     toastError(e);
   } finally {

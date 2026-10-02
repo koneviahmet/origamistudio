@@ -1,0 +1,26 @@
+{
+  "slug": "dogal-secilim",
+  "title": "Doğal Seçilim",
+  "subtitle": "biyoloji",
+  "category": "Biyoloji",
+  "description": "Bu simülasyon, doğal seçilim ve etkilerini interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "biyoloji",
+    "fen bilimleri",
+    "doğal seçilim"
+  ],
+  "accent": "hsl(130, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/dogal-secilim.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/dogal-secilim.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.085Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

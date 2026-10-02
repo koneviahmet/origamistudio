@@ -1,0 +1,28 @@
+{
+  "slug": "genetik-carprazlama",
+  "title": "Genetik Çaprazlama",
+  "subtitle": "biyoloji",
+  "category": "Biyoloji",
+  "description": "Bu simülasyon, genetik çaprazlama işlemini interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "biyoloji",
+    "genetik",
+    "çaprazlama",
+    "genetik çaprazlama",
+    "genetik çaprazlama simülasyonu"
+  ],
+  "accent": "hsl(340, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/crossover/Index.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/crossover/Index.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.129Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

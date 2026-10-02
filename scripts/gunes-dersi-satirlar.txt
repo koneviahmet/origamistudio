@@ -1,0 +1,20 @@
+0 | Merhaba, ben Kıpır! Gökyüzünde her sabah bizi uyandıran bir komşumuz var.
+5 | Sence o bir gezegen mi, yoksa bir yıldız mı?
+10 | Cevap: yıldız! Güneş, orta büyüklükte bir yıldızdır.
+15 | Üstelik Dünya'nın ısı ve ışık kaynağı da o!
+20 | Peki Güneş neyden yapılmış? Katı bir kaya parçası mı?
+25 | Hayır! Güneş gazlardan oluşur ve şekli küreseldir. Tıpkı Dünya gibi, katmanları vardır.
+30 | Gazların yüzde yetmiş biri hidrojen, yüzde yirmi altı buçuğu helyum. Kalan yüzde iki buçuk ise diğer gazlar.
+35 | Gökyüzünde Güneş'ten çok daha büyük yıldızlar var. Peki neden Güneş bize daha büyük görünüyor?
+40 | Çünkü Güneş, Dünya'ya en yakın yıldız! Aramızda yaklaşık yüz elli milyon kilometre var.
+45 | Güneş, Güneş Sistemi'nin tam merkezinde durur. Yaşı da yaklaşık beş milyar yıl. Yani çok yaşlı bir komşu!
+50 | Güneş'in yüzüne yakından bakabilsek, karanlık bölgeler görürdük. Bunlara güneş lekeleri denir.
+55 | Lekeler, çevresine göre daha soğuk bölgelerdir. Soğuk oldukları için daha karanlık görünürler.
+60 | Güneş'in yüzeyini kendi yaptığı teleskopla ilk inceleyen bilim insanı, Galileo Galilei'dir.
+65 | Galileo bir şey fark etti: lekeler, günler geçtikçe hep aynı yöne kayıyordu. Peki sence bu ne demek?
+70 | Güneş, kendi etrafında dönüyor! Hem de saat yönünün tersine.
+75 | Ama dikkat! Güneş'e çıplak gözle asla bakma. Gözlerine zarar verir.
+80 | Dürbün, teleskop, mercek ya da kamerayla da Güneş'e bakılmaz!
+85 | Güneş'i gözlemlemek için özel filtreler kullanılır. Bu filtreler, Güneş'e bakmayı güvenli hâle getirir.
+90 | Hadi özetleyelim: Güneş, gazlardan oluşan, bize ısı ve ışık veren, dev bir yıldızdır.
+95 | Şimdi sana bir sorum var: Güneş hiç olmasaydı, Dünya nasıl bir yer olurdu? Düşün ve yorumlara yaz!

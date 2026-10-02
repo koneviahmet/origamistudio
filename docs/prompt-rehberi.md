@@ -359,7 +359,37 @@ Hazır örnekler: `scripts/briefs/<sablon>.json`. Şablonlar **9:16 reels** odak
 | `rakamlar` | İstatistik sayaçları + sütun grafik | `istatistikler: [{deger, birim, onek, etiket, oran}]`, `grafik: {baslik, veri: [{etiket, deger}]}`, `cta` |
 | `adimlar` | Nasıl yapılır / tarif | `adimlar: [{baslik, metin}]`, `ozet`, `cta` |
 | `zaman` | Zaman tüneli: anlatımlı, el çizimi, dönem dönem; nesneler rafa dizilir | `kanca`, `baslik`, `altBaslik`, `bolumler: [{yil, ad, nesne, balon, bilgi: [2 satır], notlar: [..], anlatim, ses?}]`, `soru`, `cta`, `son1`, `son2`, `suslemeler`, `kapakNesne` |
+| `zaman-yol` | Zaman tüneli · Yol haritası: neon, dikey kaydırmalı omurga, cam daire + cam kartlar | `zaman` ile aynı brief |
+| `zaman-kart` | Zaman tüneli · Kart destesi: pastel, istiflenen yuvarlak kartlar, madde işaretli bilgiler | `zaman` ile aynı brief |
+| `zaman-seridi` | Zaman tüneli · Sinematik şerit: yatay paralaks, şafaktan geceye (palet `gunyolu`) | `zaman` ile aynı brief |
+| `zaman-sayac` | Zaman tüneli · Yıl sayacı: enerjik, vuruşlu, dev yıl sayarak akar, damga balonlar | `zaman` ile aynı brief (`yil` sayıysa sayaç; "1890'lar" → 1890+'lar') |
+| `zaman-merdiven` | Zaman tüneli · Yükseliş merdiveni: çapraz tırmanış, gökyüzü uzaya koyulaşır (palet `yukselis`) | `zaman` ile aynı brief |
+| `zaman-cark` | Zaman çarkı: radyal kadran, ibre "tık" diye kayar, dönem ışığı (palet `neon`) | `zaman` ile aynı brief |
+| `zaman-galeri` | Müze galerisi: koyu, altın, spot huzmesi, kaide, dolly-in (palet `galeri`) | `zaman` ile aynı brief |
+| `zaman-pano` | Mantar pano: polaroid + kırmızı ip, kamera dönüşü, post-it (palet `mantar`) | `zaman` ile aynı brief |
+| `zaman-retro` | Retro dalga: synthwave yolu, nesne ufuktan yaklaşır, terminal satırları (palet `retro`) | `zaman` ile aynı brief |
+| `zaman-dergi` | Dergi: krem sayfa + canlı blok, dev serif yıl, alttan süpürme (palet `dergi`) | `zaman` ile aynı brief |
+| `zaman-katman` | Kazı: toprak katmanlarına iniş, nesne nişinde gün yüzüne çıkar (palet `toprak`); sıralamayı yeniden eskiye ver | `zaman` ile aynı brief |
+| `zaman-teknik` | Mavi pafta: teknik çizim, ölçü çizgileri, numaralı notlar, ONAYLANDI damgası (palet `pafta`, stil `teknik`) | `zaman` ile aynı brief |
+| `zaman-film` | Sessiz sinema: film perforasyonu, iris ara kartları, sepyadan renge (palet `sinema`) | `zaman` ile aynı brief |
+| `zaman-metro` | Metro hattı: tren duraktan durağa gider, kamera izler, sefer paneli (palet `metro`) | `zaman` ile aynı brief |
+| `zaman-piksel` | 8-bit oyun: seviyeler, ? bloğu, HUD, NES kutusu, pikselle geçişi (palet `oyun`, stil `piksel`) | `zaman` ile aynı brief |
 | `manzara` | Katmanlı manzara / sinematik kapak (paralaks bantlar, olay, başlık, sonda takip bloğu) | `sahne: okyanus \| daglar \| gece`, `baslik`, `altBaslik`, `sure` |
+| `hikaye-yolculuk` | Hikâye · Yolculuk: yatay kayan paralaks yol, tabelalı bölümler, şafaktan geceye | `hikaye: [{baslik, anlatim, altyazi?, ses?}]`, `kahraman`, `son`, `soru`, `cta` |
+| `hikaye-gun` | Hikâye · Günün döngüsü: sabit vadi, saatli bölümler, güneş/ay yayı, saat | `hikaye: [{saat, baslik, anlatim, altyazi?, konuk?: ['kelebek','turna','marti']}]` |
+| `hikaye-damla` | Hikâye · Damla: çok uzun dikey dünya, damlayı izleyen kamera (su döngüsü) | `hikaye: [{bolge?: gok\|dag\|dere\|deniz\|derin, baslik, anlatim, altyazi?}]`, `renk` |
+| `hikaye-kitap` | Hikâye · Kitap: deri cilt, sayfa çevirme, her sayfa ayrı dünya + kitap yazısı | `hikaye: [{dunya: kis\|daglar\|okyanus\|sonbahar\|gece, baslik, anlatim, sayfa?}]`, `kahraman` |
+| `hikaye-ucus` | Hikâye · Uçuş: sabit kamera, dünya ufuktan bize akar, irtifa sayacı | `hikaye: [{bolge?: yer\|bulut\|aksam\|yildiz\|ay, baslik, anlatim, altyazi?, irtifa?}]`, `kahraman` |
+| `hikaye-masal` | Hikâye · Masal: iki karakter diyaloğu, konuşma balonları, gündüz→akşam | `hikaye: [{kim: a\|b\|anlatici, soz, duygu?, sahne?, nesne?}]`, `karakterA/B`, `adA/adB` |
+| `hikaye-fener` | Hikâye · Küçük Fener (ÖZEL MODELLER): fırtınadan şafağa hava yayı, şimşek, dönen ışık | `hikaye: [{baslik, anlatim, altyazi?}]` |
+| `hikaye-kervan` | Hikâye · Küçük Kervancı (ÖZEL MODELLER): çöl, kervan, güneş yayı, kamera takibi | `hikaye: [{baslik, anlatim, altyazi?}]` |
+| `hikaye-kar` | Hikâye · Kardan Adamın Dileği (ÖZEL MODELLER): kış köyü + kar küresi | `hikaye: [{baslik, anlatim, altyazi?}]` |
+| `hikaye-ejderha` | Hikâye · Çizgi roman (ÖZEL MODELLER): sayfa/panel düzeni, balonlar | `hikaye: [{sahne: kale\|yol\|magara\|ejderha\|agla\|dostluk\|ucus, altyazi, konus?, ses_efekti?, anlatim}]`, `sayfalar?` |
+| `hikaye-mantar` | Hikâye · Lumi'nin Işığı (ÖZEL MODELLER): orman, 5 derinlik düzlemi, odak kayması | `hikaye: [{baslik, anlatim, altyazi?}]` |
+
+> Özel hikâye modelleri (`data/library/hikaye-*`) `scripts/hikaye-modeller/` altındaki betiklerden üretilir: önce `npm run seed:hikaye` (tek tek: `node scripts/seed-hikaye.mjs fener|kervan|kar|ejderha|mantar`). Şablon, modeller yoksa bunu söyleyen bir hata verir.
+
+Hikâye şablonlarında `anlatim` (ya da masalda `soz`) metinleri `anlatim.txt` olarak yazılır → `npm run seslendir`; çıkan wav'ı bölümün `ses` alanına yaz (süre buna göre uzar). Ortak iskelet: `scripts/sablonlar/hikaye-ortak.mjs`.
 | `dalis` | Model / kavram evrimi: şema + kamera dalışı + zincirleme zaman şeridi | `baslik`, `altBaslik`, `kapakDuzen`, `kapakNesne`, `bolumler: [{yil, ad, duzen: tek \| bolun \| kume \| gomulu \| isin \| yorunge \| bulut, nesne, nesne2, mermi, merkez, renk, bilgi: [2], notlar: [2], anlatim, ses?}]`, `son1`, `son2`, `soru`, `cta` |
 | `sohbet` | Mesajlaşma hikâyesi (yazıyor… + balonlar + kayma) | `kisiA`, `kisiB`, `mesajlar: [{kim: a \| b, metin}]`, `tepkiler: ["😂\|128"]`, `cta` |
 
@@ -386,6 +416,14 @@ Ortak: `yayin {baslik, aciklama, etiketler[]}` (paylaşım → `scene.publish`),
 "Sınav sabahı" için sohbet şablonuyla 9:16 video: Ece ve Can, 6 mesaj, sonunda tepkiler. palet gunbatimi, muzik pop-120.
 Brief'i scripts/briefs/sinav.json'a yaz, node scripts/uret.mjs ile üret, §5 yöntemiyle kareleri kontrol et, taşmaları düzelt, raporla.
 ```
+
+**Karakter şablonları (5 adet, `scripts/sablonlar/karakter-*.mjs`, ortak yapı taşı `karakter-ortak.mjs`)** — 9:16, `type: "karakter"` katmanları + vuruşa oturan kartlar. Karakter / varyant brief'ten değişir (`karakterA/varyantA`, `sunucu`, `yarismaci`, `supheci`, `musteri`, `karakter`…):
+`karakter-bilgi` (öğretmen + öğrenci "biliyor muydun?", `bilgiler[]`) · `karakter-quiz` (sunucu + yarışmacı, 3 şıklı quiz, geri sayım, skor, `sorular[]`) · `karakter-mit` (mit mi gerçek mi, damga, `iddialar[]`) ·
+`karakter-tanitim` (ürün / uygulama tanıtımı: cihaz + özellikler + sayaç + teklif, `ozellikler[]`) · `karakter-ipucu` (tek koç: sorun → N ipucu → tik listesi, `ipuclari[]`).
+Düzen kuralı: kartlar üstte (y %10–%46), karakterler ayak ucu %80'de / boy ≈ %30 (Reels arayüz bölgesi 200–1500 px), balon başın üstünde → kart ile balon aynı anda çakışmasın.
+
+**Gözlü şablonları (yalnızca `gozlu` karakteri, `scripts/sablonlar/gozlu-*.mjs`):** `gozlu-gozlem` (dikkat testi: farklı olanı bul, `turlar[]`) · `gozlu-neden` (ok bağlı neden-sonuç zinciri, `zincir[]`) · `gozlu-duygu` (duygu atlası, `duygular[]`) · `gozlu-haber` (haber bülteni: manşet + grafik / sayaç, `haberler[]`) · `gozlu-skec` (3 Gözlü skeci, kamera konuşana kayar, plot twist, `oyuncular[]` + `replikler[]`).
+Karakter boyu `OLCEK` (0.85) ile küçültülür, içerik ana öğedir. Çizim sırası (karakter-ortak.mjs): şekiller → karakterler → metin / grafik / ok; metin hiçbir zaman karakterin arkasında kalmaz. Yerleşim: kartlar y %10–%40, konuşma balonu başın üstünde (kart ile aynı anda çakışmasın).
 
 ## 10. Bileşenler, derinlik ve ses (Faz 16 reçeteleri)
 

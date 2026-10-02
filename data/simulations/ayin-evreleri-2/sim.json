@@ -1,0 +1,27 @@
+{
+  "slug": "ayin-evreleri-2",
+  "title": "Ay'ın Evreleri",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, ayın evrelerini interaktif bir şekilde gözlemlemenizi sağlar. Dünya da bulunan bir gözlemcinin gözünden bakarak ayın evrelerini gözlemleyebilirsiniz.",
+  "tags": [
+    "fizik",
+    "fen bilimleri",
+    "ay",
+    "ay'ın evreleri"
+  ],
+  "accent": "hsl(319, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/ayin-evreleri-2.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/ayin-evreleri-2.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.063Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

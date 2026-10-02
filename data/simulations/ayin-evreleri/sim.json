@@ -1,0 +1,29 @@
+{
+  "slug": "ayin-evreleri",
+  "title": "Ay'ın Evreleri",
+  "subtitle": "astronomi",
+  "category": "Astronomi",
+  "description": "Bu simülasyon, Ay'ın Dünya etrafındaki hareketi sırasında oluşan evrelerini 3 boyutlu olarak gözlemlemenizi sağlar. Ay'ın Yeni Ay, İlk Hilal, İlk Dördün, Büyüyen Şişkin Ay, Dolunay, Küçülen Şişkin Ay, Son Dördün ve Son Hilal evrelerini interaktif bir şekilde inceleyebilirsiniz.",
+  "tags": [
+    "astronomi",
+    "uzay",
+    "ay",
+    "dünya",
+    "güneş",
+    "evren"
+  ],
+  "accent": "hsl(180, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/ayin-evreleri.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/ayin-evreleri.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.060Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "hal-degisimi-basinc",
+  "title": "Hal Değişimi Basıncı",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, hal değişimi üzerinde basıncın etkisini  interaktif bir şekilde gözlemlemenizi sağlar. Basıncın etkisini değiştirerek hal değişimi üzerindeki etkisini gözlemleyebilirsiniz.",
+  "tags": [
+    "fizik",
+    "hal değişimi",
+    "basınç",
+    "hal değişimi basıncı"
+  ],
+  "accent": "hsl(312, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/hal-degisimi-basinc.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/hal-degisimi-basinc.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.146Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "prizma-isigin-kirilmasi",
+  "title": "Prizma Işığın Kirilması",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, prizma ile ışığın kırılmasını ve renklere ayırılmasını interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "optik",
+    "ışık",
+    "fen bilimleri",
+    "prizma",
+    "ışık kırılması",
+    "ışık kırılması simülasyonu"
+  ],
+  "accent": "hsl(335, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/prizma-isigin-kirilmasi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/prizma-isigin-kirilmasi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.210Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

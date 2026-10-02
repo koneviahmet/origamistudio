@@ -1,0 +1,321 @@
+{
+  "id": "ay-dersi",
+  "baslik": "Gökyüzündeki Komşumuz: Ay (Gözlü ile ders)",
+  "olusturma": "2026-10-02T10:51:34.148Z",
+  "ogeler": [
+    {
+      "id": "ay-cizim",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "Bölüm 1 (Kim bu?), Bölüm 6 (özet kartı), Bölüm 3 ölçek kıyası",
+      "amac": "Videonun kahramanı: kraterli dolunay. Dünya'ya en yakın gök cismi olarak ilk sahnede merkezde döner.",
+      "ref": "ay-cizim",
+      "ad": "Ay (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "dunya-cizim",
+      "tur": "nesne",
+      "nerede": "Bölüm 1, 3 (boyut kıyası), 5 (hareketler), 6 (evre diyagramı merkezi)",
+      "amac": "Ay'ın etrafında döndüğü gezegen; boyut kıyasında Ay'ın 4 katı büyüklükte gösterilir.",
+      "ref": "dunya-cizim",
+      "ad": "Dünya (çizim)",
+      "kategori": "uzay",
+      "karar": "duzenle",
+      "duzenlendi": true
+    },
+    {
+      "id": "gunes-cizim",
+      "tur": "nesne",
+      "nerede": "Bölüm 2 (ışık yansıtma), 5 (Güneş etrafında dolanma), 6 (evre diyagramı)",
+      "amac": "Işık kaynağı olarak: Güneş → Ay → Dünya ışık oku ve evrelerdeki aydınlanma yönü.",
+      "ref": "gunes-cizim",
+      "ad": "Güneş (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ay-evre-yeni-cizim",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "Bölüm 6 (Ay'ın evreleri — 1. evre)",
+      "amac": "Yeni Ay: Ay Dünya ile Güneş'in arasında, aydınlık yüz görünmez.",
+      "ref": "ay-evre-yeni-cizim",
+      "ad": "Yeni Ay (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ay-evre-hilal-cizim",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "Bölüm 6 (2. ve 8. evre; 8. evrede scaleX −1 ile aynalanır)",
+      "amac": "Hilal evresi — ince aydınlık dilim.",
+      "ref": "ay-evre-hilal-cizim",
+      "ad": "Hilal (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ay-evre-dordun-cizim",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "Bölüm 6 (3. evre İlk Dördün, 7. evre Son Dördün)",
+      "amac": "Yarısı aydınlık Ay; sağ/sol aydınlık farkını göstermek için aynalanır.",
+      "ref": "ay-evre-dordun-cizim",
+      "ad": "İlk Dördün (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ay-evre-sisk-cizim",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "Bölüm 6 (4. ve 6. evre Şişkin Ay)",
+      "amac": "Büyük kısmı aydınlık Ay; küçülen evre için aynalanır.",
+      "ref": "ay-evre-sisk-cizim",
+      "ad": "Şişkin Ay (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ay-yuzeyi-cizim",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "Bölüm 4 (Ay'ın yüzeyi) — sahnenin zemini",
+      "amac": "Kayalıklar, vadiler, dağlar ve kraterlerle Ay manzarası; yüzey şekilleri etiketlenir.",
+      "ref": "ay-yuzeyi-cizim",
+      "ad": "Ay yüzeyi (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "meteor-cizim",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "Bölüm 4 (atmosfer yok → meteorlar çarpar)",
+      "amac": "Ay'a düşen meteor animasyonu (soldan kayarak girer, çarpma anında krater belirir).",
+      "ref": "meteor-cizim",
+      "ad": "Meteor (çizim)",
+      "kategori": "uzay",
+      "karar": "duzenle",
+      "duzenlendi": false
+    },
+    {
+      "id": "krater-cizim",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "Bölüm 4, meteor çarpma noktasında",
+      "amac": "Çarpmanın bıraktığı 'krater' çukuru; kelime etiketiyle tanıtılır.",
+      "ref": "krater-cizim",
+      "ad": "Krater (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ruzgar-cizim",
+      "tur": "nesne",
+      "yeni": true,
+      "nerede": "Bölüm 4 (hava olayı yok sorusu)",
+      "amac": "Rüzgâr simgesi + üzerine çarpı: Ay'da rüzgâr yok.",
+      "ref": "ruzgar-cizim",
+      "ad": "Rüzgâr (çizim)",
+      "kategori": "uzay",
+      "karar": "duzenle",
+      "duzenlendi": true
+    },
+    {
+      "id": "bulut",
+      "tur": "nesne",
+      "nerede": "Bölüm 4, rüzgâr simgesinin yanında",
+      "amac": "Bulut/yağmur simgesi + çarpı: Ay'da yağmur gibi hava olayları yok.",
+      "ref": "bulut",
+      "ad": "Bulut",
+      "kategori": "gokyuzu",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "termometre-cizim",
+      "tur": "nesne",
+      "nerede": "Bölüm 4 (gece–gündüz sıcaklık farkı)",
+      "amac": "İki termometre: gündüz çok sıcak / gece çok soğuk; kayaçların toza dönüşmesinin nedeni.",
+      "ref": "termometre-cizim",
+      "ad": "Termometre (çizim)",
+      "kategori": "nesneler",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "yorunge-halka-cizim",
+      "tur": "nesne",
+      "nerede": "Bölüm 5 (Ay'ın Dünya etrafındaki ve Dünya'nın Güneş etrafındaki yörüngesi)",
+      "amac": "Üç hareketi anlatırken dolanma yolunu gösteren çizim halkası.",
+      "ref": "yorunge-halka-cizim",
+      "ad": "Yörünge halkası (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "donus-oku-cizim",
+      "tur": "nesne",
+      "nerede": "Bölüm 5 (kendi ekseni etrafında dönme)",
+      "amac": "Saat yönünün tersine dönüşü gösteren döner ok.",
+      "ref": "donus-oku-cizim",
+      "ad": "Dönüş oku (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "yildiz",
+      "tur": "nesne",
+      "nerede": "Bölüm 2 (soru: Ay bir yıldız mı?) ve final gece sahnesi",
+      "amac": "Soru kartlarında 'yıldız' seçeneği; son sahnede gece gökyüzü süsü.",
+      "ref": "yildiz",
+      "ad": "Yıldız",
+      "kategori": "sekiller",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "carpi",
+      "tur": "nesne",
+      "nerede": "Bölüm 2 (yanlış cevap), Bölüm 4 (rüzgâr / yağmur yok)",
+      "amac": "'Hayır / yok' vurgusu.",
+      "ref": "carpi",
+      "ad": "Çarpı (yasak)",
+      "kategori": "okul",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "tik",
+      "tur": "nesne",
+      "nerede": "Bölüm 2 (doğru cevap), Bölüm 6 (kimlik kartı maddeleri)",
+      "amac": "'Evet / doğru' vurgusu ve özet listesi işareti.",
+      "ref": "tik",
+      "ad": "Tik",
+      "kategori": "sekiller",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "bant-cizim",
+      "tur": "nesne",
+      "nerede": "Bölüm 5, 'karanlık yüz' kartı ve başlık notları",
+      "amac": "Defter hissi veren washi bant (Güneş dersindeki dille tutarlı).",
+      "ref": "bant-cizim",
+      "ad": "Washi bant (çizim)",
+      "kategori": "nesneler",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-1",
+      "tur": "ses",
+      "ref": "d1-00574",
+      "ad": "Genç öğretmen (Güneş dersindeki ses)",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Genç",
+        "İnce ses",
+        "Enerjik",
+        "Öğretmen"
+      ],
+      "aciklama": "Orta-yüksek tonlu, pürüzsüz, canlı genç kadın sesi; ölçülü tempo. Güneş dersinde de kullanıldı, seri tutarlılığı sağlar.",
+      "nerede": "Tüm video — Gözlü'nün anlatımı",
+      "amac": "Ana anlatıcı adayı (süreklilik).",
+      "karar": "kullanma",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-2",
+      "tur": "ses",
+      "ref": "d1-02455",
+      "ad": "Sıcak öğretmen sesi",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Sıcak",
+        "Sakin",
+        "Enerjik",
+        "Öğretmen"
+      ],
+      "aciklama": "Orta-alçak tonlu, güven veren, sıcak ve canlı; orta tempo.",
+      "nerede": "Tüm video — alternatif anlatıcı",
+      "amac": "Daha yumuşak/gece havasına uygun anlatıcı adayı.",
+      "karar": "kullanma",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-3",
+      "tur": "ses",
+      "ref": "d2-01680",
+      "ad": "Arkadaş canlısı öğretmen",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Orta yaş",
+        "İnce ses",
+        "Enerjik",
+        "Öğretmen"
+      ],
+      "aciklama": "Otuzlu yaşlarda, orta-yüksek tonlu, dost canlısı ve hareketli kadın sesi.",
+      "nerede": "Tüm video — alternatif anlatıcı",
+      "amac": "Daha olgun ama enerjik ders havası.",
+      "karar": "kullanma",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-4",
+      "tur": "ses",
+      "ref": "d2-00074",
+      "ad": "Genç erkek öğretmen",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Genç",
+        "Kalın ses",
+        "Enerjik",
+        "Öğretmen"
+      ],
+      "aciklama": "Alçak tonlu, pürüzsüz, kendinden emin ve canlı genç erkek sesi.",
+      "nerede": "Tüm video — alternatif anlatıcı",
+      "amac": "Gözlü'ye erkek ses denemek istersen.",
+      "karar": "kullanma",
+      "duzenlendi": false
+    },
+    {
+      "id": "ses-5",
+      "tur": "ses",
+      "ref": "d2-00091",
+      "ad": "Sakin erkek anlatıcı",
+      "cinsiyet": "erkek",
+      "etiketler": [
+        "Orta yaş",
+        "Kalın ses",
+        "Sakin",
+        "Yavaş tempo",
+        "Öğretmen"
+      ],
+      "aciklama": "Kırklı yaşlarda, derin, yavaş ve düşünceli erkek sesi.",
+      "nerede": "Tüm video — alternatif anlatıcı",
+      "amac": "Gece/uzay atmosferli, yavaş tempolu anlatım.",
+      "karar": "kullan",
+      "duzenlendi": false
+    }
+  ],
+  "arsiv": false,
+  "guncelleme": "2026-10-02T11:07:41.686Z",
+  "durum": "tamam"
+}

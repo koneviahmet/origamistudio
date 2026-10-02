@@ -1,0 +1,28 @@
+{
+  "slug": "ayni-yonlu-kuvvet",
+  "title": "Aynı Yönlü Kuvvetler",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, aynı yönlü kuvvetlerin bileşkesini interaktif bir şekilde hesaplamanızı sağlar. Kuvvetlerin bileşkesini hesaplamak için kuvvet vektörlerini interaktif olarak değiştirebilirsiniz.",
+  "tags": [
+    "fizik",
+    "kuvvet",
+    "fen bilimleri",
+    "aynı yönlü kuvvetler",
+    "bileşke kuvvet"
+  ],
+  "accent": "hsl(169, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/ayni-yonlu-kuvvet.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/ayni-yonlu-kuvvet.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.072Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

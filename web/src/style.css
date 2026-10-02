@@ -133,3 +133,11 @@ kbd {
   font-family: var(--mono); font-size: 11px; padding: 1px 5px; border-radius: 4px;
   background: var(--bg-2); border: 1px solid var(--line-2); border-bottom-width: 2px;
 }
+
+@media (max-width: 820px) {
+  .topbar { gap: 8px; padding: 0 10px; }
+  .brand { font-size: 0; gap: 0; flex: none; }
+  .nav { flex: 1; min-width: 0; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { white-space: nowrap; padding: 6px 9px; }
+}

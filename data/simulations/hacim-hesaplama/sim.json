@@ -1,0 +1,30 @@
+{
+  "slug": "hacim-hesaplama",
+  "title": "Hacim Hesaplama",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, küp, prizma ve silindir şekillerinin hacimlerini interaktif bir şekilde hesaplamanızı sağlar.",
+  "tags": [
+    "fizik",
+    "hacim",
+    "fen bilimleri",
+    "küp",
+    "prizma",
+    "silindir",
+    "geometrik cisimler"
+  ],
+  "accent": "hsl(41, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/hacim-hesaplama.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/hacim-hesaplama.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.143Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

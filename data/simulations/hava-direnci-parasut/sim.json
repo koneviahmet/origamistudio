@@ -1,0 +1,30 @@
+{
+  "slug": "hava-direnci-parasut",
+  "title": "Paraşüte etki eden hava direnci",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, paraşüte uygulanan hava direncinin etkisini interaktif bir şekilde gözlemlemenizi sağlar. Paraşütün boyutunu değiştirerek hava direncinin etkisini gözlemleyebilirsiniz.",
+  "tags": [
+    "fizik",
+    "hava direnci",
+    "paraşüt",
+    "hava direnci paraşüt",
+    "sürtünme",
+    "sürtünme kuvveti",
+    "sürtünme kuvveti simülasyonu"
+  ],
+  "accent": "hsl(208, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/hava-direnci-parasut.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/hava-direnci-parasut.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.155Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

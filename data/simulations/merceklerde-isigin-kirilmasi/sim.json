@@ -1,0 +1,31 @@
+{
+  "slug": "merceklerde-isigin-kirilmasi",
+  "title": "Merceklerde Işığın Kırılması",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, merceklerde ışığın kırılmasını interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "optik",
+    "ışık",
+    "fen bilimleri",
+    "ışık kırılması",
+    "mercek",
+    "kalın kenarlı mercek",
+    "ince kenarlı mercek"
+  ],
+  "accent": "hsl(139, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/merceklerde-isigin-kirilmasi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/merceklerde-isigin-kirilmasi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.186Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

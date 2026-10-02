@@ -1,0 +1,28 @@
+{
+  "slug": "su-direnci",
+  "title": "Su Direnci",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, su direncini interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "fen bilimleri",
+    "su",
+    "su direnci",
+    "su direnci simülasyonu"
+  ],
+  "accent": "hsl(343, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/su-direnci.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/su-direnci.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.230Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

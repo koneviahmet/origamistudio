@@ -1,0 +1,41 @@
+{
+  "slug": "periyodik-tablo-2",
+  "title": "Periyodik Tablo",
+  "subtitle": "kimya",
+  "category": "Kimya",
+  "description": "Bu simülasyon, periyodik tabloyu interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "kimya",
+    "periyodik tablo",
+    "element",
+    "atom",
+    "fizik",
+    "fen bilimleri",
+    "kimyasal element",
+    "atom numarası",
+    "sembol",
+    "adı",
+    "atom kütlesi",
+    "elektron dizilişi",
+    "grup numarası",
+    "periyot numarası",
+    "elektronik yapısı",
+    "fiziksel özellikler",
+    "kimyasal özellikler"
+  ],
+  "accent": "hsl(252, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/periodicTable/Index.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/periodicTable/elementler.json",
+    "src/views/simulation/legacy/embed/periodicTable/Index.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.208Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

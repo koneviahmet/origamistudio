@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Küçük Kasaba",
+    "author": "Şablon",
+    "createdAt": "2026-06-21T12:00:00.000Z",
+    "updatedAt": "2026-06-21T12:00:00.000Z"
+  },
+  "settings": {
+    "gridUnit": 1,
+    "width": 48,
+    "depth": 48,
+    "ground": { "pack": "fantasy-town", "asset": "road" }
+  },
+  "player": {
+    "characterId": "character-a",
+    "spawn": { "x": 0, "y": 0, "z": 2 }
+  },
+  "layers": {
+    "roads": [
+      { "id": "r-001", "pack": "road-tiles", "asset": "roadTile_033", "gx": 21, "gz": 24, "rotY": 90 },
+      { "id": "r-002", "pack": "road-tiles", "asset": "roadTile_033", "gx": 22, "gz": 24, "rotY": 90 },
+      { "id": "r-003", "pack": "road-tiles", "asset": "roadTile_033", "gx": 23, "gz": 24, "rotY": 90 },
+      { "id": "r-004", "pack": "road-tiles", "asset": "roadTile_145", "gx": 24, "gz": 24, "rotY": 0 },
+      { "id": "r-005", "pack": "road-tiles", "asset": "roadTile_033", "gx": 25, "gz": 24, "rotY": 90 },
+      { "id": "r-006", "pack": "road-tiles", "asset": "roadTile_033", "gx": 26, "gz": 24, "rotY": 90 },
+      { "id": "r-007", "pack": "road-tiles", "asset": "roadTile_033", "gx": 27, "gz": 24, "rotY": 90 },
+      { "id": "r-008", "pack": "road-tiles", "asset": "roadTile_033", "gx": 24, "gz": 21, "rotY": 0 },
+      { "id": "r-009", "pack": "road-tiles", "asset": "roadTile_033", "gx": 24, "gz": 22, "rotY": 0 },
+      { "id": "r-010", "pack": "road-tiles", "asset": "roadTile_033", "gx": 24, "gz": 23, "rotY": 0 },
+      { "id": "r-011", "pack": "road-tiles", "asset": "roadTile_033", "gx": 24, "gz": 25, "rotY": 0 },
+      { "id": "r-012", "pack": "road-tiles", "asset": "roadTile_033", "gx": 24, "gz": 26, "rotY": 0 },
+      { "id": "r-013", "pack": "road-tiles", "asset": "roadTile_033", "gx": 24, "gz": 27, "rotY": 0 }
+    ],
+    "buildings": [
+      { "id": "b-001", "pack": "suburban", "asset": "building-type-a", "gx": 22, "gz": 22, "rotY": 0 },
+      { "id": "b-002", "pack": "suburban", "asset": "building-type-b", "gx": 26, "gz": 22, "rotY": 0 },
+      { "id": "b-003", "pack": "suburban", "asset": "building-type-c", "gx": 22, "gz": 26, "rotY": 0 },
+      { "id": "b-004", "pack": "suburban", "asset": "building-type-d", "gx": 26, "gz": 26, "rotY": 0 }
+    ],
+    "props": [
+      { "id": "p-001", "pack": "suburban", "asset": "tree-large", "gx": 20, "gz": 20, "x": -4.5, "z": -4.5, "rotY": 0, "scale": 1 },
+      { "id": "p-002", "pack": "suburban", "asset": "tree-small", "gx": 28, "gz": 20, "x": 4.5, "z": -4.5, "rotY": 0, "scale": 1 }
+    ]
+  }
+}

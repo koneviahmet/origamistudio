@@ -1,0 +1,28 @@
+{
+  "slug": "isi-iletkenligi",
+  "title": "Isı İletkenliği",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, ısının farklı maddeler üzerinde nasıl yayıldığını interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "sıcaklık",
+    "fen bilimleri",
+    "ısı",
+    "ısı iletkenliği"
+  ],
+  "accent": "hsl(101, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/isi-iletkenligi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/isi-iletkenligi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.161Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

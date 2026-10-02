@@ -15,17 +15,31 @@ const loading = ref(true);
 const showNew = ref(false);
 const form = ref({ name: '', preset: 'reels' });
 
+// Küçük resim sahneleri yalnızca kart görünür olunca (ve proje değiştiyse) yüklenir
+const seenIds = new Set();
+const sceneStamp = new Map(); // id → updatedAt (yüklenen sürüm)
+const inflight = new Set();
+async function ensureScene(p) {
+  seenIds.add(p.id);
+  if (sceneStamp.get(p.id) === p.updatedAt || inflight.has(p.id)) return;
+  inflight.add(p.id);
+  try {
+    const sc = (await api.project(p.id)).scene;
+    sceneStamp.set(p.id, p.updatedAt);
+    scenes.value = { ...scenes.value, [p.id]: sc };
+  } catch { /* küçük resim atlanır */ } finally {
+    inflight.delete(p.id);
+  }
+}
+
 async function load() {
   try {
     const [list] = await Promise.all([api.projects(), loadResources()]);
     projects.value = list;
-    const out = { ...scenes.value };
-    await Promise.all(list.map(async (p) => {
-      try {
-        out[p.id] = (await api.project(p.id)).scene;
-      } catch { /* küçük resim atlanır */ }
-    }));
-    scenes.value = out;
+    // silinenleri bırak, değişen + daha önce görünmüş olanları yenile
+    const alive = new Set(list.map((p) => p.id));
+    for (const id of Object.keys(scenes.value)) if (!alive.has(id)) delete scenes.value[id];
+    list.filter((p) => seenIds.has(p.id)).forEach(ensureScene);
   } catch (e) {
     toastError(e);
   } finally {
@@ -94,6 +108,7 @@ const fmt = ref('all');
 const view = ref(ls('view', 'grid'));
 const onlyNotes = ref(false);
 const onlyStar = ref(false);
+const showArchived = ref(false);
 const stars = ref(new Set(ls('stars', [])));
 const picked = ref(new Set());
 watch(sort, (v) => sv('sort', v));
@@ -102,11 +117,14 @@ watch(view, (v) => sv('view', v));
 const kind = (p) => (p.width === p.height ? 'kare' : p.width > p.height ? 'yatay' : 'dikey');
 const KINDS = { all: 'Tümü', dikey: 'Dikey', yatay: 'Yatay', kare: 'Kare' };
 const SORTS = { updated: 'Son düzenlenen', name: 'Ad (A-Z)', duration: 'Süre', layers: 'Katman sayısı' };
-const count = (k) => projects.value.filter((p) => k === 'all' || kind(p) === k).length;
+const active = computed(() => projects.value.filter((p) => !p.archived));
+const archivedCount = computed(() => projects.value.length - active.value.length);
+const count = (k) => projects.value.filter((p) => !!p.archived === showArchived.value && (k === 'all' || kind(p) === k)).length;
 
 const shown = computed(() => {
   const t = q.value.trim().toLocaleLowerCase('tr');
   let l = projects.value.filter((p) =>
+    !!p.archived === showArchived.value &&
     (!t || p.name.toLocaleLowerCase('tr').includes(t) || p.id.includes(t)) &&
     (fmt.value === 'all' || kind(p) === fmt.value) &&
     (!onlyNotes.value || p.openNotes) && (!onlyStar.value || stars.value.has(p.id)));
@@ -119,8 +137,8 @@ const shown = computed(() => {
   l = [...l].sort(by);
   return [...l.filter((p) => stars.value.has(p.id)), ...l.filter((p) => !stars.value.has(p.id))];
 });
-const totalSec = computed(() => projects.value.reduce((n, p) => n + (p.duration || 0), 0));
-const openNotesTotal = computed(() => projects.value.reduce((n, p) => n + (p.openNotes || 0), 0));
+const totalSec = computed(() => active.value.reduce((n, p) => n + (p.duration || 0), 0));
+const openNotesTotal = computed(() => active.value.reduce((n, p) => n + (p.openNotes || 0), 0));
 
 function toggleStar(p) {
   const s = new Set(stars.value);
@@ -132,6 +150,30 @@ function togglePick(p) {
   const s = new Set(picked.value);
   if (s.has(p.id)) s.delete(p.id); else s.add(p.id);
   picked.value = s;
+}
+const allPicked = computed(() => shown.value.length > 0 && shown.value.every((p) => picked.value.has(p.id)));
+function togglePickAll() {
+  picked.value = allPicked.value ? new Set() : new Set(shown.value.map((p) => p.id));
+}
+async function archive(p, on = true) {
+  try {
+    await api.archiveProject(p.id, on);
+    toast(on ? 'Proje arşivlendi' : 'Arşivden çıkarıldı', 'ok');
+    load();
+  } catch (e) {
+    toastError(e);
+  }
+}
+async function archivePicked(on = true) {
+  const ids = [...picked.value];
+  try {
+    await Promise.all(ids.map((id) => api.archiveProject(id, on)));
+    picked.value = new Set();
+    toast(`${ids.length} proje ${on ? 'arşivlendi' : 'arşivden çıkarıldı'}`, 'ok');
+    load();
+  } catch (e) {
+    toastError(e);
+  }
 }
 async function removePicked() {
   const ids = [...picked.value];
@@ -147,6 +189,7 @@ async function removePicked() {
 }
 function clearFilters() {
   q.value = '';
+  showArchived.value = false;
   fmt.value = 'all';
   onlyNotes.value = false;
   onlyStar.value = false;
@@ -195,7 +238,7 @@ const ago = (s) => {
     </div>
 
     <div v-if="projects.length" class="stats">
-      <div class="stat"><b>{{ projects.length }}</b><span>proje</span></div>
+      <div class="stat"><b>{{ active.length }}</b><span>proje</span></div>
       <div class="stat"><b>{{ fmtDur(totalSec) }}</b><span>toplam video</span></div>
       <div class="stat" :class="{ hot: openNotesTotal }"><b>{{ openNotesTotal }}</b><span>açık not</span></div>
       <div class="stat"><b>{{ stars.size }}</b><span>yıldızlı</span></div>
@@ -210,8 +253,10 @@ const ago = (s) => {
       <div class="seg">
         <button v-for="(l, k) in KINDS" :key="k" :class="{ on: fmt === k }" @click="fmt = k">{{ l }} <i>{{ count(k) }}</i></button>
       </div>
+      <button class="pill" :class="{ on: showArchived }" title="Arşivlenmiş projeleri göster" @click="showArchived = !showArchived; picked = new Set()">🗄 Arşiv <i>{{ archivedCount }}</i></button>
       <button class="pill" :class="{ on: onlyStar }" @click="onlyStar = !onlyStar">★ Yıldızlı</button>
       <button class="pill" :class="{ on: onlyNotes }" @click="onlyNotes = !onlyNotes">✎ Açık notlu</button>
+      <button v-if="shown.length" class="pill" :class="{ on: allPicked }" title="Görünen tüm projeleri seç / bırak" @click="togglePickAll">☑ Tümünü seç</button>
       <div class="grow" />
       <select v-model="sort" class="sel">
         <option v-for="(l, k) in SORTS" :key="k" :value="k">{{ l }}</option>
@@ -224,6 +269,8 @@ const ago = (s) => {
 
     <div v-if="picked.size" class="bulk">
       <b>{{ picked.size }} seçili</b>
+      <button class="btn sm" @click="togglePickAll">{{ allPicked ? 'Tümünü bırak' : `Görünenlerin tümünü seç (${shown.length})` }}</button>
+      <button class="btn sm" @click="archivePicked(!showArchived)">{{ showArchived ? 'Arşivden çıkar' : 'Arşivle' }}</button>
       <button class="btn sm danger" @click="removePicked">Seçilenleri sil</button>
       <button class="btn sm" @click="picked = new Set()">Seçimi kaldır</button>
     </div>
@@ -234,7 +281,7 @@ const ago = (s) => {
       <button class="btn primary" @click="showNew = true">İlk projeyi oluştur</button>
     </div>
     <div v-else-if="!shown.length" class="empty">
-      <p>Filtreyle eşleşen proje yok.</p>
+      <p>{{ showArchived ? 'Arşivde proje yok.' : 'Filtreyle eşleşen proje yok.' }}</p>
       <button class="btn" @click="clearFilters">Filtreleri temizle</button>
     </div>
 
@@ -244,7 +291,7 @@ const ago = (s) => {
         @click="router.push(`/studio/${p.id}`)" @mouseenter="hoverStart(p)" @mouseleave="hoverEnd"
       >
         <div class="thumb">
-          <SceneThumb v-if="scenes[p.id]" :scene="scenes[p.id]" :res="resources" :t="thumbT(p)" :width="view === 'grid' ? 240 : 90" />
+          <SceneThumb :scene="scenes[p.id] || null" @seen="ensureScene(p)" :res="resources" :t="thumbT(p)" :width="view === 'grid' ? 240 : 90" />
           <span class="dur">{{ fmtDur(p.duration) }}</span>
           <input type="checkbox" class="pick" :checked="picked.has(p.id)" title="Seç" @click.stop @change="togglePick(p)" />
           <button class="star" :class="{ on: stars.has(p.id) }" title="Yıldızla" @click.stop="toggleStar(p)">{{ stars.has(p.id) ? '★' : '☆' }}</button>
@@ -265,6 +312,7 @@ const ago = (s) => {
             <button class="btn sm" @click="duplicate(p)">Çoğalt</button>
             <button class="btn sm" title="Bu projeyi Şablonlar sayfasına şablon olarak kaydet" @click="saveAsTemplate(p)">☆ Şablon</button>
             <div class="grow" />
+            <button class="btn sm" :title="p.archived ? 'Arşivden çıkar' : 'Arşivle (listeden gizler, silmez)'" @click="archive(p, !p.archived)">{{ p.archived ? '↩ Çıkar' : '🗄 Arşivle' }}</button>
             <button class="btn sm danger" @click="remove(p)">Sil</button>
           </div>
         </div>
@@ -365,4 +413,24 @@ h1 { margin: 0 0 4px; font-family: Fredoka, sans-serif; font-weight: 600; font-s
 .shape { height: 44px; border: 2px solid var(--text-2); border-radius: 4px; }
 .preset.on .shape { border-color: var(--accent); }
 @media (max-width: 700px) { .list .info { grid-template-columns: 1fr; } }
+@media (max-width: 820px) {
+  .wrap { padding: 14px 12px 28px; }
+  h1 { font-size: 22px; }
+  .head { flex-wrap: wrap; gap: 8px; }
+  .head > div { flex: 1 1 100%; }
+  .head .btn { flex: 1; }
+  .stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .toolbar { gap: 6px; }
+  .search { flex: 1 1 100%; min-width: 0; }
+  .seg { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .seg button { white-space: nowrap; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .thumb { height: 170px; }
+  .info { padding: 10px; }
+  .card:hover { transform: none; }
+  .pick, .star { opacity: 1; }
+  .actions { flex-wrap: wrap; }
+  .list .thumb { width: 84px; height: 64px; }
+  .bulk { flex-wrap: wrap; }
+}
 </style>

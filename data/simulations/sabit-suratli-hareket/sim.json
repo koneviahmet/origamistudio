@@ -1,0 +1,32 @@
+{
+  "slug": "sabit-suratli-hareket",
+  "title": "Sabit Süratlı Hareket",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, sabit süratlı hareketi interaktif bir şekilde gözlemlemenizi sağlar. Hareket eden cismin sürat-zaman ve yol-zaman grafiklerini inceleyebilir, hareketin temel özelliklerini keşfedebilirsiniz.",
+  "tags": [
+    "fizik",
+    "hareket",
+    "sürat",
+    "fen bilimleri",
+    "zaman",
+    "yol",
+    "grafik",
+    "sürat-zaman grafiği",
+    "yol-zaman grafiği"
+  ],
+  "accent": "hsl(267, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/sabit-suratli-hareket.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/sabit-suratli-hareket.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.215Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

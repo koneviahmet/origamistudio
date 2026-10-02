@@ -1,0 +1,1410 @@
+[
+    {
+        "index": 1,
+        "type": "title_group",
+        "name": "."
+    },
+    {
+        "index": 2,
+        "type": "title_group",
+        "name": "1A Grubu"
+    },
+    {
+        "index": 3,
+        "type": "title_group",
+        "name": "2A Grubu"
+    },
+    {
+        "index": 4,
+        "type": "title_group",
+        "name": "3B Grubu"
+    },
+    {
+        "index": 5,
+        "type": "title_group",
+        "name": "4B Grubu"
+    },
+    {
+        "index": 6,
+        "type": "title_group",
+        "name": "5B Grubu"
+    },
+    {
+        "index": 7,
+        "type": "title_group",
+        "name": "6B Grubu"
+    },
+    {
+        "index": 8,
+        "type": "title_group",
+        "name": "7B Grubu"
+    },
+    {
+        "index": 9,
+        "type": "title_group",
+        "name": "8B Grubu"
+    },
+    {
+        "index": 10,
+        "type": "title_group",
+        "name": "8B Grubu"
+    },
+    {
+        "index": 11,
+        "type": "title_group",
+        "name": "8B Grubu"
+    },
+    {
+        "index": 12,
+        "type": "title_group",
+        "name": "1B Grubu"
+    },
+    {
+        "index": 13,
+        "type": "title_group",
+        "name": "2B Grubu"
+    },
+    {
+        "index": 14,
+        "type": "title_group",
+        "name": "3A Grubu"
+    },
+    {
+        "index": 15,
+        "type": "title_group",
+        "name": "4A Grubu"
+    },
+    {
+        "index": 16,
+        "type": "title_group",
+        "name": "5A Grubu"
+    },
+    {
+        "index": 17,
+        "type": "title_group",
+        "name": "6A Grubu"
+    },
+    {
+        "index": 18,
+        "type": "title_group",
+        "name": "7A Grubu"
+    },
+    {
+        "index": 19,
+        "type": "title_group",
+        "name": "8A Grubu"
+    },
+    {
+        "index": 20,
+        "type": "title_period",
+        "name": "1.Periyot"
+    },
+    {
+        "index": 39,
+        "type": "title_period",
+        "name": "2.Periyot"
+    },
+    {
+        "index": 58,
+        "type": "title_period",
+        "name": "3.Periyot"
+    },
+    {
+        "index": 77,
+        "type": "title_period",
+        "name": "4.Periyot"
+    },
+    {
+        "index": 96,
+        "type": "title_period",
+        "name": "5.Periyot"
+    },
+    {
+        "index": 115,
+        "type": "title_period",
+        "name": "6.Periyot"
+    },
+    {
+        "index": 134,
+        "type": "title_period",
+        "name": "7.Periyot"
+    },
+    {
+        "index": 153,
+        "visible": true,
+        "type": "title_period",
+        "name": "1.Periyot"
+    },
+    {
+        "index": 172,
+        "visible": true,
+        "type": "title_period",
+        "name": "1.Periyot"
+    },
+    {
+        "index": 191,
+        "visible": true,
+        "type": "title_period",
+        "name": "1.Periyot"
+    },
+    {
+        "index": 21,
+        "type": "element",
+        "number": 1,
+        "symbol": "H",
+        "name": "Hidrojen"
+    },
+    {
+        "index": 38,
+        "type": "element",
+        "number": 2,
+        "symbol": "He",
+        "name": "Helyum"
+    },
+    {
+        "index": 40,
+        "type": "element",
+        "number": 3,
+        "symbol": "Li",
+        "name": "Lityum"
+    },
+    {
+        "index": 41,
+        "type": "element",
+        "number": 4,
+        "symbol": "Be",
+        "name": "Berilyum"
+    },
+    {
+        "index": 52,
+        "type": "element",
+        "number": 5,
+        "symbol": "B",
+        "name": "Bor"
+    },
+    {
+        "index": 53,
+        "type": "element",
+        "number": 6,
+        "symbol": "C",
+        "name": "Karbon"
+    },
+    {
+        "index": 54,
+        "type": "element",
+        "number": 7,
+        "symbol": "N",
+        "name": "Azot"
+    },
+    {
+        "index": 55,
+        "type": "element",
+        "number": 8,
+        "symbol": "O",
+        "name": "Oksijen"
+    },
+    {
+        "index": 56,
+        "type": "element",
+        "number": 9,
+        "symbol": "F",
+        "name": "Flor"
+    },
+    {
+        "index": 57,
+        "type": "element",
+        "number": 10,
+        "symbol": "Ne",
+        "name": "Neon"
+    },
+    {
+        "index": 59,
+        "type": "element",
+        "number": 11,
+        "symbol": "Na",
+        "name": "Sodyum"
+    },
+    {
+        "index": 60,
+        "type": "element",
+        "number": 12,
+        "symbol": "Mg",
+        "name": "Magnezyum"
+    },
+    {
+        "index": 71,
+        "type": "element",
+        "number": 13,
+        "symbol": "Al",
+        "name": "Alüminyum"
+    },
+    {
+        "index": 72,
+        "type": "element",
+        "number": 14,
+        "symbol": "Si",
+        "name": "Silisyum"
+    },
+    {
+        "index": 73,
+        "type": "element",
+        "number": 15,
+        "symbol": "P",
+        "name": "Fosfor"
+    },
+    {
+        "index": 74,
+        "type": "element",
+        "number": 16,
+        "symbol": "S",
+        "name": "Kükürt"
+    },
+    {
+        "index": 75,
+        "type": "element",
+        "number": 17,
+        "symbol": "Cl",
+        "name": "Klor"
+    },
+    {
+        "index": 76,
+        "type": "element",
+        "number": 18,
+        "symbol": "Ar",
+        "name": "Argon"
+    },
+    {
+        "index": 78,
+        "type": "element",
+        "number": 19,
+        "symbol": "K",
+        "name": "Potasyum"
+    },
+    {
+        "index": 79,
+        "type": "element",
+        "number": 20,
+        "symbol": "Ca",
+        "name": "Kalsiyum"
+    },
+    {
+        "index": 80,
+        "type": "element",
+        "number": 21,
+        "symbol": "SC",
+        "name": "Skandiyum"
+    },
+    {
+        "index": 81,
+        "type": "element",
+        "number": 22,
+        "symbol": "Ti",
+        "name": "Titanyum"
+    },
+    {
+        "index": 82,
+        "type": "element",
+        "number": 23,
+        "symbol": "V",
+        "name": "Vanadyum"
+    },
+    {
+        "index": 83,
+        "type": "element",
+        "number": 24,
+        "symbol": "Cr",
+        "name": "Krom"
+    },
+    {
+        "index": 84,
+        "type": "element",
+        "number": 25,
+        "symbol": "Mn",
+        "name": "Mangan"
+    },
+    {
+        "index": 85,
+        "type": "element",
+        "number": 26,
+        "symbol": "Fe",
+        "name": "Demir"
+    },
+    {
+        "index": 86,
+        "type": "element",
+        "number": 27,
+        "symbol": "Co",
+        "name": "Kobalt"
+    },
+    {
+        "index": 87,
+        "type": "element",
+        "number": 28,
+        "symbol": "Ni",
+        "name": "Nikel"
+    },
+    {
+        "index": 88,
+        "type": "element",
+        "number": 29,
+        "symbol": "Cu",
+        "name": "Bakır"
+    },
+    {
+        "index": 89,
+        "type": "element",
+        "number": 30,
+        "symbol": "Zn",
+        "name": "Çinko"
+    },
+    {
+        "index": 90,
+        "type": "element",
+        "number": 31,
+        "symbol": "Ga",
+        "name": "Galyum"
+    },
+    {
+        "index": 91,
+        "type": "element",
+        "number": 32,
+        "symbol": "Ge",
+        "name": "Germanyum"
+    },
+    {
+        "index": 92,
+        "type": "element",
+        "number": 33,
+        "symbol": "As",
+        "name": "Arsenik"
+    },
+    {
+        "index": 93,
+        "type": "element",
+        "number": 34,
+        "symbol": "Se",
+        "name": "Selenyum"
+    },
+    {
+        "index": 94,
+        "type": "element",
+        "number": 35,
+        "symbol": "Br",
+        "name": "Brom"
+    },
+    {
+        "index": 95,
+        "type": "element",
+        "number": 36,
+        "symbol": "Kr",
+        "name": "Kripton"
+    },
+    {
+        "index": 97,
+        "type": "element",
+        "number": 37,
+        "symbol": "Rb",
+        "name": "Rubidyum"
+    },
+    {
+        "index": 98,
+        "type": "element",
+        "number": 38,
+        "symbol": "Sr",
+        "name": "Stronsiyum"
+    },
+    {
+        "index": 99,
+        "type": "element",
+        "number": 39,
+        "symbol": "Y",
+        "name": "İtriyum"
+    },
+    {
+        "index": 100,
+        "type": "element",
+        "number": 40,
+        "symbol": "Zr",
+        "name": "Zirkonyum"
+    },
+    {
+        "index": 101,
+        "type": "element",
+        "number": 41,
+        "symbol": "Nb",
+        "name": "Niobyum"
+    },
+    {
+        "index": 102,
+        "type": "element",
+        "number": 42,
+        "symbol": "Mo",
+        "name": "Molibden"
+    },
+    {
+        "index": 103,
+        "type": "element",
+        "number": 43,
+        "symbol": "Tc",
+        "name": "Teknesyum"
+    },
+    {
+        "index": 104,
+        "type": "element",
+        "number": 44,
+        "symbol": "Ru",
+        "name": "Rutenyum"
+    },
+    {
+        "index": 105,
+        "type": "element",
+        "number": 45,
+        "symbol": "Ro",
+        "name": "Rodyum"
+    },
+    {
+        "index": 106,
+        "type": "element",
+        "number": 46,
+        "symbol": "Pd",
+        "name": "Paladyum"
+    },
+    {
+        "index": 107,
+        "type": "element",
+        "number": 47,
+        "symbol": "Ag",
+        "name": "Gümüş"
+    },
+    {
+        "index": 108,
+        "type": "element",
+        "number": 48,
+        "symbol": "Cd",
+        "name": "Kadmiyum"
+    },
+    {
+        "index": 109,
+        "type": "element",
+        "number": 49,
+        "symbol": "In",
+        "name": "İndiyum"
+    },
+    {
+        "index": 110,
+        "type": "element",
+        "number": 50,
+        "symbol": "Sn",
+        "name": "Kalay"
+    },
+    {
+        "index": 111,
+        "type": "element",
+        "number": 51,
+        "symbol": "Sb",
+        "name": "Antimon"
+    },
+    {
+        "index": 112,
+        "type": "element",
+        "number": 52,
+        "symbol": "Te",
+        "name": "Tellür"
+    },
+    {
+        "index": 113,
+        "type": "element",
+        "number": 53,
+        "symbol": "I",
+        "name": "İyot"
+    },
+    {
+        "index": 114,
+        "type": "element",
+        "number": 54,
+        "symbol": "Xe",
+        "name": "Ksenon"
+    },
+    {
+        "index": 116,
+        "type": "element",
+        "number": 55,
+        "symbol": "Cs",
+        "name": "Sezyum"
+    },
+    {
+        "index": 117,
+        "type": "element",
+        "number": 56,
+        "symbol": "Ba",
+        "name": "Baryum"
+    },
+    {
+        "index": 118,
+        "type": "element",
+        "number": 57,
+        "symbol": "La",
+        "name": "Lantan"
+    },
+    {
+        "index": 176,
+        "type": "element",
+        "number": 58,
+        "symbol": "Ce",
+        "name": "Seryum"
+    },
+    {
+        "index": 177,
+        "type": "element",
+        "number": 59,
+        "symbol": "Pr",
+        "name": "Praseodim"
+    },
+    {
+        "index": 178,
+        "type": "element",
+        "number": 60,
+        "symbol": "Nd",
+        "name": "Neodimyum"
+    },
+    {
+        "index": 179,
+        "type": "element",
+        "number": 61,
+        "symbol": "Pm",
+        "name": "Prometyum"
+    },
+    {
+        "index": 180,
+        "type": "element",
+        "number": 62,
+        "symbol": "Sm",
+        "name": "Samaryum"
+    },
+    {
+        "index": 181,
+        "type": "element",
+        "number": 63,
+        "symbol": "Eu",
+        "name": "Evropiyum"
+    },
+    {
+        "index": 182,
+        "type": "element",
+        "number": 64,
+        "symbol": "Gd",
+        "name": "Gadolinyum"
+    },
+    {
+        "index": 183,
+        "type": "element",
+        "number": 65,
+        "symbol": "Tb",
+        "name": "Terbiyum"
+    },
+    {
+        "index": 184,
+        "type": "element",
+        "number": 66,
+        "symbol": "Dy",
+        "name": "Disprozyum"
+    },
+    {
+        "index": 185,
+        "type": "element",
+        "number": 67,
+        "symbol": "Ho",
+        "name": "Holmiyum"
+    },
+    {
+        "index": 186,
+        "type": "element",
+        "number": 68,
+        "symbol": "Er",
+        "name": "Erbiyum"
+    },
+    {
+        "index": 187,
+        "type": "element",
+        "number": 69,
+        "symbol": "Tm",
+        "name": "Tulyum"
+    },
+    {
+        "index": 188,
+        "type": "element",
+        "number": 70,
+        "symbol": "Yb",
+        "name": "İterbiyum"
+    },
+    {
+        "index": 189,
+        "type": "element",
+        "number": 71,
+        "symbol": "Lu",
+        "name": "Lutetyum"
+    },
+    {
+        "index": 119,
+        "type": "element",
+        "number": 72,
+        "symbol": "Hf",
+        "name": "Hafniyum"
+    },
+    {
+        "index": 120,
+        "type": "element",
+        "number": 73,
+        "symbol": "Ta",
+        "name": "Tantal"
+    },
+    {
+        "index": 121,
+        "type": "element",
+        "number": 74,
+        "symbol": "W",
+        "name": "Volfram"
+    },
+    {
+        "index": 122,
+        "type": "element",
+        "number": 75,
+        "symbol": "Re",
+        "name": "Renyum"
+    },
+    {
+        "index": 123,
+        "type": "element",
+        "number": 76,
+        "symbol": "Os",
+        "name": "Osmiyum"
+    },
+    {
+        "index": 124,
+        "type": "element",
+        "number": 77,
+        "symbol": "Ir",
+        "name": "İridyum"
+    },
+    {
+        "index": 125,
+        "type": "element",
+        "number": 78,
+        "symbol": "Pt",
+        "name": "Platin"
+    },
+    {
+        "index": 126,
+        "type": "element",
+        "number": 79,
+        "symbol": "Au",
+        "name": "Altın"
+    },
+    {
+        "index": 127,
+        "type": "element",
+        "number": 80,
+        "symbol": "Hg",
+        "name": "Cıva"
+    },
+    {
+        "index": 128,
+        "type": "element",
+        "number": 81,
+        "symbol": "Tl",
+        "name": "Talyum"
+    },
+    {
+        "index": 129,
+        "type": "element",
+        "number": 82,
+        "symbol": "Pb",
+        "name": "Kurşun"
+    },
+    {
+        "index": 130,
+        "type": "element",
+        "number": 83,
+        "symbol": "Bi",
+        "name": "Bizmut"
+    },
+    {
+        "index": 131,
+        "type": "element",
+        "number": 84,
+        "symbol": "Po",
+        "name": "Polonyum"
+    },
+    {
+        "index": 132,
+        "type": "element",
+        "number": 85,
+        "symbol": "At",
+        "name": "Astatin"
+    },
+    {
+        "index": 133,
+        "type": "element",
+        "number": 86,
+        "symbol": "Rn",
+        "name": "Radon"
+    },
+    {
+        "index": 135,
+        "type": "element",
+        "number": 87,
+        "symbol": "Fr",
+        "name": "Fransiyum"
+    },
+    {
+        "index": 136,
+        "type": "element",
+        "number": 88,
+        "symbol": "Ra",
+        "name": "Radyum"
+    },
+    {
+        "index": 137,
+        "type": "element",
+        "number": 89,
+        "symbol": "Ac",
+        "name": "Aktinyum"
+    },
+    {
+        "index": 195,
+        "type": "element",
+        "number": 90,
+        "symbol": "Th",
+        "name": "Toryum"
+    },
+    {
+        "index": 196,
+        "type": "element",
+        "number": 91,
+        "symbol": "Pa",
+        "name": "Protaktinyum"
+    },
+    {
+        "index": 197,
+        "type": "element",
+        "number": 92,
+        "symbol": "U",
+        "name": "Uranyum"
+    },
+    {
+        "index": 198,
+        "type": "element",
+        "number": 93,
+        "symbol": "Np",
+        "name": "Neptünyum"
+    },
+    {
+        "index": 199,
+        "type": "element",
+        "number": 94,
+        "symbol": "Pu",
+        "name": "Plütonyum"
+    },
+    {
+        "index": 200,
+        "type": "element",
+        "number": 95,
+        "symbol": "Am",
+        "name": "Amerikyum"
+    },
+    {
+        "index": 201,
+        "type": "element",
+        "number": 96,
+        "symbol": "Cm",
+        "name": "Küriyum"
+    },
+    {
+        "index": 202,
+        "type": "element",
+        "number": 97,
+        "symbol": "Bk",
+        "name": "Berkelyum"
+    },
+    {
+        "index": 203,
+        "type": "element",
+        "number": 98,
+        "symbol": "Cf",
+        "name": "Kaliforniyum"
+    },
+    {
+        "index": 204,
+        "type": "element",
+        "number": 99,
+        "symbol": "Es",
+        "name": "Aynştaynyum"
+    },
+    {
+        "index": 205,
+        "type": "element",
+        "number": 100,
+        "symbol": "Fm",
+        "name": "Fermiyum"
+    },
+    {
+        "index": 206,
+        "type": "element",
+        "number": 101,
+        "symbol": "Md",
+        "name": "Mendelevyum"
+    },
+    {
+        "index": 207,
+        "type": "element",
+        "number": 102,
+        "symbol": "No",
+        "name": "Nobelyum"
+    },
+    {
+        "index": 208,
+        "type": "element",
+        "number": 103,
+        "symbol": "Lr",
+        "name": "Lavrensiyum"
+    },
+    {
+        "index": 138,
+        "type": "element",
+        "number": 104,
+        "symbol": "Rf",
+        "name": "Rutherfordiyum"
+    },
+    {
+        "index": 139,
+        "type": "element",
+        "number": 105,
+        "symbol": "Db",
+        "name": "Dubniyum"
+    },
+    {
+        "index": 140,
+        "type": "element",
+        "number": 106,
+        "symbol": "Sg",
+        "name": "Seaborgiyum"
+    },
+    {
+        "index": 141,
+        "type": "element",
+        "number": 107,
+        "symbol": "Bh",
+        "name": "Bohriyum"
+    },
+    {
+        "index": 142,
+        "type": "element",
+        "number": 108,
+        "symbol": "Hs",
+        "name": "Hassiyum"
+    },
+    {
+        "index": 143,
+        "type": "element",
+        "number": 109,
+        "symbol": "Mt",
+        "name": "Meitneriyum"
+    },
+    {
+        "index": 144,
+        "type": "element",
+        "number": 110,
+        "symbol": "Ds",
+        "name": "Darmstadtiyum"
+    },
+    {
+        "index": 145,
+        "type": "element",
+        "number": 111,
+        "symbol": "Uuu",
+        "name": "Ununnilyum"
+    },
+    {
+        "index": 146,
+        "type": "element",
+        "number": 112,
+        "symbol": "Uub",
+        "name": "Ununbiyum"
+    },
+    {
+        "index": 147,
+        "type": "element",
+        "number": 113,
+        "symbol": "Uut",
+        "name": "Ununtriyum"
+    },
+    {
+        "index": 148,
+        "type": "element",
+        "number": 114,
+        "symbol": "Uuq",
+        "name": "Ununkuadyum"
+    },
+    {
+        "index": 149,
+        "type": "element",
+        "number": 115,
+        "symbol": "Uup",
+        "name": "Ununpentiyum"
+    },
+    {
+        "index": 150,
+        "type": "element",
+        "number": 116,
+        "symbol": "Uuh",
+        "name": "Ununheksiyum"
+    },
+    {
+        "index": 151,
+        "type": "element",
+        "number": 117,
+        "symbol": "Uus",
+        "name": "Ununseptiyum"
+    },
+    {
+        "index": 152,
+        "type": "element",
+        "number": 118,
+        "symbol": "Uuo",
+        "name": "Ununoktiyum"
+    },
+    {
+        "index": 209,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 22,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 23,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 24,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 25,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 26,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 27,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 28,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 29,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 30,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 31,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 32,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 33,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 34,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 35,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 36,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 37,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 42,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 43,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 44,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 45,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 46,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 47,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 48,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 49,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 50,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 51,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 61,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 62,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 63,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 64,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 65,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 66,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 67,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 68,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 69,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 70,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 154,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 155,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 156,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 157,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 158,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 159,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 160,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 161,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 162,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 163,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 164,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 165,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 166,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 167,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 168,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 169,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 170,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 171,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 190,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 173,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 174,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 175,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 192,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 193,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    },
+    {
+        "index": 194,
+        "type": "clear",
+        "number": 1100,
+        "symbol": "XY",
+        "name": "Sil"
+    }
+  ]

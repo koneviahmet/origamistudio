@@ -1,0 +1,28 @@
+{
+  "slug": "molekul-modeli",
+  "title": "Molekül Modeli",
+  "subtitle": "kimya",
+  "category": "Kimya",
+  "description": "Bu simülasyon, bileşik molekülü ve element molekülü modellerini interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "kimya",
+    "fen bilimleri",
+    "molekül",
+    "molekül modeli",
+    "molekül modeli simülasyonu"
+  ],
+  "accent": "hsl(134, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/molekul-modeli.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/molekul-modeli.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.194Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

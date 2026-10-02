@@ -6,11 +6,15 @@
   "description": "Kod ile üretilen origami animasyonları ve MP4 video çıktısı",
   "scripts": {
     "dev": "node server/index.js",
+    "dev:lan": "node server/index.js --lan",
     "build": "vite build",
     "start": "node server/index.js --prod",
     "seed": "node scripts/seed-library.js",
     "seed:force": "node scripts/seed-library.js --force",
     "notes": "node scripts/notes.js",
+    "proje-sil": "node scripts/proje-sil.mjs",
+    "simulasyon-aktar": "node scripts/simulasyon-aktar.mjs",
+    "seed:hikaye": "node scripts/seed-hikaye.mjs",
     "fonts": "node scripts/fetch-fonts.js",
     "seed:design": "node scripts/seed-design.js",
     "seed:bilesen": "node scripts/seed-components.mjs",
@@ -32,14 +36,26 @@
     "sesler": "node scripts/sesler.mjs",
     "muzik": "node scripts/muzik.mjs",
     "ai-notlar": "node scripts/ai-notlar.mjs",
-    "ara": "node scripts/kutuphane-ara.mjs"
+    "ara": "node scripts/kutuphane-ara.mjs",
+    "onay": "node scripts/onay.mjs"
   },
   "dependencies": {
+    "@lucide/vue": "^1.49.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@tweenjs/tween.js": "^25.0.0",
+    "cannon-es": "^0.20.0",
+    "chart.js": "^4.5.1",
+    "d3": "^7.9.0",
     "express": "^5.2.1",
+    "matter-js": "^0.20.0",
     "mp4-muxer": "^5.2.2",
     "puppeteer-core": "^25.12.0",
+    "tailwindcss": "^4.3.3",
+    "three": "^0.160.0",
     "vue": "^3.5.43",
-    "vue-router": "^5.3.1"
+    "vue-chartjs": "^5.3.4",
+    "vue-router": "^5.3.1",
+    "vue3-smooth-dnd": "^1.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.9",

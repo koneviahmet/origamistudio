@@ -1,0 +1,33 @@
+{
+  "slug": "arsimet-prensibi",
+  "title": "Arşimet Prensibi ve Sıvıların Kaldırma Kuvveti",
+  "subtitle": "Yoğunluk ve yüzdürme",
+  "category": "Fizik",
+  "description": "Farklı yoğunluktaki taşları su dolu kaba bırakın; batma, yüzme ve su seviyesindeki değişimi gözlemleyin.",
+  "tags": [
+    "fizik",
+    "sıvılar",
+    "kuvvet",
+    "fen bilimleri",
+    "arşimet prensibi",
+    "kaldırma kuvveti",
+    "yoğunluk"
+  ],
+  "accent": "#38bdf8",
+  "engine": "three",
+  "kind": "modern",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/simulations/arsimet-prensibi/index.vue",
+  "files": [
+    "src/views/simulation/simulations/arsimet-prensibi.vue",
+    "src/views/simulation/simulations/arsimet-prensibi/config.js",
+    "src/views/simulation/simulations/arsimet-prensibi/index.vue",
+    "src/views/simulation/legacy/embed/arsimet-prensibi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.048Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

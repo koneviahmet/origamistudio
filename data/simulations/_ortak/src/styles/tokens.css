@@ -1,0 +1,50 @@
+:root {
+  /* Surfaces */
+  --surface-base: #0a0e14;
+  --surface-panel: rgba(14, 20, 30, 0.88);
+  --surface-elevated: rgba(22, 32, 48, 0.95);
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(56, 189, 248, 0.35);
+
+  /* Text */
+  --text-primary: #f0f4f8;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* Accents */
+  --accent-primary: #38bdf8;
+  --accent-primary-hover: #7dd3fc;
+  --accent-build: #fbbf24;
+  --accent-play: #4ade80;
+  --accent-danger: #f87171;
+
+  /* Legacy aliases (geçiş dönemi) */
+  --color-bg: var(--surface-base);
+  --color-panel: var(--surface-panel);
+  --color-text: var(--text-primary);
+  --color-text-soft: var(--text-secondary);
+
+  /* Shape */
+  --radius-panel: 12px;
+  --radius-btn: 8px;
+  --radius-modal: 16px;
+
+  /* Shadow */
+  --shadow-panel: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --glow-accent: 0 0 20px rgba(56, 189, 248, 0.25);
+
+  /* Z-index layers */
+  --z-canvas: 0;
+  --z-hud: 10;
+  --z-overlay: 20;
+  --z-modal: 80;
+  --z-tour: 90;
+  --z-toast: 100;
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

@@ -50,6 +50,13 @@ watch(() => (scene.value?.audio || []).map((a) => a.file).join('|'), () => {
 const selectedId = ref(null);
 const selectedNoteId = ref(null);
 const rightTab = ref('inspector');
+// Mobil: yalnızca oynat/durdur + paylaş / indir (düzenleme araçları gizli)
+const mq = typeof window !== 'undefined' ? window.matchMedia('(max-width: 820px)') : null;
+const isMobile = ref(!!mq?.matches);
+const onMq = () => { isMobile.value = mq.matches; if (mq.matches) rightTab.value = 'publish'; };
+if (isMobile.value) rightTab.value = 'publish';
+mq?.addEventListener('change', onMq);
+onBeforeUnmount(() => mq?.removeEventListener('change', onMq));
 const showSafe = ref(false);
 const showGrid = ref(false);
 const showPins = ref(true);
@@ -71,6 +78,11 @@ const stageWrap = ref(null);
 const canvas = ref(null);
 const overlay = ref(null);
 const notesPanel = ref(null);
+async function focusNotes() {
+  rightTab.value = 'notes';
+  await nextTick();
+  notesPanel.value?.focus();
+}
 const timeline = ref(null);
 const tlInfo = ref('');
 const fitK = ref(0.3);
@@ -679,8 +691,7 @@ function onStageDown(e) {
   if (pinMode.value) {
     pendingPos.value = fromOut(px / viewK.value, py / viewK.value);
     pinMode.value = false;
-    rightTab.value = 'notes';
-    notesPanel.value?.focus();
+    focusNotes();
     return;
   }
   const id = hitLayer(px, py);
@@ -1111,7 +1122,7 @@ function onKey(e) {
     case 'KeyG': showGrid.value = !showGrid.value; break;
     case 'KeyS': showSafe.value = !showSafe.value; break;
     case 'KeyF': fullscreen(); break;
-    case 'KeyN': e.preventDefault(); rightTab.value = 'notes'; notesPanel.value?.focus(); break;
+    case 'KeyN': e.preventDefault(); focusNotes(); break;
     case 'KeyP': pinMode.value = !pinMode.value; break;
     case 'Delete':
     case 'Backspace':
@@ -1161,23 +1172,23 @@ const fmt = (t) => {
       <button class="btn ghost" title="Projeler" @click="router.push('/')">←</button>
       <div class="title">
         <strong>{{ scene?.name || '…' }}</strong>
-        <span v-if="dirty" class="chip warn">kaydedilmedi</span>
-        <span v-else-if="scene" class="chip ok">kaydedildi</span>
-        <span v-if="scene" class="dim small">{{ outW }}×{{ outH }} · {{ scene.fps }}fps · {{ scene.duration }}s</span>
-        <select v-if="scene?.formats?.length" v-model="activeFormat" class="input fmt-sel" title="Önizleme / düzenleme formatı — formattayken sürüklemek yalnızca o formatı düzeltir">
+        <span v-if="dirty" class="edit-only chip warn">kaydedilmedi</span>
+        <span v-else-if="scene" class="edit-only chip ok">kaydedildi</span>
+        <span v-if="scene" class="edit-only dim small">{{ outW }}×{{ outH }} · {{ scene.fps }}fps · {{ scene.duration }}s</span>
+        <select v-if="scene?.formats?.length" v-model="activeFormat" class="edit-only input fmt-sel" title="Önizleme / düzenleme formatı — formattayken sürüklemek yalnızca o formatı düzeltir">
           <option :value="null">Ana ({{ scene.width }}×{{ scene.height }})</option>
           <option v-for="f in scene.formats" :key="f.id" :value="f.id">{{ f.name || f.id }} ({{ f.width }}×{{ f.height }})</option>
         </select>
         <span v-if="formatObj" class="chip warn" title="Sürükleme / ölçekleme bu formata özel düzeltme olarak kaydedilir">format düzenleme</span>
       </div>
       <div class="grow" />
-      <button class="btn icon" :disabled="!canUndo" title="Geri al (Ctrl+Z)" @click="undo">↶</button>
-      <button class="btn icon" :disabled="!canRedo" title="Yinele (Ctrl+Y)" @click="redo">↷</button>
-      <button class="btn" @click="pickerCat = ''; showPicker = true">＋ Kütüphane</button>
-      <button class="btn" @click="addText">＋ Metin</button>
-      <button class="btn" title="Konfeti, kar, yağmur, kabarcık…" @click="addParticles">＋ Parçacık</button>
-      <button class="btn" title="Nesneden nesneye geçiş oku (seçili katmandan en yakın nesneye)" @click="addArrow">＋ Ok</button>
-      <span class="wmenu">
+      <button class="edit-only btn icon" :disabled="!canUndo" title="Geri al (Ctrl+Z)" @click="undo">↶</button>
+      <button class="edit-only btn icon" :disabled="!canRedo" title="Yinele (Ctrl+Y)" @click="redo">↷</button>
+      <button class="edit-only btn" @click="pickerCat = ''; showPicker = true">＋ Kütüphane</button>
+      <button class="edit-only btn" @click="addText">＋ Metin</button>
+      <button class="edit-only btn" title="Konfeti, kar, yağmur, kabarcık…" @click="addParticles">＋ Parçacık</button>
+      <button class="edit-only btn" title="Nesneden nesneye geçiş oku (seçili katmandan en yakın nesneye)" @click="addArrow">＋ Ok</button>
+      <span class="wmenu edit-only">
         <button class="btn" title="Grafik, cihaz, resim / video, ses dalgası, kart, liste, kod, zamanlayıcı" @click="showWidgetMenu = !showWidgetMenu">＋ Bileşen ▾</button>
         <span v-if="showWidgetMenu" class="wpop" @mouseleave="showWidgetMenu = false">
           <button class="btn sm" @click="addWidget('chart')">📊 Grafik / sayaç</button>
@@ -1198,7 +1209,7 @@ const fmt = (t) => {
           <RouterLink class="btn sm ghost" to="/bilesenler" target="_blank">⚙ Bileşenleri yönet</RouterLink>
         </span>
       </span>
-      <span class="wmenu">
+      <span class="wmenu edit-only">
         <button class="btn" title="Konuşan, yürüyen, tepki veren karakterler" @click="showCharMenu = !showCharMenu">＋ Karakter ▾</button>
         <span v-if="showCharMenu" class="wpop" @mouseleave="showCharMenu = false">
           <button v-for="c in charList" :key="c.id" class="btn sm" :title="c.description" @click="addCharacter(c)">🧍 {{ c.name || c.id }}</button>
@@ -1206,7 +1217,7 @@ const fmt = (t) => {
           <RouterLink class="btn sm ghost" to="/karakterler" target="_blank">⚙ Karakterleri yönet</RouterLink>
         </span>
       </span>
-      <button class="btn" :disabled="!dirty" @click="save">Kaydet</button>
+      <button class="edit-only btn" :disabled="!dirty" @click="save">Kaydet</button>
       <button class="btn primary" @click="showExport = true">⬇ Dışa aktar</button>
     </header>
 
@@ -1239,15 +1250,15 @@ const fmt = (t) => {
 
       <div class="transport">
         <button class="btn icon ghost" title="Başa (Home)" @click="seek(0)">⏮</button>
-        <button class="btn icon ghost" title="Önceki kare (←)" @click="stepFrame(-1)">◀︎|</button>
+        <button class="edit-only btn icon ghost" title="Önceki kare (←)" @click="stepFrame(-1)">◀︎|</button>
         <button class="btn icon play" :title="playing ? 'Durdur (Space)' : 'Oynat (Space)'" @click="togglePlay">{{ playing ? '❚❚' : '▶' }}</button>
-        <button class="btn icon ghost" title="Sonraki kare (→)" @click="stepFrame(1)">|▶︎</button>
+        <button class="edit-only btn icon ghost" title="Sonraki kare (→)" @click="stepFrame(1)">|▶︎</button>
         <button class="btn icon ghost" title="Sona (End)" @click="seek(duration)">⏭</button>
         <div class="tc mono">
           <span class="now">{{ fmt(time) }}</span><span class="dim"> / {{ fmt(duration) }}</span>
-          <span class="dim fr">kare {{ frame }}/{{ totalFrames }}</span>
-          <span v-if="tlInfo" class="tl-info">{{ tlInfo }}</span>
-          <button v-if="solo.length" class="btn sm solo-chip" title="Solo süzgecini kaldır" @click="solo = []">SOLO ×</button>
+          <span class="edit-only dim fr">kare {{ frame }}/{{ totalFrames }}</span>
+          <span v-if="tlInfo" class="tl-info edit-only">{{ tlInfo }}</span>
+          <button v-if="solo.length" class="edit-only btn sm solo-chip" title="Solo süzgecini kaldır" @click="solo = []">SOLO ×</button>
         </div>
         <input
           class="scrub grow"
@@ -1258,27 +1269,27 @@ const fmt = (t) => {
           :value="time"
           @input="seek(Number($event.target.value))"
         />
-        <select v-model.number="speed" class="input speed" title="Oynatma hızı">
+        <select v-model.number="speed" class="edit-only input speed" title="Oynatma hızı">
           <option v-for="s in [0.25, 0.5, 1, 1.5, 2]" :key="s" :value="s">{{ s }}×</option>
         </select>
-        <button class="btn sm" :class="{ on: loop }" title="Döngü (L)" @click="loop = !loop">⟲</button>
+        <button class="edit-only btn sm" :class="{ on: loop }" title="Döngü (L)" @click="loop = !loop">⟲</button>
         <button class="btn sm" :class="{ on: !muted }" :title="muted ? 'Sesi aç (M)' : 'Sessiz (M)'" @click="toggleMute">{{ muted ? '🔇' : '🔊' }}</button>
-        <span class="sep" />
-        <button class="btn sm" :class="{ on: showSafe }" title="Güvenli alan / Reels arayüzü (S)" @click="showSafe = !showSafe">Güvenli alan</button>
-        <button class="btn sm" :class="{ on: showGrid }" title="Üçte bir ızgarası (G)" @click="showGrid = !showGrid">#</button>
-        <button class="btn sm" :class="{ on: showPins }" title="Not iğnelerini göster" @click="showPins = !showPins">📍</button>
-        <button class="btn sm" title="Bu kareyi PNG kaydet" @click="snapshot">PNG</button>
-        <button class="btn sm" title="Sahneyi sığdır (0) · Ctrl+tekerlek: yakınlaş · Alt/orta tuş + sürükle: kaydır" @click="fitView">{{ Math.round(userZoom * 100) }}%</button>
+        <span class="edit-only sep" />
+        <button class="edit-only btn sm" :class="{ on: showSafe }" title="Güvenli alan / Reels arayüzü (S)" @click="showSafe = !showSafe">Güvenli alan</button>
+        <button class="edit-only btn sm" :class="{ on: showGrid }" title="Üçte bir ızgarası (G)" @click="showGrid = !showGrid">#</button>
+        <button class="edit-only btn sm" :class="{ on: showPins }" title="Not iğnelerini göster" @click="showPins = !showPins">📍</button>
+        <button class="edit-only btn sm" title="Bu kareyi PNG kaydet" @click="snapshot">PNG</button>
+        <button class="edit-only btn sm" title="Sahneyi sığdır (0) · Ctrl+tekerlek: yakınlaş · Alt/orta tuş + sürükle: kaydır" @click="fitView">{{ Math.round(userZoom * 100) }}%</button>
         <button class="btn sm" title="Tam ekran (F)" @click="fullscreen">⛶</button>
       </div>
     </section>
 
     <aside class="side">
-      <div class="tabs">
+      <div v-if="!isMobile" class="tabs">
         <button :class="{ active: rightTab === 'inspector' }" @click="rightTab = 'inspector'">Denetçi</button>
         <button :class="{ active: rightTab === 'content' }" title="Metinler ve görseller — tek yerden düzenle" @click="rightTab = 'content'">İçerik</button>
         <button :class="{ active: rightTab === 'publish' }" title="Başlık, açıklama, etiketler — platforma kopyala" @click="rightTab = 'publish'">Paylaşım</button>
-        <button :class="{ active: rightTab === 'notes' }" @click="rightTab = 'notes'">
+        <button :class="{ active: rightTab === 'notes' }" title="Kısayol: N — not yazmaya geç" @click="focusNotes">
           Notlar <span v-if="openNotes" class="chip warn">{{ openNotes }}</span>
         </button>
         <button :class="{ active: rightTab === 'json' }" @click="rightTab = 'json'">JSON</button>
@@ -1334,7 +1345,7 @@ const fmt = (t) => {
       </div>
     </aside>
 
-    <section class="tl">
+    <section v-if="!isMobile" class="tl">
       <Timeline
         v-if="scene"
         :scene="scene"
@@ -1362,6 +1373,7 @@ const fmt = (t) => {
 </template>
 
 <style scoped>
+
 .wmenu { position: relative; display: inline-block; }
 .wpop { position: absolute; top: 100%; left: 0; z-index: 30; display: grid; gap: 4px; padding: 6px; min-width: 170px;
   background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
@@ -1414,4 +1426,22 @@ const fmt = (t) => {
 .json-tab { display: flex; flex-direction: column; gap: 8px; padding: 10px; height: 100%; }
 .json { flex: 1; resize: none; min-height: 300px; line-height: 1.45; font-size: 11.5px; }
 .tl { grid-area: tl; border-top: 1px solid var(--line); min-height: 0; background: var(--bg); }
+@media (max-width: 820px) {
+  .studio { display: flex; flex-direction: column; height: 100%; overflow-y: auto; overflow-x: hidden; }
+  .edit-only { display: none !important; }
+  .bar { flex: none; height: 48px; padding: 0 8px; position: sticky; top: 0; z-index: 20; }
+  .title { flex: 1; }
+  .title strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .banner { display: none; }
+  .stage-col { flex: none; }
+  .stage { flex: none; height: min(62vh, 120vw); touch-action: pan-y; }
+  .overlay { pointer-events: none; }
+  .transport { flex-wrap: wrap; gap: 8px; padding: 8px 10px; }
+  .transport .btn { min-height: 38px; min-width: 38px; }
+  .tc { min-width: 0; order: 2; }
+  .scrub { order: 3; flex: 1 1 100%; min-width: 0; height: 28px; }
+  .play { width: 48px; height: 42px; font-size: 16px; }
+  .side { flex: none; border-left: 0; border-top: 1px solid var(--line); }
+  .side-body { overflow: visible; }
+}
 </style>

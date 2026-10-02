@@ -10,6 +10,9 @@ import { HttpError, assertId } from './store.js';
 const SCOPES = ['https://www.googleapis.com/auth/youtube.upload', 'https://www.googleapis.com/auth/youtube.readonly'];
 const PRIVACY = ['private', 'unlisted', 'public'];
 
+// Her açıklamanın en altına otomatik eklenen ses veri seti atfı (web/PublishPanel.vue ile aynı metin)
+const VOICE_CREDIT = 'Ses Veri Seti: Alania Synthetic Speech TR (CC BY 4.0) - https://huggingface.co/datasets/cloud0day3/alania-synthetic-speech-tr';
+
 export function createYoutube(dataDir, store, events, port) {
   const FILE = path.join(dataDir, 'youtube.json');
   const redirectUri = `http://localhost:${port}/api/youtube/callback`;
@@ -190,6 +193,7 @@ export function createYoutube(dataDir, store, events, port) {
     if (t.length > 100) throw new HttpError(400, 'Başlık en fazla 100 karakter.');
     if ([...jobs.values()].some((j) => j.status === 'starting' || j.status === 'uploading')) throw new HttpError(409, 'Devam eden bir yükleme var.');
     let desc = String(description || '');
+    if (!desc.includes(VOICE_CREDIT)) desc = `${desc}\n\n${VOICE_CREDIT}`.trim();
     if (shorts && !/#shorts/i.test(desc)) desc = `${desc}\n\n#Shorts`.trim();
     // YouTube etiket alanı toplam 500 karakter; kalanları atla
     const tagList = [];

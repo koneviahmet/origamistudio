@@ -1,0 +1,27 @@
+{
+  "slug": "tasin-hacmini-olcme",
+  "title": "Taşın Hacmini Ölçme",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, geometrik şekli olmayan cisimlerin hacmini interaktif bir şekilde hesaplamanızı sağlar. Geometrik şekli olmayan cisimlerin hacmini hesaplamak için su dolu kabın içine cisim atılır ve suyun taşın hacmine eşit olduğu görülür.",
+  "tags": [
+    "fizik",
+    "hacim",
+    "fen bilimleri",
+    "dereceli silindir"
+  ],
+  "accent": "hsl(144, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/tasin-hacmini-olcme.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/tasin-hacmini-olcme.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.240Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

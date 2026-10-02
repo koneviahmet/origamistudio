@@ -1,0 +1,27 @@
+{
+  "slug": "sokak-lambasi-yarigolge",
+  "title": "Sokak Lambası Yarı Gölge Oluşumu",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, sokak lambasının altından yürüyen bir kişinin yarı gölgesini gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "gölge",
+    "sokak lambası",
+    "gölge simülasyonu"
+  ],
+  "accent": "hsl(57, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/sokak-lambasi-yarigolge.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/sokak-lambasi-yarigolge.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.226Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

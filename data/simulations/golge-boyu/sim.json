@@ -1,0 +1,30 @@
+{
+  "slug": "golge-boyu",
+  "title": "Gölge Boyu",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, gölge boyunu interaktif bir şekilde gözlemlemenizi sağlar. Işık kaynağı, opak cisim ve perdenin konumlarını değiştirerek gölge boyunu inceleyebilirsiniz.",
+  "tags": [
+    "fizik",
+    "optik",
+    "ışık",
+    "fen bilimleri",
+    "gölge boyu",
+    "gölge oluşumu",
+    "gölge"
+  ],
+  "accent": "hsl(92, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/golge-boyu.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/golge-boyu.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.136Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

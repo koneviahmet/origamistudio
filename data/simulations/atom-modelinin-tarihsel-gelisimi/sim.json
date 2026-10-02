@@ -1,0 +1,34 @@
+{
+  "slug": "atom-modelinin-tarihsel-gelisimi",
+  "title": "Atom Modelinin Tarihsel Gelişimi",
+  "subtitle": "Dalton → kuantum modeli",
+  "category": "Kimya",
+  "description": "Atom teorisinin tarihsel gelişimini 3D modellerle keşfedin; Rutherford deneyi ve Bohr sıçramasını deneyin.",
+  "tags": [
+    "kimya",
+    "fen bilimleri",
+    "atom",
+    "atom yapısı",
+    "katman modeli",
+    "elektron",
+    "proton",
+    "nötron"
+  ],
+  "accent": "#818cf8",
+  "engine": "three",
+  "kind": "modern",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/simulations/atom-modelinin-tarihsel-gelisimi/index.vue",
+  "files": [
+    "src/views/simulation/simulations/atom-modelinin-tarihsel-gelisimi.vue",
+    "src/views/simulation/simulations/atom-modelinin-tarihsel-gelisimi/config.js",
+    "src/views/simulation/simulations/atom-modelinin-tarihsel-gelisimi/index.vue",
+    "src/views/simulation/legacy/embed/atom-modelinin-tarihsel-gelisimi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.053Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

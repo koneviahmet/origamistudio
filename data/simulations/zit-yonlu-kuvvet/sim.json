@@ -1,0 +1,28 @@
+{
+  "slug": "zit-yonlu-kuvvet",
+  "title": "Zıt Yönlü Kuvvetler",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, zıt yönlü kuvvetlerin bileşkesini interaktif bir şekilde hesaplamanızı sağlar. Kuvvetlerin bileşkesini hesaplamak için kuvvet vektörlerini interaktif olarak değiştirebilirsiniz.",
+  "tags": [
+    "fizik",
+    "kuvvet",
+    "fen bilimleri",
+    "zıt yönlü kuvvetler",
+    "bileşke kuvvet"
+  ],
+  "accent": "hsl(85, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/zit-yonlu-kuvvet.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/zit-yonlu-kuvvet.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.244Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

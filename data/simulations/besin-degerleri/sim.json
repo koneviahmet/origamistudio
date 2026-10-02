@@ -1,0 +1,35 @@
+{
+  "slug": "besin-degerleri",
+  "title": "Besin Değerleri Analizi",
+  "subtitle": "besin",
+  "category": "Besin",
+  "description": "Farklı besin maddelerinin detaylı içerik ve besin değerlerini interaktif olarak keşfedin. Protein, karbonhidrat, vitamin ve mineral içeriklerini görselleştirin.",
+  "tags": [
+    "besin",
+    "analiz",
+    "beslenme",
+    "sağlık",
+    "fen bilimleri",
+    "protein",
+    "karbonhidrat",
+    "vitamin",
+    "mineral",
+    "enerji",
+    "yağ",
+    "dengeli beslenme"
+  ],
+  "accent": "hsl(69, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/besin-degerleri.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/besin-degerleri.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.076Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

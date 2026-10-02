@@ -1,0 +1,30 @@
+{
+  "slug": "enerji-donusumleri-sarkac",
+  "title": "Sarkaç Hareketi ve Enerji Dönüşümleri",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, basit sarkaç hareketinde mekanik enerjinin korunumunu ve potansiyel enerji ile kinetik enerji arasındaki dönüşümü gözlemlemenizi sağlar. Sarkacı sürükleyerek farklı yüksekliklerden bırakabilir ve enerji dönüşümlerini gerçek zamanlı olarak takip edebilirsiniz.",
+  "tags": [
+    "fizik",
+    "mekanik",
+    "enerji",
+    "fen bilimleri",
+    "potansiyel enerji",
+    "kinetik enerji",
+    "sarkaç"
+  ],
+  "accent": "hsl(277, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/enerji-donusumleri-sarkac.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/enerji-donusumleri-sarkac.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.121Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

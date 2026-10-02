@@ -1,0 +1,35 @@
+{
+  "slug": "dengeli-beslenme",
+  "title": "Dengeli Beslenme",
+  "subtitle": "besin",
+  "category": "Besin",
+  "description": "Bu simülasyon, dengeli beslenme için yemek seçimi yapmanızı sağlar. Seçtiğiniz yemeklerin protein, karbonhidrat, vitamin ve mineral içeriklerini görselleştirin.",
+  "tags": [
+    "besin",
+    "analiz",
+    "beslenme",
+    "sağlık",
+    "fen bilimleri",
+    "protein",
+    "karbonhidrat",
+    "vitamin",
+    "mineral",
+    "enerji",
+    "yağ",
+    "dengeli beslenme"
+  ],
+  "accent": "hsl(310, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/dengeli-beslenme.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/dengeli-beslenme.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.080Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

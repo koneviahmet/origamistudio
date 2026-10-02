@@ -1,0 +1,112 @@
+{
+  "sablon": "zaman",
+  "id": "uzay-yarisi",
+  "ad": "Uzay Yarışı",
+  "format": "reels",
+  "palet": "kagit",
+  "muzik": "lofi-90",
+  "font": "Caveat",
+  "stil": "cizim",
+  "kanca": "Gökyüzüne uzanan",
+  "baslik": "Uzay Yarışı",
+  "altBaslik": "400 yıllık keşif",
+  "bolumler": [
+    {
+      "yil": "1609",
+      "ad": "Teleskop",
+      "nesne": "teleskop-3d",
+      "balon": "Bakın!",
+      "bilgi": [
+        "Galileo teleskopu göğe çevirir",
+        "Ay'da dağlar, Jüpiter'de uydular görür"
+      ],
+      "notlar": [
+        "mercek"
+      ],
+      "anlatim": "Bin altı yüz dokuz. Galileo teleskopunu gökyüzüne çevirdi ve evrene bakış sonsuza dek değişti.",
+      "ses": "uzay-yarisi-ses-1.wav"
+    },
+    {
+      "yil": "1957",
+      "ad": "Sputnik",
+      "nesne": "sputnik-3d",
+      "balon": "Bip bip!",
+      "bilgi": [
+        "İlk yapay uydu yörüngeye çıkar",
+        "Uzay çağı başlar"
+      ],
+      "anlatim": "Bin dokuz yüz elli yedi. Sovyetler Birliği Sputnik'i fırlattı, dünyanın ilk yapay uydusu yörüngeye çıktı.",
+      "ses": "uzay-yarisi-ses-2.wav"
+    },
+    {
+      "yil": "1961",
+      "ad": "Vostok-1",
+      "nesne": "vostok-roketi-3d",
+      "balon": "Hadi gidelim!",
+      "bilgi": [
+        "Yuri Gagarin uzaya giden ilk insan",
+        "Yolculuk 108 dakika sürer"
+      ],
+      "anlatim": "Bin dokuz yüz altmış bir. Vostok roketi Yuri Gagarin'i uzaya taşıdı ve o, uzaya giden ilk insan oldu.",
+      "ses": "uzay-yarisi-ses-3.wav"
+    },
+    {
+      "yil": "1969",
+      "ad": "Ay'a iniş",
+      "nesne": "astronot-3d",
+      "balon": "Küçük adım!",
+      "bilgi": [
+        "Apollo 11 Ay'a ayak basar",
+        "Neil Armstrong ilk adımı atar"
+      ],
+      "anlatim": "Bin dokuz yüz altmış dokuz. Apollo on bir ile insan ilk kez Ay'a ayak bastı.",
+      "ses": "uzay-yarisi-ses-4.wav"
+    },
+    {
+      "yil": "1998",
+      "ad": "Uzay istasyonu",
+      "nesne": "uzay-istasyonu-3d",
+      "balon": "Merhaba!",
+      "bilgi": [
+        "Uluslararası Uzay İstasyonu kurulmaya başlar",
+        "İnsanlar yıllardır orada yaşıyor"
+      ],
+      "anlatim": "Bin dokuz yüz doksan sekiz. Uluslararası Uzay İstasyonu'nun ilk modülü yörüngeye yerleşti.",
+      "ses": "uzay-yarisi-ses-5.wav"
+    },
+    {
+      "yil": "Bugün",
+      "ad": "Mars",
+      "nesne": "mars-gezgini-3d",
+      "balon": "Keşfet!",
+      "bilgi": [
+        "Gezginler Mars'ın yüzeyini inceliyor",
+        "Sıradaki durak: insanlı yolculuk"
+      ],
+      "anlatim": "Bugün gezginler Mars'ı inceliyor. Sıradaki durak, insanlı yolculuk.",
+      "ses": "uzay-yarisi-ses-6.wav"
+    }
+  ],
+  "soru": "Sıradaki durak ne olacak?",
+  "cta": "Tahminini yorumlara yaz!",
+  "son1": "400 yılda",
+  "son2": "göğe uzandık!",
+  "yayin": {
+    "baslik": "Uzay yarışı: Sputnik'ten Mars'a",
+    "aciklama": "Sputnik'in bip sesinden Gagarin'in Vostok yolculuğuna, Ay'a inişten Mars gezginlerine uzay yarışının dönüm noktaları. Sence sıradaki durak ne? Yorumlara yaz!",
+    "etiketler": [
+      "uzay",
+      "uzay yarışı",
+      "sputnik",
+      "gagarin",
+      "vostok",
+      "apollo",
+      "tarih",
+      "bilim",
+      "reels",
+      "shorts",
+      "egitim",
+      "nasa"
+    ]
+  }
+}

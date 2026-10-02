@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(rm -rf data*)",
+      "Bash(rm -r data*)",
+      "Bash(rm -fr data*)",
+      "Bash(rm -rf ./data*)",
+      "Bash(rm * data/projects*)",
+      "Bash(rm * data/library*)",
+      "Bash(rm * data/audio*)",
+      "PowerShell(Remove-Item * data\projects*)",
+      "PowerShell(Remove-Item * data/projects*)"
+    ]
+  }
+}

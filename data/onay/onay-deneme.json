@@ -1,0 +1,81 @@
+{
+  "id": "onay-deneme",
+  "baslik": "Deneme videosu (test)",
+  "olusturma": "2026-10-02T10:38:19.912Z",
+  "ogeler": [
+    {
+      "id": "fincan",
+      "tur": "nesne",
+      "nerede": "Sahne 2 — masa üstü",
+      "amac": "Sıcak içecek vurgusu",
+      "yeni": false,
+      "ref": "fincan",
+      "ad": "Kahve Fincanı",
+      "kategori": "nesneler",
+      "karar": "duzenle",
+      "gorseller": [
+        "fincan-muqv0or5.png"
+      ]
+    },
+    {
+      "id": "cezve",
+      "tur": "nesne",
+      "nerede": "Sahne 2 — fincanın yanında",
+      "amac": "Kahve hazırlama anı",
+      "ref": "cezve",
+      "ad": "Cezve",
+      "kategori": "nesneler",
+      "karar": "duzenle"
+    },
+    {
+      "id": "d2-00919",
+      "tur": "ses",
+      "ref": "d2-00919",
+      "ad": "Anlatıcı sesi A",
+      "cinsiyet": "kadın",
+      "etiketler": [
+        "Sakin"
+      ],
+      "nerede": "Tüm video",
+      "amac": "Ana anlatıcı",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "ruzgar-cizim",
+      "tur": "nesne",
+      "nerede": "test",
+      "amac": "test",
+      "ref": "ruzgar-cizim",
+      "ad": "Rüzgâr (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "bulut-cizim",
+      "tur": "nesne",
+      "nerede": "test",
+      "amac": "test",
+      "ref": "bulut-cizim",
+      "ad": "Bulut (çizim)",
+      "kategori": "gokyuzu",
+      "karar": "kullan",
+      "duzenlendi": false
+    },
+    {
+      "id": "meteor-cizim",
+      "tur": "nesne",
+      "nerede": "test",
+      "amac": "test",
+      "ref": "meteor-cizim",
+      "ad": "Meteor (çizim)",
+      "kategori": "uzay",
+      "karar": "kullan",
+      "duzenlendi": false
+    }
+  ],
+  "arsiv": false,
+  "guncelleme": "2026-10-02T11:21:19.759Z",
+  "durum": "tamam"
+}

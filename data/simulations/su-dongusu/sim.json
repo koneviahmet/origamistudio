@@ -1,0 +1,32 @@
+{
+  "slug": "su-dongusu",
+  "title": "Su Döngüsü",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, su döngüsünü interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "fen bilimleri",
+    "su",
+    "su döngüsü",
+    "su döngüsü simülasyonu",
+    "hal değişimi",
+    "sıcaklık",
+    "basınç",
+    "hava olayları"
+  ],
+  "accent": "hsl(64, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/su-dongusu.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/su-dongusu.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.233Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

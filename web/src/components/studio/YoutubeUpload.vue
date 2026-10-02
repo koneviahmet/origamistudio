@@ -73,10 +73,12 @@ async function connect() {
 async function disconnect() {
   st.value = await api.ytDisconnect();
 }
+const VOICE_CREDIT = 'Ses Veri Seti: Alania Synthetic Speech TR (CC BY 4.0) - https://huggingface.co/datasets/cloud0day3/alania-synthetic-speech-tr';
+const withCredit = (d) => (String(d || '').includes(VOICE_CREDIT) ? d : `${d || ''}\n\n${VOICE_CREDIT}`.trim());
 async function upload() {
   try {
     job.value = await api.ytUpload(props.projectId, {
-      file: file.value, privacy: privacy.value, title: pub.value.title, description: pub.value.description,
+      file: file.value, privacy: privacy.value, title: pub.value.title, description: withCredit(pub.value.description),
       tags: pub.value.tags, madeForKids: kids.value, shorts: shorts.value,
     });
   } catch (e) {

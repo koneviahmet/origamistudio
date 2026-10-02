@@ -1,0 +1,27 @@
+{
+  "slug": "surtunme-kuvveti-kiyas",
+  "title": "Sürtünme Kuvveti Kıyaslaması",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, farklı yüzeyler üzerinde hareket eden topa etki eden sürtünme kuvvetini kıyaslamanızı sağlar.",
+  "tags": [
+    "fizik",
+    "sürtünme",
+    "sürtünme kuvveti",
+    "sürtünme kuvveti kıyaslaması"
+  ],
+  "accent": "hsl(24, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/surtunme-kuvveti-kiyas.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/surtunme-kuvveti-kiyas.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.238Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

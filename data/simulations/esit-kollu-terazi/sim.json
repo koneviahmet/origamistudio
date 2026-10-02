@@ -1,0 +1,30 @@
+{
+  "slug": "esit-kollu-terazi",
+  "title": "Eşit Kollu Terazi",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, eşit kollu terazinin çalışma prensibini interaktif bir şekilde gözlemlemenizi sağlar. Eşit kollu terazi kullanarak kütleleri ölçebilirsiniz.",
+  "tags": [
+    "fizik",
+    "terazi",
+    "fen bilimleri",
+    "eşit kollu terazi",
+    "kütle",
+    "ölçüm",
+    "ölçüm aracı"
+  ],
+  "accent": "hsl(135, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/esit-kollu-terazi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/esit-kollu-terazi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.124Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

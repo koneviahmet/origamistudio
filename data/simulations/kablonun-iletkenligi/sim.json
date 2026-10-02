@@ -1,0 +1,22 @@
+{
+  "slug": "kablonun-iletkenligi",
+  "title": "kablonun-iletkenligi",
+  "subtitle": "kablonun-iletkenligi",
+  "category": "Fizik",
+  "description": "",
+  "tags": [],
+  "accent": "hsl(20, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/kablonun-iletkenligi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/kablonun-iletkenligi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.173Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

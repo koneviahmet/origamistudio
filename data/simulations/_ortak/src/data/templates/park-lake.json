@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Park ve Göl",
+    "author": "Şablon",
+    "createdAt": "2026-06-21T12:00:00.000Z",
+    "updatedAt": "2026-06-21T12:00:00.000Z"
+  },
+  "settings": {
+    "gridUnit": 1,
+    "width": 48,
+    "depth": 48,
+    "ground": { "pack": "fantasy-town", "asset": "road" }
+  },
+  "player": {
+    "characterId": "character-a",
+    "spawn": { "x": 0, "y": 0, "z": 0 }
+  },
+  "layers": {
+    "roads": [
+      { "id": "r-101", "pack": "road-tiles", "asset": "roadTile_081", "gx": 20, "gz": 20, "rotY": 0 },
+      { "id": "r-102", "pack": "road-tiles", "asset": "roadTile_033", "gx": 21, "gz": 20, "rotY": 90 },
+      { "id": "r-103", "pack": "road-tiles", "asset": "roadTile_033", "gx": 22, "gz": 20, "rotY": 90 },
+      { "id": "r-104", "pack": "road-tiles", "asset": "roadTile_033", "gx": 23, "gz": 20, "rotY": 90 },
+      { "id": "r-105", "pack": "road-tiles", "asset": "roadTile_033", "gx": 24, "gz": 20, "rotY": 90 },
+      { "id": "r-106", "pack": "road-tiles", "asset": "roadTile_033", "gx": 25, "gz": 20, "rotY": 90 },
+      { "id": "r-107", "pack": "road-tiles", "asset": "roadTile_033", "gx": 26, "gz": 20, "rotY": 90 },
+      { "id": "r-108", "pack": "road-tiles", "asset": "roadTile_033", "gx": 27, "gz": 20, "rotY": 90 },
+      { "id": "r-109", "pack": "road-tiles", "asset": "roadTile_081", "gx": 28, "gz": 20, "rotY": 90 },
+      { "id": "r-110", "pack": "road-tiles", "asset": "roadTile_033", "gx": 28, "gz": 21, "rotY": 0 },
+      { "id": "r-111", "pack": "road-tiles", "asset": "roadTile_033", "gx": 28, "gz": 22, "rotY": 0 },
+      { "id": "r-112", "pack": "road-tiles", "asset": "roadTile_033", "gx": 28, "gz": 23, "rotY": 0 },
+      { "id": "r-113", "pack": "road-tiles", "asset": "roadTile_033", "gx": 28, "gz": 24, "rotY": 0 },
+      { "id": "r-114", "pack": "road-tiles", "asset": "roadTile_033", "gx": 28, "gz": 25, "rotY": 0 },
+      { "id": "r-115", "pack": "road-tiles", "asset": "roadTile_033", "gx": 28, "gz": 26, "rotY": 0 },
+      { "id": "r-116", "pack": "road-tiles", "asset": "roadTile_033", "gx": 28, "gz": 27, "rotY": 0 },
+      { "id": "r-117", "pack": "road-tiles", "asset": "roadTile_081", "gx": 28, "gz": 28, "rotY": 180 },
+      { "id": "r-118", "pack": "road-tiles", "asset": "roadTile_033", "gx": 27, "gz": 28, "rotY": 90 },
+      { "id": "r-119", "pack": "road-tiles", "asset": "roadTile_033", "gx": 26, "gz": 28, "rotY": 90 },
+      { "id": "r-120", "pack": "road-tiles", "asset": "roadTile_033", "gx": 25, "gz": 28, "rotY": 90 },
+      { "id": "r-121", "pack": "road-tiles", "asset": "roadTile_033", "gx": 24, "gz": 28, "rotY": 90 },
+      { "id": "r-122", "pack": "road-tiles", "asset": "roadTile_033", "gx": 23, "gz": 28, "rotY": 90 },
+      { "id": "r-123", "pack": "road-tiles", "asset": "roadTile_033", "gx": 22, "gz": 28, "rotY": 90 },
+      { "id": "r-124", "pack": "road-tiles", "asset": "roadTile_033", "gx": 21, "gz": 28, "rotY": 90 },
+      { "id": "r-125", "pack": "road-tiles", "asset": "roadTile_081", "gx": 20, "gz": 28, "rotY": 270 },
+      { "id": "r-126", "pack": "road-tiles", "asset": "roadTile_033", "gx": 20, "gz": 27, "rotY": 0 },
+      { "id": "r-127", "pack": "road-tiles", "asset": "roadTile_033", "gx": 20, "gz": 26, "rotY": 0 },
+      { "id": "r-128", "pack": "road-tiles", "asset": "roadTile_033", "gx": 20, "gz": 25, "rotY": 0 },
+      { "id": "r-129", "pack": "road-tiles", "asset": "roadTile_033", "gx": 20, "gz": 24, "rotY": 0 },
+      { "id": "r-130", "pack": "road-tiles", "asset": "roadTile_033", "gx": 20, "gz": 23, "rotY": 0 },
+      { "id": "r-131", "pack": "road-tiles", "asset": "roadTile_033", "gx": 20, "gz": 22, "rotY": 0 },
+      { "id": "r-132", "pack": "road-tiles", "asset": "roadTile_033", "gx": 20, "gz": 21, "rotY": 0 }
+    ],
+    "buildings": [],
+    "props": [
+      { "id": "p-101", "pack": "fantasy-town", "asset": "fountain-round-detail", "gx": 24, "gz": 24, "x": 0, "z": 0, "rotY": 0, "scale": 1 },
+      { "id": "p-102", "pack": "fantasy-town", "asset": "tree-high", "gx": 22, "gz": 22, "x": -2, "z": -2, "rotY": 0, "scale": 1 },
+      { "id": "p-103", "pack": "fantasy-town", "asset": "tree-high-round", "gx": 26, "gz": 22, "x": 2, "z": -2, "rotY": 90, "scale": 1 },
+      { "id": "p-104", "pack": "fantasy-town", "asset": "tree", "gx": 22, "gz": 26, "x": -2, "z": 2, "rotY": 180, "scale": 1 },
+      { "id": "p-105", "pack": "fantasy-town", "asset": "tree-crooked", "gx": 26, "gz": 26, "x": 2, "z": 2, "rotY": 270, "scale": 1 },
+      { "id": "p-106", "pack": "fantasy-town", "asset": "stall-bench", "gx": 24, "gz": 22, "x": 0, "z": -2, "rotY": 0, "scale": 1 },
+      { "id": "p-107", "pack": "fantasy-town", "asset": "stall-bench", "gx": 24, "gz": 26, "x": 0, "z": 2, "rotY": 180, "scale": 1 }
+    ]
+  }
+}

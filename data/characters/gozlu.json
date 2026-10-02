@@ -1,7 +1,6 @@
 {
-  "name": "Gözlü",
+  "name": "Kıpır",
   "description": "İnce uzun boylu çöp adam: dev yuvarlak kafa, iri halkalı gözler, minik ağız, boyun, sivrilen gövde ve kollar, mitten eller. Temiz kalın çizgi; ifadeleri çok iyi okunur. Komik, şaşkın, meraklı anlatıcı karakter.",
-  "rig": "insan",
   "etiketler": [
     "çöp adam",
     "stickman",
@@ -19,6 +18,7 @@
     "eğitim",
     "whiteboard"
   ],
+  "rig": "insan",
   "kullanim": "Sade, temiz çizgili anlatıcı; şaşkın / meraklı tepkiler. Beyaz ve açık zeminlerde keskin okunur. Varyantlar: mavi, kirmizi, yesil (renkli tişört), kafalisi.",
   "olcu": {
     "bas": [

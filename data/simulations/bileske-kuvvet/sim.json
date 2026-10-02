@@ -1,0 +1,27 @@
+{
+  "slug": "bileske-kuvvet",
+  "title": "Bileşke Kuvvet",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, farklı yönlü kuvvetlerin bileşkesini interaktif bir şekilde hesaplamanızı sağlar. Kuvvetlerin bileşkesini hesaplamak için kuvvet vektörlerini interaktif olarak değiştirebilirsiniz.",
+  "tags": [
+    "fizik",
+    "kuvvet",
+    "fen bilimleri",
+    "bileşke kuvvet"
+  ],
+  "accent": "hsl(57, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/bileske-kuvvet.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/bileske-kuvvet.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.078Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

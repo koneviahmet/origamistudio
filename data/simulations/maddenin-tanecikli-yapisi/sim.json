@@ -1,0 +1,32 @@
+{
+  "slug": "maddenin-tanecikli-yapisi",
+  "title": "Maddenin Tanecikli Yapısı",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, maddenin tanecikli yapısını interaktif bir şekilde gözlemlemenizi sağlar. Katı, sıvı ve gaz maddelerin tanecikli yapılarını inceleyebilirsiniz. Maddelerin fiziksel özelliklerini değiştirerek maddelerin tanecikli yapılarını inceleyebilirsiniz. Isı alan maddelerin taneciklerinde meydana gelen hareketleri gözlemleyebilirsiniz.",
+  "tags": [
+    "fizik",
+    "kimya",
+    "fen bilimleri",
+    "maddenin tanecikli yapisi",
+    "katı",
+    "sıvı",
+    "gaz",
+    "hal değişimi",
+    "tanecikli yapı"
+  ],
+  "accent": "hsl(111, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/maddenin-tanecikli-yapisi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/maddenin-tanecikli-yapisi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.180Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

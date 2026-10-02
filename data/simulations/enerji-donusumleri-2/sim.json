@@ -1,0 +1,29 @@
+{
+  "slug": "enerji-donusumleri-2",
+  "title": "Enerji Dönüşümleri - Eğik Düzlem",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, eğik düzlem üzerinde hareket eden bir topun potansiyel ve kinetik enerjisindeki değişimleri gözlemlemenizi sağlar. Top, eğik düzlem üzerinde hareket ederken potansiyel enerjisi kinetik enerjiye dönüşür.",
+  "tags": [
+    "fizik",
+    "hareket",
+    "enerji",
+    "fen bilimleri",
+    "potansiyel enerji",
+    "kinetik enerji"
+  ],
+  "accent": "hsl(306, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/enerji-donusumleri-2.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/enerji-donusumleri-2.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.118Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

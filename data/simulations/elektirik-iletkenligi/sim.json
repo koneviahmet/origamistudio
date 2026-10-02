@@ -1,0 +1,30 @@
+{
+  "slug": "elektirik-iletkenligi",
+  "title": "Elektirik İletkenliği",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, elektirik iletkenliğini interaktif bir şekilde gözlemlemenizi sağlar. Demir, bakır, gümüş, alüminyum gibi maddelerin elektirik iletkenliklerini inceleyebilirsiniz.",
+  "tags": [
+    "fizik",
+    "elektirik",
+    "iletkenlik",
+    "fen bilimleri",
+    "elektrik",
+    "iletken",
+    "elektirik iletkenliği"
+  ],
+  "accent": "hsl(342, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/elektirik-iletkenligi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/elektirik-iletkenligi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.100Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

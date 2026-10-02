@@ -1,0 +1,27 @@
+{
+  "slug": "maddenin-tanecikli-yapisi-2",
+  "title": "Maddenin Tanecikli Yapısı 2",
+  "subtitle": "kimya",
+  "category": "Kimya",
+  "description": "Bu simülasyon, maddenin tanecikli yapısını interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "kimya",
+    "fen bilimleri",
+    "tanecikli yapı",
+    "atom"
+  ],
+  "accent": "hsl(14, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/maddenin-tanecikli-yapisi-2.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/maddenin-tanecikli-yapisi-2.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.182Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

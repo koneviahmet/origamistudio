@@ -1,0 +1,30 @@
+{
+  "slug": "ekosistem",
+  "title": "Ekosistem",
+  "subtitle": "biyoloji",
+  "category": "Biyoloji",
+  "description": "Bu simülasyon; tür, popülasyon, habitat ve ekosistemleri interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "biyoloji",
+    "fen bilimleri",
+    "ekosistem",
+    "ekosistem simülasyonu",
+    "tür",
+    "popülasyon",
+    "habitat"
+  ],
+  "accent": "hsl(16, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/ekosistem.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/ekosistem.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.098Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

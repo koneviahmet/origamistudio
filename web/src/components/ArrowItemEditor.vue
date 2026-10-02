@@ -22,7 +22,7 @@ function set(k, v) {
 <template>
   <div class="aie">
     <div class="pv">
-      <ArrowPreview :item="item" :animate="animate" :label="sample" />
+      <ArrowPreview deep :item="item" :animate="animate" :label="sample" />
     </div>
     <div class="row wrap">
       <button class="btn sm" :class="{ on: animate }" @click="animate = !animate">{{ animate ? '■ Durdur' : '▶ Oynat' }}</button>

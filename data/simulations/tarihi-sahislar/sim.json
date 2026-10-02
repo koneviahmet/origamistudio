@@ -1,0 +1,24 @@
+{
+  "slug": "tarihi-sahislar",
+  "title": "Tarihi Şahıslar",
+  "subtitle": "Keşifler bilgi panosu",
+  "category": "Diğer",
+  "description": "Galileo gibi bilim insanlarının keşiflerini adım adım okuyun. ?who=galileo ile doğrudan bir şahısı açın.",
+  "tags": [],
+  "accent": "#fbbf24",
+  "engine": "dom",
+  "kind": "modern",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/simulations/tarihi-sahislar/index.vue",
+  "files": [
+    "src/views/simulation/simulations/tarihi-sahislar.vue",
+    "src/views/simulation/simulations/tarihi-sahislar/config.js",
+    "src/views/simulation/simulations/tarihi-sahislar/index.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.272Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

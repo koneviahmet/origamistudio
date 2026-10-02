@@ -1,0 +1,32 @@
+{
+  "slug": "ay-ve-gunes-tutulmasi",
+  "title": "Ay ve Güneş Tutulması",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Ay ve Güneş Tutulmasını interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "fen bilimleri",
+    "güneş",
+    "ay",
+    "tutulma",
+    "tutulma simülasyonu",
+    "dünya",
+    "ay tutulması",
+    "güneş tutulması"
+  ],
+  "accent": "hsl(220, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/ay-ve-gunes-tutulmasi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/ay-ve-gunes-tutulmasi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.058Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

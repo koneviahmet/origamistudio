@@ -1,0 +1,29 @@
+{
+  "slug": "katilarin-basinci",
+  "title": "Katıların Basıncı",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, katıların bulundukları yüzeye yaptığı basıncı interaktif bir şekilde gözlemleyebilisiniz.",
+  "tags": [
+    "fizik",
+    "fen bilimleri",
+    "katı",
+    "basınç",
+    "yüzey alanı",
+    "kütle"
+  ],
+  "accent": "hsl(233, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/katilarin-basinci.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/katilarin-basinci.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.177Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

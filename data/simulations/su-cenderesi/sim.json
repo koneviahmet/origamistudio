@@ -1,0 +1,29 @@
+{
+  "slug": "su-cenderesi",
+  "title": "Su Cenderesi",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, su cenderesinin çalışma prensibini interaktif bir şekilde gözlemleyebilisiniz.",
+  "tags": [
+    "fizik",
+    "fen bilimleri",
+    "su cenderesi",
+    "basınç",
+    "hacim",
+    "sıcaklık"
+  ],
+  "accent": "hsl(261, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/su-cenderesi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/su-cenderesi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.228Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

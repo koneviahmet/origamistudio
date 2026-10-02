@@ -1,0 +1,28 @@
+{
+  "slug": "dinamometre-2d",
+  "title": "Dinamometre",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, dinamometrenin çalışma prensibini interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "dinamometre",
+    "kuvvet",
+    "newton",
+    "dinamometre simülasyonu"
+  ],
+  "accent": "hsl(158, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/dynamometer/Index.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/dynamometer/Index.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.083Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

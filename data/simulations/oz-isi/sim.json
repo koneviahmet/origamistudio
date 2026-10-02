@@ -1,0 +1,28 @@
+{
+  "slug": "oz-isi",
+  "title": "Öz Isı",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, Farklı maddelerin öz ısılarını kıyaslamanızı sağlar.",
+  "tags": [
+    "fizik",
+    "fen bilimleri",
+    "öz ısı",
+    "öz ısı simülasyonu",
+    "sıcaklık"
+  ],
+  "accent": "hsl(283, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/oz-isi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/oz-isi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.202Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

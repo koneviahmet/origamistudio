@@ -1,0 +1,24 @@
+{
+  "slug": "uzaklik-ve-gorunen-boyut",
+  "title": "Uzaklık ve Görünen Boyut",
+  "subtitle": "Yakın büyük, uzak küçük",
+  "category": "Astronomi",
+  "description": "İki eşit boyuttaki cismi yakına ve uzağa kaydırarak uzak cisimlerin küçük, yakın cisimlerin büyük göründüğünü gözlemleyin.",
+  "tags": [],
+  "accent": "#7dd3fc",
+  "engine": "three",
+  "kind": "modern",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/simulations/uzaklik-ve-gorunen-boyut/index.vue",
+  "files": [
+    "src/views/simulation/simulations/uzaklik-ve-gorunen-boyut.vue",
+    "src/views/simulation/simulations/uzaklik-ve-gorunen-boyut/config.js",
+    "src/views/simulation/simulations/uzaklik-ve-gorunen-boyut/index.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.268Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

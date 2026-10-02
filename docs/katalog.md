@@ -1,9 +1,9 @@
 # Origami Studio — Katalog
 
 > Bu dosya `npm run katalog` ile **otomatik üretilir** — elle düzenleme. Kütüphane / tasarım değişince yeniden üret.
-> Üretim: 2026-10-01 21:26
+> Üretim: 2026-10-02 09:57
 
-## 1. Origami modelleri (139)
+## 1. Origami modelleri (232)
 
 Sahnede: `{ "asset": "<id>", "variant": "<varyant>" }`. Boyut = varlık koordinat kutusu; `scale` = istenen px / en uzun kenar.
 Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canlanır.
@@ -35,13 +35,26 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `transistor` | Transistör | bilgisayar | 120×160 | — | a:acik b:ikincil d:vurgu | — | elektronik, bilgisayar, 1947 |
 | `ucak` | Kâğıt Uçak (origami) | bilgisayar | 240×130 | — | a:acik b:ikincil c:vurgu | — | uçan, kağıt, rehber |
 | `vakum-tupu` | Vakum Tüpü | bilgisayar | 100×200 | — | g:acik k:koyu f:vurgu d:ikincil p:detay | — | elektronik, eski, bilgisayar |
+| `ej-sayfa-alti` | Çizgi roman sayfası (alti) | cizgi-roman-sayfalari | 1080×1920 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
+| `ej-sayfa-dinamik` | Çizgi roman sayfası (dinamik) | cizgi-roman-sayfalari | 1080×1920 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
+| `ej-sayfa-dort` | Çizgi roman sayfası (dort) | cizgi-roman-sayfalari | 1080×1920 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
+| `ej-sayfa-iki` | Çizgi roman sayfası (iki) | cizgi-roman-sayfalari | 1080×1920 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
+| `ej-sayfa-merdiven` | Çizgi roman sayfası (merdiven) | cizgi-roman-sayfalari | 1080×1920 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
+| `ej-sayfa-sol-buyuk` | Çizgi roman sayfası (sol-buyuk) | cizgi-roman-sayfalari | 1080×1920 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
+| `ej-sayfa-uc` | Çizgi roman sayfası (uc) | cizgi-roman-sayfalari | 1080×1920 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
+| `ej-sayfa-yatay-dinamik` | Çizgi roman sayfası (dinamik) – yatay | cizgi-roman-sayfalari | 1920×1080 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
+| `ej-sayfa-yatay-dort` | Çizgi roman sayfası (dort) – yatay | cizgi-roman-sayfalari | 1920×1080 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
+| `ej-sayfa-yatay-iki` | Çizgi roman sayfası (iki) – yatay | cizgi-roman-sayfalari | 1920×1080 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
+| `ej-sayfa-yatay-serit` | Çizgi roman sayfası (serit) – yatay | cizgi-roman-sayfalari | 1920×1080 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
+| `ej-sayfa-yatay-sol-buyuk` | Çizgi roman sayfası (sol-buyuk) – yatay | cizgi-roman-sayfalari | 1920×1080 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
+| `ej-sayfa-yatay-uc` | Çizgi roman sayfası (uc) – yatay | cizgi-roman-sayfalari | 1920×1080 | — | a:ana b:ikincil c:acik d:koyu | koyu (Koyu) | çerçeve, panel, çizgi roman, maske, hikaye |
 | `dalga` | Dalga | deniz | 400×100 | — | a:acik b:ana | gece (Gece), tropik (Tropik) | deniz, su, zemin |
 | `su-fiskirmasi` | Su Fışkırması | deniz | 120×160 | — | a:acik b:ana | — | deniz, balina, su |
 | `cam-agaci` | Çam Ağacı | doga | 140×220 | — | a:ana b:ikincil | sonbahar (Sonbahar), karli (Karlı), koyu (Koyu orman) | ağaç, orman |
 | `dag` | Dağ | doga | 300×180 | — | a:ana b:ikincil c:acik | yesil (Yeşil), kum (Kum), gece (Gece) | manzara, kar |
 | `lale` | Lale | doga | 120×220 | — | a:vurgu g:ana | sari (Sarı), mor (Mor), beyaz (Beyaz) | çiçek, bahar |
 | `tepeler` | Tepeler | doga | 400×120 | — | a:ana b:ikincil | sonbahar (Sonbahar), kis (Kış), kum (Çöl) | zemin, çimen, manzara |
-| `bulut` | Bulut | gokyuzu | 200×110 | — | a:acik | gri (Yağmur), pembe (Gün batımı) | gökyüzü, hava |
+| `bulut` | Bulut | gokyuzu | 220×120 | — | a:acik | gri (Yağmur), pembe (Gün batımı), firtina (Fırtına) | gökyüzü, hava |
 | `gunes` | Güneş | gokyuzu | 160×160 | — | a:ana b:vurgu | gunbatimi (Gün batımı) | gökyüzü, ışık |
 | `hilal` | Hilal Ay | gokyuzu | 140×140 | — | a:ana | gumus (Gümüş) | gece, ay |
 | `kagit-ucak` | Kağıt Uçak | gokyuzu | 200×100 | — | a:acik | mavi (Mavi), sari (Sarı) | uçan, klasik |
@@ -51,6 +64,66 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `marti` | Martı | hayvanlar | 200×90 | wingL, wingR | a:acik b:ikincil o:vurgu d:koyu | — | kuş, deniz, uçan |
 | `tilki` | Tilki | hayvanlar | 200×200 | tail | a:ana b:ikincil c:acik d:koyu | kutup (Kutup), gece (Gece), altin (Altın) | hayvan, orman, oturan |
 | `turna` | Turna Kuşu | hayvanlar | 240×150 | wingBack, wingFront | a:ana b:ikincil | beyaz (Beyaz), altin (Altın), mavi (Mavi) | kuş, uçan, klasik |
+| `ej-alev` | Alev | hikaye-ejderha | 160×230 | dis, orta, ic | a:ana b:ikincil c:acik d:koyu | mavi (Mavi) | ateş, alev, ejderha, hikaye |
+| `ej-ejderha` | Tatlı Ejderha | hikaye-ejderha | 460×360 | kanatOn, kanatArka, kuyruk | a:ana b:ikincil c:acik d:koyu | mor (Mor), kirmizi (Kırmızı), gece (Gece) | ejderha, hayvan, fantastik, hikaye, karakter |
+| `ej-hazine` | Hazine Sandığı | hikaye-ejderha | 280×200 | — | a:ana b:ikincil c:acik d:koyu | — | hazine, sandık, altın, hikaye |
+| `ej-kale` | Dağ Kalesi | hikaye-ejderha | 520×548 | bayrak1, bayrak2 | a:ana b:ikincil c:acik d:koyu | gece (Gece), gun (Gün batımı) | kale, bina, fantastik, hikaye |
+| `ej-kaya` | Kale Uçurumu | hikaye-ejderha | 760×340 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece) | kaya, uçurum, dağ, hikaye |
+| `ej-magara` | Hazine Mağarası | hikaye-ejderha | 420×324 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece) | mağara, kaya, hazine, hikaye |
+| `ej-sovalye` | Küçük Şövalye | hikaye-ejderha | 130×242 | pelerin, kilic, tuy | a:ana b:ikincil c:acik d:koyu | mavi (Mavi), altin (Altın) | şövalye, karakter, fantastik, hikaye |
+| `fener-ay` | Dolunay | hikaye-fener | 220×220 | — | a:ana b:ikincil c:acik d:koyu | soluk (Soluk) | ay, gece, gök, hikaye |
+| `fener-bulut-firtina` | Fırtına Bulutu | hikaye-fener | 900×340 | — | a:ana b:ikincil c:acik d:koyu | acik (Açık), safak (Şafak), gece (Gece) | bulut, fırtına, gök, yağmur, hikaye |
+| `fener-dalga-orta` | Dalga bandı (orta) | hikaye-fener | 1080×300 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece), firtina (Fırtına) | dalga, deniz, su, hikaye |
+| `fener-dalga-uzak` | Dalga bandı (uzak) | hikaye-fener | 1080×300 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece), firtina (Fırtına) | dalga, deniz, su, hikaye |
+| `fener-dalga-yakin` | Dalga bandı (yakin) | hikaye-fener | 1080×300 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece), firtina (Fırtına) | dalga, deniz, su, hikaye |
+| `fener-kayalik` | Fener Kayalığı | hikaye-fener | 900×392 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece), firtina (Fırtına) | kaya, ada, kıyı, deniz, hikaye |
+| `fener-kule` | Küçük Fener (gözlü) | hikaye-fener | 240×610 | goz | a:ana b:ikincil c:acik d:koyu | gece (Gece), firtina (Fırtına) | fener, deniz, kule, hikaye, karakter |
+| `fener-marti` | Martı | hikaye-fener | 200×100 | kanatSag, kanatSol | a:ana b:ikincil c:acik d:koyu | — | kuş, martı, deniz, uçan |
+| `fener-simsek` | Şimşek | hikaye-fener | 140×360 | — | a:ana b:ikincil c:acik d:koyu | — | şimşek, fırtına, enerji |
+| `fener-yelkenli` | Küçük Yelkenli | hikaye-fener | 260×316 | bayrak | a:ana b:ikincil c:acik d:koyu | gece (Gece), mavi (Mavi) | tekne, yelkenli, gemi, deniz, hikaye |
+| `kar-aurora` | Kutup Işıkları | hikaye-kar | 1080×520 | — | a:ana b:ikincil c:acik d:koyu | mor (Mor) | aurora, gök, kış, gece, hikaye |
+| `kar-cam` | Karlı Çam | hikaye-kar | 180×340 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece) | ağaç, çam, kış, kar, hikaye |
+| `kar-cocuk` | Kışlık Çocuk | hikaye-kar | 124×226 | kol | a:ana b:ikincil c:acik d:koyu | sari (Sarı) | karakter, çocuk, kış, hikaye |
+| `kar-ev-1` | Kar Kulübesi | hikaye-kar | 330×340 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece) | ev, kulübe, kış, kar, hikaye |
+| `kar-ev-2` | Kar Evi (iki katlı) | hikaye-kar | 290×470 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece) | ev, kulübe, kış, kar, hikaye |
+| `kar-ev-3` | Kar Evi (küçük) | hikaye-kar | 270×340 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece) | ev, kulübe, kış, kar, hikaye |
+| `kar-kardan-adam` | Kardan Adam | hikaye-kar | 200×336 | kolSol, kolSag | a:ana b:ikincil c:acik d:koyu | gece (Gece) | karakter, kardan adam, kış, hikaye |
+| `kar-kizak` | Kızak | hikaye-kar | 200×100 | — | a:ana b:ikincil c:acik d:koyu | — | kızak, kış, oyun, hikaye |
+| `kar-kure-cerceve` | Kar Küresi Çerçevesi | hikaye-kar | 1080×1920 | — | a:ana b:ikincil c:acik d:koyu | — | çerçeve, küre, kar, maske, hikaye |
+| `kar-kure-yansima` | Cam Yansıması | hikaye-kar | 1080×1680 | — | a:ana b:ikincil c:acik d:koyu | — | yansıma, cam, küre, hikaye |
+| `kar-lamba` | Sokak Lambası | hikaye-kar | 60×252 | — | a:ana b:ikincil c:acik d:koyu | — | lamba, ışık, kış, sokak, hikaye |
+| `kar-tanesi` | Kar Tanesi | hikaye-kar | 120×120 | — | a:ana b:ikincil c:acik d:koyu | — | kar, kış, süs, hikaye |
+| `kar-tepe-orta` | Kar tepesi (orta) | hikaye-kar | 1080×340 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece), safak (Şafak) | kar, tepe, kış, hikaye |
+| `kar-tepe-uzak` | Kar tepesi (uzak) | hikaye-kar | 1080×340 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece), safak (Şafak) | kar, tepe, kış, hikaye |
+| `kar-tepe-yakin` | Kar tepesi (yakin) | hikaye-kar | 1080×340 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece), safak (Şafak) | kar, tepe, kış, hikaye |
+| `kervan-cadir` | Çöl Çadırı | hikaye-kervan | 300×224 | bayrak | a:ana b:ikincil c:acik d:koyu | gece (Gece) | çadır, kamp, çöl, hikaye |
+| `kervan-deve` | Deve | hikaye-kervan | 340×276 | bArka2, bOn2, bArka1, bOn1, kuyruk | a:ana b:ikincil c:acik d:koyu | koyu (Koyu), gece (Gece) | hayvan, çöl, deve, yürüyen, hikaye |
+| `kervan-fener` | Gezgin Feneri | hikaye-kervan | 60×96 | — | a:ana b:ikincil c:acik d:koyu | — | fener, lamba, ışık, gece, çöl |
+| `kervan-gezgin` | Küçük Gezgin | hikaye-kervan | 120×226 | bacakA, bacakB, kol | a:ana b:ikincil c:acik d:koyu | gece (Gece) | karakter, çocuk, çöl, gezgin, hikaye |
+| `kervan-gunes` | Çöl Güneşi | hikaye-kervan | 420×420 | — | a:ana b:ikincil c:acik d:koyu | aksam (Akşam) | güneş, gök, çöl, hikaye |
+| `kervan-kaktus` | Kaktüs | hikaye-kervan | 176×220 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece) | kaktüs, çöl, bitki, hikaye |
+| `kervan-kartal` | Kartal | hikaye-kervan | 300×130 | kanatSol, kanatSag | a:ana b:ikincil c:acik d:koyu | gece (Gece) | kuş, kartal, uçan, çöl, hikaye |
+| `kervan-kum-on` | Kum tepesi (on) | hikaye-kervan | 1080×380 | — | a:ana b:ikincil c:acik d:koyu | aksam (Akşam), gece (Gece) | çöl, kum, tepe, hikaye |
+| `kervan-kum-orta` | Kum tepesi (orta) | hikaye-kervan | 1080×380 | — | a:ana b:ikincil c:acik d:koyu | aksam (Akşam), gece (Gece) | çöl, kum, tepe, hikaye |
+| `kervan-kum-uzak` | Kum tepesi (uzak) | hikaye-kervan | 1080×380 | — | a:ana b:ikincil c:acik d:koyu | aksam (Akşam), gece (Gece) | çöl, kum, tepe, hikaye |
+| `kervan-kum-yakin` | Kum tepesi (yakin) | hikaye-kervan | 1080×380 | — | a:ana b:ikincil c:acik d:koyu | aksam (Akşam), gece (Gece) | çöl, kum, tepe, hikaye |
+| `kervan-palmiye` | Palmiye | hikaye-kervan | 260×430 | yaprakA, yaprakB | a:ana b:ikincil c:acik d:koyu | gece (Gece) | palmiye, ağaç, vaha, çöl, hikaye |
+| `kervan-piramit` | Piramitler | hikaye-kervan | 460×330 | — | a:ana b:ikincil c:acik d:koyu | aksam (Akşam), gece (Gece) | piramit, çöl, anıt, hikaye |
+| `kervan-vaha` | Vaha Gölü | hikaye-kervan | 600×210 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece) | vaha, göl, su, çöl, hikaye |
+| `kervan-yol` | Kervan Yolu (kıvrımlı) | hikaye-kervan | 1080×1100 | — | a:ana b:ikincil c:acik d:koyu | aksam (Akşam), gece (Gece) | yol, çöl, patika, perspektif, hikaye |
+| `mantar-agac` | Dev Ağaç Gövdesi | hikaye-mantar | 270×1170 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece) | ağaç, gövde, orman, ön plan, hikaye |
+| `mantar-baykus` | Bilge Baykuş | hikaye-mantar | 230×292 | goz | a:ana b:ikincil c:acik d:koyu | gece (Gece) | baykuş, kuş, orman, karakter, hikaye |
+| `mantar-buyuk-1` | Dev Mantar (kubbe) | hikaye-mantar | 360×484 | — | a:ana b:ikincil c:acik d:koyu | kirmizi (Kırmızı), mavi (Mavi), uzak (Uzak (sisli)), gece (Gece) | mantar, dev, orman, arka plan, hikaye |
+| `mantar-buyuk-2` | Dev Mantar (yassı) | hikaye-mantar | 400×424 | — | a:ana b:ikincil c:acik d:koyu | kirmizi (Kırmızı), mavi (Mavi), uzak (Uzak (sisli)), gece (Gece) | mantar, dev, orman, arka plan, hikaye |
+| `mantar-buyuk-3` | Dev Mantar (çan) | hikaye-mantar | 280×524 | — | a:ana b:ikincil c:acik d:koyu | kirmizi (Kırmızı), mavi (Mavi), uzak (Uzak (sisli)), gece (Gece) | mantar, dev, orman, arka plan, hikaye |
+| `mantar-cicek` | Işık Çiçeği | hikaye-mantar | 118×244 | — | a:ana b:ikincil c:acik d:koyu | pembe (Pembe), sari (Sarı) | çiçek, ışık, orman, hikaye |
+| `mantar-ev-1` | Mantar Evi | hikaye-mantar | 320×362 | — | a:ana b:ikincil c:acik d:koyu | mor (Mor), mavi (Mavi), turuncu (Turuncu), gece (Gece) | mantar, ev, orman, peri, hikaye |
+| `mantar-ev-2` | Uzun Mantar Evi | hikaye-mantar | 280×424 | — | a:ana b:ikincil c:acik d:koyu | mor (Mor), mavi (Mavi), turuncu (Turuncu), gece (Gece) | mantar, ev, orman, peri, hikaye |
+| `mantar-kucuk` | Küçük Mantarlar | hikaye-mantar | 310×160 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece) | mantar, yer, orman, hikaye |
+| `mantar-peri` | Ateş Böceği Perisi | hikaye-mantar | 140×194 | kanatSol, kanatSag, degnek | a:ana b:ikincil c:acik d:koyu | mavi (Mavi), yesil (Yeşil) | peri, karakter, orman, ışık, hikaye |
+| `mantar-salyangoz` | Salyangoz | hikaye-mantar | 180×120 | duyargaA, duyargaB | a:ana b:ikincil c:acik d:koyu | mor (Mor) | salyangoz, hayvan, orman, karakter, hikaye |
+| `mantar-yaprak` | Büyük Yaprak | hikaye-mantar | 300×530 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece), sonbahar (Sonbahar) | yaprak, orman, ön plan, hikaye |
+| `mantar-yer` | Yosunlu Zemin | hikaye-mantar | 1080×300 | — | a:ana b:ikincil c:acik d:koyu | gece (Gece), uzak (Uzak) | zemin, yosun, orman, çimen, hikaye |
 | `akilli-telefon` | Akıllı Telefon (ilk dokunmatik) | iletisim | 160×300 | — | a:koyu b:ikincil c:acik e:vurgu f:vurgu g:ana h:detay | — | telefon, iletişim, teknoloji, akıllı, dokunmatik |
 | `cevirmeli-telefon` | Çevirmeli Telefon | iletisim | 240×220 | — | a:ana b:ikincil c:koyu d:acik | mint (Mint) | telefon, iletişim, teknoloji, kadran, ev |
 | `duvar-telefonu` | Duvar Telefonu (1800ler) | iletisim | 200×300 | — | a:ana b:vurgu c:ikincil d:koyu | — | telefon, iletişim, teknoloji, eski, ahşap |
@@ -82,10 +155,15 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `kompresor-devresi` | Buhar sıkıştırmalı soğutma devresi | mutfak | 260×260 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | kompresör, boru, soğutma, mekanik |
 | `mikrodalga` | Mikrodalga fırın | mutfak | 200×200 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | mikrodalga, fırın, radar, mutfak, 1945, ısıtma |
 | `vakum-kap` | Vakum kapağı + pompa (Cullen deneyi) | mutfak | 240×260 | — | a:ana b:ikincil c:acik d:koyu v:vurgu | — | deney, pompa, cam, soğutma, 1755 |
+| `bant-cizim` | Washi bant (çizim) | nesneler | 160×54 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | bant, yapıştır, dekor, çizim, pastel |
 | `cezve` | Cezve | nesneler | 200×200 | — | a:ana b:ikincil c:koyu | — | kahve, mutfak, bakır |
 | `ev` | Ev | nesneler | 180×180 | — | a:vurgu b:ikincil c:acik d:detay | mavi (Mavi çatı) | bina, köy |
 | `fincan` | Kahve Fincanı | nesneler | 200×160 | — | a:acik b:vurgu c:koyu d:ikincil | — | kahve, fincan, tabak |
+| `goz-cizim` | Göz (çizim) | nesneler | 300×200 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | göz, bakmak, görme, sağlık, çizim, pastel |
 | `kagit-gemi` | Kağıt Gemi | nesneler | 220×140 | — | a:ana c:acik | kirmizi (Kırmızı), sari (Sarı), yesil (Yeşil) | deniz, klasik |
+| `kamera-cizim` | Fotoğraf makinesi (çizim) | nesneler | 300×240 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | kamera, fotoğraf, çekim, çizim, pastel |
+| `mercek-cizim` | Mercek / büyüteç (çizim) | nesneler | 240×290 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | mercek, büyüteç, cam, ışık, çizim, pastel |
+| `termometre-cizim` | Termometre (çizim) | nesneler | 160×300 | civa | a:ana b:ikincil c:acik d:koyu k:vurgu | — | termometre, sıcaklık, sıcak, soğuk, derece, çizim, pastel |
 | `acik-kitap` | Açık kitap | okul | 200×150 | — | a:ana b:isik c:vurgu | — | kitap, eğitim, ders, okuma |
 | `carpi` | Çarpı (yasak) | okul | 200×200 | — | a:vurgu | — | çarpı, hayır, iptal, yok |
 | `dolap` | Okul dolapları | okul | 320×260 | — | a:ana b:ikinci d:golge h:vurgu | — | dolap, koridor, okul, sıra |
@@ -100,10 +178,15 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `pdf-sayfa` | PDF sayfası | okul | 170×220 | — | a:ana c:golge r:vurgu l:golge | — | pdf, belge, sayfa, doküman |
 | `play-rozet` | Play rozeti | okul | 200×200 | — | g:ana b:ikinci r:vurgu y:isik | — | google play, mağaza, indir, android |
 | `daire` | Daire | sekiller | 200×200 | — | a:ana b:vurgu | — | şekil, geometri, düz |
+| `damla` | Damla | sekiller | 200×250 | — | a:ana b:vurgu | — | şekil, su, yağmur, damla |
 | `elmas` | Elmas | sekiller | 200×200 | — | a:ana b:vurgu | — | şekil, geometri, düz |
 | `halka` | Halka | sekiller | 200×200 | — | a:ana b:vurgu | — | şekil, geometri, çember |
+| `hap` | Hap (pill) | sekiller | 400×100 | — | a:ana b:vurgu | — | şekil, etiket, hap, yuvarlak |
+| `huzme` | Işık huzmesi (spot) | sekiller | 200×400 | — | a:ana b:vurgu | — | şekil, ışık, spot, sahne |
 | `kalp` | Kalp | sekiller | 160×150 | — | a:ana | pembe (Pembe) | şekil, sevgi |
 | `kare` | Kare | sekiller | 200×200 | — | a:ana b:vurgu | — | şekil, geometri, düz |
+| `kart` | Kart (yuvarlak köşe) | sekiller | 400×500 | — | a:ana b:vurgu | — | şekil, kart, panel, yuvarlak |
+| `kart-kare` | Kart (kare, yuvarlak köşe) | sekiller | 400×400 | — | a:ana b:vurgu | — | şekil, kart, panel, yuvarlak |
 | `leke` | Leke (blob) | sekiller | 200×200 | — | a:ana b:vurgu | — | şekil, organik, dekor |
 | `ok-yukari` | Ok (yukarı) | sekiller | 200×170 | — | a:ana b:vurgu | — | şekil, ok, yönlendirme |
 | `patlama` | Patlama | sekiller | 200×200 | — | a:ana b:vurgu | — | şekil, vurgu, damga |
@@ -116,10 +199,16 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `astronot-3d` | Astronot 3B | uzay | 153×240 | — | a:ana b:ikincil c:detay d:koyu v:cam w:yansima r:vurgu g:isik y:isik-2 | turuncu (Turuncu giysi), mavi (Mavi giysi) | astronot, kozmonot, uzay giysisi, insan, karakter, keşif, uzay yürüyüşü, el sallayan, uzay, 3d, 3 boyutlu, hacimli |
 | `ay` | Ay | uzay | 200×200 | — | a:ana b:ikincil d:koyu | kanli (Kanlı ay) | uydu, uzay, gece |
 | `ay-3d` | Ay 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu e:detay | kanli (Kanlı Ay) | uydu, gece, kraterli, gezegen, uzay, 3d, 3 boyutlu, hacimli |
+| `donus-oku-cizim` | Dönüş oku (çizim) | uzay | 300×300 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | ok, dönüş, döngü, saat yönünün tersi, çizim, pastel |
 | `dunya` | Dünya | uzay | 200×200 | — | a:ana b:ikincil c:acik | buzul (Buzul çağı), col (Çöl gezegeni) | gezegen, uzay, yaşam |
 | `dunya-3d` | Dünya 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik g:kara h:koyu y:col k:bulut l:atmosfer | gece (Gece) | yaşam, mavi, kıtalar, ev, gezegen, uzay, 3d, 3 boyutlu, hacimli |
+| `dunya-cizim` | Dünya (çizim) | uzay | 300×300 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | dünya, gezegen, mavi, okyanus, kıta, çizim, pastel, uzay |
+| `durbun-cizim` | Dürbün (çizim) | uzay | 300×260 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | dürbün, gözlem, mercek, çizim, pastel |
+| `filtre-gozluk-cizim` | Güneş filtreli gözlük (çizim) | uzay | 320×150 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | güneş gözlüğü, filtre, güvenlik, koruma, gözlem gözlüğü, tutulma, çizim, pastel, uzay |
 | `gunes-3d` | Güneş 3B | uzay | 198×200 | — | a:ana b:ikincil c:acik d:koyu o:isin p:isin-acik h:hale | kirmizi (Kızıl dev), mavi (Mavi yıldız) | güneş, yıldız, sıcak, ışık, gündüz, enerji, merkez, uzay, 3d, 3 boyutlu, hacimli |
+| `gunes-cizim` | Güneş (çizim) | uzay | 400×400 | isin | a:ana b:ikincil c:acik d:koyu k:vurgu | — | güneş, yıldız, ışın, sıcak, ışık, çizim, pastel, uzay |
 | `gunes-kesit-3d` | Güneş Kesiti 3B | uzay | 230×230 | — | a:ana b:ikincil k:cekirdek y:acik o:orta r:dis | — | güneş, kesit, katman, iç yapı, çekirdek, katmanlar, dilim, uzay, 3d, 3 boyutlu, hacimli |
+| `gunes-kesit-cizim` | Güneş kesiti (çizim) | uzay | 440×440 | isin | a:ana b:ikincil c:acik d:koyu k:vurgu | — | güneş, kesit, katman, iç yapı, çekirdek, çizim, pastel, uzay |
 | `gunes-lekeli-3d` | Lekeli Güneş 3B | uzay | 240×238 | — | a:ana b:ikincil c:acik d:koyu k:leke u:leke-kenar p:isin-acik h:hale | — | güneş, güneş lekesi, leke, yüzey, yakın plan, karanlık bölge, uzay, 3d, 3 boyutlu, hacimli |
 | `gunes-lekeli-sag-3d` | Lekeli Güneş 3B (sağ) | uzay | 240×238 | — | a:ana b:ikincil c:acik d:koyu k:leke u:leke-kenar p:isin-acik h:hale | — | güneş, güneş lekesi, leke, yüzey, yakın plan, karanlık bölge, uzay, 3d, 3 boyutlu, hacimli |
 | `gunes-lekeli-sol-3d` | Lekeli Güneş 3B (sol) | uzay | 240×238 | — | a:ana b:ikincil c:acik d:koyu k:leke u:leke-kenar p:isin-acik h:hale | — | güneş, güneş lekesi, leke, yüzey, yakın plan, karanlık bölge, uzay, 3d, 3 boyutlu, hacimli |
@@ -140,7 +229,9 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `saturn` | Satürn | uzay | 400×220 | — | a:ana b:ikincil c:acik r:detay q:detay | — | gezegen, uzay, halka |
 | `saturn-3d` | Satürn 3B | uzay | 400×260 | — | a:ana b:ikincil c:acik g:detay r:halka q:halka-koyu | — | halka, halkalı, gezegen, uzay, 3d, 3 boyutlu, hacimli, gaz devi |
 | `soru-rozeti` | Soru Rozeti | uzay | 200×200 | — | a:ana b:ikincil c:vurgu d:koyu | sari (Sarı rozet) | soru, soru işareti, merak, rozet, düşün, peki, question, uzay, 3d, 3 boyutlu, hacimli |
+| `sputnik-3d` | Sputnik 3B | uzay | 178×240 | — | a:ana b:ikincil c:parlak d:koyu w:detay | altin (Altın Sputnik) | sputnik, sputnik 1, ilk yapay uydu, uydu, sovyet, uzay yarışı, 1957, küre, anten, araç, uzay, 3d, 3 boyutlu, hacimli |
 | `teleskop-3d` | Galileo Teleskobu 3B | uzay | 206×240 | — | a:ana b:ikincil e:koyu g:altin l:cam w:ahsap d:detay | gumus (Modern teleskop) | teleskop, dürbün, galileo, gözlem, gökyüzü, bilim, mercek, telescope, uzay, 3d, 3 boyutlu, hacimli |
+| `teleskop-cizim` | Teleskop (çizim) | uzay | 360×300 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | teleskop, galileo, gözlem, gökyüzü, bilim, mercek, çizim, pastel, uzay |
 | `ufo-3d` | UFO 3B | uzay | 209×220 | — | a:ana b:ikincil c:acik d:koyu g:cam y:isik l:isik-2 u:isin | kirmizi (Kızıl UFO) | ufo, uzaylı, uçan daire, gizem, araç, istila, uzay, 3d, 3 boyutlu, hacimli |
 | `uranus` | Uranüs | uzay | 200×200 | — | a:ana b:ikincil c:acik | — | gezegen, uzay, buz devi |
 | `uranus-3d` | Uranüs 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:detay r:halka h:atmosfer | — | buz devi, yan yatmış, halka, gezegen, uzay, 3d, 3 boyutlu, hacimli |
@@ -148,7 +239,9 @@ Parçalar `kanat-cirp` / `kuyruk-salla` ön ayarlarıyla ya da `parts` ile canla
 | `uzay-istasyonu-3d` | Uzay İstasyonu 3B | uzay | 239×260 | — | a:ana b:ikincil c:acik d:koyu s:panel t:panel-koyu w:detay g:altin | — | uzay istasyonu, iss, yörünge, laboratuvar, araç, istasyon, güneş paneli, uzay, 3d, 3 boyutlu, hacimli |
 | `venus` | Venüs | uzay | 200×200 | — | a:ana b:ikincil c:acik | — | gezegen, uzay, sıcak |
 | `venus-3d` | Venüs 3B | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu e:detay h:vurgu | — | sıcak, bulutlu, girdap, gezegen, uzay, 3d, 3 boyutlu, hacimli |
+| `vostok-roketi-3d` | Vostok Roketi 3B | uzay | 66×240 | — | a:ana b:ikincil c:acik p:vurgu d:koyu w:detay k:koyu-detay g:cam f:alev y:alev-acik h:alev-cekirdek | gece (Gece rampası) | vostok, vostok roketi, roket, gagarin, fırlatma, sovyet, uzay yarışı, 1961, uçuş, araç, uzay, 3d, 3 boyutlu, hacimli |
 | `yasak-isareti` | Yasak İşareti | uzay | 200×200 | — | a:ana b:ikincil | — | yasak, dur, uyarı, tehlike, dikkat, yapma, güvenlik, no, uzay, 3d, 3 boyutlu, hacimli |
+| `yorunge-halka-cizim` | Yörünge halkası (çizim) | uzay | 200×200 | — | a:ana b:ikincil c:acik d:koyu k:vurgu | — | yörünge, halka, çember, güneş sistemi, çizim, pastel |
 
 ## 2. Parçacık efektleri (12)
 
@@ -466,41 +559,17 @@ Hazır Bézier eğrileri (`"ease": [x1, y1, x2, y2]`): CSS ease `[0.25, 0.1, 0.2
 
 Çizim stilleri (`"style"`): `origami` Origami — Katlanmış kağıt yüzeyleri, menteşe etrafında açılır · `kagit-kesme` Kağıt kesme — Renk tabakaları üst üste, derin gölge, tabaka tabaka belirir · `duz` Düz vektör — Gölgesiz, temiz renkler (minimal / infografik) · `cizim` Çizim / boya — El çizimi mürekkep kontur, pastel boya taraması; önce çizilir sonra boyanır · `neon` Neon — Koyu zemin üstünde parlayan çizgi iskeleti (gece / teknoloji) · `cam` Cam — Yarı saydam buzlu cam, parlak kenar ve yansıma · `mozaik` Mozaik (low-poly) — Her yüzey hafif farklı tonda, kristal / low-poly görünüm · `teknik` Teknik çizim — Mavi pafta, beyaz ince çizgi (mühendislik / şema) · `vitray` Vitray — Işıklı renkli cam, kalın koyu kurşun çerçeve · `kil` Kil — Yumuşak, şişkin hacimli kil / plastilin, yumuşak gölge · `siluet` Gölge oyunu — Tek renk siluet, yüzeyin renginde hale (sinematik / gizem) · `gazete` Gazete baskısı — Tek renk mürekkep tonları ve baskı kayması (retro haber) · `halftone` Halftone / pop-art — Nokta rasterli çizgi roman baskısı · `suluboya` Suluboya — Üst üste yarı saydam, kenarı oynak boya lekeleri · `nakis` Nakış — Kumaş yüzey, dikiş çizgili kenar · `piksel` Piksel (8-bit) — Düşük çözünürlüklü, keskin piksel oyun görünümü
 
-## 10. Ses dosyaları (81)
+## 10. Ses dosyaları (108)
 
-Müzik: `atom-anlatim-1.wav`, `atom-anlatim-2.wav`, `atom-anlatim-3.wav`, `atom-anlatim-4.wav`, `atom-anlatim-5.wav`, `atom-anlatim-6.wav`, `atom-anlatim-7.wav`, `atom-anlatim-8.wav`, `atom-muzik.wav`, `defter-anlatim-1.wav`, `defter-anlatim-2.wav`, `defter-anlatim-3.wav`, `defter-anlatim-4.wav`, `defter-anlatim-5.wav`, `defter-anlatim-6.wav`, `defter-anlatim-7.wav`, `defter-anlatim-8.wav`, `defter-anlatim-9.wav`, `defter-muzik.wav`, `defter-neseli.wav`, `fastpano-anlatim-1.wav`, `fastpano-anlatim-2.wav`, `fastpano-anlatim-3.wav`, `fastpano-anlatim-4.wav`, `fastpano-anlatim-5.wav`, `fastpano-anlatim-6.wav`, `fastpano-muzik.wav`, `fastpano-okul-anlatim-1.wav`, `fastpano-okul-anlatim-2.wav`, `fastpano-okul-anlatim-3.wav`, `fastpano-okul-anlatim-4.wav`, `fastpano-okul-anlatim-5.wav`, `fastpano-okul-anlatim-6.wav`, `fastpano-okul-anlatim-7.wav`, `fastpano-okul-anlatim-8.wav`, `fastpano-okul-muzik.wav`, `gunes-muzik.wav`, `gunes-ses-1.wav`, `gunes-ses-10.wav`, `gunes-ses-11.wav`, `gunes-ses-12.wav`, `gunes-ses-13.wav`, `gunes-ses-14.wav`, `gunes-ses-15.wav`, `gunes-ses-2.wav`, `gunes-ses-3.wav`, `gunes-ses-4.wav`, `gunes-ses-5.wav`, `gunes-ses-6.wav`, `gunes-ses-7.wav`, `gunes-ses-8.wav`, `gunes-ses-9.wav`, `gunes-son-1.wav`, `kahve-anlatim-1.wav`, `kahve-anlatim-2.wav`, `kahve-anlatim-3.wav`, `kahve-anlatim-4.wav`, `ritim-house-126.wav`, `ritim-hype-132.wav`, `ritim-lofi-90.wav`, `ritim-pop-120.wav`, `ritim-trap-140.wav`, `telefon-muzik.wav`, `telefon-ses-1.wav`, `telefon-ses-2.wav`, `telefon-ses-3.wav`, `telefon-ses-4.wav`, `telefon-ses-5.wav`, `telefon-ses-6.wav`, `telefon-ses-7.wav`, `telefon-ses-8.wav`, `telefon-ses-9.wav`, `uzay-ambiyans.wav`  
+Müzik: `atom-anlatim-1.wav`, `atom-anlatim-2.wav`, `atom-anlatim-3.wav`, `atom-anlatim-4.wav`, `atom-anlatim-5.wav`, `atom-anlatim-6.wav`, `atom-anlatim-7.wav`, `atom-anlatim-8.wav`, `atom-muzik.wav`, `defter-anlatim-1.wav`, `defter-anlatim-2.wav`, `defter-anlatim-3.wav`, `defter-anlatim-4.wav`, `defter-anlatim-5.wav`, `defter-anlatim-6.wav`, `defter-anlatim-7.wav`, `defter-anlatim-8.wav`, `defter-anlatim-9.wav`, `defter-muzik.wav`, `defter-neseli.wav`, `fastpano-anlatim-1.wav`, `fastpano-anlatim-2.wav`, `fastpano-anlatim-3.wav`, `fastpano-anlatim-4.wav`, `fastpano-anlatim-5.wav`, `fastpano-anlatim-6.wav`, `fastpano-muzik.wav`, `fastpano-okul-anlatim-1.wav`, `fastpano-okul-anlatim-2.wav`, `fastpano-okul-anlatim-3.wav`, `fastpano-okul-anlatim-4.wav`, `fastpano-okul-anlatim-5.wav`, `fastpano-okul-anlatim-6.wav`, `fastpano-okul-anlatim-7.wav`, `fastpano-okul-anlatim-8.wav`, `fastpano-okul-muzik.wav`, `gunes-dersi-muzik.wav`, `gunes-dersi-ses-1.wav`, `gunes-dersi-ses-10.wav`, `gunes-dersi-ses-11.wav`, `gunes-dersi-ses-12.wav`, `gunes-dersi-ses-13.wav`, `gunes-dersi-ses-14.wav`, `gunes-dersi-ses-15.wav`, `gunes-dersi-ses-16.wav`, `gunes-dersi-ses-17.wav`, `gunes-dersi-ses-18.wav`, `gunes-dersi-ses-19.wav`, `gunes-dersi-ses-2.wav`, `gunes-dersi-ses-20.wav`, `gunes-dersi-ses-3.wav`, `gunes-dersi-ses-4.wav`, `gunes-dersi-ses-5.wav`, `gunes-dersi-ses-6.wav`, `gunes-dersi-ses-7.wav`, `gunes-dersi-ses-8.wav`, `gunes-dersi-ses-9.wav`, `gunes-muzik.wav`, `gunes-ses-1.wav`, `gunes-ses-10.wav`, `gunes-ses-11.wav`, `gunes-ses-12.wav`, `gunes-ses-13.wav`, `gunes-ses-14.wav`, `gunes-ses-15.wav`, `gunes-ses-2.wav`, `gunes-ses-3.wav`, `gunes-ses-4.wav`, `gunes-ses-5.wav`, `gunes-ses-6.wav`, `gunes-ses-7.wav`, `gunes-ses-8.wav`, `gunes-ses-9.wav`, `gunes-son-1.wav`, `kahve-anlatim-1.wav`, `kahve-anlatim-2.wav`, `kahve-anlatim-3.wav`, `kahve-anlatim-4.wav`, `ritim-house-126.wav`, `ritim-hype-132.wav`, `ritim-lofi-90.wav`, `ritim-pop-120.wav`, `ritim-trap-140.wav`, `telefon-muzik.wav`, `telefon-ses-1.wav`, `telefon-ses-2.wav`, `telefon-ses-3.wav`, `telefon-ses-4.wav`, `telefon-ses-5.wav`, `telefon-ses-6.wav`, `telefon-ses-7.wav`, `telefon-ses-8.wav`, `telefon-ses-9.wav`, `uzay-ambiyans.wav`, `uzay-yarisi-ses-1.wav`, `uzay-yarisi-ses-2.wav`, `uzay-yarisi-ses-3.wav`, `uzay-yarisi-ses-4.wav`, `uzay-yarisi-ses-5.wav`, `uzay-yarisi-ses-6.wav`  
 Efektler (`sfx.auto` kullanır): `sfx-cin.wav`, `sfx-damla.wav`, `sfx-hisirti.wav`, `sfx-kagit-katla.wav`, `sfx-parilti.wav`, `sfx-pop.wav`, `sfx-tik.wav`, `sfx-whoosh.wav`
 
 `uzay-ambiyans.wav`: 120 BPM, ilk vuruş 0.25 sn, 64 sn (sentez, telifsiz).
 
-## 11. Örnek projeler (26)
+## 11. Örnek projeler (2)
 
-- `atom-gelisimi` **Atomun Hikâyesi** — 1920×1080, 86.5 sn, 121 katman, tema [object Object], stil cizim — üreteç: `scripts/scenes-atom-gelisimi.mjs`
-- `atom-gelisimi-dikey` **Atomun Hikâyesi (dikey)** — 1080×1920, 86.5 sn, 120 katman, tema [object Object], stil cizim
-- `bilgisayar-defteri` **Bilgisayarın Çizim Defteri** — 1080×1920, 63.4 sn, 604 katman, tema [object Object], stil cizim — üreteç: `scripts/scenes-bilgisayar-defteri.mjs`
-- `bilgisayarin-yolculugu` **Odadan Cebe — Bilgisayarın Yolculuğu** — 1080×1920, 61.5 sn, 122 katman, tema [object Object], stil kagit-kesme — üreteç: `scripts/scenes-bilgisayarin-yolculugu.mjs`
-- `buzdolabi-gelisimi` **Buzdolabının Gelişimi** — 1080×1920, 49 sn, 46 katman, tema [object Object], stil duz — üreteç: `scripts/scenes-buzdolabi-gelisimi.mjs`
-- `fastpano-dikey` **fastPano Tanıtım (dikey)** — 1080×1920, 53 sn, 65 katman, tema [object Object], stil suluboya
-- `fastpano-okul-dikey` **fastPano Okul Defteri (dikey)** — 1080×1920, 67.4 sn, 521 katman, tema [object Object], stil cizim
-- `fastpano-okul-yatay` **fastPano Okul Defteri (yatay)** — 1920×1080, 67.4 sn, 560 katman, tema [object Object], stil cizim
-- `fastpano-yatay` **fastPano Tanıtım (yatay)** — 1920×1080, 53 sn, 67 katman, tema [object Object], stil suluboya
-- `firin-gelisimi` **Fırının Gelişimi** — 1080×1920, 50.2 sn, 62 katman, tema [object Object], stil kil — üreteç: `scripts/scenes-firin-gelisimi.mjs`
-- `gunes-anlatim` **Gökyüzündeki Komşumuz: Güneş** — 1920×1080, 122.49 sn, 161 katman, tema [object Object], stil mozaik — üreteç: `scripts/scenes-gunes-anlatim.mjs`
-- `kahve-cizim` **Türk Kahvesi (çizim)** — 1080×1080, 16 sn, 12 katman, stil cizim — üreteç: `scripts/scenes-kahve-cizim.mjs`
-- `karakter-demo` **Karakterler — tanışma ve tanıtım** — 1920×1080, 30.1 sn, 3 katman, tema gun-isigi, stil duz — üreteç: `scripts/scenes-karakter-demo.mjs`
-- `ok-vitrini` **Ok Vitrini** — 1080×1080, 17 sn, 19 katman — üreteç: `scripts/scenes-ok-vitrini.mjs`
-- `okyanus` **Okyanus** — 1080×1920, 12 sn, 18 katman
-- `origami-orman` **Origami Orman** — 1080×1920, 12 sn, 16 katman
-- `ozellik-turu` **Özellik Turu** — 1080×1920, 38.5 sn, 42 katman, tema gun-isigi — üreteç: `scripts/scenes-ozellik-turu.mjs`
-- `sablon-explainer` **Kahve Nasıl Olur?** — 1080×1920, 28.21 sn, 25 katman, tema gun-isigi, stil cizim
-- `sablon-kinetik` **Kinetik Örnek** — 1080×1920, 12.25 sn, 7 katman, tema gun-isigi, stil duz
-- `sablon-liste` **En Hızlı 3 Hayvan** — 1080×1920, 21.33 sn, 15 katman, tema sonbahar
-- `sablon-showreel` **Showreel** — 1080×1920, 10.25 sn, 17 katman, tema gun-isigi, stil kagit-kesme
-- `sablon-urun` **Not Defteri** — 1080×1920, 21.14 sn, 21 katman, tema [object Object], stil kagit-kesme
-- `stil-galerisi` **Stil Galerisi** — 1920×1080, 47.3 sn, 191 katman, tema [object Object] — üreteç: `scripts/scenes-stil-galerisi.mjs`
-- `tasarim-vitrini` **Tasarım Vitrini — Sonbahar** — 1080×1920, 10 sn, 14 katman, tema sonbahar, stil kagit-kesme
-- `telefonun-yolculugu` **Telefonun Yolculuğu (çizim)** — 1080×1920, 54.2 sn, 59 katman, stil cizim — üreteç: `scripts/scenes-telefonun-yolculugu.mjs`
-- `yillik-buyume` **Yıllık Büyüme** — 1080×1920, 27.4 sn, 13 katman, tema [object Object]
+- `gunes-dersi` **Güneş Dersi — Gözlü ile Gökyüzündeki Komşumuz** — 1920×1080, 132.08 sn, 168 katman, tema [object Object], stil cizim — üreteç: `scripts/scenes-gunes-dersi.mjs`
+- `uzay-yarisi` **Uzay Yarışı** — 1080×1920, 60 sn, 63 katman, tema [object Object], stil cizim
 
 ## 12. Bileşen katmanları (Faz 16) — şema §12
 
@@ -683,6 +752,42 @@ Ortak alanlar: `x, y, scale, rotation, opacity, fold` (çizilme / görünme iler
 | `adimlar` | Adım adım (nasıl yapılır) | Nasıl yapılır / tarif / ipucu videoları. Her adımda numara rozeti patlar, başlık çarpar, açıklama yazılır; en sonda tüm adımlar tik tik özetlenir. |
 | `sohbet` | Mesajlaşma hikâyesi | İki kişilik sohbet: "yazıyor…" göstergesi, vuruşla pat diye çıkan balonlar, kayan ekran, sonda tepkiler. Hikâye anlatma / diyalog / espri videoları için. |
 | `zaman` | Zaman tüneli (anlatımlı) | Dönem dönem ilerleyen el çizimi anlatım: yıl, nesne kendini çizer, konuşma balonu, yazılan bilgi satırları, oklu notlar; nesneler alttaki rafa dizilir. Anlatım metni ve müzikle birlikte. |
+| `zaman-yol` | Zaman tüneli · Yol haritası | Karanlık zeminde parlayan dikey bir yol: kamera aşağı kayar, omurga uzar, her durakta devasa yıl + cam daire içinde nesne + cam bilgi kartları yanar. Modern, akıcı, sinematik anlatım. |
+| `zaman-kart` | Zaman tüneli · Kart destesi | Pastel zeminde beyaz yuvarlak kartlar: her dönem alttan yükselir, öncekiler arkada istiflenir. Kartı aşan büyük nesne, dev yıl, madde işaretli bilgiler, etiket hapları. Temiz ve modern carousel hissi. |
+| `zaman-seridi` | Zaman tüneli · Sinematik şerit | Yatay kaydırmalı sinematik yolculuk: paralaks tepeler, batan güneş, doğan ay, şafaktan geceye değişen gökyüzü. Her durakta silik dev yıl, zemine basan nesne, balon, notlar ve zemin şeridinde bilgi satırları. |
+| `zaman-sayac` | Zaman tüneli · Yıl sayacı | Vuruşa oturan hızlı zaman yolculuğu: renkli şerit silmeleri, dev yıl sayacı önceki yıldan bu yıla sayarak akar, ad çarpar, nesne daire içinde zıplar, damga balonları ve çarpan bilgi satırları. |
+| `zaman-merdiven` | Zaman tüneli · Yükseliş merdiveni | Her dönem bir basamak: kamera çapraz yukarı tırmanır, gökyüzü şafaktan uzaya koyulaşır, bulutlar altta kalır, yıldızlar belirir. Basamağın tepesinde nesne, gökyüzünde yıl ve ad, basamak yüzünde bilgi satırları. |
+| `zaman-cark` | Zaman tüneli · Zaman çarkı | Parıldayan dev kadran: ibre her dönemde yeni düğüme "tık" diye kayar, düğüm yanar, cam diskte nesne belirir, dönem rengi kadranı boyar. Altında dev yıl, ad ve yazılan bilgi satırları. Radyal ve modern. |
+| `zaman-galeri` | Zaman tüneli · Müze galerisi | Koyu zarif sergi salonu: tavandan inen spot ışığı, kaide üzerinde nesne, kaidede altın yıl plaketi, zeminde yazılan açıklamalar, süzülen toz. Kamera salonda gezer ve her esere yaklaşır. Premium belgesel hissi. |
+| `zaman-pano` | Zaman tüneli · Mantar pano | Dedektif panosu: kamera kırmızı ipi izleyerek polaroidden polaroide gider ve kareyi düzleştirmek için döner. Raptiye çakılır, nesne katlanarak belirir, post-it notlarında bilgi yazılır; sonda kamera uzaklaşıp tüm panoyu gösterir. |
+| `zaman-retro` | Zaman tüneli · Retro dalga | Synthwave yolu: çizgili güneş, neon dağlar, ufka kayan ızgara. Nesneler ufuktan yaklaşır, neon platforma konar; yıl parıltılı ve RGB kaymalı gelir, bilgi satırları terminal gibi yazılır. Vuruşlu, retro-fütüristik. |
+| `zaman-dergi` | Zaman tüneli · Dergi | Editoryal dergi sayfaları: canlı renk bloğu alttan süpürerek gelir, içinde devasa serif yıl ve kenarda duran nesne; krem sayfada yıl, ad, ince çizgi, tireli bilgi satırları ve dipnot. Sade, şık, kinetik tipografi. |
+| `zaman-katman` | Zaman tüneli · Kazı | Geçmişe doğru kazı: kamera her dönemde bir toprak katmanı aşağı iner. Dalgalı kâğıt kesme katmanlar, çakıllar, derinlik cetveli; nesne kendi nişinde gün yüzüne çıkar, dev yıl ve bilgi satırlarıyla. Altın ışıklı kapanış. |
+| `zaman-teknik` | Zaman tüneli · Mavi pafta | Mühendis paftası: mavi kareli zeminde beyaz çizgiler. Nesne teknik çizim olarak çizilir, merkez çizgileri, açı halkası, ölçü çizgileri ve numaralı notlar belirir; "NOTLAR" kutusu yazılır ve "ONAYLANDI" damgası vurur. Çizici çizgisiyle paftalar arası geçiş. |
+| `zaman-film` | Zaman tüneli · Sessiz sinema | Sessiz film estetiği: kenarda akan film perforasyonu, çizik ve toz, sepya tondan gerçek renge açılan zaman. Geri sayım, süslü başlık kartı, iris açılışlı roma rakamlı ara kartlar, alt yazı gibi akan bilgiler, "SON" kartı. |
+| `zaman-metro` | Zaman tüneli · Metro hattı | Metro hattı haritası: tren duraktan durağa gider, kamera izler, geçilen hat renklenir. Her durakta yıl rozeti, cam kartta nesne, koyu sefer bilgisi panelinde bilgi satırları ve "Sonraki durak" etiketi. Açık zeminli, sade, modern. |
+| `zaman-piksel` | Zaman tüneli · 8-bit oyun | Platform oyunu estetiği: başlık ekranı, piksel geçişli bölümler (DÜNYA 1-n), HUD ve sayarak artan skor, "?" bloğuna vurunca altın ve nesne fırlar, NES konuşma kutusunda yazılan bilgiler, yüksek skor ve havai fişek. Piksel stili. |
+| `hikaye-yolculuk` | Hikâye · Yolculuk (yatay paralaks) | Kamera sağa doğru kesintisiz ilerler; dağlar, tepeler, ağaçlar ve laleler paralaksla akar, kahraman yürür. Her bölüm bir yol tabelasıyla başlar; gökyüzü şafaktan geceye döner. Yolculuk ve keşif hikâyeleri için. |
+| `hikaye-gun` | Hikâye · Günün döngüsü (saatli) | Tek bir vadi: güneş yay çizerek ilerler, gökyüzü şafaktan geceye döner, ay ve yıldızlar çıkar. Hikâye saatlere bölünür; köşede dijital saat ve analog ibre. Bölümlere göre sahneye kelebek, turna gibi konuklar gelir. "Bir günün hikâyesi". |
+| `hikaye-damla` | Hikâye · Damla (dikey iniş) | Çok uzun dikey bir dünya: bulut, dağ, dere, deniz yüzeyi ve derin deniz. Kamera küçük bir damlayı aşağıya doğru izler, sonra buharlaşıp yeniden yukarı çıkar. Her bölgenin kendi katmanlı manzarası ve ışığı var. Su döngüsü gibi "bir şeyin yolculuğu" hikâyeleri için. |
+| `hikaye-kitap` | Hikâye · Kitap (sayfa sayfa dünyalar) | Deri ciltli bir masal kitabı: her sayfa kendi katmanlı dünyası (kış, vadi, deniz, sonbahar, gece). Sayfa çevirme geçişleri, bölüm başlığı, altta krem metin kutusunda kitap yazısı ve sayfa numarası. Mevsimleri ve dünyaları gezen masallar için. |
+| `hikaye-ucus` | Hikâye · Uçuş (ileri akış) | Kamera sabit, kâğıt uçak süzülür; dünya bize doğru akar: ağaçlar, bulutlar, turnalar, yıldızlar ufuktan doğup büyüyerek yanımızdan geçer. İrtifa sayacı, yükselen ibre, patlayarak gelen bölüm başlıkları. Yer → bulut → gün batımı → yıldız → ay. |
+| `hikaye-masal` | Hikâye · Masal (iki karakter diyalogu) | Katmanlı manzarada iki hayvan konuşur: replikler konuşma balonlarında belirir, konuşan zıplar, dinleyen tepki verir, kamera konuşana kayar. Anlatıcı satırları üstte; gündüz → akşam geçişi. Fabl ve masal diyalogları için (örnek: Tilki ile Turna). |
+| `hikaye-fener` | Hikâye · Küçük Fener (fırtınadan şafağa) | Gözlü küçük bir deniz feneri, kayalık, yelkenli ve dalgalar (özel modeller). Akşamdan temiz geceye, fırtınaya (şimşek, yağmur), ışığın odaklanıp tekneyi kurtarmasına ve şafağa uzanan hava durumu yayı; ışık huzmeleri, sallanan tekne, çapraz geçen gökyüzü. |
+| `hikaye-kervan` | Hikâye · Küçük Kervancı (kıvrımlı çöl yolu) | Kıvrımlı çöl yolunda ufuktan izleyiciye doğru yürüyen deve ve gezgin çocuk (özel modeller). Perspektifle büyür, dönemeçlerde yön çevirir; rüzgâr, kartal, serap, çadır ve ateş, vaha. Gün şafaktan geceye, geceden şafağa döner. |
+| `hikaye-kar` | Hikâye · Kar Küresi (kardan adamın dileği) | Ahşap kaideli bir kar küresi: içinde sıcak pencereli kulübeler, karlı çamlar, kardan adam, çocuk ve kızak (özel modeller). Her bölümde küre sallanır, kar savrulur; akşam, kayan yıldız, kuzey ışıkları, sessiz gece ve şafakta ilk çiçekler. |
+| `hikaye-ejderha` | Hikâye · Ejderha ve Küçük Şövalye (çizgi roman) | Sayfa sayfa çizgi roman: paneller perde gibi açılır, her panelin kendi mini manzarası (kale, yol, mağara, ejderha, yakın plan, barışma, gün batımı uçuşu). Konuşma balonları, ses efektleri, tatlı ejderha ve küçük şövalye (özel modeller). |
+| `hikaye-mantar` | Hikâye · Lumi'nin Işığı (odak derinliği) | Gece ormanı beş derinlik düzleminde: sisli dev mantarlar, evler, ışık çiçekleri, baykuş, salyangoz ve ateş böceği perisi (özel modeller). Odak her bölümde başka düzleme kayar, kamera paralaksla ormandan geçer; ışık sönükten tüm ormana yayılır. |
+| `karakter-bilgi` | Karakter · Biliyor muydun? (öğretmen + öğrenci) | Öğretmen karakter ile meraklı öğrenci sohbet eder: öğrenci sorar, öğretmen cevaplar, cevabın büyük rakamı / kelimesi üstte çarpar. Her konuya uyan "biliyor muydun?" bilgi serisi. |
+| `karakter-quiz` | Karakter · Quiz (sunucu + yarışmacı) | Sunucu karakter soruyu sorar, şıklar belirir, yarışmacı tahmin eder, 3-2-1 geri sayımı ve doğru şık yeşile döner; karakterler sevinir ya da üzülür, sonda puan çıkar. İzleyiciyi cevap vermeye çağıran yarışma videosu. |
+| `karakter-mit` | Karakter · Mit mi, gerçek mi? | Sunucu karakter bir iddia atar, şüpheci arkadaşı tahmin eder, geri sayımdan sonra dev "MİT" ya da "GERÇEK" damgası çarpar ve açıklama gelir. Yanlış bilinen doğrular için. |
+| `karakter-tanitim` | Karakter · Ürün / uygulama tanıtımı | Sunucu karakter ürünü tanıtır: ortada cihaz ekranı, karakter her özelliğe işaret eder, meraklı müşteri tepki verir; sonra büyük rakam sayacı, teklif damgası ve çağrı. Uygulama, SaaS, e-ticaret, kurs tanıtımı. |
+| `karakter-ipucu` | Karakter · Sorun → İpuçları → Sonuç (koç) | Tek koç karakter sorunu yaşar, her ipucunda eline bir nesne alıp ipucunu anlatır, sonunda zafer pozu ve tik listesiyle biter. Verimlilik, sağlık, para, öğrenme "N ipucu" videoları. |
+| `gozlu-gozlem` | Gözlü · Dikkat testi (farklı olanı bul) | Gözlü büyüteçle ızgarayı tarar, süre çubuğu azalır, farklı olan nesne süre bitince büyüyüp parlar. 3 tur, gittikçe zorlaşır. İzleyiciyi oyuna katan, yorum ve tekrar izletme getiren video. |
+| `gozlu-neden` | Gözlü · Neden? (ok bağlı neden-sonuç zinciri) | Gözlü bir "neden" sorusuna kafa yorar; cevap ok bağlı 3–4 kartın zinciriyle adım adım kurulur, Gözlü her karta işaret eder, sonda ampul yanar ve cevap çarpar. Her "neden?" konusuna uyar. |
+| `gozlu-duygu` | Gözlü · Duygu atlası | Dev Gözlü her duyguya yüzü ve vücut diliyle geçer: üstte duygunun adı, altında kısa bir baş etme ipucu. Sonda tüm duygular hızlıca akar. Duygusal okuryazarlık ve psikoloji videoları için. |
+| `gozlu-haber` | Gözlü · Haber bülteni (manşet + grafik / sayaç) | Kravatlı Gözlü mikrofonla haber sunar: canlı yayın rozeti, kırmızı manşet kartı, ardından grafik ya da dev sayaç. Gözlü grafiğe işaret eder, rakam gelince şaşırır. Haftalık özet ve "rakamlarla" videoları. |
+| `gozlu-skec` | Gözlü · Mini skeç (plot twist) | Üç Gözlü (farklı renk ve şapka) bir skeç oynar: kamera konuşana kayar, replikler beklenmedik bir "twist" cümlesine varır; kamera yüze çarpar, dev PLOT TWIST damgası ve şoka giren kadro gelir. Komedi ve marka mizahı için. |
 | `manzara` | Katmanlı manzara (sinematik kapak) | Gökyüzü, süzülen bulutlar, uçan kuşlar ve aşağıdan yükselen paralaks bantlar (dalga / dağ / gece). Kamera yakından açılır, bir olay yaşanır, sonra başlık gelir. Video açılışı ya da döngülük arka plan için. |
 | `dalis` | Dalış (model evrimi) | Bir kavramın tarihsel modelleri sırayla: merkezde şema kendini çizer, oklu etiketler gelir, bölüm sonunda kamera şemanın içine dalıp sıradakine geçer. Altta zincirleme zaman şeridi. Atom, hücre, evren modeli gibi konular için. |
 

@@ -1,0 +1,31 @@
+{
+  "slug": "elektroskop-3d",
+  "title": "Elektroskop 3D",
+  "subtitle": "Elektrostatik yük deneyi",
+  "category": "Fizik",
+  "description": "Elektroskobun yüklenme ve yaprak hareketini 3 boyutlu gözlemleyin; farklı yüklü cisimlerle deney yapın.",
+  "tags": [
+    "fizik",
+    "elektroskop",
+    "elektroskop simülasyonu"
+  ],
+  "accent": "#fbbf24",
+  "engine": "three",
+  "kind": "modern",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/simulations/elektroskop-3d/index.vue",
+  "files": [
+    "src/views/simulation/simulations/elektroskop-3d.vue",
+    "src/views/simulation/simulations/elektroskop-3d/config.js",
+    "src/views/simulation/simulations/elektroskop-3d/constants.js",
+    "src/views/simulation/simulations/elektroskop-3d/index.vue",
+    "src/views/simulation/legacy/embed/elektroskop3d/Elektroskop3D.vue",
+    "src/views/simulation/legacy/embed/elektroskop3d/Index.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.113Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "isigin-madde-ile-etkilesimi",
+  "title": "Işığın Madde ile Etkileşimi",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, ışığın farklı maddelerle (opak, saydam ve yarı saydam) etkileşimini gözlemlemenizi sağlar. Işık kaynağından çıkan ışınların maddelere çarpması ve maddelerin özelliklerine göre nasıl davrandığını interaktif olarak deneyimleyebilirsiniz.",
+  "tags": [
+    "fizik",
+    "optik",
+    "ışık",
+    "fen bilimleri",
+    "gölge boyu",
+    "gölge oluşumu",
+    "gölge"
+  ],
+  "accent": "hsl(353, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/isigin-madde-ile-etkilesimi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/isigin-madde-ile-etkilesimi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.166Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

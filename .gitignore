@@ -11,6 +11,7 @@ tts/*.wav
 # Üretilen projeler (scene.json, notlar, geçmiş, çıktılar) GitHub'a gitmez.
 # Sahneler scripts/scenes-*.mjs üreteçleriyle yeniden üretilir; üreteçler izlenir.
 data/projects/
+data/projects-cop/
 # Yerel TTS / müzik ile üretilen anlatım ve müzik dosyaları (npm run seslendir / muzik)
 data/audio/*-anlatim-*.wav
 data/audio/*muzik*.wav

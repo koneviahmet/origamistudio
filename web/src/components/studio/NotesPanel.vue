@@ -62,7 +62,7 @@ const fmt = (t) => {
         class="input"
         rows="3"
         placeholder="Düzenleme notu yazın… (ör. &quot;tilki biraz daha sola, kuyruk daha hızlı sallansın&quot;)"
-        @keydown.ctrl.enter.prevent="submit"
+        @keydown.enter.exact.prevent="submit"
         @keydown.stop
       />
       <div class="row wrap small">
@@ -82,7 +82,7 @@ const fmt = (t) => {
           {{ applying ? 'Claude uyguluyor…' : `✨ Claude ile uygula (${openCount})` }}
         </button>
       </div>
-      <div class="dim small">Ctrl+Enter ile gönder. Notlar anında kaydedilir; Claude'a "notları uygula" demeniz yeterli.</div>
+      <div class="dim small">Enter ile gönder, Shift+Enter ile alt satıra geç. Notlar anında kaydedilir; Claude'a "notları uygula" demeniz yeterli.</div>
     </form>
 
     <div class="tabs">

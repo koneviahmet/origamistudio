@@ -57,6 +57,28 @@ add('ok-yukari', 'Ok (yukarı)', ['şekil', 'ok', 'yönlendirme'], [200, 170], [
 }
 add('yarim-daire', 'Yarım daire', ['şekil', 'geometri', 'kemer'], [200, 100], [F([...yay(100, 100, 100, 30, 180, 360), pt(100, 100, 100, 360)])]);
 
+// Yuvarlak köşeli dikdörtgenler (kart / hap): tek çokgen, köşe yayları
+const yuvarlakKare = (w, h, r, n = 8) => {
+  const out = [];
+  [[w - r, r, -90], [w - r, h - r, 0], [r, h - r, 90], [r, r, 180]].forEach(([cx, cy, a0]) => {
+    for (let i = 0; i <= n; i++) out.push(pt(cx, cy, r, a0 + (90 * i) / n));
+  });
+  return out;
+};
+add('kart', 'Kart (yuvarlak köşe)', ['şekil', 'kart', 'panel', 'yuvarlak'], [400, 500], [F(yuvarlakKare(400, 500, 44))]);
+add('hap', 'Hap (pill)', ['şekil', 'etiket', 'hap', 'yuvarlak'], [400, 100], [F(yuvarlakKare(400, 100, 50))]);
+add('kart-kare', 'Kart (kare, yuvarlak köşe)', ['şekil', 'kart', 'panel', 'yuvarlak'], [400, 400], [F(yuvarlakKare(400, 400, 56))]);
+
+// Işık huzmesi (spot): üstü dar, altı geniş yamuk — blur + düşük opaklıkla kullanılır
+add('huzme', 'Işık huzmesi (spot)', ['şekil', 'ışık', 'spot', 'sahne'], [200, 400], [F([[78, 0], [122, 0], [200, 400], [0, 400]])]);
+
+// Damla: üstü sivri, altı yuvarlak (tek çokgen): tepe → sağ teğet noktası → daire yayı (saat yönü) → sol teğet noktası
+{
+  const yay = [];
+  for (let a = -35; a <= 215; a += 10) yay.push(pt(100, 165, 82, a));
+  add('damla', 'Damla', ['şekil', 'su', 'yağmur', 'damla'], [200, 250], [F([[100, 0], ...yay])], { a: '#5ab4ff' });
+}
+
 fs.mkdirSync(DIR, { recursive: true });
 let yazildi = 0;
 for (const s of shapes) {

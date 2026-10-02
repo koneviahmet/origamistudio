@@ -3,6 +3,7 @@
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { renderFrame } from '../../engine/renderer.js';
 import { ensureSceneFonts } from '../../fonts.js';
+import { useSeen } from '../../visible.js';
 
 const props = defineProps({
   scene: { type: Object, required: true },
@@ -10,9 +11,11 @@ const props = defineProps({
   t: { type: Number, default: 1 },
   animate: { type: Boolean, default: false },
   loop: { type: Number, default: 3 },
+  deep: { type: Boolean, default: true },
 });
 const wrap = ref(null);
 const canvas = ref(null);
+const seen = useSeen(wrap);
 let raf = 0;
 let t0 = 0;
 let ro;
@@ -20,7 +23,7 @@ let ro;
 function draw(t) {
   const c = canvas.value;
   const s = props.scene;
-  if (!c || !s || !wrap.value) return;
+  if (!c || !s || !wrap.value || !seen.value) return;
   const w = wrap.value.clientWidth;
   const h = wrap.value.clientHeight;
   if (!w || !h) return;
@@ -60,7 +63,8 @@ onBeforeUnmount(() => {
   ro?.disconnect();
 });
 watch(() => [props.animate, props.t], start);
-watch(() => [props.scene, props.res], refresh, { deep: true });
+watch(seen, (v) => v && refresh());
+watch(() => [props.scene, props.res], refresh, { deep: props.deep });
 </script>
 
 <template>

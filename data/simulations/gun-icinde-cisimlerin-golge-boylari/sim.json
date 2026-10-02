@@ -1,0 +1,31 @@
+{
+  "slug": "gun-icinde-cisimlerin-golge-boylari",
+  "title": "Güneş'teki Cisimlerin Gölge Boyları",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, Gün içinde zamana bağlı olarak cisimlerin gölge boylarının değişimini gözlemlemenizi sağlar.",
+  "tags": [
+    "fizik",
+    "güneş",
+    "dünya",
+    "ay",
+    "kıyaslama",
+    "gölge",
+    "gölge boyu",
+    "gölge boyu simülasyonu"
+  ],
+  "accent": "hsl(109, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/gun-icinde-cisimlerin-golge-boylari.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/gun-icinde-cisimlerin-golge-boylari.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.138Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

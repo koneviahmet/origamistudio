@@ -1,0 +1,24 @@
+{
+  "slug": "gunes-yapisi",
+  "title": "Güneş Yapısı",
+  "subtitle": "Katmanlar ve güneş lekeleri",
+  "category": "Astronomi",
+  "description": "Güneş’i yakından inceleyin. Tıklayarak katmanları görün; güneş lekeleriyle dönüş yönünü takip edin.",
+  "tags": [],
+  "accent": "#fbbf24",
+  "engine": "three",
+  "kind": "modern",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/simulations/gunes-yapisi/index.vue",
+  "files": [
+    "src/views/simulation/simulations/gunes-yapisi.vue",
+    "src/views/simulation/simulations/gunes-yapisi/config.js",
+    "src/views/simulation/simulations/gunes-yapisi/index.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.263Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

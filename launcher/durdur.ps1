@@ -3,6 +3,9 @@ param([switch]$Quiet)
 $Port = 5180
 $conns = Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue
 $stopped = 0
+# Telefon tüneli (cloudflared) de kapansın
+Get-CimInstance Win32_Process -Filter "Name='cloudflared.exe'" -ErrorAction SilentlyContinue |
+  Where-Object { $_.CommandLine -match "localhost:$Port" } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
 foreach ($c in $conns) {
   $p = Get-Process -Id $c.OwningProcess -ErrorAction SilentlyContinue
   if ($p -and $p.ProcessName -eq 'node') {

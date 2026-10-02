@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue';
+import { useSeen } from '../visible.js';
 import { renderFrame } from '../engine/renderer.js';
 import { ensureSceneFonts } from '../fonts.js';
 import { prepareMedia } from '../media.js';
@@ -10,12 +11,15 @@ const props = defineProps({
   t: { type: Number, default: 0 },
   width: { type: Number, default: 240 },
 });
+const emit = defineEmits(['seen']);
 const canvas = ref(null);
+const seen = useSeen(canvas);
+watch(seen, (v) => v && emit('seen'), { immediate: true });
 
 function draw() {
   const c = canvas.value;
   const s = props.scene;
-  if (!c || !s || !props.res) return;
+  if (!c || !s || !props.res || !seen.value) return;
   const k = props.width / s.width;
   c.width = Math.round(s.width * k * 2);
   c.height = Math.round(s.height * k * 2);
@@ -31,11 +35,11 @@ function drawWithFonts() {
   }
 }
 onMounted(drawWithFonts);
-watch(() => [props.scene, props.res, props.t], drawWithFonts);
+watch([() => props.scene, () => props.res, () => props.t, seen], drawWithFonts);
 </script>
 
 <template>
-  <canvas ref="canvas" class="scene-thumb" />
+  <canvas ref="canvas" class="scene-thumb" width="1" height="1" />
 </template>
 
 <style scoped>

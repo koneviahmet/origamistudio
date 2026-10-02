@@ -1,0 +1,29 @@
+{
+  "slug": "isigin-madde-ile-etkilesimi-2",
+  "title": "Işığın Madde ile Etkileşimi",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, ışığın madde ile etkileşimini interaktif bir şekilde gözlemlemenizi sağlar. Işık kaynağının önüne konulan farklı renklerdeki cisimlerin hangi ışık renklerini yansıttığını gözlemleyebilirsiniz.",
+  "tags": [
+    "fizik",
+    "optik",
+    "ışık",
+    "fen bilimleri",
+    "ışık kırılması",
+    "ışık kırılması simülasyonu"
+  ],
+  "accent": "hsl(52, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/isigin-madde-ile-etkilesimi-2.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/isigin-madde-ile-etkilesimi-2.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.168Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "sivilarin-basinci",
+  "title": "Sıvıların Basıncı",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, sıvıların bulundukları kaba yaptığı basıncı interaktif bir şekilde gözlemleyebilisiniz.",
+  "tags": [
+    "fizik",
+    "fen bilimleri",
+    "sıvı",
+    "basınç",
+    "derinlik",
+    "yoğunluk"
+  ],
+  "accent": "hsl(339, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/sivilarin-basinci.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/sivilarin-basinci.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.221Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

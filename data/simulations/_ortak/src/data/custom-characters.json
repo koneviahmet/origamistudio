@@ -1,0 +1,60 @@
+{
+  "characters": [
+    {
+      "id": "character-s",
+      "label": "Zeynep",
+      "description": "Kız öğrenci — okul üniforması, ekose etek, sırt çantası",
+      "baseCharacter": "character-f",
+      "manifest": "/assets/characters/manifests/character-s.json"
+    },
+    {
+      "id": "character-t",
+      "label": "Emre",
+      "description": "Erkek öğrenci — yeşil kapüşonlu, mavi pantolon",
+      "baseCharacter": "character-b",
+      "manifest": "/assets/characters/manifests/character-t.json"
+    },
+    {
+      "id": "character-u",
+      "label": "Kaan",
+      "description": "Yeşil tişört, oyun kumandası deseni",
+      "baseCharacter": "character-b",
+      "manifest": "/assets/characters/manifests/character-u.json"
+    },
+    {
+      "id": "character-v",
+      "label": "Elif",
+      "description": "Mor elbise, küpeler",
+      "baseCharacter": "character-f",
+      "manifest": "/assets/characters/manifests/character-v.json"
+    },
+    {
+      "id": "character-w",
+      "label": "Mina",
+      "description": "Turkuaz tişört, pembe küpeler",
+      "baseCharacter": "character-f",
+      "manifest": "/assets/characters/manifests/character-w.json"
+    },
+    {
+      "id": "character-x",
+      "label": "Profesör",
+      "description": "Laboratuvar önlüğü, gözlük",
+      "baseCharacter": "character-b",
+      "manifest": "/assets/characters/manifests/character-x.json"
+    },
+    {
+      "id": "character-y",
+      "label": "Komiser",
+      "description": "Polis üniforması, rozet",
+      "baseCharacter": "character-b",
+      "manifest": "/assets/characters/manifests/character-y.json"
+    },
+    {
+      "id": "character-z",
+      "label": "Ali",
+      "description": "Kırmızı gömlek, kovboy yeleği",
+      "baseCharacter": "character-b",
+      "manifest": "/assets/characters/manifests/character-z.json"
+    }
+  ]
+}

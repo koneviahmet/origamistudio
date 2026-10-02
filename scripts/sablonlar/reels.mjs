@@ -50,13 +50,24 @@ export const PALETLER = {
   okyanus: { ad: 'Okyanus', bg: ['#03396c', '#0077b6', '#00a896', '#023e8a', '#0096c7'], acc: ['#ffd60a', '#ffffff', '#caf0f8', '#ff7b00'] },
   kagit: { ad: 'Defter kâğıdı (pastel)', bg: ['#f7f1e3', '#f5e8d3', '#fbe4df', '#e6f0e4', '#e4eaf6', '#f3e6f5'], acc: ['#f6d58e', '#f7a8a0', '#b9a7e6', '#9fd8c4', '#a9c8f0'] },
   tebesir: { ad: 'Tebeşir tahtası', bg: ['#26323a', '#2b3a32', '#3a2f3f', '#2f3a45', '#3a3a2b', '#2a2f3a'], acc: ['#f6d58e', '#f2a7a0', '#b9a7e6', '#9fd8c4', '#a9c8f0'] },
+  toprak: { ad: 'Toprak katmanları (kazı)', bg: ['#a46d3f', '#8c5a34', '#744a2d', '#5d3b27', '#46302a', '#2f2226'], acc: ['#f2d49b', '#ffd166', '#e9a66a', '#9bd1b0', '#f4f1de'] },
+  pafta: { ad: 'Mavi pafta (teknik çizim)', bg: ['#0f3a7a', '#0d3470', '#0f3f82', '#0b2f66', '#10407f', '#0c3169'], acc: ['#ffffff', '#9fd8ff', '#ffd166', '#ff7b72', '#7ee0b5'] },
+  sinema: { ad: 'Sinema (sepyadan renge)', bg: ['#cdb98f', '#c9b995', '#c2b79c', '#b7bfa8', '#a9c3b4', '#9fcad0'], acc: ['#f2e8cf', '#e8c07d', '#d8604a', '#6aa0a8', '#2f3e46'] },
+  metro: { ad: 'Metro hattı (açık zemin)', bg: ['#f7f5ef', '#f4f2ea', '#f6f3ec', '#f3f1e9', '#f7f4ee', '#f4f2eb'], acc: ['#e63946', '#2a9d8f', '#f4a261', '#457b9d', '#8d5cf6', '#ef476f'] },
+  oyun: { ad: 'Oyun (8-bit)', bg: ['#5c94fc', '#1b1b52', '#fc9838', '#3cbcfc', '#0b0b3b', '#5c94fc'], acc: ['#fcfc00', '#e40058', '#00a800', '#ffffff', '#f87858'] },
+  dergi: { ad: 'Dergi (krem + canlı blok)', bg: ['#e4572e', '#2e86ab', '#f2a900', '#2b9348', '#7b2cbf', '#d62839'], acc: ['#f4efe6', '#16161a', '#ffffff', '#ffd9a0'] },
+  retro: { ad: 'Retro dalga (synthwave)', bg: ['#0d0221', '#14053a', '#0b0a3a', '#1a0536', '#0e0430', '#160845'], acc: ['#ff4fd8', '#00f0ff', '#ffe600', '#7cff4f', '#b14dff'] },
+  mantar: { ad: 'Mantar pano (post-it renkleri)', bg: ['#b98a5b', '#c0925f', '#b4835a', '#bb8c5d', '#b88858', '#c2935f'], acc: ['#ffe27a', '#ffb3c1', '#9fe0c4', '#a9c8f0', '#d7b8f5'] },
+  galeri: { ad: 'Müze galerisi (koyu + altın)', bg: ['#10252b', '#1c2b36', '#2a2233', '#1f2d29', '#2b2530', '#22262f'], acc: ['#d9b66f', '#e8cf9c', '#c98b6b', '#9fc7b6', '#b9a7e6'] },
+  gunyolu: { ad: 'Gün yolu (şafaktan geceye)', bg: ['#ffd9b0', '#ffbf9b', '#f4a3b5', '#a98be0', '#5f5fc4', '#262a6b'], acc: ['#ffffff', '#ffe9a8', '#ff8fa3', '#9fd8c4', '#a9c8f0'] },
+  yukselis: { ad: 'Yükseliş (şafaktan uzaya)', bg: ['#ffc89e', '#ff9a9e', '#c77dd8', '#6a4fc7', '#2b2a7a', '#0b0d2e'], acc: ['#fff3b0', '#ffd166', '#ff8fa3', '#8be9fd', '#ffffff'] },
   orman: { ad: 'Orman', bg: ['#0b3d2e', '#14532d', '#f2e8cf', '#1b4332', '#386641'], acc: ['#ffd166', '#f2e8cf', '#ef476f', '#ffffff'] },
 };
 
 // ─── Yazı genişlik katsayıları (büyük harfle yaklaşık) ───────────────────────
 const FONT_K = {
   Caveat: 0.52, 'Patrick Hand': 0.5, Kalam: 0.54, Mali: 0.52, Quicksand: 0.56, Pacifico: 0.6, 'Dancing Script': 0.46, Comfortaa: 0.62, Anton: 0.56, 'Bebas Neue': 0.42, 'Archivo Black': 0.8, Bungee: 0.84, Oswald: 0.5, 'Russo One': 0.72, Rubik: 0.7, Sora: 0.74, Outfit: 0.62,
-  Montserrat: 0.78, Poppins: 0.72, 'Space Mono': 0.62, 'Baloo 2': 0.62, Lexend: 0.68, Urbanist: 0.62, 'DM Serif Display': 0.6,
+  Montserrat: 0.78, 'Playfair Display': 0.6, 'Abril Fatface': 0.64, Fraunces: 0.6, Lora: 0.56, 'JetBrains Mono': 0.62, Righteous: 0.66, Raleway: 0.66, Manrope: 0.66, Poppins: 0.72, 'Space Mono': 0.62, 'Baloo 2': 0.62, Lexend: 0.68, Urbanist: 0.62, 'DM Serif Display': 0.6,
 };
 export const FONTLAR = Object.keys(FONT_K).sort((a, b) => a.localeCompare(b));
 export const sigdirFont = (text, font, maxW, taban, upper = true) => {

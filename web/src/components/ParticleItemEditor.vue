@@ -40,7 +40,7 @@ const hexOf = (c) => (typeof c === 'string' && /^#[0-9a-f]{6}$/i.test(c) ? c : '
 <template>
   <div class="pie">
     <div class="pv">
-      <ParticlePreview :key="burst ? 'b' : 's'" :item="item" :animate="animate" :mode="burst ? 'patlama' : 'surekli'" :dark="dark" />
+      <ParticlePreview deep :key="burst ? 'b' : 's'" :item="item" :animate="animate" :mode="burst ? 'patlama' : 'surekli'" :dark="dark" />
     </div>
     <div class="row wrap">
       <button class="btn sm" :class="{ on: animate }" @click="animate = !animate">{{ animate ? '■ Durdur' : '▶ Oynat' }}</button>

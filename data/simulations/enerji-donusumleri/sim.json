@@ -1,0 +1,28 @@
+{
+  "slug": "enerji-donusumleri",
+  "title": "Enerji Dönüşümleri",
+  "subtitle": "enerji",
+  "category": "Enerji",
+  "description": "Bu simülasyon, farklı kütlelere sahip iki topun potansiyel ve kinetik enerji dönüşümlerini gözlemlemenizi sağlar. Topları sürükleyerek hareket ettirebilir ve enerji değişimlerini anlık olarak takip edebilirsiniz.",
+  "tags": [
+    "enerji",
+    "fizik",
+    "fen bilimleri",
+    "potansiyel enerji",
+    "kinetik enerji"
+  ],
+  "accent": "hsl(47, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/enerji-donusumleri.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/enerji-donusumleri.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.115Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

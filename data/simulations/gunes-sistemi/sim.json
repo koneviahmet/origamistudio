@@ -1,0 +1,24 @@
+{
+  "slug": "gunes-sistemi",
+  "title": "Güneş Sistemi",
+  "subtitle": "Gezegen yörüngeleri",
+  "category": "Astronomi",
+  "description": "Güneş ve gezegenlerin yörüngelerini izleyin. Hızı ayarlayın, gezegenlere tıklayarak bilgi alın.",
+  "tags": [],
+  "accent": "#fbbf24",
+  "engine": "three",
+  "kind": "modern",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/simulations/gunes-sistemi/index.vue",
+  "files": [
+    "src/views/simulation/simulations/gunes-sistemi.vue",
+    "src/views/simulation/simulations/gunes-sistemi/config.js",
+    "src/views/simulation/simulations/gunes-sistemi/index.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.248Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

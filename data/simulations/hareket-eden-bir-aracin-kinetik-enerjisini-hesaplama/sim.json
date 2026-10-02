@@ -1,0 +1,27 @@
+{
+  "slug": "hareket-eden-bir-aracin-kinetik-enerjisini-hesaplama",
+  "title": "Hareket Eden Bir Aracın Kinetik Enerjisini Hesaplama",
+  "subtitle": "fizik",
+  "category": "Fizik",
+  "description": "Bu simülasyon, hareket eden bir aracın kinetik enerjisini hesaplamanızı sağlar.",
+  "tags": [
+    "fizik",
+    "hareket",
+    "kinetik enerji",
+    "kinetik enerji hesaplama"
+  ],
+  "accent": "hsl(264, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/hareket-eden-bir-aracin-kinetik-enerjisini-hesaplama.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/hareket-eden-bir-aracin-kinetik-enerjisini-hesaplama.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.148Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

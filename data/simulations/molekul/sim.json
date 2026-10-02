@@ -1,0 +1,28 @@
+{
+  "slug": "molekul",
+  "title": "Molekül",
+  "subtitle": "kimya",
+  "category": "Kimya",
+  "description": "Bu simülasyon, element molekülü ve bileşik molekülü modellerini interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "kimya",
+    "fen bilimleri",
+    "molekül",
+    "element molekül",
+    "bileşik molekül"
+  ],
+  "accent": "hsl(303, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/maddenin-tanecikli-yapisi-2.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/maddenin-tanecikli-yapisi-2.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.192Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

@@ -1,0 +1,40 @@
+{
+  "slug": "periyodik-tablo",
+  "title": "Periyodik Tablo",
+  "subtitle": "kimya",
+  "category": "Kimya",
+  "description": "Bu simülasyon, periyodik tabloda bulunan ilk 18 elementini gözlemlemenizi sağlar. İlk 18 elementin atom numarası, sembolü, adı, atom kütlesi, elektron dizilişi, grup numarası, periyot numarası, elektronik yapısı, fiziksel ve kimyasal özellikleri hakkında bilgi alabilirsiniz.",
+  "tags": [
+    "kimya",
+    "periyodik tablo",
+    "element",
+    "atom",
+    "fizik",
+    "fen bilimleri",
+    "kimyasal element",
+    "atom numarası",
+    "sembol",
+    "adı",
+    "atom kütlesi",
+    "elektron dizilişi",
+    "grup numarası",
+    "periyot numarası",
+    "elektronik yapısı",
+    "fiziksel özellikler",
+    "kimyasal özellikler"
+  ],
+  "accent": "hsl(23, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/periyodik-tablo.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/periyodik-tablo.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.205Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "hucre-bolunmesi",
+  "title": "Hücre Bölünmesi",
+  "subtitle": "biyoloji",
+  "category": "Biyoloji",
+  "description": "Bu simülasyon, hücre bölünmesini interaktif bir şekilde gözlemlemenizi sağlar.",
+  "tags": [
+    "biyoloji",
+    "fen bilimleri",
+    "hücre",
+    "doku",
+    "organ",
+    "sistem",
+    "organizma",
+    "hücre bölünmesi"
+  ],
+  "accent": "hsl(234, 65%, 52%)",
+  "engine": "legacy",
+  "kind": "legacy",
+  "available": true,
+  "status": "ham",
+  "favorite": false,
+  "notes": "",
+  "usage": "",
+  "entry": "src/views/simulation/legacy/embed/hucre-bolunmesi.vue",
+  "files": [
+    "src/views/simulation/legacy/embed/hucre-bolunmesi.vue"
+  ],
+  "importedAt": "2026-10-02T10:38:57.157Z",
+  "source": "github.com/koneviahmet/orman-oyunu"
+}
